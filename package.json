@@ -1,0 +1,37 @@
+{
+  "name": "front",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Origin Dollar Dapp",
+  "author": "Origin Protocol <support@originprotocol.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "per-env",
+    "start:development": "NODE_ENV=development ETHEREUM_RPC_PROVIDER=http://localhost:8545 next dev",
+    "start:production": "NODE_ENV=production next start -p 8080",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "dotenv": "^16.0.2",
+    "fbjs": "^3.0.4",
+    "fbt-runtime": "^0.9.4",
+    "lodash": "^4.17.21",
+    "next": "12.2.5",
+    "per-env": "^1.0.2",
+    "prettier": "^2.4.0",
+    "pullstate": "^1.23.0",
+    "react": "18.2.0",
+    "react-bootstrap": "^2.5.0",
+    "react-dom": "18.2.0",
+    "react-query": "^3.34.16",
+    "typeface-lato": "^1.1.13"
+  },
+  "devDependencies": {
+    "bootstrap": "^5.2.0",
+    "eslint": "8.23.0",
+    "eslint-config-next": "12.2.5"
+  }
+}

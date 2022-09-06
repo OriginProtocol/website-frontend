@@ -1,0 +1,10 @@
+{
+  "short_name": "Origin",
+  "name": "Origin Protocol",
+  "description": "Origin Protocol",
+  "iconPath": "ogn-icon.svg",
+  "start_url": "https://originprotocol.com",
+  "display": "standalone",
+  "theme_color": "#183140",
+  "background_color": "#ffffff"
+}
