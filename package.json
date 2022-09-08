@@ -17,6 +17,7 @@
     "classnames": "^2.3.1",
     "dotenv": "^16.0.2",
     "fbjs": "^3.0.4",
+    "fbt": "^1.0.0",
     "fbt-runtime": "^0.9.4",
     "lodash": "^4.17.21",
     "next": "12.2.5",
@@ -27,6 +28,8 @@
     "react-bootstrap": "^2.5.0",
     "react-dom": "18.2.0",
     "react-query": "^3.34.16",
+    "react-toastify": "^9.0.8",
+    "sass": "^1.54.9",
     "typeface-lato": "^1.1.13"
   },
   "devDependencies": {

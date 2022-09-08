@@ -2,7 +2,6 @@ import React from 'react'
 import classnames from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useStoreState } from 'pullstate'
 
 import withIsMobile from 'hoc/withIsMobile'
 import { formatCurrency } from 'utils/math'
@@ -10,7 +9,6 @@ import { getDocsLink } from 'utils/getDocsLink'
 import LanguageOptions from 'components/LanguageOptions'
 //import LanguageSelected from 'components/LanguageSelected'
 import LocaleDropdown from 'components/LocaleDropdown'
-import ContractStore from 'stores/ContractStore'
 
 //import Languages from '../constants/Languages'
 import { adjustLinkHref } from 'utils/utils'
@@ -30,7 +28,7 @@ const Nav = ({ dapp, isMobile, locale, onLocale, page }) => {
           <Link href={adjustLinkHref('/')}>
             <a className="navbar-brand d-flex flex-column justify-content-center">
               <img
-                src={assetRootPath('/images/pages/origin-wordmark-blue.svg')}
+                src={assetRootPath('/images/logos/origin-wordmark-blue.svg')}
                 className="origin-logo"
                 alt="Origin Logo"
               />

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Community = () => {
+const CommunityContent = () => {
   return (
   <>
     <section>
@@ -10,4 +10,4 @@ const Community = () => {
   )
 }
 
-export default Community
+export default CommunityContent

@@ -78,7 +78,7 @@ main:not(.dapp) .banner {
 section {
   color: white;
   background-color: #1a82ff;
-  padding: 120px 100px 100px 100px;
+  padding: 8% 6% 6% 6%;
 }
 
 section.dark {
@@ -111,30 +111,87 @@ h3 {
   font-size: 1,75rem;
   font-weight: 500;
   line-height: 1.32;
-  margin-top: 100px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 h4 {
   font-family: Poppins;
-  font-size: 1,75rem;
+  font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.32;
 }
 
 h5 {
-  margin-top: 30px;
   font-size: 1.125rem;
+  font-weight: 400;
   line-height: 1.33;
   opacity: 0.9;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 h6 {
-  margin-top: 30px;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
   font-size: 1rem;
   line-height: 1.5;
   opacity: 0.7;
 }
+
+.gradient1 {
+  background-image:-webkit-linear-gradient(left,#CB6FDE,#5C2EFF,#0074F0);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.gradient2 {
+  background-image:-webkit-linear-gradient(left,#8C66FC,#0274F1);
+}
+
+.gradient3 {
+  background-image:-webkit-linear-gradient(left,#000000,#1E313F);
+}
+
+.button {
+  display: inline-block;
+  border: 0;
+  border-radius: 50px;
+  white-space: nowrap;
+  margin: 0px 10px 10px 10px;
+  padding: 15px 50px;
+}
+
+.shadow {
+  box-shadow: 2px 2px 10px #c0c0c0;
+}
+
+.button.white {
+  color: #183140;
+  background-color: #ffffff;
+}
+
+.button.gradient2 {
+  color: #ffffff;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+@media (max-width: 992px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+
+
+
+
+
+
+
 
 .mono {
   font-family: 'Courier Prime', monospace;

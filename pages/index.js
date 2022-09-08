@@ -4,51 +4,27 @@ import Link from 'next/link'
 
 import Layout from 'components/Layout'
 import Nav from 'components/Nav'
+import Dashboard from 'components/Dashboard'
+import EmailList from 'components/EmailList'
 import useApyQuery from 'queries/useApyQuery'
-import ContractStore from 'stores/ContractStore'
+import StatStore from 'stores/StatStore'
 //import { formatCurrency } from 'utils/math'
 //import { animateValue } from 'utils/animation'
 import { getDocsLink } from 'utils/getDocsLink'
 import { assetRootPath } from 'utils/image'
 import { zipObject } from 'lodash'
-import useOgvQuery from '../src/queries/useOgvQuery'
+import useOgvQuery from '../src/queries/useTotalSupplyQuery'
 import { DEFAULT_SELECTED_APY } from 'utils/constants'
 import { adjustLinkHref } from 'utils/utils'
 
-const discordURL = process.env.DISCORD_URL
-const jobsURL = process.env.JOBS_URL
-const githubURL = process.env.GITHUB_URL
-
 const Home = ({ locale, onLocale }) => {
-  const apyDayOptions = [7, 30, 365]
-
-  const apyOptions = useStoreState(ContractStore, (s) =>
-    apyDayOptions.map((d) => {
-      return s.apy[`apy${d}`] || 0
-    })
-  )
-  const daysToApy = zipObject(apyDayOptions, apyOptions)
-  const [apyDays, setApyDays] = useState(
-    process.browser &&
-      localStorage.getItem('last_user_selected_apy') !== null &&
-      apyDayOptions.includes(
-        Number(localStorage.getItem('last_user_selected_apy'))
-      )
-      ? localStorage.getItem('last_user_selected_apy')
-      : DEFAULT_SELECTED_APY
-  )
-
-  const totalOgvSupply = useStoreState(ContractStore, (s) => {
+  const totalOgvSupply = useStoreState(StatStore, (s) => {
     return s.ogv || 0
   })
 
-  useEffect(() => {
-    localStorage.setItem('last_user_selected_apy', apyDays)
-  }, [apyDays])
-
   const apyQuery = useApyQuery({
     onSuccess: (apy) => {
-      ContractStore.update((s) => {
+      StatStore.update((s) => {
         s.apy = apy
       })
     },
@@ -56,7 +32,7 @@ const Home = ({ locale, onLocale }) => {
 
   const ogvQuery = useOgvQuery({
     onSuccess: (ogv) => {
-      ContractStore.update((s) => {
+      StatStore.update((s) => {
         s.ogv = ogv
       })
     },
@@ -82,121 +58,103 @@ const Home = ({ locale, onLocale }) => {
             {'to crypto'}
           </h1>
           <h6>{'Origin’s flagship products are tackling the fastest growing verticals in crypto'}</h6>
-          <button className='white shadow'>NFTs</button>
-          <button className='white shadow'>DeFi</button>
+          <a
+            href='https://story.xyz'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='button white shadow'
+          >
+            NFTs
+          </a>
+          <a
+            href='https://ousd.com'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='button white shadow'
+          >
+            DeFi
+          </a>
         </div>
       </section>
       <section className="story light d-flex flex-column">
         <div className="d-flex flex-row">
           <div className="image-container">
             <img
-              src={assetRootPath('/images/pages/screen-0n1.svg')}
+              src={assetRootPath('/images/screens/screen-0n1.svg')}
               className="screen1"
               alt="0n1"
             />
             <img
-              src={assetRootPath('/images/pages/screen-pudgy.svg')}
+              src={assetRootPath('/images/screens/screen-pudgy.svg')}
               className="screen2"
               alt="Pudgy Penguins"
             />
           </div>
           <div className="text-container">
             <img
-              src={assetRootPath('/images/pages/origin-wordmark-blue.svg')}
+              src={assetRootPath('/images/logos/origin-wordmark-blue.svg')}
               className="origin-logo"
               alt="Origin Logo"
             />
             <img
-              src={assetRootPath('/images/pages/story-wordmark.svg')}
+              src={assetRootPath('/images/logos/story-wordmark.svg')}
               className="origin-story-logo"
               alt="Origin Story Logo"
             />
             <h2>The record-breaking NFT platform</h2>
             <h6>Origin Story powers NFT ecosystems, providing creators with branded storefronts and secondary marketplaces.</h6>
-            <button className='gradient2'>Learn more</button>
+            <a
+              href='https://story.xyz'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='button gradient2'
+            >
+              Learn more
+            </a>
           </div>
         </div>
-        <div className='token-dashboard gradient2'>
-          <h3>OGN token</h3>
-          <h5>
-            {'Origin Token (OGN) stakers earn their share of Story’s platform fees. View on '}
-            <a
-              href={'https://coinmarketcap.com/currencies/origin-protocol/'}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='bold'
-            >
-                Coinmarketcap
-            </a>
-            {' or '}
-            <a
-              href={'https://www.coingecko.com/en/coins/origin-protocol'}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='bold'
-            >
-                Coingecko
-            </a>
-          </h5>
-          <button className='white'>Buy OGN</button>
-        </div>
+        <Dashboard ogn />
       </section>
       <section className="ousd dark d-flex flex-column">
         <div className="d-flex flex-row">
           <div className='text-container'>
             <img
-              src={assetRootPath('/images/pages/origin-wordmark-blue.svg')}
+              src={assetRootPath('/images/logos/origin-wordmark-blue.svg')}
               className="origin-logo"
               alt="Origin Logo"
             />
             <img
-              src={assetRootPath('/images/pages/dollar-wordmark.svg')}
+              src={assetRootPath('/images/logos/dollar-wordmark.svg')}
               className="origin-dollar-logo"
               alt="Origin Dollar Logo"
             />
             <h2>A yield-generating stablecoin</h2>
             <h6>Origin Dollar simplifies DeFi by eliminating the need for staking or lock-ups. Hold OUSD in any Ethereum wallet or custody solution and watch the balance increase every day.</h6>
-            <button className='gradient2'>Learn more</button>
+            <a
+              href='https://ousd.com'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='button gradient2'
+            >
+              Learn more
+            </a>
           </div>
           <div className='image-container'>
             <img
-              src={assetRootPath('/images/pages/screen-ousd.svg')}
+              src={assetRootPath('/images/screens/screen-ousd.svg')}
               className="screen3"
               alt="OUSD"
             />
           </div>
         </div>
-        <div className='token-dashboard gradient2'>
-          <h3>OGV token</h3>
-          <h5>
-            {'Origin Governance Token (OGV) stakers earn fees from OUSD’s growth. View on '}
-            <a
-              href={'https://coinmarketcap.com/currencies/origin-dollar-governance/'}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='bold'
-            >
-                Coinmarketcap
-            </a>
-            {' or '}
-            <a
-              href={'https://www.coingecko.com/en/coins/origin-dollar-governance/'}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='bold'
-            >
-                Coingecko
-            </a>
-          </h5>
-          <button className='white'>Buy OGV</button>
-        </div>
+        <Dashboard />
       </section>
       <section className="company light">
         <div className="d-flex flex-column">
           <div className="community d-flex flex-row">
             <div className="image-container">
               <img
-                src={assetRootPath('/images/pages/ellipses.png')}
+                src={assetRootPath('/images/graphics/ellipses.png')}
                 className="ellipses"
                 alt="Ellipses"
               />
@@ -204,7 +162,15 @@ const Home = ({ locale, onLocale }) => {
             <div className="text-container">
               <h2>It's all about the community</h2>
               <h6>Join hundreds of thousands of community members and token holders, hundreds of open-source developers, or our world-class core team.</h6>
-              <button className='gradient2'>Learn more</button>
+              <Link href={adjustLinkHref('/community')}>
+                <a
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='button gradient2'
+                >
+                  Learn more
+                </a>
+              </Link>
             </div>
           </div>
           <div className="team d-flex flex-row">
@@ -212,12 +178,26 @@ const Home = ({ locale, onLocale }) => {
               <h2>A world-class team</h2>
               <h6>Our team is led by serial entrepreneurs, early employees at YouTube, and engineering managers at Google, Coinbase and Dropbox.</h6>
               <img
-                src={assetRootPath('/images/pages/companies.png')}
+                src={assetRootPath('/images/logos/companies.png')}
                 className="companies"
                 alt="Companies"
               />
-              <button className='gradient2'>Meet our team</button>
-              <button className='white shadow'>View careers</button>
+              <a
+                href='https://story.xyz'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='button gradient2'
+              >
+                Meet our team
+              </a>
+              <a
+                href='https://story.xyz'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='button white shadow'
+              >
+                View careers
+              </a>
             </div>
             <div className="video-container">
               <iframe
@@ -225,9 +205,9 @@ const Home = ({ locale, onLocale }) => {
                 height="315"
                 src="https://www.youtube.com/embed/ERh2n-vlpQ4"
                 title="YouTube video player"
-                frameborder="0"
+                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
+                allowFullScreen>
               </iframe>
             </div>
           </div>
@@ -237,7 +217,7 @@ const Home = ({ locale, onLocale }) => {
         <div className="d-flex flex-column">
           <div className="d-flex flex-row">
             <h2>Latest stories</h2>
-            <Link href={adjustLinkHref('/news')}>
+            <Link href={adjustLinkHref('/company')}>
               <a
                 target='_blank'
                 rel='noopener noreferrer'
@@ -266,22 +246,144 @@ const Home = ({ locale, onLocale }) => {
           <h6>We’re always looking for the best talent. See open posisitions below.</h6>
           <h3>Engineering</h3>
           <div className="d-flex flex-row">
-            <h5>Senior Blockchain Engineer</h5>
-            <button className="gradient2">Apply</button>
+            <h5>Data Engineer</h5>
+            <a
+              href='https://angel.co/company/originprotocol/jobs/2222160-data-engineer'
+              target='_blank'
+              rel='noopener noreferrer'
+              className="button gradient2"
+            >
+              Apply
+            </a>
+          </div>
+          <div className="d-flex flex-row">
+            <h5>Frontend Engineer</h5>
+            <a
+              href='https://angel.co/company/originprotocol/jobs/335794-frontend-engineer'
+              target='_blank'
+              rel='noopener noreferrer'
+              className="button gradient2"
+            >
+              Apply
+            </a>
+          </div>
+          <div className="d-flex flex-row">
+            <h5>Senior Full-stack Engineer</h5>
+            <a
+              href='https://angel.co/company/originprotocol/jobs/2226588-senior-full-stack-engineer'
+              target='_blank'
+              rel='noopener noreferrer'
+              className="button gradient2"
+            >
+              Apply
+            </a>
+          </div>
+          <div className="d-flex flex-row">
+            <h5>Senior Solidity Engineer</h5>
+            <a
+              href='https://angel.co/company/originprotocol/jobs/308390-senior-solidity-engineer'
+              target='_blank'
+              rel='noopener noreferrer'
+              className="button gradient2"
+            >
+              Apply
+            </a>
           </div>
           <h3>Design</h3>
           <div className="d-flex flex-row">
-            <h5>Senior Designer</h5>
-            <button className="gradient2">Apply</button>
+            <h5>Marketing Designer</h5>
+            <a
+              href='https://angel.co/company/originprotocol/jobs/2226436-marketing-designer'
+              target='_blank'
+              rel='noopener noreferrer'
+              className="button gradient2"
+            >
+              Apply
+            </a>
+          </div>
+          <h3>Marketing</h3>
+          <div className="d-flex flex-row">
+            <h5>Email Marketer</h5>
+            <a
+              href='https://angel.co/company/originprotocol/jobs/2360663-email-marketer'
+              target='_blank'
+              rel='noopener noreferrer'
+              className="button gradient2"
+            >
+              Apply
+            </a>
+          </div>
+          <div className="d-flex flex-row">
+            <h5>Performance Marketer (Paid Ads)</h5>
+            <a
+              href='https://angel.co/company/originprotocol/jobs/2226610-performance-marketer-paid-ads'
+              target='_blank'
+              rel='noopener noreferrer'
+              className="button gradient2"
+            >
+              Apply
+            </a>
+          </div>
+          <div className="d-flex flex-row">
+            <h5>Public and Media Relations Manager</h5>
+            <a
+              href='https://angel.co/company/originprotocol/jobs/370212-public-and-media-relations-manager'
+              target='_blank'
+              rel='noopener noreferrer'
+              className="button gradient2"
+            >
+              Apply
+            </a>
+          </div>
+          <h3>Product</h3>
+          <div className="d-flex flex-row">
+            <h5>Product Manager (DeFi)</h5>
+            <a
+              href='https://angel.co/company/originprotocol/jobs/1860239-product-manager-defi'
+              target='_blank'
+              rel='noopener noreferrer'
+              className="button gradient2"
+            >
+              Apply
+            </a>
+          </div>
+          <div className="d-flex flex-row">
+            <h5>Product Manager (NFTs)</h5>
+            <a
+              href='https://angel.co/company/originprotocol/jobs/1505992-product-manager-nfts'
+              target='_blank'
+              rel='noopener noreferrer'
+              className="button gradient2"
+            >
+              Apply
+            </a>
+          </div>
+          <h3>Sales</h3>
+          <div className="d-flex flex-row">
+            <h5>Business Development Manager (DeFi)</h5>
+            <a
+              href='https://angel.co/company/originprotocol/jobs/2226595-business-development-manager-defi'
+              target='_blank'
+              rel='noopener noreferrer'
+              className="button gradient2"
+            >
+              Apply
+            </a>
+          </div>
+          <div className="d-flex flex-row">
+            <h5>Business Development Manager (NFTs)</h5>
+            <a
+              href='https://angel.co/company/originprotocol/jobs/2360681-business-development-manager-nfts'
+              target='_blank'
+              rel='noopener noreferrer'
+              className="button gradient2"
+            >
+              Apply
+            </a>
           </div>
         </div>
       </section>
-      <section className="mail">
-        <div className="d-flex flex-column align-center justify-content-center">
-          <h3>Join our mailing list</h3>
-          <h6>Be the first to hear about major NFT drops and important product updates. Your email will be kept private.</h6>
-        </div>
-      </section>
+      <EmailList />
       <section className="dark gradient3">
         <div className="container">
           <h1>{totalOgvSupply}</h1>
@@ -294,29 +396,36 @@ const Home = ({ locale, onLocale }) => {
         }
 
         section.intro {
-          background-image: url(/images/pages/splines34.svg);
+          background-image: url(/images/graphics/splines34.svg);
           background-repeat: no-repeat;
           background-position: 100% -10%;
-          background-size: 500px;
+          background-size: 40vw;
+        }
+
+        section.story {
+          background-image: url(/images/graphics/splines35.svg);
+          background-repeat: no-repeat;
+          background-position: 10% 10%;
+          background-size: 37%;
+        }
+
+        section.ousd {
+          background-image: url(/images/graphics/splines22.svg);
+          background-repeat: no-repeat;
+          background-position: 100% 10%;
+          background-size: 40%;
+        }
+
+        section.company {
+          background-image: url(/images/graphics/splines32.svg);
+          background-repeat: no-repeat;
+          background-position: 90% 100%;
+          background-size: 45%;
         }
 
         .intro .container {
-          width: 60%;
+          width: 60vw;
           margin-left: 5%;
-        }
-
-        .gradient1 {
-          background-image:-webkit-linear-gradient(left,#CB6FDE,#5C2EFF,#0074F0);
-          -webkit-background-clip:text;
-          -webkit-text-fill-color:transparent;
-        }
-
-        .gradient2 {
-          background-image:-webkit-linear-gradient(left,#0274F1,#8C66FC);
-        }
-
-        .gradient3 {
-          background-image:-webkit-linear-gradient(left,#000000,#1E313F);
         }
 
         .origin-story-logo {
@@ -327,35 +436,6 @@ const Home = ({ locale, onLocale }) => {
         .origin-dollar-logo {
           margin-bottom: 1px;
           margin-left: 7px;
-        }
-
-        section.story {
-          background-image: url(/images/pages/splines35.svg);
-          background-repeat: no-repeat;
-          background-position: 10% 10%;
-          background-size: 37%;
-        }
-
-        section.ousd {
-          background-image: url(/images/pages/splines22.svg);
-          background-repeat: no-repeat;
-          background-position: 100% 10%;
-          background-size: 40%;
-        }
-
-        section.company {
-          background-image: url(/images/pages/splines32.svg);
-          background-repeat: no-repeat;
-          background-position: 90% 100%;
-          background-size: 45%;
-          
-        }
-
-        .token-dashboard {
-          color: white;
-          margin: 200px 50px 0 50px;
-          padding: 50px;
-          border-radius: 20px;
         }
 
         .story .image-container {
@@ -369,7 +449,7 @@ const Home = ({ locale, onLocale }) => {
 
         .ousd .text-container {
           width: 50%;
-          padding: 50px 50px 50px 100px;
+          padding: 50px;
         }
 
         .screen1 {
@@ -389,33 +469,6 @@ const Home = ({ locale, onLocale }) => {
           position: absolute;
           width: 50%;
           right: -1%;
-        }
-
-        .bold {
-          font-weight: 700;
-        }
-
-        button {
-          border: 0;
-          border-radius: 50px;
-          margin: 10px;
-          padding: 10px 40px;
-        }
-
-        button .shadow {
-          box-shadow: 2px 2px 10px #c0c0c0;
-        }
-
-        button.gradient2 {
-          color: white;
-        }
-
-        .white {
-          background-color: #ffffff;
-        }
-
-        .community .image-container {
-          
         }
 
         .community .text-container {
@@ -444,7 +497,7 @@ const Home = ({ locale, onLocale }) => {
         }
 
         .companies {
-          margin: 25px 0;
+          margin-bottom: 50px;
         }
 
         .placeholder {
@@ -474,7 +527,10 @@ const Home = ({ locale, onLocale }) => {
           width: 90%;
         }
 
-
+        .jobs .button {
+          align-self: flex-start;
+          margin-left: auto;
+        }
 
 
 
@@ -485,7 +541,17 @@ const Home = ({ locale, onLocale }) => {
         }
 
         @media (max-width: 992px) {
+          section.intro {
+            background-image: url(/images/graphics/splines34.svg);
+            background-repeat: no-repeat;
+            background-position: 100% 60vw;
+            background-size: 40vw;
+          }
 
+          .intro .container {
+            width: 100%;
+            margin-left: 5%;
+          }
         }
 
         }

@@ -1,15 +1,15 @@
 import React from 'react'
 import Layout from 'components/Layout'
 import Nav from 'components/Nav'
-import Community from 'components/Community'
+import CommunityContent from 'components/CommunityContent'
 
-export default function DApp({ locale, onLocale }) {
+export default function Community({ locale, onLocale }) {
   return (
     <>
       <Layout locale={locale} onLocale={onLocale} dapp>
         <Nav dapp page={'community'} locale={locale} onLocale={onLocale} />
         <div className="home d-flex flex-column">
-          <Community />
+          <CommunityContent />
         </div>
       </Layout>
       <style jsx>{`

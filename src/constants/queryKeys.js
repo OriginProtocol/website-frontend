@@ -1,4 +1,6 @@
 export const QUERY_KEYS = {
   Apy: () => ['apy'],
-  Ogv: () => ['ogv'],
+  CirculatingSupply: () => ['circulatingSupply'],
+  TotalSupply: () => ['totalSupply'],
+  Price: () => ['price'],
 }
