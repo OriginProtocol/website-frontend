@@ -1,10 +1,18 @@
 import React from 'react'
+import News from 'components/News'
 
 const CompanyContent = () => {
   return (
   <>
-    <section>
-      <h1>Company</h1>
+    <section className='intro grey'>
+      <h1>Latest news</h1>
+    </section>
+    <News />
+    <section className='articles grey'>
+    </section>
+    <section className='press light'>
+    </section>
+    <section className='inquiries grey'>
     </section>
   </>
   )

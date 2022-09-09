@@ -47,8 +47,6 @@ const Home = ({ locale, onLocale }) => {
     <Layout locale={locale}>
       <header>
         <Nav locale={locale} onLocale={onLocale} />
-        <div className="container">
-        </div>
       </header>
       <section className="intro grey">
         <div className="container">
@@ -390,11 +388,6 @@ const Home = ({ locale, onLocale }) => {
         </div>
       </section>
       <style jsx>{`
-        header {
-          background-color: #f6f8fe;
-          color: #183140;
-        }
-
         section.intro {
           background-image: url(/images/graphics/splines34.svg);
           background-repeat: no-repeat;
@@ -498,15 +491,6 @@ const Home = ({ locale, onLocale }) => {
 
         .companies {
           margin-bottom: 50px;
-        }
-
-        .placeholder {
-          color: white;
-          min-height: 200px;
-          width: 20%;
-          margin: 100px 35px 0 35px;
-          padding: 80px 0 100px 60px;
-          border-radius: 50px;
         }
 
         .news h2 {

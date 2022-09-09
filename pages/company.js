@@ -7,15 +7,15 @@ export default function Company({ locale, onLocale }) {
   return (
     <>
       <Layout locale={locale} onLocale={onLocale} dapp>
+      <header>
         <Nav dapp page={'community'} locale={locale} onLocale={onLocale} />
+        </header>
         <div className="home d-flex flex-column">
           <CompanyContent />
         </div>
       </Layout>
       <style jsx>{`
-        .home {
-          padding-top: 20px;
-        }
+        
 
         @media (max-width: 799px) {
           .home {
