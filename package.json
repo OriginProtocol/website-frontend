@@ -2,15 +2,15 @@
   "name": "front",
   "version": "0.1.0",
   "private": true,
-  "description": "Origin Dollar Dapp",
-  "author": "Origin Protocol <support@originprotocol.com>",
+  "description": "Origin Protocol Website",
+  "author": "Origin Protocol",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "per-env",
     "start:development": "NODE_ENV=development ETHEREUM_RPC_PROVIDER=http://localhost:8545 next dev",
-    "start:production": "NODE_ENV=production next start -p 8080",
+    "start:production": "NODE_ENV=production next start -p $PORT",
     "lint": "next lint"
   },
   "dependencies": {
