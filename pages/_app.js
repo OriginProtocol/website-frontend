@@ -1,4 +1,4 @@
-//import 'react-toastify/scss/main.scss'
+import 'react-toastify/scss/main.scss'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../styles/globals.css'
 import { QueryClient, QueryClientProvider } from 'react-query'

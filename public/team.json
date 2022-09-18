@@ -1,0 +1,318 @@
+{
+  "core":
+    [
+      {
+        "name": "Josh Fraser",
+        "title": "Cofounder",
+        "description": "Josh started coding at the age of 10. Prior to Origin, he co-founded three other venture-backed companies: EventVue, Torbit (acquired by Walmart Labs) & Forage.",
+        "headshot": "/images/headshots/headshot-josh.jpg",
+        "links": {
+          "twitter": "http://www.twitter.com/joshfraser",
+          "github": ""
+        }
+      },
+      {
+        "name": "Matthew Liu",
+        "title": "Cofounder",
+        "description": "Matt was the 3rd PM at YouTube (acquired by Google) and VP PM at Qwiki (acquired by Yahoo) and Bonobos (acquired by Walmart). He has a MS and BS from Stanford.",
+        "headshot": "/images/headshots/headshot-matt.jpg",
+        "links": {
+          "linkedin": "http://www.linkedin.com/in/matthewliu"
+        }
+      },
+      {
+        "name": "Yu Pan",
+        "title": "Founding Engineer",
+        "description": "Yu Pan was one of the 6 founding team members of PayPal and was the 1st employee at YouTube. He is a former Google employee and co-founder of Kiwi Crate.",
+        "headshot": "/images/headshots/headshot-yupan.jpg",
+        "links": {
+          "wikipedia": "https://en.wikipedia.org/wiki/Yu_Pan"
+        }
+      },
+      {
+        "name": "Franck Chastagnol",
+        "title": "VP of Engineering",
+        "description": "Franck has had a successful career as an early employee at numerous high-profile companies. He previously led engineering teams at Inktomi, Paypal, YouTube, Google and Dropbox.",
+        "headshot": "/images/headshots/headshot-franck.jpg",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/franckc/"
+        }
+      },
+      {
+        "name": "Micah Alcorn",
+        "title": "Director of Product",
+        "description": "Micah was the technical co-founder of WellAttended, a bootstrapped box office management platform. He worked as a commercial real estate broker while learning to code.",
+        "headshot": "/images/headshots/headshot-micah.jpg",
+        "links": {
+          "twitter": "https://twitter.com/micahalcorn"
+        }
+      },
+      {
+        "name": "Nick Poulden",
+        "title": "Senior Engineer",
+        "description": "Nick studied Computer Science at the University of Warwick. Prior to joining Origin, he worked as an engineer at Sencha, C3 Energy Network and Palo Alto Networks.",
+        "headshot": "/images/headshots/headshot-nick.jpg",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/nickpoulden/"
+        }
+      },
+      {
+        "name": "Domen Grabec",
+        "title": "Engineer",
+        "description": "Domen co-founded and led a team developing a mobile application with 2 chess Grandmasters. He previously had a successful career at Cetra, Zemanta and Peerindex.",
+        "headshot": "/images/headshots/headshot-domen.jpg",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/domen-grabec-a5821a7/"
+        }
+      },
+      {
+        "name": "Shahul Hameed",
+        "title": "Engineer",
+        "description": "Shahul is a fullstack engineer who started programming at age of 10. He previously worked as a freelancer and then joined Zoho as a front-end developer.",
+        "headshot": "/images/headshots/headshot-shahul.jpg",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/shahthepro/"
+        }
+      },
+      {
+        "name": "Mike Shultz",
+        "title": "Engineer",
+        "description": "Mike is a long-time contributor to open-source. He created a dev toolkit for creating Ethereum smart contracts with Python and previously worked with Ethereum and IPFS at Lunyr.",
+        "headshot": "/images/headshots/headshot-mike.jpg",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/shultzm/"
+        }
+      },
+      {
+        "name": "Aure Gimon",
+        "title": "Product Designer",
+        "description": "Aure is a product designer with 10+ years of experience. Prior to joining Origin, Aure worked at multiple startups and Fortune 500 companies. In a past life, he was also a software engineer.",
+        "headshot": "/images/headshots/headshot-aure.jpg",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/aure-gimon-8501041/"
+        }
+      },
+      {
+        "name": "Daniel Von Fange",
+        "title": "Senior Engineer",
+        "description": "Daniel brings a strong emphasis on security and data analysis to our team. Daniel has earned a reputation for being able to gather massive amounts of data and create dynamic visualizations at lightning speed.",
+        "headshot": "/images/headshots/headshot-daniel.jpg",
+        "links": {
+          "github": "https://github.com/DanielVF"
+        }
+      },
+      {
+        "name": "Chase Colman",
+        "title": "Project Manager",
+        "description": "Chase comes from creative and marketing agency life in Los Angeles. She’s managed projects and accounts for clients like YouTube, W Hotels, and Stitch Fix. She's now in charge of creator relationship management at Origin.",
+        "headshot": "/images/headshots/headshot-chase.png",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/chase-colman-8297972a/"
+        }
+      },
+      {
+        "name": "Eric Charles",
+        "title": "Account Manager",
+        "description": "Eric was an early employee at Lyft and a founding member of their first B2B solution. He was an account manager at Tophatter and worked at a marketing agency connecting brands with creators and celebrities.",
+        "headshot": "/images/headshots/headshot-eric.jpg",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/eric-charles-86099336/"
+        }
+      },
+      {
+        "name": "Jon Youshaei",
+        "title": "Creator in Residence",
+        "description": "Jon has spent his career helping creators. Before joining Origin, Jon was responsible for creator monetization marketing at YouTube and product marketing at Instagram. He's also a frequent contributor for Forbes.",
+        "headshot": "/images/headshots/headshot-jon.jpeg",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/youshaei/"
+        }
+      },
+      {
+        "name": "Kara Chang",
+        "title": "Executive Assistant",
+        "description": "Kara is the executive assistant to Origin co-founders, Josh and Matt. She graduated from UC San Diego and previously managed a team of 10 people at an ecommerce company in Taiwan.",
+        "headshot": "/images/headshots/headshot-kara.png",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/kara-chang-6b277126/"
+        }
+      },
+      {
+        "name": "Ed Spencer",
+        "title": "Senior Engineer",
+        "description": "Ed previously worked at Sencha, C3 Energy Network, and Palo Alto Networks as a UI and software architect. He studied at the University of Warwick where he met his lifelong friend and now colleague, Nick Poulden.",
+        "headshot": "/images/headshots/headshot-ed.png",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/edspencer85/"
+        }
+      },
+      {
+        "name": "Aaron Faulkner",
+        "title": "Head of Community",
+        "description": "Aaron has spent his career building and managing communities. He served as a long-term member of our community team before joining fulltime to help us with social media, content, and marketing at Origin.",
+        "headshot": "/images/headshots/headshot-aaron.jpg",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/amfaulkner/"
+        }
+      },
+      {
+        "name": "Christopher Jacobs",
+        "title": "Senior Engineer",
+        "description": "Chris previously worked at OCZ, Toshiba, Storcentric and Palo Alo Networks as a Full Stack / UI Engineer. He is a creative developer who has over 15 years experience architecting software solutions.",
+        "headshot": "/images/headshots/headshot-chris.jpg",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/apexearth/"
+        }
+      },
+      {
+        "name": "Kelly Hwang",
+        "title": "Investments/Treasury",
+        "description": "Kelly was previously a successful startup founder and venture investor at Upfront Ventures before spending the last few years investing in DeFi. He has a BA in Economics from Stanford.",
+        "headshot": "/images/headshots/headshot-kelly.jpg",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/kellyhwang"
+        }
+      },
+      {
+        "name": "Linus Chung",
+        "title": "VP of Product",
+        "description": "Linus previously worked as Director of Product at Coinbase. Before that, he lead product at companies like Tesla, Pinterest, and LinkedIn. He has a BS in Electrical Engineering from Stanford.",
+        "headshot": "/images/headshots/headshot-linus.jpg",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/linuschung/"
+        }
+      },
+      {
+        "name": "Andra Nicolau",
+        "title": "Head of BD, OUSD",
+        "description": "Andra is a longtime crypto veteran. She was most recently the Head of Growth at 1inch where she raised over $250M. She has spent over 8 years in Silicon Valley and studied Economics at UC Berkeley.",
+        "headshot": "/images/headshots/headshot-andra.jpg",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/andranic/"
+        }
+      },
+      {
+        "name": "Justin Charlton",
+        "title": "Head of Finance",
+        "description": "Justin started investing in middle school, designed budgets for launching satellites into space (successfully!), and advised tech clients on M&A and strategy for 7 years at PwC and KPMG.",
+        "headshot": "/images/headshots/headshot-justin.jpg",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/justin-charlton-37292737/"
+        }
+      },
+      {
+        "name": "Tom Hirst",
+        "title": "Senior Engineer",
+        "description": "Tom helped ship digital projects for the NHS, Umbro, BMW and Meta before entering web3. He has launched multiple successful solo endeavours, including most recently, an NFT project with fully on-chain artwork.",
+        "headshot": "/images/headshots/headshot-tomh.jpg",
+        "links": {
+          "twitter": "https://twitter.com/tom_hirst/"
+        }
+      },
+      {
+        "name": "Youngsun Shin",
+        "title": "Product Manager",
+        "description": "Youngsun previously worked as a product manager at Coupang. Before that, he did product and operations at Uber. He enjoys engaging on Clubhouse and building NFT communities on the ground in Korea.",
+        "headshot": "/images/headshots/headshot-youngsun.jpg",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/youngsunshi"
+        }
+      },
+      {
+        "name": "Peter Gray",
+        "title": "BD Manager, OUSD",
+        "description": "Peter studied business at Tulane University and worked on the sales teams at Palo Alto Networks, VMware, and Alkemi Network before joining Origin as the OUSD BD Manager. He is a musician, hockey player, and avid skier.",
+        "headshot": "/images/headshots/headshot-peter.jpg",
+        "links": {
+          "linkedin": "https://www.linkedin.com/in/peter-gray/"
+        }
+      },
+      {
+        "name": "Nick Hong",
+        "title": "Senior Engineer",
+        "description": "Before Origin, Nick was on product teams at Medium, Eaze, and Instacart, and more recently jumped into Web3 with Driftershoots on his FirstDayOut Open Edition. Outside of work, Nick enjoys kickboxing, meditation, and trying out new cooking with his air fryer.",
+        "headshot": "/images/headshots/headshot-nickh.jpg",
+        "links": {
+          "twitter": "https://twitter.com/pepperonick"
+        }
+      },
+      {
+        "name": "Matt Bullock",
+        "title": "Product Designer",
+        "description": "Matt is a product designer specialising in DeFi and Web3 for the past 4 years. He was the first designer to join Augur and later went on to work at Dapper Labs. Before this he was doing the rounds in various advertising and design agencies across London.",
+        "headshot": "/images/headshots/headshot-mattb.png",
+        "links": {
+          "linkedin": "https://uk.linkedin.com/in/mattjbullock"
+        }
+      }
+    ],
+  "community":
+    [
+      {
+        "name": "Moisés Sosa",
+        "headshot": "/images/headshots/headshot-moises.jpg"
+      },
+      {
+        "name": "Kevin Lee",
+        "headshot": "/images/headshots/headshot-kevin.png"
+      },
+      {
+        "name": "Joseph Stewart",
+        "headshot": "/images/headshots/headshot-joseph.jpg"
+      },
+      {
+        "name": "Erkan Ciftci",
+        "headshot": "/images/headshots/headshot-erkan.png"
+      },
+      {
+        "name": "Stefano Terenzi",
+        "headshot": "/images/headshots/headshot-stefano.jpg"
+      },
+      {
+        "name": "Zizen Chang",
+        "headshot": "/images/headshots/headshot-zizen.jpg"
+      },
+      {
+        "name": "Lee Gwangmyeong",
+        "headshot": "/images/headshots/headshot-lee.png"
+      }
+    ],
+  "advisors": [
+    {
+      "name": "Melody Che",
+      "organization": "Spartan Group",
+      "headshot": "/images/headshots/headshot-melody.jpg",
+      "link": "https://www.linkedin.com/in/melody-he-497a5b25/"
+    },
+    {
+      "name": "Paul Veradittakit",
+      "headshot": "/images/headshots/headshot-paul.jpg",
+      "link": "https://www.linkedin.com/in/veradittakit/"
+    },
+    {
+      "name": "Joey Krug",
+      "headshot": "/images/headshots/headshot-joey.jpg",
+      "link": "https://www.linkedin.com/in/joeykrug/"
+    },
+    {
+      "name": "Andrew Kang",
+      "headshot": "/images/headshots/headshot-andrew.jpeg",
+      "link": "https://twitter.com/Rewkang"
+    },
+    {
+      "name": "Justin Blau",
+      "headshot": "/images/headshots/headshot-blau.jpg",
+      "link": "https://twitter.com/3lau"
+    },
+    {
+      "name": "Paris Hilton",
+      "headshot": "/images/headshots/headshot-paris.png",
+      "link": "https://twitter.com/parishilton"
+    },
+    {
+      "name": "William Tong",
+      "headshot": "/images/headshots/headshot-william.jpeg",
+      "link": "https://www.linkedin.com/in/williamjtong/"
+    }
+  ]
+}

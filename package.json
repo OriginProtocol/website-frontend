@@ -14,6 +14,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "babel": "^6.23.0",
+    "babel-plugin-react-html-attrs": "2",
     "classnames": "^2.3.1",
     "dotenv": "^16.0.2",
     "fbjs": "^3.0.4",
@@ -21,8 +23,9 @@
     "fbt-runtime": "^0.9.4",
     "lodash": "^4.17.21",
     "next": "12.2.5",
+    "origin-storybook": "^0.5.0",
     "per-env": "^1.0.2",
-    "prettier": "^2.4.0",
+    "prettier": "^2.7.1",
     "pullstate": "^1.23.0",
     "react": "18.2.0",
     "react-bootstrap": "^2.5.0",
@@ -30,11 +33,14 @@
     "react-query": "^3.34.16",
     "react-toastify": "^9.0.8",
     "sass": "^1.54.9",
+    "storybook": "^6.5.12",
+    "tailwindcss": "^3.1.8",
     "typeface-lato": "^1.1.13"
   },
   "devDependencies": {
     "bootstrap": "^5.2.0",
     "eslint": "8.23.0",
-    "eslint-config-next": "12.2.5"
+    "eslint-config-next": "12.2.5",
+    "tailwind": "^4.0.0"
   }
 }
