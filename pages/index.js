@@ -198,8 +198,7 @@ const Home = ({ locale, onLocale, isMobile }) => {
             </Link>
           </div>
           {articles && (
-            <div className={`${isMobile ? 'col' : 'row'} mt-5`}>
-              <div className='col mt-5 mb-5'>
+            <div className='article-container mt-5'>
                 <Card
                   webProperty={'originprotocol'}
                   title={articles[0].attributes.title}
@@ -207,17 +206,13 @@ const Home = ({ locale, onLocale, isMobile }) => {
                   imgAlt={'Origin Protocol'}
                   body={articles[0].attributes.description}
                 />
-              </div>
-              <div className='col mt-5 mb-5'>
                 <Card
                   webProperty={'originprotocol'}
                   title={articles[1].attributes.title}
                   imgSrc={assetRootPath('/images/logos/origin-press.svg')}
                   imgAlt={'Origin Protocol'}
-                  body={articles[2].attributes.description}
+                  body={articles[1].attributes.description}
                 />
-              </div>
-              <div className='col mt-5 mb-5'>
                 <Card
                   webProperty={'originprotocol'}
                   title={articles[2].attributes.title}
@@ -225,7 +220,6 @@ const Home = ({ locale, onLocale, isMobile }) => {
                   imgAlt={'Origin Protocol'}
                   body={articles[2].attributes.description}
                 />
-              </div>
             </div>
           )}
         </div>
@@ -507,7 +501,11 @@ const Home = ({ locale, onLocale, isMobile }) => {
           font-size: 1.25rem;
         }
 
-        
+        .article-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-gap: 1vw;
+        }
         
         @media (max-width: 1199px) {
           section.company {
@@ -613,10 +611,12 @@ const Home = ({ locale, onLocale, isMobile }) => {
             padding-left: 50px;
             padding-right: 50px;
           }
-        }
 
+          .article-container {
+            grid-template-columns: 1fr;
+            grid-gap: 5vw;
+          }
         }
-
       `}</style>
       <Footer />
     </>
