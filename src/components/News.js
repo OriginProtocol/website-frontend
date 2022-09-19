@@ -6,6 +6,7 @@ import { Typography, Card } from 'origin-storybook'
 import Dropdown from 'components/Dropdown'
 import DownCaret from 'components/DownCaret'
 import { assetRootPath } from 'utils/image'
+import withIsMobile from 'hoc/withIsMobile'
 
 const Category = ({category, setCategory}) => {
   const [open, setOpen] = useState(false)
@@ -110,7 +111,7 @@ const Category = ({category, setCategory}) => {
   )
 }
 
-const News = () => {
+const News = ({isMobile}) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -172,48 +173,14 @@ const News = () => {
       <Category category={category} setCategory={setCategory}/>
       <div className='container mt-5'>
         {currentPageArticles.map((a, i) => {
-          if (i % 3 === 0) return (
-            <>
-              <div className="row mb-5">
-                {currentPageArticles[i] && (
-                  <div className='col'>
-                    <Card
-                      webProperty={'originprotocol'}
-                      title={currentPageArticles[i].attributes.title}
-                      imgSrc={assetRootPath('/images/logos/origin-press.svg')}
-                      imgAlt={'Origin Protocol'}
-                      body={currentPageArticles[i].attributes.description}
-                    />
-                  </div>
-                )}
-                {currentPageArticles[i+1] ? (
-                  <div className='col'>
-                    <Card
-                      webProperty={'originprotocol'}
-                      title={currentPageArticles[i+1].attributes.title}
-                      imgSrc={assetRootPath('/images/logos/origin-press.svg')}
-                      imgAlt={'Origin Protocol'}
-                      body={currentPageArticles[i+1].attributes.description}
-                    />
-                  </div>
-                ) : (
-                  <div className='col invisible'></div>
-                )}
-                {currentPageArticles[i+2] ? (
-                  <div className='col'>
-                    <Card
-                      webProperty={'originprotocol'}
-                      title={currentPageArticles[i+2].attributes.title}
-                      imgSrc={assetRootPath('/images/logos/origin-press.svg')}
-                      imgAlt={'Origin Protocol'}
-                      body={currentPageArticles[i+2].attributes.description}
-                    />
-                  </div>
-                ) : (
-                  <div className='col invisible'></div>
-                )}
-              </div>
-            </>
+          return (
+            <Card
+              webProperty={'originprotocol'}
+              title={a.attributes.title}
+              imgSrc={assetRootPath('/images/logos/origin-press.svg')}
+              imgAlt={'Origin Protocol'}
+              body={a.attributes.description}
+            />
           )
         })}
       </div>
@@ -251,13 +218,14 @@ const News = () => {
     </section>
     )}
     <style jsx>{`
-      .placeholder {
-        color: black;
+      .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2vw;
       }
 
       .pagination {
         padding: 40px;
-        background-color: #fafbfc;
         border-radius: 10px;
       }
 
@@ -291,9 +259,17 @@ const News = () => {
       .page-number:hover {
         background-color: #edf2f5;
       }
+
+      @media (max-width: 799px) {
+        .container {
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          grid-gap: 5vw;
+        }
+      }
     `}</style>
   </>
   )
 }
 
-export default News
+export default withIsMobile(News)

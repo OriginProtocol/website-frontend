@@ -71,8 +71,7 @@ export default function Company({ locale, onLocale }) {
       </section>
       <section className='press light'>
         <Typography.H2>Press kit</Typography.H2>
-        <div className="row mt-5">
-          <div className='col'>
+        <div className="container mt-5">
             <Card
               webProperty={'originprotocol'}
               title={'Origin Logo'}
@@ -80,8 +79,6 @@ export default function Company({ locale, onLocale }) {
               imgAlt={'Origin Logo'}
               body={''}
             />
-          </div>
-          <div className='col'>
             <Card
               webProperty={'originprotocol'}
               title={'Origin Dollar Logo'}
@@ -89,8 +86,6 @@ export default function Company({ locale, onLocale }) {
               imgAlt={'Origin Dollar Logo'}
               body={''}
             />
-          </div>
-          <div className='col'>
             <Card
               webProperty={'originprotocol'}
               title={'Origin Story'}
@@ -98,10 +93,6 @@ export default function Company({ locale, onLocale }) {
               imgAlt={'Origin Story'}
               body={''}
             />
-          </div>
-        </div>
-        <div className="row mt-5">
-          <div className='col'>
             <Card
               webProperty={'originprotocol'}
               title={'OGN Symbol'}
@@ -109,8 +100,6 @@ export default function Company({ locale, onLocale }) {
               imgAlt={'OGN Symbol'}
               body={''}
             />
-          </div>
-          <div className='col'>
             <Card
               webProperty={'originprotocol'}
               title={'OUSD Symbol'}
@@ -118,8 +107,6 @@ export default function Company({ locale, onLocale }) {
               imgAlt={'OUSD Symbol'}
               body={''}
             />
-          </div>
-          <div className='col'>
             <Card
               webProperty={'originprotocol'}
               title={'OGV Symbol'}
@@ -127,13 +114,12 @@ export default function Company({ locale, onLocale }) {
               imgAlt={'OGV Symbol'}
               body={''}
             />
-          </div>
         </div>
       </section>
       <section className='inquiries grey'>
-        <div className='text-center w-50 m-auto'>
+        <div className='content text-center m-auto'>
           <Typography.H2>Press inquiries</Typography.H2>
-          <div className='mb-3'>Origin Story powers NFT ecosystems, providing creators with branded storefronts and secondary marketplaces.</div>
+          <div className='mt-2 mb-4'>Origin Story powers NFT ecosystems, providing creators with branded storefronts and secondary marketplaces.</div>
           <a
               href=''
               target='_blank'
@@ -153,6 +139,16 @@ export default function Company({ locale, onLocale }) {
           background-size: 40vw;
         }
 
+        .press .container {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-gap: 2vw;
+        }
+
+        .inquiries .content {
+          width: 50%;
+        }
+
         .companies {
           justify-content: space-around;
           margin: 50px 0;
@@ -163,6 +159,16 @@ export default function Company({ locale, onLocale }) {
         }
 
         @media (max-width: 799px) {
+          .press .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 5vw;
+          }
+
+          .inquiries .content {
+            width: 100%;
+          }
+
           .company {
             width: 15vw;
           }

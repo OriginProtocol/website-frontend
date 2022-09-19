@@ -19,8 +19,9 @@ import { DEFAULT_SELECTED_APY } from 'utils/constants'
 import { adjustLinkHref } from 'utils/utils'
 import { Typography, Header, Footer, Card } from 'origin-storybook'
 import useArticleQuery from 'queries/useArticleQuery'
+import withIsMobile from 'hoc/withIsMobile'
 
-const Home = ({ locale, onLocale }) => {
+const Home = ({ locale, onLocale, isMobile }) => {
   const articleQuery = useArticleQuery(1)
 
   const articles = articleQuery.isSuccess ? articleQuery.data.data : 0
@@ -36,12 +37,12 @@ const Home = ({ locale, onLocale }) => {
       </header>
       <section className="intro grey">
         <div className="container">
-          <Typography.H1>
+          <Typography.H3>
             {'Onboarding the next '}
             <span className='gradient1 bold'>100M users </span>
             {'to crypto'}
-          </Typography.H1>
-          <Typography.H6>{'Origin’s flagship products are tackling the fastest growing verticals in crypto'}</Typography.H6>
+          </Typography.H3>
+          <div className='lighter mt-2 mb-4'>{'Origin’s flagship products are tackling the fastest growing verticals in crypto'}</div>
           <a
             href='https://story.xyz'
             target='_blank'
@@ -76,7 +77,7 @@ const Home = ({ locale, onLocale }) => {
               alt="Origin Story Logo"
             />
             <Typography.H3>The record-breaking NFT platform</Typography.H3>
-            <div>Origin Story powers NFT ecosystems, providing creators with branded storefronts and secondary marketplaces.</div>
+            <div className='lighter mt-2 mb-4'>Origin Story powers NFT ecosystems, providing creators with branded storefronts and secondary marketplaces.</div>
             <a
               href='https://story.xyz'
               target='_blank'
@@ -90,20 +91,15 @@ const Home = ({ locale, onLocale }) => {
         <Dashboard ogn />
       </section>
       <section className="ousd dark gradient3 d-flex flex-column">
-        <img
-          src={assetRootPath('/images/graphics/splines22.svg')}
-          className="splines"
-          alt="splines"
-        />
           <div className="d-flex layout">
             <div className='text-container'>
               <img
                 src={assetRootPath('/images/logos/origin-dollar-wordmark.svg')}
-                className="origin-dollar-logo"
+                className="origin-dollar-logo mb-2"
                 alt="Origin Dollar Logo"
               />
               <Typography.H3>A yield-generating stablecoin</Typography.H3>
-              <div>Origin Dollar simplifies DeFi by eliminating the need for staking or lock-ups. Hold OUSD in any Ethereum wallet or custody solution and watch the balance increase every day.</div>
+              <div className='lighter mt-2 mb-4'>Origin Dollar simplifies DeFi by eliminating the need for staking or lock-ups. Hold OUSD in any Ethereum wallet or custody solution and watch the balance increase every day.</div>
               <a
                 href='https://ousd.com'
                 target='_blank'
@@ -115,7 +111,7 @@ const Home = ({ locale, onLocale }) => {
             </div>
             <div className='image-container'>
               <img
-                src={assetRootPath('/images/screens/screen-ousd.svg')}
+                src={assetRootPath('/images/screens/screens-ousd.svg')}
                 className="screen3"
                 alt="OUSD"
               />
@@ -125,7 +121,7 @@ const Home = ({ locale, onLocale }) => {
       </section>
       <section className="company light">
         <div className="d-flex flex-column">
-          <div className="community d-flex flex-row">
+          <div className="community d-flex layout">
             <div className="image-container">
               <img
                 src={assetRootPath('/images/graphics/ellipses-homepage.png')}
@@ -135,7 +131,7 @@ const Home = ({ locale, onLocale }) => {
             </div>
             <div className="text-container">
               <Typography.H2>It's all about the community</Typography.H2>
-              <Typography.H6>Join hundreds of thousands of community members and token holders, hundreds of open-source developers, or our world-class core team.</Typography.H6>
+              <div className='lighter mt-2 mb-4'>Join hundreds of thousands of community members and token holders, hundreds of open-source developers, or our world-class core team.</div>
               <Link href={adjustLinkHref('/community')}>
                 <a
                   target='_blank'
@@ -147,10 +143,10 @@ const Home = ({ locale, onLocale }) => {
               </Link>
             </div>
           </div>
-          <div className="team d-flex flex-row">
+          <div className="team d-flex layout">
             <div className="text-container">
               <Typography.H2>A world-class team</Typography.H2>
-              <Typography.H6>Our team is led by serial entrepreneurs, early employees at YouTube, and engineering managers at Google, Coinbase and Dropbox.</Typography.H6>
+              <div className='lighter mt-2 mb-4'>Our team is led by serial entrepreneurs, early employees at YouTube, and engineering managers at Google, Coinbase and Dropbox.</div>
               <img
                 src={assetRootPath('/images/logos/companies.png')}
                 className="companies"
@@ -175,8 +171,8 @@ const Home = ({ locale, onLocale }) => {
             </div>
             <div className="video-container">
               <iframe
-                width="560"
-                height="315"
+                width={`${isMobile ? '280' : '560'}`}
+                height={`${isMobile ? '158' : '316'}`}
                 src="https://www.youtube.com/embed/ERh2n-vlpQ4"
                 title="YouTube video player"
                 frameBorder="0"
@@ -202,8 +198,8 @@ const Home = ({ locale, onLocale }) => {
             </Link>
           </div>
           {articles && (
-            <div className="row mt-5">
-              <div className='col'>
+            <div className={`${isMobile ? 'col' : 'row'} mt-5`}>
+              <div className='col mt-5 mb-5'>
                 <Card
                   webProperty={'originprotocol'}
                   title={articles[0].attributes.title}
@@ -212,7 +208,7 @@ const Home = ({ locale, onLocale }) => {
                   body={articles[0].attributes.description}
                 />
               </div>
-              <div className='col'>
+              <div className='col mt-5 mb-5'>
                 <Card
                   webProperty={'originprotocol'}
                   title={articles[1].attributes.title}
@@ -221,7 +217,7 @@ const Home = ({ locale, onLocale }) => {
                   body={articles[2].attributes.description}
                 />
               </div>
-              <div className='col'>
+              <div className='col mt-5 mb-5'>
                 <Card
                   webProperty={'originprotocol'}
                   title={articles[2].attributes.title}
@@ -238,12 +234,12 @@ const Home = ({ locale, onLocale }) => {
         <div className="d-flex flex-column">
           <Typography.H2>Work at Origin</Typography.H2>
           <div className='mb-3'></div>
-          <Typography.H7>We’re always looking for the best talent. See open positions below.</Typography.H7>
+          <div className='lighter mt-2 mb-4'>We’re always looking for the best talent. See open positions below.</div>
           <div className='mb-5'></div>
           <Typography.H3>Engineering</Typography.H3>
           <div className='mt-4'></div>
           <div className="d-flex flex-row">
-            <Typography.H7>Data Engineer</Typography.H7>
+            <div className='role mt-2 mb-4'>Data Engineer</div>
             <a
               href='https://angel.co/company/originprotocol/jobs/2222160-data-engineer'
               target='_blank'
@@ -254,7 +250,7 @@ const Home = ({ locale, onLocale }) => {
             </a>
           </div>
           <div className="d-flex flex-row">
-            <Typography.H7>Frontend Engineer</Typography.H7>
+            <div className='role mt-2 mb-4'>Frontend Engineer</div>
             <a
               href='https://angel.co/company/originprotocol/jobs/335794-frontend-engineer'
               target='_blank'
@@ -265,7 +261,7 @@ const Home = ({ locale, onLocale }) => {
             </a>
           </div>
           <div className="d-flex flex-row">
-            <Typography.H7>Senior Full-stack Engineer</Typography.H7>
+            <div className='role mt-2 mb-4'>Senior Full-stack Engineer</div>
             <a
               href='https://angel.co/company/originprotocol/jobs/2226588-senior-full-stack-engineer'
               target='_blank'
@@ -276,7 +272,7 @@ const Home = ({ locale, onLocale }) => {
             </a>
           </div>
           <div className="d-flex flex-row">
-            <Typography.H7>Senior Solidity Engineer</Typography.H7>
+            <div className='role mt-2 mb-4'>Senior Solidity Engineer</div>
             <a
               href='https://angel.co/company/originprotocol/jobs/308390-senior-solidity-engineer'
               target='_blank'
@@ -290,7 +286,7 @@ const Home = ({ locale, onLocale }) => {
           <Typography.H3>Design</Typography.H3>
           <div className='mt-4'></div>
           <div className="d-flex flex-row">
-            <Typography.H7>Marketing Designer</Typography.H7>
+            <div className='role mt-2 mb-4'>Marketing Designer</div>
             <a
               href='https://angel.co/company/originprotocol/jobs/2226436-marketing-designer'
               target='_blank'
@@ -304,7 +300,7 @@ const Home = ({ locale, onLocale }) => {
           <Typography.H3>Marketing</Typography.H3>
           <div className='mt-4'></div>
           <div className="d-flex flex-row">
-            <Typography.H7>Email Marketer</Typography.H7>
+            <div className='role mt-2 mb-4'>Email Marketer</div>
             <a
               href='https://angel.co/company/originprotocol/jobs/2360663-email-marketer'
               target='_blank'
@@ -315,7 +311,7 @@ const Home = ({ locale, onLocale }) => {
             </a>
           </div>
           <div className="d-flex flex-row">
-            <Typography.H7>Performance Marketer (Paid Ads)</Typography.H7>
+            <div className='role mt-2 mb-4'>Performance Marketer (Paid Ads)</div>
             <a
               href='https://angel.co/company/originprotocol/jobs/2226610-performance-marketer-paid-ads'
               target='_blank'
@@ -326,7 +322,7 @@ const Home = ({ locale, onLocale }) => {
             </a>
           </div>
           <div className="d-flex flex-row">
-            <Typography.H7>Public and Media Relations Manager</Typography.H7>
+            <div className='role mt-2 mb-4'>Public and Media Relations Manager</div>
             <a
               href='https://angel.co/company/originprotocol/jobs/370212-public-and-media-relations-manager'
               target='_blank'
@@ -340,7 +336,7 @@ const Home = ({ locale, onLocale }) => {
           <Typography.H3>Product</Typography.H3>
           <div className='mt-4'></div>
           <div className="d-flex flex-row">
-            <Typography.H7>Product Manager (DeFi)</Typography.H7>
+            <div className='role mt-2 mb-4'>Product Manager (DeFi)</div>
             <a
               href='https://angel.co/company/originprotocol/jobs/1860239-product-manager-defi'
               target='_blank'
@@ -351,7 +347,7 @@ const Home = ({ locale, onLocale }) => {
             </a>
           </div>
           <div className="d-flex flex-row">
-            <Typography.H7>Product Manager (NFTs)</Typography.H7>
+            <div className='role mt-2 mb-4'>Product Manager (NFTs)</div>
             <a
               href='https://angel.co/company/originprotocol/jobs/1505992-product-manager-nfts'
               target='_blank'
@@ -365,7 +361,7 @@ const Home = ({ locale, onLocale }) => {
           <Typography.H3>Sales</Typography.H3>
           <div className='mt-4'></div>
           <div className="d-flex flex-row">
-            <Typography.H7>Business Development Manager (DeFi)</Typography.H7>
+            <div className='role mt-2 mb-4'>Business Development Manager (DeFi)</div>
             <a
               href='https://angel.co/company/originprotocol/jobs/2226595-business-development-manager-defi'
               target='_blank'
@@ -376,7 +372,7 @@ const Home = ({ locale, onLocale }) => {
             </a>
           </div>
           <div className="d-flex flex-row">
-            <Typography.H7>Business Development Manager (NFTs)</Typography.H7>
+            <div className='role mt-2 mb-4'>Business Development Manager (NFTs)</div>
             <a
               href='https://angel.co/company/originprotocol/jobs/2360681-business-development-manager-nfts'
               target='_blank'
@@ -393,34 +389,15 @@ const Home = ({ locale, onLocale }) => {
         section.intro {
           background-image: url(/images/graphics/splines34.svg);
           background-repeat: no-repeat;
-          background-position: 100% -10%;
+          background-position: 100% 0%;
           background-size: 40vw;
-        }
-
-        section.ousd {
-          position: relative;
-        }
-
-        .ousd .container {
-          background-color: red;
-          position: relative;
-          margin: 0;
-          z-index: 1;
-        }
-        
-        .ousd .splines {
-          position: absolute;
-          width: 40%;
-          top: 10%;
-          right: 0;
-          z-index: 0;
         }
 
         section.company {
           background-image: url(/images/graphics/splines32.svg);
           background-repeat: no-repeat;
-          background-position: 90% 100%;
-          background-size: 45%;
+          background-position: 90% 90%;
+          background-size: 40vw;
         }
 
         .intro .container {
@@ -434,8 +411,9 @@ const Home = ({ locale, onLocale }) => {
         }
 
         .ousd .text-container {
-          width: 50%;
-          padding: 50px;
+          width: 70%;
+          margin-top: 50px;
+          margin-bottom: 50px;
         }
 
         .screen1 {
@@ -453,10 +431,7 @@ const Home = ({ locale, onLocale }) => {
         }
 
         .screen3 {
-          position: absolute;
-          top: 12%;
-          width: 50%;
-          right: 0;
+          
         }
 
         .community .text-container {
@@ -466,23 +441,34 @@ const Home = ({ locale, onLocale }) => {
 
         .team {
           margin-top: 150px;
+          margin-bottom: 100px;
         }
 
         .team .text-container{
           width: 50%;
-          padding: 20px 70px 0 30px;
+          margin-right: 50px;
         }
 
         .video-container {
+          position: relative;
           padding: 10px;
           background: #000;
           webkit-border-radius: 20px;
           -moz-border-radius: 20px;
           border-radius: 20px;
-          width: 560px;
+          width: 580px;
+          height: 335px;
           margin: 0 auto;
           overflow: hidden;
         }
+
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+      }
 
         .companies {
           margin-bottom: 50px;
@@ -517,10 +503,26 @@ const Home = ({ locale, onLocale }) => {
           flex-direction: row;
         }
 
+        .role {
+          font-size: 1.25rem;
+        }
 
         
-        @media (min-width: 993px) {
+        
+        @media (max-width: 1199px) {
+          section.company {
+            background-position: 90% 80%;
+            background-size: 50vw;
+          }
 
+          .community .image-container {
+            margin-top: 50px;
+          }
+
+          .team .button {
+            padding-left: 35px;
+            padding-right: 35px;
+          }
         }
 
         @media (max-width: 992px) {
@@ -528,11 +530,19 @@ const Home = ({ locale, onLocale }) => {
             background-image: url(/images/graphics/splines34.svg);
             background-repeat: no-repeat;
             background-position: 100% 60vw;
-            background-size: 40vw;
+            background-size: 100vw;
           }
 
           section.story {
             text-align: center;
+          }
+
+          .story .layout {
+            flex-direction: column-reverse;
+          }
+
+          .origin-story-logo {
+            margin: auto;
           }
 
           .story .text-container {
@@ -540,21 +550,68 @@ const Home = ({ locale, onLocale }) => {
             margin-top: 50px;
           }
 
-          .origin-story-logo {
-            margin: auto;
-          }
-
           .intro .container {
             width: 100%;
             margin-left: 5%;
           }
 
-          .story .layout {
-            flex-direction: column-reverse;
+          section.ousd {
+            text-align: center;
           }
 
           .ousd .layout {
             flex-direction: column;
+          }
+
+          .origin-dollar-logo {
+            margin: auto;
+          }
+
+          .ousd .text-container {
+            width: 100%;
+            margin-top: 50px;
+          }
+
+          section.company {
+            background-image: none;
+            text-align: center;
+          }
+
+          .community.layout {
+            flex-direction: column;
+          }
+
+          .community .text-container {
+            width: 100%;
+            margin: 50px 0 0 0;
+          }
+
+          .community .image-container {
+            margin: auto;
+          }
+
+          .team {
+            margin-top: 100px;
+          }
+
+          .team.layout {
+            flex-direction: column-reverse;
+          }
+
+          .team .text-container {
+            width: 100%;
+            margin: 50px 0 0 0;
+          }
+
+          .video-container {
+            width: 280px;
+            height: 168px;
+          }
+
+          .team .button {
+            margin-bottom: 20px;
+            padding-left: 50px;
+            padding-right: 50px;
           }
         }
 
@@ -566,4 +623,4 @@ const Home = ({ locale, onLocale }) => {
   )
 }
 
-export default Home
+export default withIsMobile(Home)

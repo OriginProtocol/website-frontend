@@ -6,8 +6,10 @@ import useCirculatingSupplyQuery from 'queries/useCirculatingSupplyQuery'
 import useTotalSupplyQuery from 'queries/useTotalSupplyQuery'
 import { formatCurrency } from 'utils/math'
 import { assetRootPath } from 'utils/image'
+import { Typography } from 'origin-storybook'
+import withIsMobile from 'hoc/withIsMobile'
 
-const Dashboard = ({ogn}) => {
+const Dashboard = ({ogn, isMobile}) => {
   const symbol = ogn ? 'OGN' : 'OGV'
   const coin = symbol.toLowerCase()
   const link = ogn ? 'origin-protocol' : 'origin-dollar-governance'
@@ -64,13 +66,15 @@ const Dashboard = ({ogn}) => {
       <div className='token-dashboard gradient2 d-flex flex-column'>
         <div className='d-flex flex-row'>
           <div className='text-container'>
-            <img
-              src={assetRootPath(`/images/logos/${coin}-logo.svg`)}
-              className={`logo`}
-              alt="Logo"
-            />
-            <span className='text'>{symbol} token</span>
-            <h5>
+            <div className='d-flex flex-row'>
+              <img
+                src={assetRootPath(`/images/logos/${coin}-logo.svg`)}
+                className={`logo`}
+                alt="Logo"
+              />
+              <span className='text mt-1'>{symbol} token</span>
+            </div>
+            <div className='lighter mt-2 mb-4'>
               {`${description} View on `}
               <a
                 href={`https://coinmarketcap.com/currencies/${link}`}
@@ -89,35 +93,43 @@ const Dashboard = ({ogn}) => {
               >
                   CoinGecko
               </a>
-            </h5>
+            </div>
           </div>
           <a
             href={`https://${buy}`}
             target='_blank'
             rel='noopener noreferrer'
-            className='button white'
+            className={`button white ${isMobile ? 'd-none' : ''}`}
           >
             Buy {symbol}
           </a>
         </div>
-        <div className='value-container d-flex flex-row'>
+        <div className='value-container'>
           <div className='value'>
-            <h4>{`${symbol} PRICE`}</h4>
+            <div>{`${symbol} PRICE`}</div>
             <div className='number'>{`$${formatCurrency(price[coin], 4)}`}</div>
           </div>
           <div className='value'>
-          <h4>MARKET CAP</h4>
+            <div>MARKET CAP</div>
             <div className='number'>{`$${formatCurrency(circulatingSupply[coin] * price[coin], 0)}`}</div>
           </div>
           <div className='value'>
-            <h4>CIRCULATING SUPPLY</h4>
+            <div>CIRCULATING SUPPLY</div>
             <div className='number'>{formatCurrency(circulatingSupply[coin], 0)}</div>
           </div>
           <div className='value'>
-            <h4>TOTAL SUPPLY</h4>
+            <div>TOTAL SUPPLY</div>
             <div className='number'>{formatCurrency(totalSupply[coin], 0)}</div>
           </div>
         </div>
+        <a
+          href={`https://${buy}`}
+          target='_blank'
+          rel='noopener noreferrer'
+          className={`button white ${isMobile ? '' : 'd-none'}`}
+        >
+          Buy {symbol}
+        </a>
       </div>
       <style jsx>{`
         .token-dashboard {
@@ -128,11 +140,6 @@ const Dashboard = ({ogn}) => {
           align-content: flex-start;
         }
 
-        .button {
-          align-self: flex-start;
-          margin-left: auto;
-        }
-
         .logo {
           width: 7%;
           margin-right: 2%;
@@ -141,12 +148,13 @@ const Dashboard = ({ogn}) => {
         .text {
           display: inline;
           font-family: 'Poppins';
-          font-size: 2vw;
+          font-size: 2rem;
         }
 
-        .value {
-          width: 25%;
-          display: inline;
+        .value-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-gap: 1vw;
         }
 
         .number {
@@ -154,9 +162,37 @@ const Dashboard = ({ogn}) => {
           font-size: 2.5vw;
           font-weight: 700;
         }
+
+        @media (max-width: 799px) {
+          .token-dashboard {
+            padding: 20px;
+          }
+
+          .logo {
+            width: 20%;
+            margin-right: 2%;
+          }
+
+          .value-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 2vw;
+          }
+
+          .number {
+            font-family: 'Poppins';
+            font-size: 5vw;
+            font-weight: 700;
+          }
+
+          .button {
+            align-self: auto;
+            margin: 25px auto 0 auto;
+          }
+        }
       `}</style>
     </>
   )
 }
 
-export default Dashboard
+export default withIsMobile(Dashboard)

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { fbt } from 'fbt'
 import { toast } from 'react-toastify'
+import { Typography } from 'origin-storybook'
 
 const EmailList = () => {
   const [email, setEmail] = useState()
@@ -8,9 +9,9 @@ const EmailList = () => {
   return (
     <>
       <section className="mail">
-        <div className="container d-flex flex-column align-items-center">
-          <h2>Join our mailing list</h2>
-          <h6>Be the first to hear about major NFT drops and important product updates. Your email will be kept private.</h6>
+        <div className="d-flex flex-column align-items-center text-center">
+          <Typography.H3>Join our mailing list</Typography.H3>
+          <div className='lighter text mt-2 mb-4'>Be the first to hear about major NFT drops and important product updates. Your email will be kept private.</div>
           <form
             className='justify-content-center'
             onSubmit={async (e) => {
@@ -91,9 +92,8 @@ const EmailList = () => {
           padding: 5%;
         }
 
-        .container {
-          width: 44%;
-          text-align: center;
+        .text {
+          width: 50%;
         }
 
         .email {
@@ -119,6 +119,12 @@ const EmailList = () => {
           padding: 15px 20px;
           color: #183140;
           background-color: #ffffff;
+        }
+
+        @media (max-width: 799px) {
+          .text {
+            width: 100%;
+          }
         }
       `}</style>
     </>
