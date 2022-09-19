@@ -99,7 +99,7 @@ const Dashboard = ({ogn, isMobile}) => {
             href={`https://${buy}`}
             target='_blank'
             rel='noopener noreferrer'
-            className={`button white ${isMobile ? 'd-none' : ''}`}
+            className={`button white b1`}
           >
             Buy {symbol}
           </a>
@@ -126,7 +126,7 @@ const Dashboard = ({ogn, isMobile}) => {
           href={`https://${buy}`}
           target='_blank'
           rel='noopener noreferrer'
-          className={`button white ${isMobile ? '' : 'd-none'}`}
+          className={`button white b2`}
         >
           Buy {symbol}
         </a>
@@ -138,6 +138,11 @@ const Dashboard = ({ogn, isMobile}) => {
           padding: 50px;
           border-radius: 20px;
           align-content: flex-start;
+        }
+
+        .button {
+          align-self: flex-start;
+          margin-left: auto;
         }
 
         .logo {
@@ -163,7 +168,11 @@ const Dashboard = ({ogn, isMobile}) => {
           font-weight: 700;
         }
 
-        @media (max-width: 799px) {
+        .b2 {
+          display: none;
+        }
+
+        @media (max-width: 767px) {
           .token-dashboard {
             padding: 20px;
           }
@@ -188,6 +197,14 @@ const Dashboard = ({ogn, isMobile}) => {
           .button {
             align-self: auto;
             margin: 25px auto 0 auto;
+          }
+
+          .b1 {
+            display: none;
+          }
+
+          .b2 {
+            display: inline;
           }
         }
       `}</style>
