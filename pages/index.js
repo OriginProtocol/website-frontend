@@ -1,30 +1,24 @@
 import React, { useEffect, useState } from 'react'
-import { useStoreState } from 'pullstate'
 import Link from 'next/link'
-import Head from 'next/head'
 
-import Layout from 'components/Layout'
-import Nav from 'components/Nav'
 import Dashboard from 'components/Dashboard'
 import EmailList from 'components/EmailList'
-import useApyQuery from 'queries/useApyQuery'
 import StatStore from 'stores/StatStore'
-//import { formatCurrency } from 'utils/math'
-//import { animateValue } from 'utils/animation'
-import { getDocsLink } from 'utils/getDocsLink'
 import { assetRootPath } from 'utils/image'
-import { zipObject } from 'lodash'
-import useOgvQuery from '../src/queries/useTotalSupplyQuery'
-import { DEFAULT_SELECTED_APY } from 'utils/constants'
 import { adjustLinkHref } from 'utils/utils'
 import { Typography, Header, Footer, Card } from 'origin-storybook'
 import useArticleQuery from 'queries/useArticleQuery'
 import withIsMobile from 'hoc/withIsMobile'
 
-const Home = ({ locale, onLocale, isMobile }) => {
+const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) => {
   const articleQuery = useArticleQuery(1)
+  const articleList = articleQuery.isSuccess ? articleQuery.data.data : 0
 
-  const articles = articleQuery.isSuccess ? articleQuery.data.data : 0
+  StatStore.update((s) => {
+    s.article = articles,
+    s.categories = categories,
+    s.homepage = homepage
+  })
 
   useEffect(() => {
     articleQuery.refetch()
@@ -183,6 +177,7 @@ const Home = ({ locale, onLocale, isMobile }) => {
           </div>
         </div>
       </section>
+      {/*<News2 articles={articles} categories={categories} homepage={homepage} />*/}
       <section className="news grey">
         <div className="d-flex flex-column">
           <div className="d-flex flex-row">
@@ -197,28 +192,28 @@ const Home = ({ locale, onLocale, isMobile }) => {
               </a>
             </Link>
           </div>
-          {articles && (
+          {articleList && (
             <div className='article-container mt-5'>
                 <Card
                   webProperty={'originprotocol'}
-                  title={articles[0].attributes.title}
+                  title={articleList[0].attributes.title}
                   imgSrc={assetRootPath('/images/logos/origin-press.svg')}
                   imgAlt={'Origin Protocol'}
-                  body={articles[0].attributes.description}
+                  body={articleList[0].attributes.description}
                 />
                 <Card
                   webProperty={'originprotocol'}
-                  title={articles[1].attributes.title}
+                  title={articleList[1].attributes.title}
                   imgSrc={assetRootPath('/images/logos/origin-press.svg')}
                   imgAlt={'Origin Protocol'}
-                  body={articles[1].attributes.description}
+                  body={articleList[1].attributes.description}
                 />
                 <Card
                   webProperty={'originprotocol'}
-                  title={articles[2].attributes.title}
+                  title={articleList[2].attributes.title}
                   imgSrc={assetRootPath('/images/logos/origin-press.svg')}
                   imgAlt={'Origin Protocol'}
-                  body={articles[2].attributes.description}
+                  body={articleList[2].attributes.description}
                 />
             </div>
           )}

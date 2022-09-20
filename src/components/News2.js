@@ -112,7 +112,7 @@ const Category = ({category, setCategory}) => {
   )
 }
 
-const News = ({isMobile, articles}) => {
+const News2 = ({isMobile, articles}) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -144,12 +144,14 @@ const News = ({isMobile, articles}) => {
     if (dataRefetch) articleQuery.refetch()
   }, [page, category, articleQuery.data])
 
-  const currentPageArticles = useMemo(
+  /*const currentPageArticles = useMemo(
     () => (articleQuery.data ? articleQuery.data.data : []),
     [articleQuery.data]
-  )
+  )*/
 
-  //const currentPageArticles = articles ? articles.slice(9 * (page - 1), 9 * page) : []
+  // grid-auto-rows: 1fr;
+
+  const currentPageArticles = articles ? articles.slice(9 * (page - 1), 9 * page) : []
 
   useEffect(() => {
     const pages = articlePages
@@ -183,8 +185,8 @@ const News = ({isMobile, articles}) => {
               imgSrc={assetRootPath('/images/logos/origin-press.svg')}
               imgAlt={'Origin Protocol'}
               body={a.attributes.description}
-              //linkText={'Read more'}
-              //linkHref={`/article/${a.attributes.slug}`}
+              linkText={'Read more'}
+              linkHref={`/article/${a.attributes.slug}`}
             />
           )
         })}
@@ -277,4 +279,4 @@ const News = ({isMobile, articles}) => {
   )
 }
 
-export default withIsMobile(News)
+export default withIsMobile(News2)

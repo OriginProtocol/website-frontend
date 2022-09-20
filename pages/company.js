@@ -1,12 +1,13 @@
 import React from 'react'
 import Head from 'next/head'
-import News from 'components/news'
-import Layout from 'components/Layout'
-import Nav from 'components/Nav'
+import News from 'components/News'
+import News2 from 'components/News2'
 import { assetRootPath } from 'utils/image'
 import { Typography, Header, Footer, Card } from 'origin-storybook'
 
-export default function Company({ locale, onLocale }) {
+import { fetchAPI } from "../lib/api";
+
+export default function Company({ locale, onLocale, articles, categories, homepage }) {
   return (
     <>
       <Head>
@@ -17,6 +18,7 @@ export default function Company({ locale, onLocale }) {
         <Typography.H1>Latest news</Typography.H1>
       </section>
       <News />
+      <News2 articles={articles} categories={categories} homepage={homepage} />
       <section className='articles grey'>
         <Typography.H2>As seen in</Typography.H2>
         <div className='companies d-flex flex-row'>
@@ -176,4 +178,27 @@ export default function Company({ locale, onLocale }) {
       `}</style>
     </>
   )
+}
+
+export async function getStaticProps() {
+  // Run API calls in parallel
+  const [articlesRes, categoriesRes, homepageRes] = await Promise.all([
+    fetchAPI("/articles", { populate: ["image", "category"] }),
+    fetchAPI("/categories", { populate: "*" }),
+    fetchAPI("/homepage", {
+      populate: {
+        hero: "*",
+        seo: { populate: "*" },
+      },
+    }),
+  ]);
+
+  return {
+    props: {
+      articles: articlesRes.data,
+      categories: categoriesRes.data,
+      homepage: homepageRes.data,
+    },
+    revalidate: 1,
+  };
 }

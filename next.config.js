@@ -4,4 +4,11 @@ const nextConfig = {
   swcMinify: true,
 }
 
-module.exports = nextConfig
+module.exports = {
+  nextConfig,
+  reactStrictMode: true,
+  images: {
+    loader: "default",
+    domains: ["localhost"],
+  },
+};
