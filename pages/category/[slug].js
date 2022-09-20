@@ -1,5 +1,5 @@
 import Seo from "../../src/components/strapi/seo";
-import Layout from "../../src/components/layout";
+import Layout from "../../src/components/strapi/layout";
 import Articles from "../../src/components/strapi/articles";
 
 import { fetchAPI } from "../../lib/api";
