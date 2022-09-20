@@ -18,7 +18,7 @@ export default function Company({ locale, onLocale, articles, categories, homepa
         <Typography.H1>Latest news</Typography.H1>
       </section>
       <News />
-      <News2 articles={articles} categories={categories} homepage={homepage} />
+      {/*<News2 articles={articles} categories={categories} homepage={homepage} />*/}
       <section className='articles grey'>
         <Typography.H2>As seen in</Typography.H2>
         <div className='companies d-flex flex-row'>
@@ -179,4 +179,3 @@ export default function Company({ locale, onLocale, articles, categories, homepa
     </>
   )
 }
-
