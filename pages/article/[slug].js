@@ -2,7 +2,7 @@ import Moment from "react-moment";
 import ReactMarkdown from "react-markdown";
 
 import Seo from "../../src/components/strapi/seo";
-import Layout from "../../src/components/layout";
+import Layout from "../../src/components/strapi/layout";
 
 import { fetchAPI } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
