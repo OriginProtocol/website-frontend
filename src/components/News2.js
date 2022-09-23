@@ -8,6 +8,7 @@ import DownCaret from 'components/DownCaret'
 import { assetRootPath } from 'utils/image'
 import withIsMobile from 'hoc/withIsMobile'
 import Scard from "./strapi/card";
+import { getStrapiMedia } from '../../lib/media'
 
 const Category = ({category, setCategory}) => {
   const [open, setOpen] = useState(false)
@@ -182,7 +183,7 @@ const News2 = ({isMobile, articles}) => {
             <Card
               webProperty={'originprotocol'}
               title={a.attributes.title}
-              imgSrc={assetRootPath('/images/logos/origin-press.svg')}
+              imgSrc={getStrapiMedia(a.attributes.image)}
               imgAlt={'Origin Protocol'}
               body={a.attributes.description}
               linkText={'Read more'}

@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import News from 'components/News'
-//import News2 from 'components/News2'
+import News2 from 'components/News2'
 import { assetRootPath } from 'utils/image'
 import { Typography, Header, Footer, Card } from 'origin-storybook'
 
@@ -18,7 +18,7 @@ export default function Company({ locale, onLocale, articles, categories, homepa
         <Typography.H1>Latest news</Typography.H1>
       </section>
       <News />
-      {/*<News2 articles={articles} categories={categories} homepage={homepage} />*/}
+      <News2 articles={articles} categories={categories} homepage={homepage} />
       <section className='articles grey'>
         <Typography.H2>As seen in</Typography.H2>
         <div className='companies d-flex flex-row'>
@@ -75,46 +75,70 @@ export default function Company({ locale, onLocale, articles, categories, homepa
         <Typography.H2>Press kit</Typography.H2>
         <div className="container mt-5">
             <Card
-              webProperty={'originprotocol'}
+              webProperty={'press'}
               title={'Origin Logo'}
               imgSrc={assetRootPath('/images/logos/origin-press.svg')}
               imgAlt={'Origin Logo'}
               body={''}
+              linkText={'Download SVG'}
+              linkHref={'https://ousd.com'}
+              linkText2={'Download PNG'}
+              linkHref2={'https://ousd.com'}
             />
             <Card
-              webProperty={'originprotocol'}
+              webProperty={'press'}
               title={'Origin Dollar Logo'}
               imgSrc={assetRootPath('/images/logos/dollar-press.svg')}
               imgAlt={'Origin Dollar Logo'}
               body={''}
+              linkText={'Download SVG'}
+              linkHref={'https://ousd.com'}
+              linkText2={'Download PNG'}
+              linkHref2={'https://ousd.com'}
             />
             <Card
-              webProperty={'originprotocol'}
+              webProperty={'press'}
               title={'Origin Story'}
               imgSrc={assetRootPath('/images/logos/story-press.svg')}
               imgAlt={'Origin Story'}
               body={''}
+              linkText={'Download SVG'}
+              linkHref={'https://ousd.com'}
+              linkText2={'Download PNG'}
+              linkHref2={'https://ousd.com'}
             />
             <Card
-              webProperty={'originprotocol'}
+              webProperty={'press'}
               title={'OGN Symbol'}
               imgSrc={assetRootPath('/images/logos/ogn-press.svg')}
               imgAlt={'OGN Symbol'}
               body={''}
+              linkText={'Download SVG'}
+              linkHref={'https://ousd.com'}
+              linkText2={'Download PNG'}
+              linkHref2={'https://ousd.com'}
             />
             <Card
-              webProperty={'originprotocol'}
+              webProperty={'press'}
               title={'OUSD Symbol'}
               imgSrc={assetRootPath('/images/logos/ousd-press.svg')}
               imgAlt={'OUSD Symbol'}
               body={''}
+              linkText={'Download SVG'}
+              linkHref={'https://ousd.com'}
+              linkText2={'Download PNG'}
+              linkHref2={'https://ousd.com'}
             />
             <Card
-              webProperty={'originprotocol'}
+              webProperty={'press'}
               title={'OGV Symbol'}
               imgSrc={assetRootPath('/images/logos/ogv-press.svg')}
               imgAlt={'OGV Symbol'}
               body={''}
+              linkText={'Download SVG'}
+              linkHref={'https://ousd.com'}
+              linkText2={'Download PNG'}
+              linkHref2={'https://ousd.com'}
             />
         </div>
       </section>
@@ -180,7 +204,7 @@ export default function Company({ locale, onLocale, articles, categories, homepa
   )
 }
 
-/*export async function getStaticProps() {
+export async function getStaticProps() {
   // Run API calls in parallel
   const [articlesRes, categoriesRes, homepageRes] = await Promise.all([
     fetchAPI("/articles", { populate: ["image", "category"] }),
@@ -201,4 +225,4 @@ export default function Company({ locale, onLocale, articles, categories, homepa
     },
     revalidate: 1,
   };
-}*/
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Typography, Header, Footer, Card } from 'origin-storybook'
+import { Typography, Header, Footer, Card, AltCard } from 'origin-storybook'
 import Contributors from 'components/Contributors'
 import Team from 'components/Team'
 import team from '../public/team.json'
@@ -40,188 +40,220 @@ const Community = ({ locale, onLocale, isMobile }) => {
             <Typography.H3>Partner with Origin</Typography.H3>
             <div className='drops container-fluid mt-5 mb-5'>
               <Card
-                webProperty={'story'}
+                webProperty={'launchpad'}
                 title={'3LAU'}
                 imgSrc={assetRootPath('/images/screens/background-3lau.svg')}
                 imgAlt={'3LAU'}
                 thumbnailSrc={assetRootPath('/images/screens/avatar-3lau.svg')}
                 thumbnailAlt={'3LAU'}
-                body={isMobile ? '' : "Acclaimed musician and producer 3LAU's Ultraviolet Vinyl NFT collection was auctioned on Origin's NFT platform with each NFT..."}
+                body={"Acclaimed musician and producer 3LAU's Ultraviolet Vinyl NFT collection was auctioned on Origin's NFT platform with each NFT..."}
                 linkText={'Learn more'}
                 linkHref={'https://blog.originprotocol.com/origin-nft-platform-powers-record-setting-11-7m-auction-with-3lau-c30a6812192c'}
               />
               <Card
-                webProperty={'story'}
-                title={'Trevor Jones x Don Diablo x Alotta Money'}
+                webProperty={'launchpad'}
+                title={'Inspiration4 Mission'}
                 imgSrc={assetRootPath('/images/screens/background-inspiration4.svg')}
                 imgAlt={'Inspiration4'}
                 thumbnailSrc={assetRootPath('/images/screens/avatar-inspiration4.svg')}
                 thumbnailAlt={'Inspiration4'}
-                body={isMobile ? '' : 'Inspiration4, powered by SpaceX, was the first civilian orbital space mission. Mission Commander Jared Isaacman chose to raise 200...'}
+                body={'Inspiration4, powered by SpaceX, was the first civilian orbital space mission. Mission Commander Jared Isaacman chose to raise 200...'}
                 linkText={'Learn more'}
                 linkHref={'https://blog.originprotocol.com/origin-and-inspiration4-partner-for-good-acafa7c41eb8'}
               />
               <Card
-                webProperty={'story'}
-                title={'BT'}
+                webProperty={'launchpad'}
+                title={'Trevor Jones x Don Diablo x Alotta Money'}
                 imgSrc={assetRootPath('/images/screens/background-ethereal.svg')}
                 imgAlt={'ETHEREAL'}
                 thumbnailSrc={assetRootPath('/images/screens/avatar-ethereal.svg')}
                 thumbnailAlt={'ETHEREAL'}
-                body={isMobile ? '' : 'ΞTHΞRΞAL is the coming of age of EthBoy. The original EthBoy was designed as a programmatic art piece that dynamically changes scen...'}
+                body={'ΞTHΞRΞAL is the coming of age of EthBoy. The original EthBoy was designed as a programmatic art piece that dynamically changes scen...'}
                 linkText={'Learn more'}
                 linkHref={'https://blog.originprotocol.com/trevor-jones-don-diablo-and-alotta-money-launch-%CE%BEth%CE%BEr%CE%BEal-on-origins-nft-launchpad-f62f5e2c9629'}
               />
               <Card
-                webProperty={'story'}
+                webProperty={'launchpad'}
                 title={'BT'}
                 imgSrc={assetRootPath('/images/screens/background-bt.svg')}
                 imgAlt={'BT'}
                 thumbnailSrc={assetRootPath('/images/screens/avatar-bt.svg')}
                 thumbnailAlt={'BT'}
-                body={isMobile ? '' : "Metaversal is BT's 14th artist album and the first album imagined as a programatic blockchain experience. It encompasses beautiful audio..."}
+                body={"Metaversal is BT's 14th artist album and the first album imagined as a programatic blockchain experience. It encompasses beautiful audio..."}
                 linkText={'Learn more'}
                 linkHref={'https://blog.originprotocol.com/origin-partners-with-bt-to-release-an-album-unlike-anything-youve-seen-before-8659e48ad441'}
               />
             </div>
-            <div className='d-none'>
-              <Typography.H3>Community</Typography.H3>
-              <div className='socials container-fluid mt-5 mb-5'>
-                <div className='card'>
-                <Card
-                  webProperty={'originprotocol'}
-                  title={'Twitter'}
-                  imgSrc={assetRootPath('/images/logos/social-twitter.svg')}
-                  imgAlt={'Twitter'}
-                  linkText={"Join on Twitter"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                />
-                </div>
-                <Card
-                  webProperty={'originprotocol'}
-                  title={'Discord'}
-                  imgSrc={assetRootPath('/images/logos/social-discord.svg')}
-                  imgAlt={'Discord'}
-                  linkText={"Join on Discord"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                />
-                <Card
-                  webProperty={'originprotocol'}
-                  title={'Telegram'}
-                  imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
-                  imgAlt={'Telegram'}
-                  linkText={"Join on Telegram"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                />
-                <Card
-                  webProperty={'originprotocol'}
-                  title={'Facebook'}
-                  imgSrc={assetRootPath('/images/logos/social-facebook.svg')}
-                  imgAlt={'Facebook'}
-                  linkText={"Join on Facebook"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                />
-                <Card
-                  webProperty={'originprotocol'}
-                  title={'Instagram'}
-                  imgSrc={assetRootPath('/images/logos/social-ig.svg')}
-                  imgAlt={'Instagram'}
-                  linkText={"Join on Instagram"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                />
-                <Card
-                  webProperty={'originprotocol'}
-                  title={'Youtube'}
-                  imgSrc={assetRootPath('/images/logos/social-youtube.svg')}
-                  imgAlt={'Youtube'}
-                  linkText={"Join on Youtube"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                />
-                <Card
-                  webProperty={'originprotocol'}
-                  title={'Reddit'}
-                  imgSrc={assetRootPath('/images/logos/social-reddit.svg')}
-                  imgAlt={'Reddit'}
-                  linkText={"Join on Reddit"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                />
-                <Card
-                  webProperty={'originprotocol'}
-                  title={'Blockfolio'}
-                  imgSrc={assetRootPath('/images/logos/social-blockfolio.svg')}
-                  imgAlt={'Blockfolio'}
-                  linkText={"Join on Blockfolio"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                />
-              </div>
-              <Typography.H7>Region-specific channels</Typography.H7>
-              <div className='telegram container-fluid mt-5'>
-                <Card
-                  webProperty={'originprotocol'}
-                  title={'Indonesian'}
-                  imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
-                  imgAlt={'Telegram'}
-                  linkText={"Join"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                />
-                <Card
-                  webProperty={'originprotocol'}
-                  title={'Spanish'}
-                  imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
-                  imgAlt={'Telegram'}
-                  linkText={"Join"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                />
-                <Card
-                  webProperty={'originprotocol'}
-                  title={'Russian'}
-                  imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
-                  imgAlt={'Telegram'}
-                  linkText={"Join"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                />
-                <Card
-                  webProperty={'originprotocol'}
-                  title={'Korean'}
-                  imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
-                  imgAlt={'Telegram'}
-                  linkText={"Join"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                />
-                <Card
-                  webProperty={'originprotocol'}
-                  title={'Turkish'}
-                  imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
-                  imgAlt={'Telegram'}
-                  linkText={"Join"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                />
-                <Card
-                  webProperty={'originprotocol'}
-                  title={'Vietnamese'}
-                  imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
-                  imgAlt={'Telegram'}
-                  linkText={"Join"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                />
-                <Card
-                  webProperty={'originprotocol'}
-                  title={'Portugese'}
-                  imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
-                  imgAlt={'Telegram'}
-                  linkText={"Join"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                />
-                <Card
-                  webProperty={'originprotocol'}
-                  title={'Japanse'}
-                  imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
-                  imgAlt={'Telegram'}
-                  linkText={"Join"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                />
-              </div>
+            <Typography.H3>Community</Typography.H3>
+            <div className='socials container-fluid mt-5 mb-5'>
+            <a
+              href='https://twitter.com/originprotocol'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <AltCard
+                title={'TWITTER'}
+                body={'156.8k followers'}
+                imgSrc={assetRootPath('/images/logos/social-twitter.svg')}
+                imgAlt={'Twitter'}
+                narrow={false}
+              />
+            </a>
+              <AltCard
+                title={'DISCORD'}
+                body={'156.8k followers'}
+                imgSrc={assetRootPath('/images/logos/social-discord.svg')}
+                imgAlt={'Discord'}
+                linkText={"Join on Discord"}
+                linkHref={'https://twitter.com/originprotocol'}
+                narrow={false}
+              />
+              <AltCard
+                title={'TELEGRAM'}
+                body={'156.8k followers'}
+                imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
+                imgAlt={'Telegram'}
+                linkText={"Join on Telegram"}
+                linkHref={'https://twitter.com/originprotocol'}
+                narrow={false}
+              />
+              <AltCard
+                title={'FACEBOOK'}
+                body={'156.8k followers'}
+                imgSrc={assetRootPath('/images/logos/social-facebook.svg')}
+                imgAlt={'Facebook'}
+                linkText={"Join on Facebook"}
+                linkHref={'https://twitter.com/originprotocol'}
+                narrow={false}
+              />
+              <AltCard
+                title={'INSTAGRAM'}
+                body={'156.8k followers'}
+                imgSrc={assetRootPath('/images/logos/social-ig.svg')}
+                imgAlt={'Instagram'}
+                linkText={"Join on Instagram"}
+                linkHref={'https://twitter.com/originprotocol'}
+                narrow={false}
+              />
+              <AltCard
+                title={'YOUTUBE'}
+                body={'156.8k followers'}
+                imgSrc={assetRootPath('/images/logos/social-youtube.svg')}
+                imgAlt={'Youtube'}
+                linkText={"Join on Youtube"}
+                linkHref={'https://twitter.com/originprotocol'}
+                narrow={false}
+              />
+              <AltCard
+                title={'REDDIT'}
+                body={'156.8k followers'}
+                imgSrc={assetRootPath('/images/logos/social-reddit.svg')}
+                imgAlt={'Reddit'}
+                linkText={"Join on Reddit"}
+                linkHref={'https://twitter.com/originprotocol'}
+                narrow={false}
+              />
+              <AltCard
+                title={'BLOCKFOLIO'}
+                body={'156.8k followers'}
+                imgSrc={assetRootPath('/images/logos/social-blockfolio.svg')}
+                imgAlt={'Blockfolio'}
+                linkText={"Join on Blockfolio"}
+                linkHref={'https://twitter.com/originprotocol'}
+                narrow={false}
+            />
             </div>
+            <Typography.H7>Region-specific channels</Typography.H7>
+            <div className='telegram container-fluid mt-5'>
+              <AltCard
+                title={'INDONESIAN'}
+                body={'156.8k followers'}
+                imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
+                imgAlt={'Telegram'}
+                linkText={"Join"}
+                linkHref={'https://twitter.com/originprotocol'}
+                narrow={true}
+                thumbnailSrc={assetRootPath('/images/logos/social-twitter.svg')}
+                thumbnailAlt={'Flag'}
+              />
+              <AltCard
+                title={'SPANISH'}
+                body={'156.8k followers'}
+                imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
+                imgAlt={'Telegram'}
+                linkText={"Join"}
+                linkHref={'https://twitter.com/originprotocol'}
+                narrow={true}
+                thumbnailSrc={assetRootPath('/images/logos/social-twitter.svg')}
+                thumbnailAlt={'Flag'}
+              />
+              <AltCard
+                title={'RUSSIAN'}
+                body={'156.8k followers'}
+                imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
+                imgAlt={'Telegram'}
+                linkText={"Join"}
+                linkHref={'https://twitter.com/originprotocol'}
+                narrow={true}
+                thumbnailSrc={assetRootPath('/images/logos/social-twitter.svg')}
+                thumbnailAlt={'Flag'}
+              />
+              <AltCard
+                title={'KOREAN'}
+                body={'156.8k followers'}
+                imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
+                imgAlt={'Telegram'}
+                linkText={"Join"}
+                linkHref={'https://twitter.com/originprotocol'}
+                narrow={true}
+                thumbnailSrc={assetRootPath('/images/logos/social-twitter.svg')}
+                thumbnailAlt={'Flag'}
+              />
+              <AltCard
+                title={'TURKISH'}
+                body={'156.8k followers'}
+                imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
+                imgAlt={'Telegram'}
+                linkText={"Join"}
+                linkHref={'https://twitter.com/originprotocol'}
+                narrow={true}
+                thumbnailSrc={assetRootPath('/images/logos/social-twitter.svg')}
+                thumbnailAlt={'Flag'}
+              />
+              <AltCard
+                title={'VIETNAMESE'}
+                body={'156.8k followers'}
+                imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
+                imgAlt={'Telegram'}
+                linkText={"Join"}
+                linkHref={'https://twitter.com/originprotocol'}
+                narrow={true}
+                thumbnailSrc={assetRootPath('/images/logos/social-twitter.svg')}
+                thumbnailAlt={'Flag'}
+              />
+              <AltCard
+                title={'PORTUGUESE'}
+                body={'156.8k followers'}
+                imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
+                imgAlt={'Telegram'}
+                linkText={"Join"}
+                linkHref={'https://twitter.com/originprotocol'}
+                narrow={true}
+                thumbnailSrc={assetRootPath('/images/logos/social-twitter.svg')}
+                thumbnailAlt={'Flag'}
+              />
+              <AltCard
+                title={'JAPANESE'}
+                body={'156.8k followers'}
+                imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
+                imgAlt={'Telegram'}
+                linkText={"Join"}
+                linkHref={'https://twitter.com/originprotocol'}
+                narrow={true}
+                thumbnailSrc={assetRootPath('/images/logos/social-twitter.svg')}
+                thumbnailAlt={'Flag'}
+              />
+    </div>
           </section>
           <Team />
           <section className='extended light text-center'>
@@ -336,7 +368,7 @@ const Community = ({ locale, onLocale, isMobile }) => {
 
             .contact .drops.container-fluid {
               display: grid;
-              grid-template-columns: 1fr 1fr;
+              grid-template-columns: repeat(2, 1fr);
               grid-gap: 2vw;
             }
 
@@ -385,7 +417,18 @@ const Community = ({ locale, onLocale, isMobile }) => {
             }
 
             @media (max-width: 1199px) {
-              
+              .contact .drops.container-fluid {
+                display: grid;
+                grid-template-columns: 1fr;
+              }
+
+              .contact .socials.container-fluid {
+                grid-template-columns: repeat(4, 1fr);
+              }
+  
+              .contact .telegram.container-fluid {
+                grid-template-columns: repeat(4, 1fr);
+              }
             }
 
             @media (max-width: 799px) {
@@ -395,16 +438,28 @@ const Community = ({ locale, onLocale, isMobile }) => {
                 background-size: 100vw;
               }
 
-              section.contact {
-                display: none;
-              }
-
               .layout {
                 flex-direction: column;
               }
 
               .image-container {
                 margin-top: 5%;
+              }
+
+              .contact .drops.container-fluid {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-gap: 2vw;
+              }
+
+              .contact .socials.container-fluid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 2vw;
+              }
+  
+              .contact .telegram.container-fluid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 2vw;
               }
 
               .company {
