@@ -177,7 +177,6 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
           </div>
         </div>
       </section>
-      {/*<News2 articles={articles} categories={categories} homepage={homepage} />*/}
       <section className="news grey">
         <div className="d-flex flex-column">
           <div className="d-flex flex-row">

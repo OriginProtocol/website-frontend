@@ -7,7 +7,6 @@ import Dropdown from 'components/Dropdown'
 import DownCaret from 'components/DownCaret'
 import { assetRootPath } from 'utils/image'
 import withIsMobile from 'hoc/withIsMobile'
-//import Scard from "./strapi/card";
 
 const Category = ({category, setCategory}) => {
   const [open, setOpen] = useState(false)
