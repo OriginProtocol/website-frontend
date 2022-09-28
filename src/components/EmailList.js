@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { fbt } from 'fbt'
 import { toast } from 'react-toastify'
-import { Typography } from 'origin-storybook'
+import { Typography } from '@originprotocol/origin-storybook'
 
 const EmailList = () => {
   const [email, setEmail] = useState()

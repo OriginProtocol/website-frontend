@@ -1341,6 +1341,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@originprotocol/origin-storybook@^0.11.7":
+  version "0.11.7"
+  resolved "https://registry.yarnpkg.com/@originprotocol/origin-storybook/-/origin-storybook-0.11.7.tgz#7e5e9e5c639132f2cbb9a58c48f24b644a9d5590"
+  integrity sha512-Vk7jjVH/KmdmFca40ej+2s7fGQkBS9jKvChighDzUclbyBakbpCcviZGfhF+YIo+2XHeDZ/w9tHpQDrxKb8Ycw==
+
 "@popperjs/core@^2.11.5":
   version "2.11.6"
   resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.6.tgz"
@@ -6695,11 +6700,6 @@ optionator@^0.9.1:
     prelude-ls "^1.2.1"
     type-check "^0.4.0"
     word-wrap "^1.2.3"
-
-origin-storybook@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/origin-storybook/-/origin-storybook-0.9.0.tgz#8fcac4a4b2916d47515d7ca60c1ba685b89512a6"
-  integrity sha512-WbKybSOf1c7eMYwKuUP1WWUcFiXycm+0WasdTycyMhM4dxmNvNht3BLgRXy7ymWned8Yfc2Q8kZQM7+5je+i5w==
 
 os-browserify@^0.3.0:
   version "0.3.0"

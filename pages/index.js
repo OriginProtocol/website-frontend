@@ -6,9 +6,10 @@ import EmailList from 'components/EmailList'
 import StatStore from 'stores/StatStore'
 import { assetRootPath } from 'utils/image'
 import { adjustLinkHref } from 'utils/utils'
-import { Typography, Header, Footer, Card } from 'origin-storybook'
+import { Typography, Header, Footer, Card } from '@originprotocol/origin-storybook'
 import useArticleQuery from 'queries/useArticleQuery'
 import withIsMobile from 'hoc/withIsMobile'
+import { mappedLinks } from 'utils/constants'
 
 const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) => {
   const articleQuery = useArticleQuery(1)
@@ -27,7 +28,10 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
   return (
     <>
       <header>
-        <Header webProperty='originprotocol' />
+        <Header
+          mappedLinks={mappedLinks.links}
+          webProperty='originprotocol'
+      />
       </header>
       <section className="intro grey">
         <div className="container">

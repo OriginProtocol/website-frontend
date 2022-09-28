@@ -2,7 +2,8 @@ import React from 'react'
 import Head from 'next/head'
 import News from 'components/News'
 import { assetRootPath } from 'utils/image'
-import { Typography, Header, Footer, Card } from 'origin-storybook'
+import { Typography, Header, Footer, Card } from '@originprotocol/origin-storybook'
+import { mappedLinks } from 'utils/constants'
 
 export default function Company({ locale, onLocale }) {
   return (
@@ -10,7 +11,10 @@ export default function Company({ locale, onLocale }) {
       <Head>
         <title>Origin Protocol</title>
       </Head>
-      <Header webProperty='originprotocol'/>
+      <Header
+        mappedLinks={mappedLinks.links}
+        webProperty='originprotocol'
+      />
       <section className='intro grey'>
         <Typography.H1>Latest news</Typography.H1>
       </section>

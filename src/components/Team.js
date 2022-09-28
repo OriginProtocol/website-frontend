@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Typography } from 'origin-storybook'
+import { Typography } from '@originprotocol/origin-storybook'
 import { assetRootPath } from 'utils/image'
 import team from '../../public/team.json'
 

@@ -17,6 +17,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@originprotocol/origin-storybook": "^0.11.7",
     "babel": "^6.23.0",
     "babel-plugin-react-html-attrs": "2",
     "classnames": "^2.3.1",
@@ -27,7 +28,6 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "next": "12.2.5",
-    "origin-storybook": "^0.9.0",
     "per-env": "^1.0.2",
     "prettier": "^2.7.1",
     "pullstate": "^1.23.0",

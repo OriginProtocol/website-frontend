@@ -1,23 +1,44 @@
 import React, { useState, useEffect } from 'react'
-import { Typography, Header, Footer, Card, AltCard } from 'origin-storybook'
+import { useStoreState } from 'pullstate'
+import StatStore from 'stores/StatStore'
+import { Typography, Header, Footer, Card, AltCard } from '@originprotocol/origin-storybook'
 import Contributors from 'components/Contributors'
 import Team from 'components/Team'
 import team from '../public/team.json'
+import useSocialQuery from 'queries/useSocialQuery'
 import withIsMobile from 'hoc/withIsMobile'
 import { assetRootPath } from 'utils/image'
+import { formatCurrency } from 'utils/math'
+import { mappedLinks } from 'utils/constants'
 
 const Community = ({ locale, onLocale, isMobile }) => {
   const [loaded, setLoaded] = useState(false);
 
+  const socials = useStoreState(StatStore, (s) => {
+    return s.socials || 0
+  })
+
+  const socialQuery = useSocialQuery({
+    onSuccess: (socials) => {
+      StatStore.update((s) => {
+        s.socials = socials
+      })
+    },
+  })
+
   useEffect(() => {
-    setLoaded(true);
+    socialQuery.refetch()
+    setLoaded(true)
   }, []);
 
   return (
     <>
       {loaded && (
         <div>
-          <Header webProperty='originprotocol'/>
+          <Header
+            webProperty='originprotocol'
+            mappedLinks={mappedLinks.links}
+          />
           <section className='intro grey'>
             <div className='container-fluid d-flex layout'>
               <div className='d-flex flex-column'>
@@ -86,70 +107,25 @@ const Community = ({ locale, onLocale, isMobile }) => {
             </div>
             <Typography.H3>Community</Typography.H3>
             <div className='socials container-fluid mt-5 mb-5'>
-            <a
-              href='https://twitter.com/originprotocol'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <AltCard
-                title={'TWITTER'}
-                body={'156.8k followers'}
-                imgSrc={assetRootPath('/images/logos/social-twitter.svg')}
-                imgAlt={'Twitter'}
-                narrow={false}
-              />
-            </a>
-              <AltCard
-                title={'DISCORD'}
-                body={'156.8k followers'}
-                imgSrc={assetRootPath('/images/logos/social-discord.svg')}
-                imgAlt={'Discord'}
-                linkText={"Join on Discord"}
-                linkHref={'https://twitter.com/originprotocol'}
-                narrow={false}
-              />
-              <AltCard
-                title={'TELEGRAM'}
-                body={'156.8k followers'}
-                imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
-                imgAlt={'Telegram'}
-                linkText={"Join on Telegram"}
-                linkHref={'https://twitter.com/originprotocol'}
-                narrow={false}
-              />
-              <AltCard
-                title={'FACEBOOK'}
-                body={'156.8k followers'}
-                imgSrc={assetRootPath('/images/logos/social-facebook.svg')}
-                imgAlt={'Facebook'}
-                linkText={"Join on Facebook"}
-                linkHref={'https://twitter.com/originprotocol'}
-                narrow={false}
-              />
-              <AltCard
-                title={'INSTAGRAM'}
-                body={'156.8k followers'}
-                imgSrc={assetRootPath('/images/logos/social-ig.svg')}
-                imgAlt={'Instagram'}
-                linkText={"Join on Instagram"}
-                linkHref={'https://twitter.com/originprotocol'}
-                narrow={false}
-              />
-              <AltCard
+              {socials && socials.stats.map((social) => {
+                if (social.name.indexOf(' ') < 0) {
+                  return (
+                    <AltCard
+                      title={social.name.toUpperCase()}
+                      body={`${formatCurrency(social.subscribed_count / 1000, 1)}k followers`}
+                      imgSrc={assetRootPath(`/images/logos/social-${social.name}.svg`)}
+                      imgAlt={social.name}
+                      narrow={false}
+                    />
+                  )
+                }
+              })}
+              {/*<AltCard
                 title={'YOUTUBE'}
                 body={'156.8k followers'}
                 imgSrc={assetRootPath('/images/logos/social-youtube.svg')}
                 imgAlt={'Youtube'}
                 linkText={"Join on Youtube"}
-                linkHref={'https://twitter.com/originprotocol'}
-                narrow={false}
-              />
-              <AltCard
-                title={'REDDIT'}
-                body={'156.8k followers'}
-                imgSrc={assetRootPath('/images/logos/social-reddit.svg')}
-                imgAlt={'Reddit'}
-                linkText={"Join on Reddit"}
                 linkHref={'https://twitter.com/originprotocol'}
                 narrow={false}
               />
@@ -161,24 +137,25 @@ const Community = ({ locale, onLocale, isMobile }) => {
                 linkText={"Join on Blockfolio"}
                 linkHref={'https://twitter.com/originprotocol'}
                 narrow={false}
-            />
+              />*/}
             </div>
             <Typography.H7>Region-specific channels</Typography.H7>
+            {socials && (
             <div className='telegram container-fluid mt-5'>
               <AltCard
                 title={'INDONESIAN'}
-                body={'156.8k followers'}
+                body={`${formatCurrency(1400 / 1000, 1)}k followers`}
                 imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
                 imgAlt={'Telegram'}
                 linkText={"Join"}
                 linkHref={'https://twitter.com/originprotocol'}
                 narrow={true}
-                thumbnailSrc={assetRootPath('/images/logos/social-twitter.svg')}
+                thumbnailSrc={assetRootPath('/images/graphics/flag-indonesia.png')}
                 thumbnailAlt={'Flag'}
               />
               <AltCard
-                title={'SPANISH'}
-                body={'156.8k followers'}
+                title={'KOREAN'}
+                body={`${formatCurrency(1600 / 1000, 1)}k followers`}
                 imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
                 imgAlt={'Telegram'}
                 linkText={"Join"}
@@ -189,7 +166,7 @@ const Community = ({ locale, onLocale, isMobile }) => {
               />
               <AltCard
                 title={'RUSSIAN'}
-                body={'156.8k followers'}
+                body={`${formatCurrency(1300 / 1000, 1)}k followers`}
                 imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
                 imgAlt={'Telegram'}
                 linkText={"Join"}
@@ -199,8 +176,8 @@ const Community = ({ locale, onLocale, isMobile }) => {
                 thumbnailAlt={'Flag'}
               />
               <AltCard
-                title={'KOREAN'}
-                body={'156.8k followers'}
+                title={'SPANISH'}
+                body={`${formatCurrency(2400 / 1000, 1)}k followers`}
                 imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
                 imgAlt={'Telegram'}
                 linkText={"Join"}
@@ -211,7 +188,7 @@ const Community = ({ locale, onLocale, isMobile }) => {
               />
               <AltCard
                 title={'TURKISH'}
-                body={'156.8k followers'}
+                body={`${formatCurrency(1100 / 1000, 1)}k followers`}
                 imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
                 imgAlt={'Telegram'}
                 linkText={"Join"}
@@ -222,38 +199,16 @@ const Community = ({ locale, onLocale, isMobile }) => {
               />
               <AltCard
                 title={'VIETNAMESE'}
-                body={'156.8k followers'}
+                body={`${formatCurrency(2300 / 1000, 1)}k followers`}
                 imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
                 imgAlt={'Telegram'}
                 linkText={"Join"}
                 linkHref={'https://twitter.com/originprotocol'}
                 narrow={true}
-                thumbnailSrc={assetRootPath('/images/logos/social-twitter.svg')}
+                thumbnailSrc={assetRootPath('/images/graphics/flag-vietnam.png')}
                 thumbnailAlt={'Flag'}
               />
-              <AltCard
-                title={'PORTUGUESE'}
-                body={'156.8k followers'}
-                imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
-                imgAlt={'Telegram'}
-                linkText={"Join"}
-                linkHref={'https://twitter.com/originprotocol'}
-                narrow={true}
-                thumbnailSrc={assetRootPath('/images/logos/social-twitter.svg')}
-                thumbnailAlt={'Flag'}
-              />
-              <AltCard
-                title={'JAPANESE'}
-                body={'156.8k followers'}
-                imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
-                imgAlt={'Telegram'}
-                linkText={"Join"}
-                linkHref={'https://twitter.com/originprotocol'}
-                narrow={true}
-                thumbnailSrc={assetRootPath('/images/logos/social-twitter.svg')}
-                thumbnailAlt={'Flag'}
-              />
-    </div>
+    </div>)}
           </section>
           <Team />
           <section className='extended light text-center'>

@@ -6,7 +6,7 @@ import useCirculatingSupplyQuery from 'queries/useCirculatingSupplyQuery'
 import useTotalSupplyQuery from 'queries/useTotalSupplyQuery'
 import { formatCurrency } from 'utils/math'
 import { assetRootPath } from 'utils/image'
-import { Typography } from 'origin-storybook'
+import { Typography } from '@originprotocol/origin-storybook'
 import withIsMobile from 'hoc/withIsMobile'
 
 const Dashboard = ({ogn, isMobile}) => {

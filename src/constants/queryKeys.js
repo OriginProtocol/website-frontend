@@ -6,4 +6,5 @@ export const QUERY_KEYS = {
   TotalSupply: () => ['totalSupply'],
   Price: () => ['price'],
   Repository: () => ['repository'],
+  Social: () => ['social']
 }

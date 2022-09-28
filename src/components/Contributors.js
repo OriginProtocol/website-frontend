@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Typography } from 'origin-storybook'
+import { Typography } from '@originprotocol/origin-storybook'
 import useRepositoryQuery from 'queries/useRepositoryQuery'
 import useContributorQuery from 'queries/useContributorQuery'
 
