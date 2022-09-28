@@ -113,7 +113,7 @@ const Community = ({ locale, onLocale, isMobile }) => {
                     <AltCard
                       title={social.name.toUpperCase()}
                       body={`${formatCurrency(social.subscribed_count / 1000, 1)}k followers`}
-                      imgSrc={assetRootPath(`/images/logos/social-${social.name}.svg`)}
+                      imgSrc={assetRootPath(`/images/logos/social-${social.name.toLowerCase()}.svg`)}
                       imgAlt={social.name}
                       narrow={false}
                     />
