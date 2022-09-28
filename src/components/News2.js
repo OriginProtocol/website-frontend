@@ -183,7 +183,7 @@ const News2 = ({isMobile, articles}) => {
             <Card
               webProperty={'originprotocol'}
               title={a.attributes.title}
-              imgSrc={a.attributes.image &&getStrapiMedia(a.attributes.image)}
+              imgSrc={getStrapiMedia(a.attributes.cover)}
               imgAlt={'Origin Protocol'}
               body={a.attributes.description}
               linkText={'Read more'}

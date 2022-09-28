@@ -8,12 +8,12 @@ import { fetchAPI } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
 
 const Article = ({ article, categories }) => {
-  const imageUrl = getStrapiMedia(article.attributes.image);
+  const imageUrl = getStrapiMedia(article.attributes.cover);
 
   const seo = {
     metaTitle: article.attributes.title,
     metaDescription: article.attributes.description,
-    shareImage: article.attributes.image,
+    shareImage: article.attributes.cover,
     article: true,
   };
 
@@ -87,7 +87,7 @@ export async function getStaticProps({ params }) {
     filters: {
       slug: params.slug,
     },
-    populate: ["image", "category", "author.picture"],
+    populate: ["cover", "category", "author.picture"],
   });
   const categoriesRes = await fetchAPI("/categories");
 
