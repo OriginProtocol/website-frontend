@@ -10,26 +10,41 @@ import withIsMobile from 'hoc/withIsMobile'
 import Scard from "./strapi/card";
 import { getStrapiMedia } from '../../lib/media'
 
-const Category = ({category, setCategory}) => {
+const Category = ({categories, category, setCategory}) => {
   const [open, setOpen] = useState(false)
-  const categories = ['All news', 'News', 'Food', 'Nature', 'Tech', 'Story']
+  //const categories = ['All news', 'News', 'Food', 'Nature', 'Tech', 'Story']
+  const capitalize = (name) => {
+    return name.slice(0,1).toUpperCase() + name.slice(1, name.length)
+  }
+  console.log(category)
   return (
     <>
       <Dropdown
         content={
           <div className="dropdown-menu d-flex flex-column">
+            <div
+              key={0}
+              className="dropdown-item justify-content-start align-items-center"
+              onClick={(e) => {
+                e.preventDefault()
+                setCategory(0)
+                setOpen(false)
+              }}
+            >
+              All news
+            </div>
             {categories.map((c) => {
               return (
                 <div
-                  key={c}
+                  key={c.id}
                   className="dropdown-item justify-content-start align-items-center"
                   onClick={(e) => {
                     e.preventDefault()
-                    setCategory(c === 'All news' ? '' : c.toLowerCase())
+                    setCategory(c.id)
                     setOpen(false)
                   }}
                 >
-                  {`${c}`}
+                  {`${capitalize(c.attributes.name)}`}
                 </div>
               )
             })}
@@ -45,7 +60,7 @@ const Category = ({category, setCategory}) => {
             setOpen(!open)
           }}
         >
-          {category === '' ? 'All news' : category.slice(0,1).toUpperCase() + category.slice(1, category.length)}
+          {!category ? 'All news' : capitalize(categories[category-1].attributes.name)}
           <div className='downcaret'>
             <DownCaret color={'black'} size={26} />
           </div>
@@ -113,7 +128,7 @@ const Category = ({category, setCategory}) => {
   )
 }
 
-const News2 = ({isMobile, articles, categories}) => {
+const News2 = ({isMobile, articles, meta, categories}) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -123,27 +138,19 @@ const News2 = ({isMobile, articles, categories}) => {
   const [category, setCategory] = useState('')
   const [page, setPage] = useState(1)
   const [pageNumbers, setPageNumbers] = useState([])
-  
-  const articleQuery = useArticleQuery(
-    page,
-    category
-  )
 
-  const articlePages = useMemo(
+  /*const articlePages = useMemo(
     () => (articleQuery.isSuccess ? articleQuery.data.meta.pagination.pageCount : 0),
     [articleQuery.isSuccess, articleQuery.data]
-  )
+  )*/
 
-  const receivedPage = articleQuery.data
+  const articlePages = (category ? categories[category-1].attributes.articles.length : meta.pagination.total) % 9
+
+  /*const receivedPage = articleQuery.data
     ? articleQuery.data.meta.pagination.page
-    : 1
+    : 1*/
 
-  useEffect(() => {
-    const dataRefetch =
-      (receivedPage !== page) &&
-      !articleQuery.isRefetching
-    if (dataRefetch) articleQuery.refetch()
-  }, [page, category, articleQuery.data])
+  const receivedPage = page
 
   /*const currentPageArticles = useMemo(
     () => (articleQuery.data ? articleQuery.data.data : []),
@@ -162,41 +169,43 @@ const News2 = ({isMobile, articles, categories}) => {
       2,
       pages,
       pages - 1,
-      receivedPage,
-      receivedPage - 1,
-      receivedPage + 1,
+      page,
+      page - 1,
+      page + 1,
     ]
     pageNumbers = pageNumbers.filter((number) => number > 0 && number <= pages)
     pageNumbers = [...new Set(pageNumbers)]
     pageNumbers = pageNumbers.sort((a, b) => a - b)
     setPageNumbers(pageNumbers)
-  }, [receivedPage, articlePages])
+  }, [page, articlePages])
 
   return (
   <>
     {loaded && currentPageArticles && (
     <section className='stories light'>
       <div className='container-fluid'>
-        <Category category={category} setCategory={setCategory}/>
+        <Category categories={categories} category={category} setCategory={setCategory}/>
         <div className='container mt-5'>
           {currentPageArticles.map((a, i) => {
-            return (
-              <Card
-                webProperty={'originprotocol'}
-                title={a.attributes.title}
-                imgSrc={getStrapiMedia(a.attributes.cover)}
-                imgAlt={'Origin Protocol'}
-                body={a.attributes.description}
-                linkText={'Read more'}
-                linkHref={`/article/${a.attributes.slug}`}
-              />
-            )
+            if (!category || category === a.attributes.category.data.id) {
+              return (
+                <Card
+                  webProperty={'originprotocol'}
+                  title={a.attributes.title}
+                  imgSrc={getStrapiMedia(a.attributes.cover)}
+                  imgAlt={'Origin Protocol'}
+                  body={a.attributes.description}
+                  linkText={'Read more'}
+                  linkHref={`/article/${a.attributes.slug}`}
+                />
+              )
+            }
           })}
         </div>
         <div className="pagination d-flex justify-content-center">
           {pageNumbers.map((pageNumber, index) => {
             const isCurrent =
-              pageNumber === articleQuery.data.meta.pagination.page
+              pageNumber === page
             const skippedAPage =
               index > 0 && pageNumber - pageNumbers[index - 1] !== 1
 

@@ -7,7 +7,7 @@ import { Typography, Header, Footer, Card } from '@originprotocol/origin-storybo
 import { mappedLinks } from 'utils/constants'
 import { fetchAPI } from "../lib/api";
 
-export default function Company({ locale, onLocale, articles, categories }) {
+export default function Company({ locale, onLocale, articles, meta, categories }) {
   return (
     <>
       <Head>
@@ -22,8 +22,8 @@ export default function Company({ locale, onLocale, articles, categories }) {
           <Typography.H1>Latest news</Typography.H1>
         </div>
       </section>
-      <News />
-      <News2 articles={articles} categories={categories} />
+      {/*<News />*/}
+      <News2 articles={articles} meta={meta} categories={categories} />
       <section className='articles grey'>
         <div className='container-fluid'>
           <Typography.H2>As seen in</Typography.H2>
@@ -225,6 +225,7 @@ export async function getServerSideProps() {
   return {
     props: {
       articles: articlesRes.data,
+      meta: articlesRes.meta,
       categories: categoriesRes.data,
     },
   };
