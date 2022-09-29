@@ -62,10 +62,10 @@ const Dashboard = ({ogn, isMobile}) => {
 
   return (
     <>
-      <div className='token-dashboard gradient2 flex flex-col'>
+      <div className='token-dashboard gradient2 flex flex-col md:rounded-2xl py-12 px-6 md:py-12 md:px-20'>
         <div className='flex flex-row'>
           <div className='text-container'>
-            <div className='flex flex-row'>
+            <div className='flex flex-row items-center'>
               <img
                 src={assetRootPath(`/images/logos/${coin}-logo.svg`)}
                 className={`logo`}
@@ -133,8 +133,6 @@ const Dashboard = ({ogn, isMobile}) => {
       <style jsx>{`
         .token-dashboard {
           color: white;
-          padding: 50px;
-          border-radius: 20px;
           align-content: flex-start;
         }
 
@@ -171,13 +169,14 @@ const Dashboard = ({ogn, isMobile}) => {
         }
 
         @media (max-width: 767px) {
-          .token-dashboard {
-            padding: 20px;
+          .logo {
+            width: 10%;
+            margin-right: 6%;
           }
 
-          .logo {
-            width: 20%;
-            margin-right: 2%;
+          .text {
+            font-size: 1.4rem;
+            font-weight: 500;
           }
 
           .value-container {
@@ -195,6 +194,8 @@ const Dashboard = ({ogn, isMobile}) => {
           .button {
             align-self: auto;
             margin: 25px auto 0 auto;
+            width: 100%;
+            text-align: center;
           }
 
           .b1 {

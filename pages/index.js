@@ -65,18 +65,18 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
       </section>
       <section className="story light flex flex-col z-10 relative">
         <div className='max-w-screen-xl mx-auto'>
-          <div className="flex layout items-center">
-            <div className="image-container pt-20 flex-1">
+          <div className="flex flex-col-reverse md:flex-row  layout items-center">
+            <div className="image-container self-end md:self-start pt-20 flex-1">
               <img
                 src={assetRootPath('/images/screens/screens-story.svg')}
                 className="screen1"
                 alt="screens"
               />
             </div>
-            <div className="text-container flex-1 ml-10">
+            <div className="text-container flex-1 md:ml-10 pt-20 md:pt-0 px-6 md:px-0 text-center md:text-left">
               <img
                 src={assetRootPath('/images/logos/origin-story-wordmark.svg')}
-                className="origin-story-logo"
+                className="mx-auto md:mx-0 mb-6 md:mb-0"
                 alt="Origin Story Logo"
               />
               <Typography.H3>The record-breaking NFT platform</Typography.H3>
@@ -92,21 +92,21 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
               />
             </div>
           </div>
-          <div className='mt-10 mb-20'>
+          <div className='md:mt-10 md:mb-20'>
             <Dashboard ogn />
           </div>
         </div>
       </section>
       <section className="ousd dark gradient3 flex flex-col">
-        <div className='container-fluid'>
-          <div className="flex layout">
-            <div className='text-container'>
+        <div className='max-w-screen-xl mx-auto md:pb-20 relative'>
+          <div className="flex flex-col md:flex-row layout">
+            <div className='text-container text-center pt-14 pb-10 px-6 md:text-left md:pt-32 md:pb-28 md:pr-10 md:w-1/2'>
               <img
                 src={assetRootPath('/images/logos/origin-dollar-wordmark.svg')}
-                className="origin-dollar-logo mb-2"
+                className="origin-dollar-logo mb-2 mx-auto md:mx-0"
                 alt="Origin Dollar Logo"
               />
-              <Typography.H3 className='text-white'>A yield-generating stablecoin</Typography.H3>
+              <Typography.H3 className='text-white'>The yield-generating stablecoin</Typography.H3>
               <div className='lighter mt-2 mb-4'>Origin Dollar simplifies DeFi by eliminating the need for staking or lock-ups. Hold OUSD in any Ethereum wallet or custody solution and watch the balance increase every day.</div>
               <a
                 href='https://ousd.com'
@@ -117,7 +117,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                 Learn more
               </a>
             </div>
-            <div className='image-container'>
+            <div className='image-container flex-1 pb-10 md:absolute md:top-6 md:-right-20 md:w-1/2'>
               <img
                 src={assetRootPath('/images/screens/screens-ousd.svg')}
                 className="screen3"
@@ -131,11 +131,11 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
       <section className="company light">
         <div className='container-fluid'>
           <div className="flex flex-col">
-            <div className="community flex layout">
+            <div className="flex flex-col mx-auto pt-10 px-10 max-w-screen-xl md:flex-row">
               <div className="image-container">
                 <img
                   src={assetRootPath('/images/graphics/ellipses-homepage.png')}
-                  className="ellipses"
+                  className="ellipses pb-10"
                   alt="Ellipses"
                 />
               </div>
@@ -153,8 +153,8 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                 </Link>
               </div>
             </div>
-            <div className="team flex layout">
-              <div className="text-container">
+            <div className="team flex layout flex-col-reverse mt-10 md:flex-row max-w-screen-xl mx-auto">
+              <div className="text-container px-6 mt-10">
                 <Typography.H2>A world-class team</Typography.H2>
                 <div className='lighter mt-2 mb-4'>Our team is led by serial entrepreneurs, early employees at YouTube, and engineering managers at Google, Coinbase and Dropbox.</div>
                 <img
@@ -179,7 +179,11 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                   View careers
                 </a>
               </div>
-              <div className={`${styles.videoContainer}`}>
+              <div className='relative'>
+                <span className={`absolute right-0 -top-10 md:-top-32 md:left-20 w-4/5 md:w-full`}>
+                  <Image src='/images/graphics/splines32.svg' height={732} width={654} alt="spline32" />
+                </span>
+                <div className={`${styles.videoContainer} mt-10 mb-10 relative`}>
                 <iframe
                   width={`${isMobile ? '280' : '560'}`}
                   height={`${isMobile ? '158' : '316'}`}
@@ -190,6 +194,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen>
                 </iframe>
+              </div>
               </div>
             </div>
           </div>
