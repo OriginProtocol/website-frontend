@@ -442,7 +442,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
         }
 
         .screen3 {
-          
+
         }
 
         .community .text-container {
@@ -523,7 +523,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
           grid-template-columns: 1fr 1fr 1fr;
           grid-gap: 1vw;
         }
-        
+
         @media (max-width: 1199px) {
           section.company {
             background-position: 90% 80%;

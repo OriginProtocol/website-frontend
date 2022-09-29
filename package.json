@@ -45,7 +45,6 @@
     "typeface-lato": "^1.1.13"
   },
   "devDependencies": {
-    "bootstrap": "^5.2.0",
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5",
     "tailwind": "^4.0.0"

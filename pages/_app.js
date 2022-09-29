@@ -5,7 +5,6 @@ import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
 import 'react-toastify/scss/main.scss'
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../styles/globals.css'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
