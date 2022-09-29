@@ -6,6 +6,7 @@ import Layout from "../../src/components/strapi/layout";
 
 import { fetchAPI } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
+import { Typography } from "@originprotocol/origin-storybook";
 
 const Article = ({ article, categories }) => {
   const imageUrl = getStrapiMedia(article.attributes.cover);
@@ -27,11 +28,13 @@ const Article = ({ article, categories }) => {
         data-srcset={imageUrl}
         data-uk-img
       >
-        <h1>{article.attributes.title}</h1>
+        <Typography.H1>{article.attributes.title}</Typography.H1>
       </div>
       <div className="uk-section">
         <div className="uk-container uk-container-small">
-          <ReactMarkdown children={article.attributes.content} />
+          {article.attributes.blocks.map((b) => {
+            return <ReactMarkdown children={b.body} />
+          })}
           <hr className="uk-divider-small" />
           <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
             <div>
@@ -87,7 +90,7 @@ export async function getStaticProps({ params }) {
     filters: {
       slug: params.slug,
     },
-    populate: ["cover", "category", "author.avatar"],
+    populate: ["cover", "category", "author.avatar", "blocks"],
   });
   const categoriesRes = await fetchAPI("/categories");
 

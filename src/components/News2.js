@@ -16,7 +16,6 @@ const Category = ({categories, category, setCategory}) => {
   const capitalize = (name) => {
     return name.slice(0,1).toUpperCase() + name.slice(1, name.length)
   }
-  console.log(category)
   return (
     <>
       <Dropdown
