@@ -113,7 +113,7 @@ const Category = ({category, setCategory}) => {
   )
 }
 
-const News2 = ({isMobile, articles}) => {
+const News2 = ({isMobile, articles, categories}) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {

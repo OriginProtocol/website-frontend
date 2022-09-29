@@ -7,7 +7,7 @@ import { Typography, Header, Footer, Card } from '@originprotocol/origin-storybo
 import { mappedLinks } from 'utils/constants'
 import { fetchAPI } from "../lib/api";
 
-export default function Company({ locale, onLocale, articles, categories, homepage }) {
+export default function Company({ locale, onLocale, articles, categories }) {
   return (
     <>
       <Head>
@@ -21,7 +21,7 @@ export default function Company({ locale, onLocale, articles, categories, homepa
         <Typography.H1>Latest news</Typography.H1>
       </section>
       <News />
-      <News2 articles={articles} categories={categories} homepage={homepage} />
+      <News2 articles={articles} categories={categories} />
       <section className='articles grey'>
         <Typography.H2>As seen in</Typography.H2>
         <div className='companies d-flex flex-row'>
@@ -207,25 +207,17 @@ export default function Company({ locale, onLocale, articles, categories, homepa
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // Run API calls in parallel
-  const [articlesRes, categoriesRes, homepageRes] = await Promise.all([
+  const [articlesRes, categoriesRes] = await Promise.all([
     fetchAPI("/articles", { populate: ["cover", "category"] }),
     fetchAPI("/categories", { populate: "*" }),
-    fetchAPI("/homepage", {
-      populate: {
-        hero: "*",
-        seo: { populate: "*" },
-      },
-    }),
   ]);
 
   return {
     props: {
       articles: articlesRes.data,
       categories: categoriesRes.data,
-      homepage: homepageRes.data,
     },
-    revalidate: 1,
   };
 }
