@@ -1,0 +1,243 @@
+.splines34 {
+  position: absolute;
+  right: calc(50% - 80rem);
+}
+
+section.company {
+  background-image: url(/images/graphics/splines32.svg);
+  background-repeat: no-repeat;
+  background-position: 90% 90%;
+  background-size: 40vw;
+}
+
+.intro .container {
+  width: 50vw;
+  margin-left: 5%;
+}
+
+.story .text-container {
+  width: 70%;
+  margin-top: 100px;
+}
+
+.ousd .text-container {
+  width: 70%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.screen1 {
+  width: 80%;
+  margin-top: 10%;
+  margin-left: 5%;
+}
+
+.screen2 {
+  position: relative;
+  bottom: 300%;
+  left: 35%;
+  width: 60%;
+  z-index: 2;
+}
+
+.screen3 {
+
+}
+
+.community .text-container {
+  width: 70%;
+  margin: 100px 100px 0 100px;
+}
+
+.team {
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+
+.team .text-container{
+  width: 50%;
+  margin-right: 50px;
+}
+
+.videoContainer {
+  position: relative;
+  padding: 10px;
+  background: #000;
+  webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  width: 580px;
+  height: 335px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.companies {
+  margin-bottom: 50px;
+}
+
+.news h2 {
+  width: 90%;
+}
+
+.link {
+  margin-top: 40px;
+  height: 25px;
+  color: #1a82ff;
+  align-self: flex-start;
+  margin-left: auto;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.jobs h5 {
+  width: 90%;
+}
+
+.jobs .button {
+  align-self: flex-start;
+  margin-left: auto;
+}
+
+.layout {
+  flex-direction: row;
+}
+
+.role {
+  font-size: 1.25rem;
+}
+
+.article-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1vw;
+}
+
+@media (max-width: 1199px) {
+  section.company {
+    background-position: 90% 80%;
+    background-size: 50vw;
+  }
+
+  .community .image-container {
+    margin-top: 50px;
+  }
+
+  .team .button {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+}
+
+@media (max-width: 992px) {
+  section.intro {
+    background-image: url(/images/graphics/splines34.svg);
+    background-repeat: no-repeat;
+    background-position: 100% 60vw;
+    background-size: 100vw;
+  }
+
+  section.story {
+    text-align: center;
+  }
+
+  .story .layout {
+    flex-direction: column-reverse;
+  }
+
+  .origin-story-logo {
+    margin: auto;
+  }
+
+  .story .text-container {
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .intro .container {
+    width: 100%;
+    margin-left: 5%;
+  }
+
+  section.ousd {
+    text-align: center;
+  }
+
+  .ousd .layout {
+    flex-direction: column;
+  }
+
+  .origin-dollar-logo {
+    margin: auto;
+  }
+
+  .ousd .text-container {
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  section.company {
+    background-image: none;
+    text-align: center;
+  }
+
+  .community.layout {
+    flex-direction: column;
+  }
+
+  .community .text-container {
+    width: 100%;
+    margin: 50px 0 0 0;
+  }
+
+  .community .image-container {
+    margin: auto;
+  }
+
+  .team {
+    margin-top: 100px;
+  }
+
+  .team.layout {
+    flex-direction: column-reverse;
+  }
+
+  .team .text-container {
+    width: 100%;
+    margin: 50px 0 0 0;
+  }
+
+  .video-container {
+    width: 280px;
+    height: 168px;
+  }
+
+  .team .button {
+    margin-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .article-container {
+    grid-template-columns: 1fr;
+    grid-gap: 5vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .splines34 {
+    right: -10rem;
+    left: 10rem;
+    top: 10rem;
+  }
+}
