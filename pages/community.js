@@ -161,7 +161,7 @@ const Community = ({ locale, onLocale, isMobile }) => {
                 linkText={"Join"}
                 linkHref={'https://twitter.com/originprotocol'}
                 narrow={true}
-                thumbnailSrc={assetRootPath('/images/logos/social-twitter.svg')}
+                thumbnailSrc={assetRootPath('/images/graphics/flag-korea.png')}
                 thumbnailAlt={'Flag'}
               />
               <AltCard
@@ -172,7 +172,7 @@ const Community = ({ locale, onLocale, isMobile }) => {
                 linkText={"Join"}
                 linkHref={'https://twitter.com/originprotocol'}
                 narrow={true}
-                thumbnailSrc={assetRootPath('/images/logos/social-twitter.svg')}
+                thumbnailSrc={assetRootPath('/images/graphics/flag-russia.png')}
                 thumbnailAlt={'Flag'}
               />
               <AltCard
@@ -183,7 +183,7 @@ const Community = ({ locale, onLocale, isMobile }) => {
                 linkText={"Join"}
                 linkHref={'https://twitter.com/originprotocol'}
                 narrow={true}
-                thumbnailSrc={assetRootPath('/images/logos/social-twitter.svg')}
+                thumbnailSrc={assetRootPath('/images/graphics/flag-spain.png')}
                 thumbnailAlt={'Flag'}
               />
               <AltCard
@@ -194,7 +194,7 @@ const Community = ({ locale, onLocale, isMobile }) => {
                 linkText={"Join"}
                 linkHref={'https://twitter.com/originprotocol'}
                 narrow={true}
-                thumbnailSrc={assetRootPath('/images/logos/social-twitter.svg')}
+                thumbnailSrc={assetRootPath('/images/graphics/flag-turkey.png')}
                 thumbnailAlt={'Flag'}
               />
               <AltCard
