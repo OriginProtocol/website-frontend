@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
+import React, { useEffect } from 'react'
 
+import { Card, Footer, Header, Typography } from '@originprotocol/origin-storybook'
 import Dashboard from 'components/Dashboard'
 import EmailList from 'components/EmailList'
+import withIsMobile from 'hoc/withIsMobile'
+import Image from 'next/image'
+import useArticleQuery from 'queries/useArticleQuery'
 import StatStore from 'stores/StatStore'
+import { mappedLinks } from 'utils/constants'
 import { assetRootPath } from 'utils/image'
 import { adjustLinkHref } from 'utils/utils'
-import { Typography, Header, Footer, Card } from '@originprotocol/origin-storybook'
-import useArticleQuery from 'queries/useArticleQuery'
-import withIsMobile from 'hoc/withIsMobile'
-import { mappedLinks } from 'utils/constants'
+import styles from 'styles/Home.module.css'
 
 const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) => {
   const articleQuery = useArticleQuery(1)
@@ -27,41 +29,41 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
 
   return (
     <>
-      <header>
-        <Header
-          mappedLinks={mappedLinks.links}
-          webProperty='originprotocol'
+      <Header
+        mappedLinks={mappedLinks.links}
+        webProperty='originprotocol'
       />
-      </header>
-      <section className="intro grey">
-      <div className='container-fluid'>
-          <div className="container">
-            <Typography.H2>
-              {'Onboarding the next '}
-              <span className='gradient1 bold'>100M users </span>
-              {'to crypto'}
-            </Typography.H2>
-            <div className='lighter mt-2 mb-4'>{'Origin’s flagship products are tackling the fastest growing verticals in crypto'}</div>
-            <a
-              href='https://story.xyz'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='button white shadow'
-            >
-              NFTs
-            </a>
-            <a
-              href='https://ousd.com'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='button white shadow'
-            >
-              DeFi
-            </a>
-          </div>
+      <section className="grey relative">
+        <span className={`${styles.splines34} absolute z-0`}>
+          <Image src='/images/graphics/splines34.svg' height={1363} width={1341} alt="spline" />
+        </span>
+        <div className="relative overflow-hidden max-w-screen-xl mx-auto pb-20 px-8">
+          <Typography.H2 as='h1'>
+            Onboarding the next{' '}
+            <br className='hidden md:block' />
+            <span className='gradient1 font-bold'>100M users </span>
+            {'to crypto'}
+          </Typography.H2>
+          <div className='lighter mt-2 mb-4'>{'Origin’s flagship products are tackling the fastest growing verticals in crypto'}</div>
+          <a
+            href='https://story.xyz'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='button white shadow'
+          >
+            NFTs
+          </a>
+          <a
+            href='https://ousd.com'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='button white shadow'
+          >
+            DeFi
+          </a>
         </div>
       </section>
-      <section className="story light d-flex flex-column">
+      <section className="story light d-flex flex-col z-10 relative">
         <div className='container-fluid'>
           <div className="d-flex layout">
             <div className="image-container">
@@ -92,7 +94,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
           <Dashboard ogn />
         </div>
       </section>
-      <section className="ousd dark gradient3 d-flex flex-column">
+      <section className="ousd dark gradient3 d-flex flex-col">
         <div className='container-fluid'>
           <div className="d-flex layout">
             <div className='text-container'>
@@ -125,7 +127,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
       </section>
       <section className="company light">
         <div className='container-fluid'>
-          <div className="d-flex flex-column">
+          <div className="d-flex flex-col">
             <div className="community d-flex layout">
               <div className="image-container">
                 <img
@@ -174,11 +176,12 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                   View careers
                 </a>
               </div>
-              <div className="video-container">
+              <div className={`${styles.videoContainer}`}>
                 <iframe
                   width={`${isMobile ? '280' : '560'}`}
                   height={`${isMobile ? '158' : '316'}`}
                   src="https://www.youtube.com/embed/ERh2n-vlpQ4"
+                  className={`${styles.iframe}`}
                   title="YouTube video player"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -191,7 +194,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
       </section>
       <section className="news grey">
         <div className='container-fluid'>
-          <div className="d-flex flex-column">
+          <div className="d-flex flex-col">
             <div className="d-flex flex-row">
               <Typography.H2>Latest stories</Typography.H2>
               <Link href={adjustLinkHref('/company')}>
@@ -240,7 +243,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
       </section>
       <section className="jobs light">
         <div className='container-fluid'>
-          <div className="d-flex flex-column">
+          <div className="d-flex flex-col">
             <Typography.H2>Work at Origin</Typography.H2>
             <div className='mb-3'></div>
             <div className='lighter mt-2 mb-4'>We’re always looking for the best talent. See open positions below.</div>
@@ -396,245 +399,6 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
       </section>
       <EmailList />
       <Footer />
-      <style jsx>{`
-        section.intro {
-          background-image: url(/images/graphics/splines34.svg);
-          background-repeat: no-repeat;
-          background-position: 100% 0%;
-          background-size: 40vw;
-        }
-
-        section.company {
-          background-image: url(/images/graphics/splines32.svg);
-          background-repeat: no-repeat;
-          background-position: 90% 90%;
-          background-size: 40vw;
-        }
-
-        .intro .container {
-          width: 50vw;
-          margin-left: 5%;
-        }
-
-        .story .text-container {
-          width: 70%;
-          margin-top: 100px;
-        }
-
-        .ousd .text-container {
-          width: 70%;
-          margin-top: 50px;
-          margin-bottom: 50px;
-        }
-
-        .screen1 {
-          width: 80%;
-          margin-top: 10%;
-          margin-left: 5%;
-        }
-
-        .screen2 {
-          position: relative;
-          bottom: 300%;
-          left: 35%;
-          width: 60%;
-          z-index: 2;
-        }
-
-        .screen3 {
-
-        }
-
-        .community .text-container {
-          width: 70%;
-          margin: 100px 100px 0 100px;
-        }
-
-        .team {
-          margin-top: 150px;
-          margin-bottom: 100px;
-        }
-
-        .team .text-container{
-          width: 50%;
-          margin-right: 50px;
-        }
-
-        .video-container {
-          position: relative;
-          padding: 10px;
-          background: #000;
-          webkit-border-radius: 20px;
-          -moz-border-radius: 20px;
-          border-radius: 20px;
-          width: 580px;
-          height: 335px;
-          margin: 0 auto;
-          overflow: hidden;
-        }
-
-        iframe {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-      }
-
-        .companies {
-          margin-bottom: 50px;
-        }
-
-        .news h2 {
-          width: 90%;
-        }
-
-        .link {
-          margin-top: 40px;
-          height: 25px;
-          color: #1a82ff;
-          align-self: flex-start;
-          margin-left: auto;
-        }
-
-        .link:hover {
-          text-decoration: underline;
-        }
-
-        .jobs h5 {
-          width: 90%;
-        }
-
-        .jobs .button {
-          align-self: flex-start;
-          margin-left: auto;
-        }
-
-        .layout {
-          flex-direction: row;
-        }
-
-        .role {
-          font-size: 1.25rem;
-        }
-
-        .article-container {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          grid-gap: 1vw;
-        }
-
-        @media (max-width: 1199px) {
-          section.company {
-            background-position: 90% 80%;
-            background-size: 50vw;
-          }
-
-          .community .image-container {
-            margin-top: 50px;
-          }
-
-          .team .button {
-            padding-left: 35px;
-            padding-right: 35px;
-          }
-        }
-
-        @media (max-width: 992px) {
-          section.intro {
-            background-image: url(/images/graphics/splines34.svg);
-            background-repeat: no-repeat;
-            background-position: 100% 60vw;
-            background-size: 100vw;
-          }
-
-          section.story {
-            text-align: center;
-          }
-
-          .story .layout {
-            flex-direction: column-reverse;
-          }
-
-          .origin-story-logo {
-            margin: auto;
-          }
-
-          .story .text-container {
-            width: 100%;
-            margin-top: 50px;
-          }
-
-          .intro .container {
-            width: 100%;
-            margin-left: 5%;
-          }
-
-          section.ousd {
-            text-align: center;
-          }
-
-          .ousd .layout {
-            flex-direction: column;
-          }
-
-          .origin-dollar-logo {
-            margin: auto;
-          }
-
-          .ousd .text-container {
-            width: 100%;
-            margin-top: 50px;
-          }
-
-          section.company {
-            background-image: none;
-            text-align: center;
-          }
-
-          .community.layout {
-            flex-direction: column;
-          }
-
-          .community .text-container {
-            width: 100%;
-            margin: 50px 0 0 0;
-          }
-
-          .community .image-container {
-            margin: auto;
-          }
-
-          .team {
-            margin-top: 100px;
-          }
-
-          .team.layout {
-            flex-direction: column-reverse;
-          }
-
-          .team .text-container {
-            width: 100%;
-            margin: 50px 0 0 0;
-          }
-
-          .video-container {
-            width: 280px;
-            height: 168px;
-          }
-
-          .team .button {
-            margin-bottom: 20px;
-            padding-left: 50px;
-            padding-right: 50px;
-          }
-
-          .article-container {
-            grid-template-columns: 1fr;
-            grid-gap: 5vw;
-          }
-        }
-      `}</style>
     </>
   )
 }

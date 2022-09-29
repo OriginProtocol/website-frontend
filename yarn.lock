@@ -1341,10 +1341,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@originprotocol/origin-storybook@^0.12.1":
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/@originprotocol/origin-storybook/-/origin-storybook-0.12.1.tgz#31deb40a6b5c7fba106865e0cfb1053ced95c560"
-  integrity sha512-To/W+Ucz03X2cOUTe4jycaHQ0Xg+4GHL0hajTX31tUVHRsVy5z90Y5JkVf1inckambMPGN/rZssUWopfAXN7RQ==
+"@originprotocol/origin-storybook@^0.12.5":
+  version "0.12.5"
+  resolved "https://registry.yarnpkg.com/@originprotocol/origin-storybook/-/origin-storybook-0.12.5.tgz#bd12a8757f40a8169defb23e2ba34f66cfd11102"
+  integrity sha512-202JSh+TljAkhpEPb5+FJuyIXsN2Zli1oZabS/KeVItMa12SMlh81cG72BY1YT04+2JHBC6f5wKie1+8xH2sPQ==
 
 "@popperjs/core@^2.11.5":
   version "2.11.6"
@@ -2477,11 +2477,6 @@ body-parser@1.20.0:
     raw-body "2.5.1"
     type-is "~1.6.18"
     unpipe "1.0.0"
-
-bootstrap@^5.2.0:
-  version "5.2.1"
-  resolved "https://registry.npmjs.org/bootstrap/-/bootstrap-5.2.1.tgz"
-  integrity sha512-UQi3v2NpVPEi1n35dmRRzBJFlgvWHYwyem6yHhuT6afYF+sziEt46McRbT//kVXZ7b1YUYEVGdXEH74Nx3xzGA==
 
 boxen@^5.0.0, boxen@^5.1.2:
   version "5.1.2"

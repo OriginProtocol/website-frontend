@@ -5,7 +5,7 @@ const nextConfig = {
 }
 
 module.exports = {
-  nextConfig,
+  ...nextConfig,
   reactStrictMode: true,
   images: {
     loader: "default",
