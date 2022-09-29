@@ -395,9 +395,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
         </div>
       </section>
       <EmailList />
-      <section>
-        <Footer />
-      </section>
+      <Footer />
       <style jsx>{`
         section.intro {
           background-image: url(/images/graphics/splines34.svg);
