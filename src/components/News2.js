@@ -143,8 +143,8 @@ const News2 = ({isMobile, articles, meta, categories}) => {
     [articleQuery.isSuccess, articleQuery.data]
   )*/
 
-  const articlePages = (category ? categories[category-1].attributes.articles.length : meta.pagination.total) % 9
-
+  const articlePages = Math.ceil((category ? categories[category-1].attributes.articles.data.length : meta.pagination.total) / 9)
+  
   /*const receivedPage = articleQuery.data
     ? articleQuery.data.meta.pagination.page
     : 1*/
