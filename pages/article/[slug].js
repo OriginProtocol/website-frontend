@@ -35,13 +35,13 @@ const Article = ({ article, categories }) => {
           <hr className="uk-divider-small" />
           <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
             <div>
-              {article.attributes.author.data.attributes.picture && (
+              {article.attributes.author.data.attributes.avatar && (
                 <img
                   src={getStrapiMedia(
-                    article.attributes.author.data.attributes.picture
+                    article.attributes.author.data.attributes.avatar
                   )}
                   alt={
-                    article.attributes.author.data.attributes.picture.data
+                    article.attributes.author.data.attributes.avatar.data
                       .attributes.alternativeText
                   }
                   style={{
@@ -87,7 +87,7 @@ export async function getStaticProps({ params }) {
     filters: {
       slug: params.slug,
     },
-    populate: ["cover", "category", "author.picture"],
+    populate: ["cover", "category", "author.avatar"],
   });
   const categoriesRes = await fetchAPI("/categories");
 
