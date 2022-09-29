@@ -172,52 +172,54 @@ const News = ({isMobile, articles}) => {
   <>
     {loaded && currentPageArticles && (
     <section className='stories light'>
-      <Category category={category} setCategory={setCategory}/>
-      <div className='container mt-5'>
-        {currentPageArticles.map((a, i) => {
-          return (
-            <Card
-              webProperty={'originprotocol'}
-              title={a.attributes.title}
-              imgSrc={assetRootPath('/images/logos/origin-press.svg')}
-              imgAlt={'Origin Protocol'}
-              body={a.attributes.description}
-              //linkText={'Read more'}
-              //linkHref={`/article/${a.attributes.slug}`}
-            />
-          )
-        })}
-      </div>
-      <div className="pagination d-flex justify-content-center">
-        {pageNumbers.map((pageNumber, index) => {
-          const isCurrent =
-            pageNumber === articleQuery.data.meta.pagination.page
-          const skippedAPage =
-            index > 0 && pageNumber - pageNumbers[index - 1] !== 1
+      <div className='container-fluid'>
+        <Category category={category} setCategory={setCategory}/>
+        <div className='container mt-5'>
+          {currentPageArticles.map((a, i) => {
+            return (
+              <Card
+                webProperty={'originprotocol'}
+                title={a.attributes.title}
+                imgSrc={assetRootPath('/images/logos/origin-press.svg')}
+                imgAlt={'Origin Protocol'}
+                body={a.attributes.description}
+                //linkText={'Read more'}
+                //linkHref={`/article/${a.attributes.slug}`}
+              />
+            )
+          })}
+        </div>
+        <div className="pagination d-flex justify-content-center">
+          {pageNumbers.map((pageNumber, index) => {
+            const isCurrent =
+              pageNumber === articleQuery.data.meta.pagination.page
+            const skippedAPage =
+              index > 0 && pageNumber - pageNumbers[index - 1] !== 1
 
-          return (
-            <div className="d-flex" key={pageNumber}>
-              {skippedAPage && (
-                <div className="page-skip d-flex align-items-center justify-content-center">
-                  ...
+            return (
+              <div className="d-flex" key={pageNumber}>
+                {skippedAPage && (
+                  <div className="page-skip d-flex align-items-center justify-content-center">
+                    ...
+                  </div>
+                )}
+                <div
+                  className={`page-number ${
+                    isCurrent ? 'current' : ''
+                  } d-flex align-items-center justify-content-center`}
+                  onClick={() => {
+                    if (isCurrent) {
+                      return
+                    }
+                    setPage(pageNumber)
+                  }}
+                >
+                  {pageNumber}
                 </div>
-              )}
-              <div
-                className={`page-number ${
-                  isCurrent ? 'current' : ''
-                } d-flex align-items-center justify-content-center`}
-                onClick={() => {
-                  if (isCurrent) {
-                    return
-                  }
-                  setPage(pageNumber)
-                }}
-              >
-                {pageNumber}
               </div>
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
       </div>
     </section>
     )}

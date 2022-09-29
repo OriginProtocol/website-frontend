@@ -9,44 +9,53 @@ const EmailList = () => {
   return (
     <>
       <section className="mail">
-        <div className="d-flex flex-column align-items-center text-center">
-          <Typography.H3>Join our mailing list</Typography.H3>
-          <div className='lighter text mt-2 mb-4'>Be the first to hear about major NFT drops and important product updates. Your email will be kept private.</div>
-          <form
-            className='justify-content-center'
-            onSubmit={async (e) => {
-              e.preventDefault()
+        <div className='container-fluid'>
+          <div className="d-flex flex-column align-items-center text-center">
+            <Typography.H3 className='text-white'>Join our mailing list</Typography.H3>
+            <div className='lighter text mt-2 mb-4'>Be the first to hear about major NFT drops and important product updates. Your email will be kept private.</div>
+            <form
+              className='justify-content-center'
+              onSubmit={async (e) => {
+                e.preventDefault()
 
-              const searchParams = new URLSearchParams()
-              searchParams.set('email', email)
-              searchParams.set('source', 'ousd')
+                const searchParams = new URLSearchParams()
+                searchParams.set('email', email)
+                searchParams.set('source', 'ousd')
 
-              const response = await fetch(process.env.NEXT_PUBLIC_EMAIL_JOIN_URL, {
-                method: 'POST',
-                mode: 'cors',
-                cache: 'no-cache',
-                credentials: 'same-origin',
-                headers: {
-                  'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                referrerPolicy: 'no-referrer',
-                body: searchParams,
-              })
+                const response = await fetch(process.env.NEXT_PUBLIC_EMAIL_JOIN_URL, {
+                  method: 'POST',
+                  mode: 'cors',
+                  cache: 'no-cache',
+                  credentials: 'same-origin',
+                  headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                  },
+                  referrerPolicy: 'no-referrer',
+                  body: searchParams,
+                })
 
-              if (response.ok) {
-                const json = await response.json()
-                if (json.success) {
-                  setEmail('')
-                  if (json.message === `You're already registered!`) {
-                    toast.success(
-                      fbt(
-                        "You're already registered!",
-                        'Email Subscription already registered'
+                if (response.ok) {
+                  const json = await response.json()
+                  if (json.success) {
+                    setEmail('')
+                    if (json.message === `You're already registered!`) {
+                      toast.success(
+                        fbt(
+                          "You're already registered!",
+                          'Email Subscription already registered'
+                        )
                       )
-                    )
+                    } else {
+                      toast.success(
+                        fbt('Thanks for signing up!', 'Email Subscription success')
+                      )
+                    }
                   } else {
-                    toast.success(
-                      fbt('Thanks for signing up!', 'Email Subscription success')
+                    toast.error(
+                      fbt(
+                        'Error subscribing you to the email list',
+                        'ErrorEmailSubscription'
+                      )
                     )
                   }
                 } else {
@@ -57,34 +66,27 @@ const EmailList = () => {
                     )
                   )
                 }
-              } else {
-                toast.error(
-                  fbt(
-                    'Error subscribing you to the email list',
-                    'ErrorEmailSubscription'
-                  )
-                )
-              }
-            }}
-          >
-            <input
-              type="email"
-              onChange={(e) => {
-                e.preventDefault()
-                setEmail(e.target.value)
               }}
-              required
-              value={email}
-              placeholder='Email'
-              className='email'
-            />
-            <button
-              type='submit'
-              className='submit'
             >
-              Join
-            </button>
-          </form>
+              <input
+                type="email"
+                onChange={(e) => {
+                  e.preventDefault()
+                  setEmail(e.target.value)
+                }}
+                required
+                value={email}
+                placeholder='Email'
+                className='email'
+              />
+              <button
+                type='submit'
+                className='submit'
+              >
+                Join
+              </button>
+            </form>
+          </div>
         </div>
       </section>
       <style jsx>{`

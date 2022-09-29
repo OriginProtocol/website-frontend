@@ -164,7 +164,7 @@ const Dashboard = ({ogn, isMobile}) => {
 
         .number {
           font-family: 'Poppins';
-          font-size: 2.5vw;
+          font-size: 2.25rem;
           font-weight: 700;
         }
 

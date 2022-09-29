@@ -91,8 +91,10 @@ const TeamMember = ({name, title, description, headshot, links}) => {
           font-weight: 300;
         }
 
-        @media (max-width: 1199px) {
-
+        @media (min-width: 2500px) {
+          .card {
+            width: 450px;
+          }
         }
 
         @media (max-width: 799px) {
@@ -134,24 +136,26 @@ const Team = () => {
   return (
     <>
       <section className='team gradient3'>
-        <img
-          src={assetRootPath('/images/graphics/spots1.svg')}
-          className="spots1"
-          alt="spots"
-        />
-        <img
-          src={assetRootPath('/images/graphics/spots2.svg')}
-          className="spots2"
-          alt="spots"
-        />
-        <div className='content text-center'>
-          <Typography.H2>Core team</Typography.H2>
-          <div className='text m-auto mt-3'>The core contributors hail from iconic tech companies like Coinbase, YouTube, Google, Paypal, Dropbox, and Pinterest. Our founders are serial entrepreneurs, and multiple team members have founded and exited successful ventures.</div>
-          <div className='container-fluid text-left mt-5'>
-            {team.core.map((t) => {
-              return (
-                <TeamMember name={t.name} title={t.title} description={t.description} headshot={t.headshot} links={t.links} />)
-            })}
+        <div className='container-fluid'>
+          <img
+            src={assetRootPath('/images/graphics/spots1.svg')}
+            className="spots1"
+            alt="spots"
+          />
+          <img
+            src={assetRootPath('/images/graphics/spots2.svg')}
+            className="spots2"
+            alt="spots"
+          />
+          <div className='content text-center'>
+            <Typography.H2 className='text-white'>Core team</Typography.H2>
+            <div className='text m-auto mt-3'>The core contributors hail from iconic tech companies like Coinbase, YouTube, Google, Paypal, Dropbox, and Pinterest. Our founders are serial entrepreneurs, and multiple team members have founded and exited successful ventures.</div>
+            <div className='container-fluid text-left mt-5'>
+              {team.core.map((t) => {
+                return (
+                  <TeamMember name={t.name} title={t.title} description={t.description} headshot={t.headshot} links={t.links} />)
+              })}
+            </div>
           </div>
         </div>
       </section>

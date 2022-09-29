@@ -25,6 +25,13 @@ const Contributor = ({login, avatar, profile}) => {
           height: 50px;
           border-radius: 50%;
         }
+
+        @media (min-width: 2000px) {
+          .contributor {
+            width: 100px;
+            height: 100px;
+          }
+        }
       `}</style>
     </>
   )
@@ -77,30 +84,32 @@ const Contributors = () => {
   return (
     <>
       <section className='contributors grey text-center'>
-        <Typography.H3>{`${contributorList.length} open-source contributors`}</Typography.H3>
-        <div className='container mt-5'>
-          {contributorList?.map((c, i) => {
-            return (
-              <Contributor login={c.login} avatar={c.avatar_url} profile={c.html_url} />
-            )
-          })}
+        <div className='container-fluid'>
+          <Typography.H3>{`${contributorList.length} open-source contributors`}</Typography.H3>
+          <div className='list container-fluid mt-5'>
+            {contributorList?.map((c, i) => {
+              return (
+                <Contributor login={c.login} avatar={c.avatar_url} profile={c.html_url} />
+              )
+            })}
+          </div>
         </div>
       </section>
       <style jsx>{`
-        .container {
+        .list.container-fluid {
           display: grid;
           grid-template-columns: repeat(14, 1fr);
           grid-gap: 1vw;
         }
 
         @media (max-width: 1199px) {
-          .container {
+          .list.container-fluid {
             grid-template-columns: repeat(10, 1fr)
           }
         }
 
         @media (max-width: 767px) {
-          .container {
+          .list.container-fluid {
             grid-template-columns: repeat(6, 1fr)
           }
         }
