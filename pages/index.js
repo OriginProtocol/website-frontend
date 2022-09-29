@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React, { useEffect } from 'react'
 
-import { Card, Footer, Header, Typography } from '@originprotocol/origin-storybook'
+import { Button, Card, Footer, Header, Typography } from '@originprotocol/origin-storybook'
 import Dashboard from 'components/Dashboard'
 import EmailList from 'components/EmailList'
 import withIsMobile from 'hoc/withIsMobile'
@@ -63,17 +63,17 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
           </a>
         </div>
       </section>
-      <section className="story light d-flex flex-col z-10 relative">
-        <div className='container-fluid'>
-          <div className="d-flex layout">
-            <div className="image-container">
+      <section className="story light flex flex-col z-10 relative">
+        <div className='max-w-screen-xl mx-auto'>
+          <div className="flex layout items-center">
+            <div className="image-container pt-20 flex-1">
               <img
                 src={assetRootPath('/images/screens/screens-story.svg')}
                 className="screen1"
                 alt="screens"
               />
             </div>
-            <div className="text-container">
+            <div className="text-container flex-1 ml-10">
               <img
                 src={assetRootPath('/images/logos/origin-story-wordmark.svg')}
                 className="origin-story-logo"
@@ -81,22 +81,25 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
               />
               <Typography.H3>The record-breaking NFT platform</Typography.H3>
               <div className='lighter mt-2 mb-4'>Origin Story powers NFT ecosystems, providing creators with branded storefronts and secondary marketplaces.</div>
-              <a
+              <Button
                 href='https://story.xyz'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='button gradient2'
-              >
-                Learn more
-              </a>
+                label='Learn more'
+                type='primary'
+                webProperty='originprotocol'
+                size='large'
+              />
             </div>
           </div>
-          <Dashboard ogn />
+          <div className='mt-10 mb-20'>
+            <Dashboard ogn />
+          </div>
         </div>
       </section>
-      <section className="ousd dark gradient3 d-flex flex-col">
+      <section className="ousd dark gradient3 flex flex-col">
         <div className='container-fluid'>
-          <div className="d-flex layout">
+          <div className="flex layout">
             <div className='text-container'>
               <img
                 src={assetRootPath('/images/logos/origin-dollar-wordmark.svg')}
@@ -127,8 +130,8 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
       </section>
       <section className="company light">
         <div className='container-fluid'>
-          <div className="d-flex flex-col">
-            <div className="community d-flex layout">
+          <div className="flex flex-col">
+            <div className="community flex layout">
               <div className="image-container">
                 <img
                   src={assetRootPath('/images/graphics/ellipses-homepage.png')}
@@ -150,7 +153,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                 </Link>
               </div>
             </div>
-            <div className="team d-flex layout">
+            <div className="team flex layout">
               <div className="text-container">
                 <Typography.H2>A world-class team</Typography.H2>
                 <div className='lighter mt-2 mb-4'>Our team is led by serial entrepreneurs, early employees at YouTube, and engineering managers at Google, Coinbase and Dropbox.</div>
@@ -194,8 +197,8 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
       </section>
       <section className="news grey">
         <div className='container-fluid'>
-          <div className="d-flex flex-col">
-            <div className="d-flex flex-row">
+          <div className="flex flex-col">
+            <div className="flex flex-row">
               <Typography.H2>Latest stories</Typography.H2>
               <Link href={adjustLinkHref('/company')}>
                 <a
@@ -243,14 +246,14 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
       </section>
       <section className="jobs light">
         <div className='container-fluid'>
-          <div className="d-flex flex-col">
+          <div className="flex flex-col">
             <Typography.H2>Work at Origin</Typography.H2>
             <div className='mb-3'></div>
             <div className='lighter mt-2 mb-4'>We’re always looking for the best talent. See open positions below.</div>
             <div className='mb-5'></div>
             <Typography.H3>Engineering</Typography.H3>
             <div className='mt-4'></div>
-            <div className="d-flex flex-row">
+            <div className="flex flex-row">
               <div className='role mt-2 mb-4'>Data Engineer</div>
               <a
                 href='https://angel.co/company/originprotocol/jobs/2222160-data-engineer'
@@ -261,7 +264,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                 Apply
               </a>
             </div>
-            <div className="d-flex flex-row">
+            <div className="flex flex-row">
               <div className='role mt-2 mb-4'>Frontend Engineer</div>
               <a
                 href='https://angel.co/company/originprotocol/jobs/335794-frontend-engineer'
@@ -272,7 +275,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                 Apply
               </a>
             </div>
-            <div className="d-flex flex-row">
+            <div className="flex flex-row">
               <div className='role mt-2 mb-4'>Senior Full-stack Engineer</div>
               <a
                 href='https://angel.co/company/originprotocol/jobs/2226588-senior-full-stack-engineer'
@@ -283,7 +286,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                 Apply
               </a>
             </div>
-            <div className="d-flex flex-row">
+            <div className="flex flex-row">
               <div className='role mt-2 mb-4'>Senior Solidity Engineer</div>
               <a
                 href='https://angel.co/company/originprotocol/jobs/308390-senior-solidity-engineer'
@@ -297,7 +300,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
             <div className='mb-2'></div>
             <Typography.H3>Design</Typography.H3>
             <div className='mt-4'></div>
-            <div className="d-flex flex-row">
+            <div className="flex flex-row">
               <div className='role mt-2 mb-4'>Marketing Designer</div>
               <a
                 href='https://angel.co/company/originprotocol/jobs/2226436-marketing-designer'
@@ -311,7 +314,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
             <div className='mb-2'></div>
             <Typography.H3>Marketing</Typography.H3>
             <div className='mt-4'></div>
-            <div className="d-flex flex-row">
+            <div className="flex flex-row">
               <div className='role mt-2 mb-4'>Email Marketer</div>
               <a
                 href='https://angel.co/company/originprotocol/jobs/2360663-email-marketer'
@@ -322,7 +325,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                 Apply
               </a>
             </div>
-            <div className="d-flex flex-row">
+            <div className="flex flex-row">
               <div className='role mt-2 mb-4'>Performance Marketer (Paid Ads)</div>
               <a
                 href='https://angel.co/company/originprotocol/jobs/2226610-performance-marketer-paid-ads'
@@ -333,7 +336,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                 Apply
               </a>
             </div>
-            <div className="d-flex flex-row">
+            <div className="flex flex-row">
               <div className='role mt-2 mb-4'>Public and Media Relations Manager</div>
               <a
                 href='https://angel.co/company/originprotocol/jobs/370212-public-and-media-relations-manager'
@@ -347,7 +350,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
             <div className='mb-2'></div>
             <Typography.H3>Product</Typography.H3>
             <div className='mt-4'></div>
-            <div className="d-flex flex-row">
+            <div className="flex flex-row">
               <div className='role mt-2 mb-4'>Product Manager (DeFi)</div>
               <a
                 href='https://angel.co/company/originprotocol/jobs/1860239-product-manager-defi'
@@ -358,7 +361,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                 Apply
               </a>
             </div>
-            <div className="d-flex flex-row">
+            <div className="flex flex-row">
               <div className='role mt-2 mb-4'>Product Manager (NFTs)</div>
               <a
                 href='https://angel.co/company/originprotocol/jobs/1505992-product-manager-nfts'
@@ -372,7 +375,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
             <div className='mb-2'></div>
             <Typography.H3>Sales</Typography.H3>
             <div className='mt-4'></div>
-            <div className="d-flex flex-row">
+            <div className="flex flex-row">
               <div className='role mt-2 mb-4'>Business Development Manager (DeFi)</div>
               <a
                 href='https://angel.co/company/originprotocol/jobs/2226595-business-development-manager-defi'
@@ -383,7 +386,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                 Apply
               </a>
             </div>
-            <div className="d-flex flex-row">
+            <div className="flex flex-row">
               <div className='role mt-2 mb-4'>Business Development Manager (NFTs)</div>
               <a
                 href='https://angel.co/company/originprotocol/jobs/2360681-business-development-manager-nfts'

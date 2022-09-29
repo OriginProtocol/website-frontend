@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react'
-import { useStoreState } from 'pullstate'
-import StatStore from 'stores/StatStore'
-import usePriceQuery from 'queries/usePriceQuery'
-import useCirculatingSupplyQuery from 'queries/useCirculatingSupplyQuery'
-import useTotalSupplyQuery from 'queries/useTotalSupplyQuery'
-import { formatCurrency } from 'utils/math'
-import { assetRootPath } from 'utils/image'
-import { Typography } from '@originprotocol/origin-storybook'
 import withIsMobile from 'hoc/withIsMobile'
+import { useStoreState } from 'pullstate'
+import useCirculatingSupplyQuery from 'queries/useCirculatingSupplyQuery'
+import usePriceQuery from 'queries/usePriceQuery'
+import useTotalSupplyQuery from 'queries/useTotalSupplyQuery'
+import React, { useEffect } from 'react'
+import StatStore from 'stores/StatStore'
+import { assetRootPath } from 'utils/image'
+import { formatCurrency } from 'utils/math'
 
 const Dashboard = ({ogn, isMobile}) => {
   const symbol = ogn ? 'OGN' : 'OGV'
@@ -63,10 +62,10 @@ const Dashboard = ({ogn, isMobile}) => {
 
   return (
     <>
-      <div className='token-dashboard gradient2 d-flex flex-column'>
-        <div className='d-flex flex-row'>
+      <div className='token-dashboard gradient2 flex flex-col'>
+        <div className='flex flex-row'>
           <div className='text-container'>
-            <div className='d-flex flex-row'>
+            <div className='flex flex-row'>
               <img
                 src={assetRootPath(`/images/logos/${coin}-logo.svg`)}
                 className={`logo`}
@@ -134,7 +133,6 @@ const Dashboard = ({ogn, isMobile}) => {
       <style jsx>{`
         .token-dashboard {
           color: white;
-          margin-top: 7.5vw;
           padding: 50px;
           border-radius: 20px;
           align-content: flex-start;
