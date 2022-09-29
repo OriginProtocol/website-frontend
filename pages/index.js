@@ -209,23 +209,29 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                   <Card
                     webProperty={'originprotocol'}
                     title={articleList[0].attributes.title}
-                    imgSrc={assetRootPath('/images/logos/origin-press.svg')}
+                    imgSrc={articleList[0].attributes.cover.data.attributes.formats.large.url}
                     imgAlt={'Origin Protocol'}
                     body={articleList[0].attributes.description}
+                    linkText={'Read more'}
+                    linkHref={`/article/${articleList[0].attributes.slug}`}
                   />
                   <Card
                     webProperty={'originprotocol'}
                     title={articleList[1].attributes.title}
-                    imgSrc={assetRootPath('/images/logos/origin-press.svg')}
+                    imgSrc={articleList[1].attributes.cover.data.attributes.formats.large.url}
                     imgAlt={'Origin Protocol'}
                     body={articleList[1].attributes.description}
+                    linkText={'Read more'}
+                    linkHref={`/article/${articleList[1].attributes.slug}`}
                   />
                   <Card
                     webProperty={'originprotocol'}
                     title={articleList[2].attributes.title}
-                    imgSrc={assetRootPath('/images/logos/origin-press.svg')}
+                    imgSrc={articleList[2].attributes.cover.data.attributes.formats.large.url}
                     imgAlt={'Origin Protocol'}
                     body={articleList[2].attributes.description}
+                    linkText={'Read more'}
+                    linkHref={`/article/${articleList[2].attributes.slug}`}
                   />
               </div>
             )}
@@ -389,6 +395,9 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
         </div>
       </section>
       <EmailList />
+      <section>
+        <Footer />
+      </section>
       <style jsx>{`
         section.intro {
           background-image: url(/images/graphics/splines34.svg);
@@ -628,7 +637,6 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
           }
         }
       `}</style>
-      <Footer />
     </>
   )
 }
