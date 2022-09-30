@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
-
+import Head from 'next/head'
 import Dashboard from 'components/Dashboard'
 import EmailList from 'components/EmailList'
 import StatStore from 'stores/StatStore'
@@ -27,6 +27,9 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
 
   return (
     <>
+      <Head>
+        <title>Origin Protocol</title>
+      </Head>
       <header>
         <Header
           mappedLinks={mappedLinks.links}
