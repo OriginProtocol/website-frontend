@@ -5,8 +5,8 @@ import { mappedLinks } from 'utils/constants'
 const Layout = ({ children, categories, seo }) => (
   <>
     <Header
-        mappedLinks={mappedLinks.links}
-        webProperty='originprotocol'
+      mappedLinks={mappedLinks.links}
+      webProperty='originprotocol'
     />
     {children}
   </>

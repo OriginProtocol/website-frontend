@@ -10,6 +10,7 @@ import { Typography, Header, Footer, Card } from '@originprotocol/origin-storybo
 import useArticleQuery from 'queries/useArticleQuery'
 import withIsMobile from 'hoc/withIsMobile'
 import { mappedLinks } from 'utils/constants'
+import { ToastContainer } from 'react-toastify'
 
 const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) => {
   const articleQuery = useArticleQuery(1)
@@ -398,6 +399,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
         </div>
       </section>
       <EmailList />
+      <ToastContainer />
       <Footer />
       <style jsx>{`
         section.intro {
