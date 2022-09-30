@@ -11,6 +11,10 @@ module.exports = {
     loader: "default",
     domains: ["localhost"],
   },
+  i18n: {
+    locales: ['en-US'],
+    defaultLocale: 'en-US',
+  },
   async redirects() {
     return [
       {
@@ -21,11 +25,6 @@ module.exports = {
       {
         source: '/dashboard',
         destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/:locale/:page',
-        destination: '/:page',
         permanent: true,
       },
       {
