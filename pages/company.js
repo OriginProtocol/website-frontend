@@ -11,7 +11,7 @@ export default function Company({ locale, onLocale, articles, meta, categories }
   return (
     <>
       <Head>
-        <title>Origin Protocol</title>
+        <title>Company</title>
       </Head>
       <Header
         mappedLinks={mappedLinks.links}

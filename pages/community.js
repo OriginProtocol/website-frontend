@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Head from 'next/head'
 import { useStoreState } from 'pullstate'
 import StatStore from 'stores/StatStore'
 import { Typography, Header, Footer, Card, AltCard } from '@originprotocol/origin-storybook'
@@ -33,6 +34,9 @@ const Community = ({ locale, onLocale, isMobile }) => {
 
   return (
     <>
+      <Head>
+        <title>Community</title>
+      </Head>
       {loaded && (
         <div>
           <Header

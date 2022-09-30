@@ -8,6 +8,43 @@ import { fetchAPI } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
 import { Typography } from "@originprotocol/origin-storybook";
 
+import RichText from '../../src/components/strapi/blocks/RichText';
+import Media from '../../src/components/strapi/blocks/Media';
+import Quote from '../../src/components/strapi/blocks/Quote';
+
+
+
+
+const getBlockComponent = ({ __component, ...rest }, index) => {
+  let Block;
+
+  switch (__component) {
+    case 'shared.rich-text':
+      Block = RichText;
+      break;
+    case 'shared.media':
+      Block = Media;
+      break;
+    case 'shared.quote':
+      Block = Quote;
+      break;
+  }
+  return Block ? <Block key={`index-${index}`} {...rest} /> : null;
+};
+
+const BlockManager = ({ blocks }) => {
+  return <div>{blocks.map(getBlockComponent)}</div>;
+};
+
+BlockManager.defaultProps = {
+  blocks: [],
+};
+
+
+
+
+
+
 const Article = ({ article, categories }) => {
   const imageUrl = getStrapiMedia(article.attributes.cover);
 
@@ -23,7 +60,7 @@ const Article = ({ article, categories }) => {
       <Seo seo={seo} />
       <div
         id="banner"
-        className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
+        className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding m-0"
         data-src={imageUrl}
         data-srcset={imageUrl}
         data-uk-img
@@ -32,9 +69,7 @@ const Article = ({ article, categories }) => {
       </div>
       <div className="uk-section">
         <div className="uk-container uk-container-small">
-          {article.attributes.blocks.map((b) => {
-            return <ReactMarkdown children={b.body} />
-          })}
+          <BlockManager blocks={article.attributes.blocks} />
           <hr className="uk-divider-small" />
           <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
             <div>
@@ -90,7 +125,7 @@ export async function getStaticProps({ params }) {
     filters: {
       slug: params.slug,
     },
-    populate: ["cover", "category", "author.avatar", "blocks"],
+    populate: ["cover", "category", "author.avatar", "blocks", "blocks.file"],
   });
   const categoriesRes = await fetchAPI("/categories");
 

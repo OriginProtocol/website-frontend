@@ -187,7 +187,7 @@ h6 {
 }
 
 section .container-fluid {
-  max-width: 2000px;
+  max-width: 1500px;
 }
 
 @media (max-width: 992px) {

@@ -1,18 +1,18 @@
-import Link from 'next/link'
-import React, { useEffect } from 'react'
-
 import { Button, Card, Footer, Header, Typography } from '@originprotocol/origin-storybook'
 import Dashboard from 'components/Dashboard'
 import EmailList from 'components/EmailList'
 import withIsMobile from 'hoc/withIsMobile'
+import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import useArticleQuery from 'queries/useArticleQuery'
+import React, { useEffect } from 'react'
+import { ToastContainer } from 'react-toastify'
 import StatStore from 'stores/StatStore'
+import styles from 'styles/Home.module.css'
 import { mappedLinks } from 'utils/constants'
 import { assetRootPath } from 'utils/image'
 import { adjustLinkHref } from 'utils/utils'
-import styles from 'styles/Home.module.css'
-import Head from 'next/head'
 
 const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) => {
   const articleQuery = useArticleQuery(1)
@@ -442,6 +442,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
         </div>
       </section>
       <EmailList />
+      <ToastContainer />
       <Footer />
     </>
   )
