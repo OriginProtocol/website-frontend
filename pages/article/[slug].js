@@ -12,9 +12,6 @@ import RichText from '../../src/components/strapi/blocks/RichText';
 import Media from '../../src/components/strapi/blocks/Media';
 import Quote from '../../src/components/strapi/blocks/Quote';
 
-
-
-
 const getBlockComponent = ({ __component, ...rest }, index) => {
   let Block;
 
@@ -39,11 +36,6 @@ const BlockManager = ({ blocks }) => {
 BlockManager.defaultProps = {
   blocks: [],
 };
-
-
-
-
-
 
 const Article = ({ article, categories }) => {
   const imageUrl = getStrapiMedia(article.attributes.cover);
