@@ -310,11 +310,21 @@ const Community = ({ locale, onLocale, isMobile }) => {
                   alt="Company"
                 />
               </div>
-              <img
-                src={assetRootPath('/images/logos/investors.svg')}
-                className="people m-auto"
-                alt="Investors"
-              />
+              <div className='people container mt-5'>
+                {team.investors.map((t) => {
+                  const headshot = t.headshot
+                  return (
+                    <div className='profile'>
+                      <img
+                        src={assetRootPath(headshot)}
+                        className="headshot mb-3"
+                        alt={t.name}
+                      />
+                      <div className='name'>{t.name}</div>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
           </section>
           <Footer />
@@ -377,11 +387,17 @@ const Community = ({ locale, onLocale, isMobile }) => {
               margin: 0 auto 0 auto;
             }
 
-            .extended .headshot {
+            .headshot {
               width: 7vw;
               height: 7vw;
               margin: 0 auto 0 auto;
               border-radius: 50%;
+            }
+
+            .people {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              grid-gap: 2vw;
             }
 
             @media (max-width: 1199px) {
