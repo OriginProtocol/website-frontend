@@ -4,8 +4,6 @@ import { assetRootPath } from 'utils/image'
 import { getStrapiMedia } from "../../../../lib/media";
 
 const Media = ({file}) => {
-  console.log('BBBB')
-  console.log(file)
   return (
     <div className="image-container m-5">
       <img
