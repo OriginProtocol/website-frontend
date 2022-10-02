@@ -1,7 +1,20 @@
 export default async function handler(req, res) {
   try {
+      const searchParams = new URLSearchParams()
+      searchParams.set('email', req.body.email)
       const { path } = req.query
-      const data = await fetch(`${process.env.NEXT_PUBLIC_STATS_ENDPOINT}/mailing-list/${path}`).then((r) => console.log(r))
+      const data = await fetch(`${process.env.NEXT_PUBLIC_STATS_ENDPOINT}/mailing-list/${path}`, {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        referrerPolicy: 'no-referrer',
+        body: searchParams,
+      })
+      console.log({data: data})
       res.status(200).json(data)
   } catch (error) {
       console.error(error)

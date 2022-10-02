@@ -19,7 +19,18 @@ const EmailList = () => {
                 e.preventDefault()
                 const searchParams = new URLSearchParams()
                 searchParams.set('email', email)
-                const response = await fetch('api/mailing-list/join')
+
+                const response = await fetch('/api/mailing-list/join', {
+                  method: 'POST',
+                  mode: 'cors',
+                  cache: 'no-cache',
+                  credentials: 'same-origin',
+                  headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                  },
+                  referrerPolicy: 'no-referrer',
+                  body: searchParams,
+                })
 
                 if (response.ok) {
                   const json = response
