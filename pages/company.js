@@ -157,7 +157,7 @@ export default function Company({ locale, onLocale, articles, meta, categories }
             <Typography.H2>Press inquiries</Typography.H2>
             <div className='mt-2 mb-4'>Origin Story powers NFT ecosystems, providing creators with branded storefronts and secondary marketplaces.</div>
             <a
-                href='https://discord.com/invite/jyxpUSe'
+                href={process.env.NEXT_PUBLIC_DISCORD_URL}
                 target='_blank'
                 rel='noopener noreferrer'
                 className='button gradient2'
