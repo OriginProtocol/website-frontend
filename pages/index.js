@@ -133,7 +133,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
         </div>
       </section>
       <section className="company light">
-        <div className='container-fluid'>
+        <div className='mx-auto'>
           <div className="flex flex-col">
             <div className="flex flex-col mx-auto pt-10 px-10 max-w-screen-xl md:flex-row md:flex-1 md:pt-24">
               <div className={`${styles.ellipsesContainer}`}>
@@ -229,7 +229,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
         </div>
       </section>
       <section className="news grey md:mt-32">
-        <div className='container-fluid'>
+        <div className='mx-auto'>
           <div className="flex flex-col px-7 py-12 max-w-screen-xl mx-auto md:py-32">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between">
               <Typography.H2>Latest stories</Typography.H2>
@@ -278,7 +278,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
         </div>
       </section>
       <section className="jobs light py-12 px-6">
-        <div className='container-fluid'>
+        <div className='mx-auto'>
           <div className="flex flex-col max-w-screen-xl mx-auto">
             <Typography.H2>Work at Origin</Typography.H2>
             <div className='mb-3'></div>
