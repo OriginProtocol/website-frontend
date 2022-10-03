@@ -39,7 +39,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
       />
       <section className="grey relative">
         <span className={`${styles.splines34} absolute z-0`}>
-          <Image src='/images/graphics/splines34.svg' height={1363} width={1341} alt="spline" />
+          <Image src='/images/graphics/splines34full.svg' height={1363} width={1341} alt="spline" />
         </span>
         <div className="relative overflow-hidden max-w-screen-xl mx-auto pb-20 px-8">
           <Typography.H2 as='h1'>
