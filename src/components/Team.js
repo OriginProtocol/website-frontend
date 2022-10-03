@@ -91,12 +91,6 @@ const TeamMember = ({name, title, description, headshot, links}) => {
           font-weight: 300;
         }
 
-        @media (min-width: 2500px) {
-          .card {
-            width: 450px;
-          }
-        }
-
         @media (max-width: 799px) {
           .card {
             max-width: 40vw;
