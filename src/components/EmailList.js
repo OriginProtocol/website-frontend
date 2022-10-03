@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
-import { fbt } from 'fbt'
-import { toast } from 'react-toastify'
 import { Typography } from '@originprotocol/origin-storybook'
-import Image from 'next/image'
+import React, { useState } from 'react'
+import { toast } from 'react-toastify'
+import analytics from 'utils/analytics'
 
 const EmailList = () => {
   const [email, setEmail] = useState()
@@ -25,11 +24,14 @@ const EmailList = () => {
               onSubmit={async (e) => {
                 e.preventDefault()
 
+                analytics.track(`On Mailing List Subscription`, {
+                  category: 'general',
+                })
+
                 const searchParams = new URLSearchParams()
                 searchParams.set('email', email)
-                searchParams.set('source', 'ousd')
 
-                const response = await fetch(process.env.NEXT_PUBLIC_EMAIL_JOIN_URL, {
+                const response = await fetch('/api/mailing-list/join', {
                   method: 'POST',
                   mode: 'cors',
                   cache: 'no-cache',
@@ -46,31 +48,22 @@ const EmailList = () => {
                   if (json.success) {
                     setEmail('')
                     if (json.message === `You're already registered!`) {
-                      toast.success(
-                        fbt(
-                          "You're already registered!",
-                          'Email Subscription already registered'
-                        )
+                      toast(
+                          "You're already registered!"
                       )
                     } else {
-                      toast.success(
-                        fbt('Thanks for signing up!', 'Email Subscription success')
+                      toast(
+                          'Thanks for signing up!'
                       )
                     }
                   } else {
                     toast.error(
-                      fbt(
-                        'Error subscribing you to the email list',
-                        'ErrorEmailSubscription'
-                      )
+                        'Error subscribing you to the email list'
                     )
                   }
                 } else {
                   toast.error(
-                    fbt(
-                      'Error subscribing you to the email list',
-                      'ErrorEmailSubscription'
-                    )
+                      'Error subscribing you to the email list'
                   )
                 }
               }}
@@ -93,6 +86,7 @@ const EmailList = () => {
                 Join
               </button>
             </form>
+
           </div>
         </div>
       </section>

@@ -89,9 +89,9 @@ export default function Company({ locale, onLocale, articles, meta, categories }
               imgAlt={'Origin Logo'}
               body={''}
               linkText={'Download SVG'}
-              linkHref={'https://ousd.com'}
+              linkHref={assetRootPath('/images/logos/logo-origin.svg')}
               linkText2={'Download PNG'}
-              linkHref2={'https://ousd.com'}
+              linkHref2={assetRootPath('/images/logos/logo-origin.png')}
             />
             <Card
               webProperty={'press'}
@@ -100,9 +100,9 @@ export default function Company({ locale, onLocale, articles, meta, categories }
               imgAlt={'Origin Dollar Logo'}
               body={''}
               linkText={'Download SVG'}
-              linkHref={'https://ousd.com'}
+              linkHref={assetRootPath('/images/logos/logo-origin-dollar.svg')}
               linkText2={'Download PNG'}
-              linkHref2={'https://ousd.com'}
+              linkHref2={assetRootPath('/images/logos/logo-origin-dollar.png')}
             />
             <Card
               webProperty={'press'}
@@ -111,9 +111,9 @@ export default function Company({ locale, onLocale, articles, meta, categories }
               imgAlt={'Origin Story'}
               body={''}
               linkText={'Download SVG'}
-              linkHref={'https://ousd.com'}
+              linkHref={assetRootPath('/images/logos/logo-origin-story.svg')}
               linkText2={'Download PNG'}
-              linkHref2={'https://ousd.com'}
+              linkHref2={assetRootPath('/images/logos/logo-origin-story.png')}
             />
             <Card
               webProperty={'press'}
@@ -122,9 +122,9 @@ export default function Company({ locale, onLocale, articles, meta, categories }
               imgAlt={'OGN Symbol'}
               body={''}
               linkText={'Download SVG'}
-              linkHref={'https://ousd.com'}
+              linkHref={assetRootPath('/images/logos/symbol-ogn.svg')}
               linkText2={'Download PNG'}
-              linkHref2={'https://ousd.com'}
+              linkHref2={assetRootPath('/images/logos/symbol-ogn.png')}
             />
             <Card
               webProperty={'press'}
@@ -133,9 +133,9 @@ export default function Company({ locale, onLocale, articles, meta, categories }
               imgAlt={'OUSD Symbol'}
               body={''}
               linkText={'Download SVG'}
-              linkHref={'https://ousd.com'}
+              linkHref={assetRootPath('/images/logos/symbol-ousd.svg')}
               linkText2={'Download PNG'}
-              linkHref2={'https://ousd.com'}
+              linkHref2={assetRootPath('/images/logos/symbol-ousd.png')}
             />
             <Card
               webProperty={'press'}
@@ -144,9 +144,9 @@ export default function Company({ locale, onLocale, articles, meta, categories }
               imgAlt={'OGV Symbol'}
               body={''}
               linkText={'Download SVG'}
-              linkHref={'https://ousd.com'}
+              linkHref={assetRootPath('/images/logos/symbol-ogv.svg')}
               linkText2={'Download PNG'}
-              linkHref2={'https://ousd.com'}
+              linkHref2={assetRootPath('/images/logos/symbol-ogv.png')}
             />
           </div>
         </div>
@@ -157,7 +157,7 @@ export default function Company({ locale, onLocale, articles, meta, categories }
             <Typography.H2>Press inquiries</Typography.H2>
             <div className='mt-2 mb-4'>Origin Story powers NFT ecosystems, providing creators with branded storefronts and secondary marketplaces.</div>
             <a
-                href=''
+                href={process.env.NEXT_PUBLIC_DISCORD_URL}
                 target='_blank'
                 rel='noopener noreferrer'
                 className='button gradient2'

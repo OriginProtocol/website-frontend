@@ -32,6 +32,17 @@ const Community = ({ locale, onLocale, isMobile }) => {
     setLoaded(true)
   }, []);
 
+  const links = {
+    Facebook: process.env.NEXT_PUBLIC_FACEBOOK_URL,
+    Twitter: process.env.NEXT_PUBLIC_TWITTER_URL,
+    Youtube: process.env.NEXT_PUBLIC_YOUTUBE_URL,
+    Medium: process.env.NEXT_PUBLIC_MEDIUM_URL,
+    Telegram: process.env.NEXT_PUBLIC_TELEGRAM_URL,
+    Discord: process.env.NEXT_PUBLIC_DISCORD_URL,
+    Reddit: process.env.NEXT_PUBLIC_REDDIT_URL,
+    Blockfolio: process.env.NEXT_PUBLIC_BLOCKFOLIO_URL
+  }
+
   return (
     <>
       <Head>
@@ -123,6 +134,7 @@ const Community = ({ locale, onLocale, isMobile }) => {
                         body={`${formatCurrency(social.subscribed_count / 1000, 1)}k followers`}
                         imgSrc={assetRootPath(`/images/logos/social-${social.name.toLowerCase()}.svg`)}
                         imgAlt={social.name}
+                        linkHref={links[social.name]}
                         narrow={false}
                       />
                     )
@@ -152,66 +164,60 @@ const Community = ({ locale, onLocale, isMobile }) => {
                 <div className='telegram container-fluid mt-5'>
                   <AltCard
                     title={'INDONESIAN'}
-                    body={`${formatCurrency(1400 / 1000, 1)}k followers`}
+                    body={`${formatCurrency(socials.stats[5].subscribed_count / 1000, 1)}k followers`}
                     imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
                     imgAlt={'Telegram'}
-                    linkText={"Join"}
-                    linkHref={'https://twitter.com/originprotocol'}
+                    linkHref={process.env.NEXT_PUBLIC_TELEGRAM_INDONESIA_URL}
                     narrow={true}
                     thumbnailSrc={assetRootPath('/images/graphics/flag-indonesia.png')}
                     thumbnailAlt={'Flag'}
                   />
                   <AltCard
                     title={'KOREAN'}
-                    body={`${formatCurrency(1600 / 1000, 1)}k followers`}
+                    body={`${formatCurrency(socials.stats[6].subscribed_count / 1000, 1)}k followers`}
                     imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
                     imgAlt={'Telegram'}
-                    linkText={"Join"}
-                    linkHref={'https://twitter.com/originprotocol'}
+                    linkHref={process.env.NEXT_PUBLIC_TELEGRAM_KOREA_URL}
                     narrow={true}
                     thumbnailSrc={assetRootPath('/images/graphics/flag-korea.png')}
                     thumbnailAlt={'Flag'}
                   />
                   <AltCard
                     title={'RUSSIAN'}
-                    body={`${formatCurrency(1300 / 1000, 1)}k followers`}
+                    body={`${formatCurrency(socials.stats[7].subscribed_count / 1000, 1)}k followers`}
                     imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
                     imgAlt={'Telegram'}
-                    linkText={"Join"}
-                    linkHref={'https://twitter.com/originprotocol'}
+                    linkHref={process.env.NEXT_PUBLIC_TELEGRAM_RUSSIA_URL}
                     narrow={true}
                     thumbnailSrc={assetRootPath('/images/graphics/flag-russia.png')}
                     thumbnailAlt={'Flag'}
                   />
                   <AltCard
                     title={'SPANISH'}
-                    body={`${formatCurrency(2400 / 1000, 1)}k followers`}
+                    body={`${formatCurrency(socials.stats[8].subscribed_count / 1000, 1)}k followers`}
                     imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
                     imgAlt={'Telegram'}
-                    linkText={"Join"}
-                    linkHref={'https://twitter.com/originprotocol'}
+                    linkHref={process.env.NEXT_PUBLIC_TELEGRAM_SPAIN_URL}
                     narrow={true}
                     thumbnailSrc={assetRootPath('/images/graphics/flag-spain.png')}
                     thumbnailAlt={'Flag'}
                   />
                   <AltCard
                     title={'TURKISH'}
-                    body={`${formatCurrency(1100 / 1000, 1)}k followers`}
+                    body={`${formatCurrency(socials.stats[9].subscribed_count / 1000, 1)}k followers`}
                     imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
                     imgAlt={'Telegram'}
-                    linkText={"Join"}
-                    linkHref={'https://twitter.com/originprotocol'}
+                    linkHref={process.env.NEXT_PUBLIC_TELEGRAM_TURKEY_URL}
                     narrow={true}
                     thumbnailSrc={assetRootPath('/images/graphics/flag-turkey.png')}
                     thumbnailAlt={'Flag'}
                   />
                   <AltCard
                     title={'VIETNAMESE'}
-                    body={`${formatCurrency(2300 / 1000, 1)}k followers`}
+                    body={`${formatCurrency(socials.stats[10].subscribed_count / 1000, 1)}k followers`}
                     imgSrc={assetRootPath('/images/logos/social-telegram.svg')}
                     imgAlt={'Telegram'}
-                    linkText={"Join"}
-                    linkHref={'https://twitter.com/originprotocol'}
+                    linkHref={process.env.NEXT_PUBLIC_TELEGRAM_VIETNAM_URL}
                     narrow={true}
                     thumbnailSrc={assetRootPath('/images/graphics/flag-vietnam.png')}
                     thumbnailAlt={'Flag'}
@@ -311,11 +317,21 @@ const Community = ({ locale, onLocale, isMobile }) => {
                   alt="Company"
                 />
               </div>
-              <img
-                src={assetRootPath('/images/logos/investors.svg')}
-                className="people m-auto"
-                alt="Investors"
-              />
+              <div className='people container mt-5'>
+                {team.investors.map((t) => {
+                  const headshot = t.headshot
+                  return (
+                    <div className='profile'>
+                      <img
+                        src={assetRootPath(headshot)}
+                        className="headshot mb-3"
+                        alt={t.name}
+                      />
+                      <div className='name'>{t.name}</div>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
           </section>
           <Footer />
@@ -378,11 +394,17 @@ const Community = ({ locale, onLocale, isMobile }) => {
               margin: 0 auto 0 auto;
             }
 
-            .extended .headshot {
+            .headshot {
               width: 7vw;
               height: 7vw;
               margin: 0 auto 0 auto;
               border-radius: 50%;
+            }
+
+            .people {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              grid-gap: 2vw;
             }
 
             @media (max-width: 1199px) {

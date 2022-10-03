@@ -313,5 +313,19 @@
       "headshot": "/images/headshots/headshot-william.jpeg",
       "link": "https://www.linkedin.com/in/williamjtong/"
     }
+  ],
+  "investors": [
+    {
+      "name": "Steve Chen",
+      "headshot": "/images/headshots/headshot-steve.jpeg"
+    },
+    {
+      "name": "Garry Tan",
+      "headshot": "/images/headshots/headshot-garry.png"
+    },
+    {
+      "name": "Alexis Ohanian",
+      "headshot": "/images/headshots/headshot-alexis.png"
+    }
   ]
 }

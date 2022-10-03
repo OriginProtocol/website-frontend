@@ -168,6 +168,14 @@ const Dashboard = ({ogn, isMobile}) => {
           display: none;
         }
 
+        @media (max-width: 1199px) {
+          .number {
+            font-family: 'Poppins';
+            font-size: 1.5rem;
+            font-weight: 700;
+          }
+        }
+
         @media (max-width: 767px) {
           .logo {
             width: 10%;
@@ -187,7 +195,7 @@ const Dashboard = ({ogn, isMobile}) => {
 
           .number {
             font-family: 'Poppins';
-            font-size: 5vw;
+            font-size: 1.25rem;
             font-weight: 700;
           }
 
