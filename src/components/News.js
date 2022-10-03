@@ -15,7 +15,7 @@ const Category = ({category, setCategory}) => {
     <>
       <Dropdown
         content={
-          <div className="dropdown-menu d-flex flex-column">
+          <div className="dropdown-menu flex flex-column">
             {categories.map((c) => {
               return (
                 <div
@@ -37,7 +37,7 @@ const Category = ({category, setCategory}) => {
         onClose={() => setOpen(false)}
       >
         <div
-          className={`category-select d-flex flex-row align-items-center`}
+          className={`category-select flex flex-row align-items-center`}
           onClick={(e) => {
             e.preventDefault()
             setOpen(!open)
@@ -121,7 +121,7 @@ const News = ({isMobile, articles}) => {
   const [category, setCategory] = useState('')
   const [page, setPage] = useState(1)
   const [pageNumbers, setPageNumbers] = useState([])
-  
+
   const articleQuery = useArticleQuery(
     page,
     category
@@ -189,7 +189,7 @@ const News = ({isMobile, articles}) => {
             )
           })}
         </div>
-        <div className="pagination d-flex justify-content-center">
+        <div className="pagination flex justify-content-center">
           {pageNumbers.map((pageNumber, index) => {
             const isCurrent =
               pageNumber === articleQuery.data.meta.pagination.page
@@ -197,16 +197,16 @@ const News = ({isMobile, articles}) => {
               index > 0 && pageNumber - pageNumbers[index - 1] !== 1
 
             return (
-              <div className="d-flex" key={pageNumber}>
+              <div className="flex" key={pageNumber}>
                 {skippedAPage && (
-                  <div className="page-skip d-flex align-items-center justify-content-center">
+                  <div className="page-skip flex align-items-center justify-content-center">
                     ...
                   </div>
                 )}
                 <div
                   className={`page-number ${
                     isCurrent ? 'current' : ''
-                  } d-flex align-items-center justify-content-center`}
+                  } flex align-items-center justify-content-center`}
                   onClick={() => {
                     if (isCurrent) {
                       return

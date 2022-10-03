@@ -18,16 +18,16 @@ export default function Company({ locale, onLocale, articles, meta, categories }
         webProperty='originprotocol'
       />
       <section className='intro grey'>
-        <div className='container-fluid'>
+        <div className='container-fluid max-w-screen-xl mx-auto px-6'>
           <Typography.H1>Latest news</Typography.H1>
         </div>
       </section>
       {/*<News />*/}
       <News2 articles={articles} meta={meta} categories={categories} />
       <section className='articles grey'>
-        <div className='container-fluid'>
-          <Typography.H2>As seen in</Typography.H2>
-          <div className='companies d-flex flex-row'>
+        <div className='container-fluid max-w-screen-xl mx-auto py-10 px-6'>
+          <Typography.H3>As seen in</Typography.H3>
+          <div className='companies flex flex-row'>
             <img
               src={assetRootPath('/images/logos/company-coindesk.svg')}
               className="company"
@@ -54,7 +54,7 @@ export default function Company({ locale, onLocale, articles, meta, categories }
               alt="Company"
             />
           </div>
-          <div className='companies d-flex flex-row'>
+          <div className='companies flex flex-row'>
             <img
               src={assetRootPath('/images/logos/company-vice.svg')}
               className="company"
@@ -79,80 +79,80 @@ export default function Company({ locale, onLocale, articles, meta, categories }
         </div>
       </section>
       <section className='press light'>
-        <div className='container-fluid'>
-          <Typography.H2>Press kit</Typography.H2>
+        <div className='container-fluid max-w-screen-xl mx-auto py-10 px-6'>
+          <Typography.H3>Press kit</Typography.H3>
           <div className="container mt-5">
-              <Card
-                webProperty={'press'}
-                title={'Origin Logo'}
-                imgSrc={assetRootPath('/images/logos/origin-press.svg')}
-                imgAlt={'Origin Logo'}
-                body={''}
-                linkText={'Download SVG'}
-                linkHref={'https://ousd.com'}
-                linkText2={'Download PNG'}
-                linkHref2={'https://ousd.com'}
-              />
-              <Card
-                webProperty={'press'}
-                title={'Origin Dollar Logo'}
-                imgSrc={assetRootPath('/images/logos/dollar-press.svg')}
-                imgAlt={'Origin Dollar Logo'}
-                body={''}
-                linkText={'Download SVG'}
-                linkHref={'https://ousd.com'}
-                linkText2={'Download PNG'}
-                linkHref2={'https://ousd.com'}
-              />
-              <Card
-                webProperty={'press'}
-                title={'Origin Story'}
-                imgSrc={assetRootPath('/images/logos/story-press.svg')}
-                imgAlt={'Origin Story'}
-                body={''}
-                linkText={'Download SVG'}
-                linkHref={'https://ousd.com'}
-                linkText2={'Download PNG'}
-                linkHref2={'https://ousd.com'}
-              />
-              <Card
-                webProperty={'press'}
-                title={'OGN Symbol'}
-                imgSrc={assetRootPath('/images/logos/ogn-press.svg')}
-                imgAlt={'OGN Symbol'}
-                body={''}
-                linkText={'Download SVG'}
-                linkHref={'https://ousd.com'}
-                linkText2={'Download PNG'}
-                linkHref2={'https://ousd.com'}
-              />
-              <Card
-                webProperty={'press'}
-                title={'OUSD Symbol'}
-                imgSrc={assetRootPath('/images/logos/ousd-press.svg')}
-                imgAlt={'OUSD Symbol'}
-                body={''}
-                linkText={'Download SVG'}
-                linkHref={'https://ousd.com'}
-                linkText2={'Download PNG'}
-                linkHref2={'https://ousd.com'}
-              />
-              <Card
-                webProperty={'press'}
-                title={'OGV Symbol'}
-                imgSrc={assetRootPath('/images/logos/ogv-press.svg')}
-                imgAlt={'OGV Symbol'}
-                body={''}
-                linkText={'Download SVG'}
-                linkHref={'https://ousd.com'}
-                linkText2={'Download PNG'}
-                linkHref2={'https://ousd.com'}
-              />
+            <Card
+              webProperty={'press'}
+              title={'Origin Logo'}
+              imgSrc={assetRootPath('/images/logos/origin-press.svg')}
+              imgAlt={'Origin Logo'}
+              body={''}
+              linkText={'Download SVG'}
+              linkHref={'https://ousd.com'}
+              linkText2={'Download PNG'}
+              linkHref2={'https://ousd.com'}
+            />
+            <Card
+              webProperty={'press'}
+              title={'Origin Dollar Logo'}
+              imgSrc={assetRootPath('/images/logos/dollar-press.svg')}
+              imgAlt={'Origin Dollar Logo'}
+              body={''}
+              linkText={'Download SVG'}
+              linkHref={'https://ousd.com'}
+              linkText2={'Download PNG'}
+              linkHref2={'https://ousd.com'}
+            />
+            <Card
+              webProperty={'press'}
+              title={'Origin Story'}
+              imgSrc={assetRootPath('/images/logos/story-press.svg')}
+              imgAlt={'Origin Story'}
+              body={''}
+              linkText={'Download SVG'}
+              linkHref={'https://ousd.com'}
+              linkText2={'Download PNG'}
+              linkHref2={'https://ousd.com'}
+            />
+            <Card
+              webProperty={'press'}
+              title={'OGN Symbol'}
+              imgSrc={assetRootPath('/images/logos/ogn-press.svg')}
+              imgAlt={'OGN Symbol'}
+              body={''}
+              linkText={'Download SVG'}
+              linkHref={'https://ousd.com'}
+              linkText2={'Download PNG'}
+              linkHref2={'https://ousd.com'}
+            />
+            <Card
+              webProperty={'press'}
+              title={'OUSD Symbol'}
+              imgSrc={assetRootPath('/images/logos/ousd-press.svg')}
+              imgAlt={'OUSD Symbol'}
+              body={''}
+              linkText={'Download SVG'}
+              linkHref={'https://ousd.com'}
+              linkText2={'Download PNG'}
+              linkHref2={'https://ousd.com'}
+            />
+            <Card
+              webProperty={'press'}
+              title={'OGV Symbol'}
+              imgSrc={assetRootPath('/images/logos/ogv-press.svg')}
+              imgAlt={'OGV Symbol'}
+              body={''}
+              linkText={'Download SVG'}
+              linkHref={'https://ousd.com'}
+              linkText2={'Download PNG'}
+              linkHref2={'https://ousd.com'}
+            />
           </div>
         </div>
       </section>
       <section className='inquiries grey'>
-        <div className='container-fluid'>
+        <div className='container-fluid max-w-screen-xl mx-auto py-20 px-6'>
           <div className='content text-center m-auto'>
             <Typography.H2>Press inquiries</Typography.H2>
             <div className='mt-2 mb-4'>Origin Story powers NFT ecosystems, providing creators with branded storefronts and secondary marketplaces.</div>

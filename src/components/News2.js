@@ -20,10 +20,10 @@ const Category = ({categories, category, setCategory}) => {
     <>
       <Dropdown
         content={
-          <div className="dropdown-menu d-flex flex-column">
+          <div className="dropdown-menu flex flex-col">
             <div
               key={0}
-              className="dropdown-item justify-content-start align-items-center"
+              className="dropdown-item justify-start items-center"
               onClick={(e) => {
                 e.preventDefault()
                 setCategory(0)
@@ -36,7 +36,7 @@ const Category = ({categories, category, setCategory}) => {
               return (
                 <div
                   key={c.id}
-                  className="dropdown-item justify-content-start align-items-center"
+                  className="dropdown-item justify-start items-center"
                   onClick={(e) => {
                     e.preventDefault()
                     setCategory(c.id)
@@ -53,7 +53,7 @@ const Category = ({categories, category, setCategory}) => {
         onClose={() => setOpen(false)}
       >
         <div
-          className={`category-select d-flex flex-row align-items-center`}
+          className={`category-select flex flex-row items-center`}
           onClick={(e) => {
             e.preventDefault()
             setOpen(!open)
@@ -144,7 +144,7 @@ const News2 = ({isMobile, articles, meta, categories}) => {
   )*/
 
   const articlePages = Math.ceil((category ? categories[category-1].attributes.articles.data.length : meta.pagination.total) / 9)
-  
+
   /*const receivedPage = articleQuery.data
     ? articleQuery.data.meta.pagination.page
     : 1*/
@@ -182,9 +182,9 @@ const News2 = ({isMobile, articles, meta, categories}) => {
   <>
     {loaded && currentPageArticles && (
     <section className='stories light'>
-      <div className='container-fluid'>
+      <div className='container-fluid max-w-screen-xl mx-auto'>
         <Category categories={categories} category={category} setCategory={setCategory}/>
-        <div className='container mt-5'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-5 max-w-screen-xl mx-auto px-6 md:px-0'>
           {currentPageArticles.map((a, i) => {
             if (!category || category === a.attributes.category.data.id) {
               return (
@@ -196,12 +196,13 @@ const News2 = ({isMobile, articles, meta, categories}) => {
                   body={a.attributes.description}
                   linkText={'Read more'}
                   linkHref={`/article/${a.attributes.slug}`}
+                  key={a.attributes.title}
                 />
               )
             }
           })}
         </div>
-        <div className="pagination d-flex justify-content-center">
+        <div className="pagination flex justify-center">
           {pageNumbers.map((pageNumber, index) => {
             const isCurrent =
               pageNumber === page
@@ -209,16 +210,16 @@ const News2 = ({isMobile, articles, meta, categories}) => {
               index > 0 && pageNumber - pageNumbers[index - 1] !== 1
 
             return (
-              <div className="d-flex" key={pageNumber}>
+              <div className="flex" key={pageNumber}>
                 {skippedAPage && (
-                  <div className="page-skip d-flex align-items-center justify-content-center">
+                  <div className="page-skip flex items-center justify-center">
                     ...
                   </div>
                 )}
                 <div
                   className={`page-number ${
                     isCurrent ? 'current' : ''
-                  } d-flex align-items-center justify-content-center`}
+                  } flex items-center justify-center`}
                   onClick={() => {
                     if (isCurrent) {
                       return
@@ -236,11 +237,7 @@ const News2 = ({isMobile, articles, meta, categories}) => {
     </section>
     )}
     <style jsx>{`
-      .container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 2vw;
-      }
+
 
       .pagination {
         padding: 40px;

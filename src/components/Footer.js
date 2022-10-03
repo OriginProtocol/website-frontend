@@ -23,9 +23,9 @@ export default function Footer({ locale }) {
     <>
       <footer>
         <div className="container">
-          <div className="d-flex align-items-center justify-content-center">
+          <div className="flex align-items-center justify-content-center">
             <div className="">
-              <nav className="nav d-flex justify-content-center">
+              <nav className="nav flex justify-content-center">
                 <a
                   href={analyticsURL}
                   target="_blank"
@@ -67,7 +67,7 @@ export default function Footer({ locale }) {
                   {fbt('Github', 'Github link')}
                 </a>
               </nav>
-              <div className="legal d-flex flex-column align-items-center">
+              <div className="legal flex flex-column align-items-center">
                 <a
                   href="https://originprotocol.com"
                   target="_blank"
@@ -78,7 +78,7 @@ export default function Footer({ locale }) {
                     'Originally released by Origin Protocol'
                   )}
                 </a>
-                <nav className="nav d-flex">
+                <nav className="nav flex">
                   <a
                     href={termsURL}
                     target="_blank"
