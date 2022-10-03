@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { fbt } from 'fbt'
 import { toast } from 'react-toastify'
 import { ToastContainer, Typography } from '@originprotocol/origin-storybook'
+import analytics from 'utils/analytics'
 
 const EmailList = () => {
   const [email, setEmail] = useState()
@@ -17,6 +18,11 @@ const EmailList = () => {
               className='justify-content-center'
               onSubmit={async (e) => {
                 e.preventDefault()
+
+                analytics.track(`On Mailing List Subscription`, {
+                  category: 'general',
+                })
+
                 const searchParams = new URLSearchParams()
                 searchParams.set('email', email)
 
@@ -33,15 +39,15 @@ const EmailList = () => {
                 })
 
                 if (response.ok) {
-                  const json = response
+                  const json = await response.json()
                   if (json.success) {
                     setEmail('')
                     if (json.message === `You're already registered!`) {
-                      toast.success(
+                      toast(
                           "You're already registered!"
                       )
                     } else {
-                      toast.success(
+                      toast(
                           'Thanks for signing up!'
                       )
                     }
