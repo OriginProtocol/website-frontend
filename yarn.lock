@@ -1404,10 +1404,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@originprotocol/origin-storybook@^0.12.1":
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/@originprotocol/origin-storybook/-/origin-storybook-0.12.1.tgz#31deb40a6b5c7fba106865e0cfb1053ced95c560"
-  integrity sha512-To/W+Ucz03X2cOUTe4jycaHQ0Xg+4GHL0hajTX31tUVHRsVy5z90Y5JkVf1inckambMPGN/rZssUWopfAXN7RQ==
+"@originprotocol/origin-storybook@^0.12.6":
+  version "0.12.6"
+  resolved "https://registry.yarnpkg.com/@originprotocol/origin-storybook/-/origin-storybook-0.12.6.tgz#b28b4c9c544f2beefdda717ab4da697e784f1f53"
+  integrity sha512-ZSWr7ER33/3Ed4DZ8NO3OANJO7Pf9HYCHYmN/EZs6Rm6MELiHMfQlq82+WGRjdYQHeEa2Nxg23C8XfeqOz65XQ==
 
 "@popperjs/core@^2.11.5":
   version "2.11.6"
