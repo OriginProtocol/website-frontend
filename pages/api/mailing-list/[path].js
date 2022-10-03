@@ -12,6 +12,8 @@ export default async function handler(req, res) {
           body: searchParams
         }
       ).then((r) => r.json())
+      console.log(data)
+      //const json = await data.json()
       res.status(200).json(data)
     }
     else {
