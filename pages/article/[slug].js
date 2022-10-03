@@ -11,6 +11,8 @@ import { Typography } from "@originprotocol/origin-storybook";
 import RichText from '../../src/components/strapi/blocks/RichText';
 import Media from '../../src/components/strapi/blocks/Media';
 import Quote from '../../src/components/strapi/blocks/Quote';
+import Image from "next/image";
+import Link from "next/link";
 
 const getBlockComponent = ({ __component, ...rest }, index) => {
   let Block;
@@ -50,47 +52,59 @@ const Article = ({ article, categories }) => {
   return (
     <Layout categories={categories.data}>
       <Seo seo={seo} />
-      <div
-        id="banner"
-        className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding m-0"
-        data-src={imageUrl}
-        data-srcset={imageUrl}
-        data-uk-img
-      >
-        <Typography.H1>{article.attributes.title}</Typography.H1>
-      </div>
-      <div className="uk-section">
-        <div className="uk-container uk-container-small">
-          <BlockManager blocks={article.attributes.blocks} />
-          <hr className="uk-divider-small" />
-          <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
-            <div>
-              {article.attributes.author.data.attributes.avatar && (
-                <img
-                  src={getStrapiMedia(
-                    article.attributes.author.data.attributes.avatar
+      <div className="pb-20 px-6" style={{
+        backgroundColor: '#F6F8FE'
+      }}>
+        <div
+          className="max-w-screen-xl mx-auto pb-2"
+        >
+          <Link href='/company'>Back to home page</Link>
+        </div>
+        <div className="max-w-screen-xl mx-auto bg-white rounded-2xl pb-10">
+          <div
+            id="banner"
+            className="bg-cover flex justify-center items-center m-0 h-96 w-full rounded-tl-2xl rounded-tr-2xl"
+            data-src={imageUrl}
+            data-srcset={imageUrl}
+            data-uk-img
+          />
+          <div className="p-6 md:px-14 pt-10">
+            <Typography.H3 as='h1'>{article.attributes.title}</Typography.H3>
+          </div>
+          <div className="">
+            <div className="px-6 md:px-14">
+              <BlockManager blocks={article.attributes.blocks} />
+              <hr className="uk-divider-small" />
+              <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
+                <div>
+                  {article.attributes.author.data.attributes.avatar && (
+                    <img
+                      src={getStrapiMedia(
+                        article.attributes.author.data.attributes.avatar
+                      )}
+                      alt={
+                        article.attributes.author.data.attributes.avatar.data
+                          .attributes.alternativeText
+                      }
+                      style={{
+                        position: "static",
+                        borderRadius: "20%",
+                        height: 60,
+                      }}
+                    />
                   )}
-                  alt={
-                    article.attributes.author.data.attributes.avatar.data
-                      .attributes.alternativeText
-                  }
-                  style={{
-                    position: "static",
-                    borderRadius: "20%",
-                    height: 60,
-                  }}
-                />
-              )}
-            </div>
-            <div className="uk-width-expand">
-              <p className="uk-margin-remove-bottom">
-                By {article.attributes.author.data.attributes.name}
-              </p>
-              <p className="uk-text-meta uk-margin-remove-top">
-                <Moment format="MMM Do YYYY">
-                  {article.attributes.published_at}
-                </Moment>
-              </p>
+                </div>
+                <div className="uk-width-expand">
+                  <p className="uk-margin-remove-bottom">
+                    By {article.attributes.author.data.attributes.name}
+                  </p>
+                  <p className="uk-text-meta uk-margin-remove-top">
+                    <Moment format="MMM Do YYYY">
+                      {article.attributes.published_at}
+                    </Moment>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

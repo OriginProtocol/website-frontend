@@ -1,6 +1,5 @@
 import App from "next/app";
 import Head from "next/head";
-import "../styles/strapi.css";
 import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";

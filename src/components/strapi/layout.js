@@ -1,6 +1,5 @@
-import Nav from "./nav";
-import { Typography, Header, Footer, Card } from '@originprotocol/origin-storybook'
-import { mappedLinks } from 'utils/constants'
+import { Footer, Header } from '@originprotocol/origin-storybook';
+import { mappedLinks } from 'utils/constants';
 
 const Layout = ({ children, categories, seo }) => (
   <>
@@ -9,6 +8,7 @@ const Layout = ({ children, categories, seo }) => (
       webProperty='originprotocol'
     />
     {children}
+    <Footer />
   </>
 );
 

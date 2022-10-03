@@ -9,7 +9,7 @@ module.exports = {
   reactStrictMode: true,
   images: {
     loader: "default",
-    domains: ["localhost"],
+    domains: ["localhost", "cmsmediaproduction.s3.amazonaws.com"],
   },
   i18n: {
     locales: ['en-US'],
