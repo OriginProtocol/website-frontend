@@ -1,129 +1,36 @@
-import React, { useState, useEffect, useMemo } from 'react'
-import { useStoreState } from 'pullstate'
-import StatStore from 'stores/StatStore'
-import useArticleQuery from 'queries/useArticleQuery'
-import { Typography, Card } from '@originprotocol/origin-storybook'
-import Dropdown from 'components/Dropdown'
-import DownCaret from 'components/DownCaret'
-import { assetRootPath } from 'utils/image'
+import { Card, Select } from '@originprotocol/origin-storybook'
 import withIsMobile from 'hoc/withIsMobile'
-import Scard from "./strapi/card";
+import React, { useEffect, useState } from 'react'
 import { getStrapiMedia } from '../../lib/media'
 
-const Category = ({categories, category, setCategory}) => {
+const Category = ({categories, setCategory}) => {
   const [open, setOpen] = useState(false)
   //const categories = ['All news', 'News', 'Food', 'Nature', 'Tech', 'Story']
   const capitalize = (name) => {
     return name.slice(0,1).toUpperCase() + name.slice(1, name.length)
   }
+
+  const categoriesFormatted = [{
+    id: null,
+    name: 'All articles',
+    unavailable: false,
+  }].concat(categories.map((category) => {
+    return {
+      id: category.id,
+      name: capitalize(category.attributes.name),
+      unavailable: false
+    }
+  }))
+
   return (
-    <>
-      <Dropdown
-        content={
-          <div className="dropdown-menu flex flex-col">
-            <div
-              key={0}
-              className="dropdown-item justify-start items-center"
-              onClick={(e) => {
-                e.preventDefault()
-                setCategory(0)
-                setOpen(false)
-              }}
-            >
-              All news
-            </div>
-            {categories.map((c) => {
-              return (
-                <div
-                  key={c.id}
-                  className="dropdown-item justify-start items-center"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    setCategory(c.id)
-                    setOpen(false)
-                  }}
-                >
-                  {`${capitalize(c.attributes.name)}`}
-                </div>
-              )
-            })}
-          </div>
-        }
-        open={open}
-        onClose={() => setOpen(false)}
-      >
-        <div
-          className={`category-select flex flex-row items-center`}
-          onClick={(e) => {
-            e.preventDefault()
-            setOpen(!open)
-          }}
-        >
-          {!category ? 'All news' : capitalize(categories[category-1].attributes.name)}
-          <div className='downcaret'>
-            <DownCaret color={'black'} size={26} />
-          </div>
-        </div>
-      </Dropdown>
-      <style jsx>{`
-        .category-select {
-          display: inline-block;
-          border: 0;
-          border-radius: 50px;
-          white-space: nowrap;
-          margin-bottom: 10px;
-          padding: 15px 0 15px 25px;
-          color: #183140;
-          background-color: #ffffff;
-          box-shadow: 2px 2px 10px #c0c0c0;
-          width: 15vw;
-          cursor: pointer;
-        }
-
-        .category-select:hover {
-          background-color: #f2f3f5;
-        }
-
-        .dropdown-menu {
-          margin-right: 200px;
-          background-color: white;
-          font-size: 16px;
-          color: black;
-          max-width: 98px;
-          top: 100%;
-          left: 0;
-          padding: 5px;
-        }
-
-        .dropdown-item {
-          background-color: white;
-          color: black;
-          padding: 3px 5px 3px 10px;
-          line-height: 20px;
-          cursor: pointer;
-        }
-
-        .dropdown-item:hover {
-          background-color: #f2f3f5;
-        }
-
-        .downcaret {
-          display: relative;
-          margin-right: 25px;
-          margin-left: auto;
-        }
-
-        @media (max-width: 1199px) {
-
-        }
-
-        @media (max-width: 799px) {
-          .category-select {
-            width: 40vw;
-          }
-        }
-      `}</style>
-    </>
+    <div className='pl-6 md:pl-0 w-96'>
+      <Select
+        options={categoriesFormatted}
+        onSelect={(value) => {
+          setCategory(value.id)
+        }}
+      />
+    </div>
   )
 }
 

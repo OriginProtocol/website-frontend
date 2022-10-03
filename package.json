@@ -17,7 +17,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@originprotocol/origin-storybook": "^0.12.6",
+    "@originprotocol/origin-storybook": "^0.13.2",
     "babel": "^6.23.0",
     "babel-plugin-react-html-attrs": "2",
     "classnames": "^2.3.1",

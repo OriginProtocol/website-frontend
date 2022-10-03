@@ -1149,6 +1149,11 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@heroicons/react@^2.0.11":
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.0.11.tgz#2c6cf4c66d81142ec87c102502407d8c353558bb"
+  integrity sha512-bASjOgSSaYj8HqXWsOqaBiB6ZLalE/g90WYGgZ5lPm4KCCG7wPXntY4kzHf5NrLh6UBAcnPwvbiw1Ne9GYfJtw==
+
 "@humanwhocodes/config-array@^0.10.4":
   version "0.10.4"
   resolved "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.10.4.tgz"
@@ -1341,10 +1346,12 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@originprotocol/origin-storybook@^0.12.6":
-  version "0.12.6"
-  resolved "https://registry.yarnpkg.com/@originprotocol/origin-storybook/-/origin-storybook-0.12.6.tgz#b28b4c9c544f2beefdda717ab4da697e784f1f53"
-  integrity sha512-ZSWr7ER33/3Ed4DZ8NO3OANJO7Pf9HYCHYmN/EZs6Rm6MELiHMfQlq82+WGRjdYQHeEa2Nxg23C8XfeqOz65XQ==
+"@originprotocol/origin-storybook@^0.13.2":
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/@originprotocol/origin-storybook/-/origin-storybook-0.13.2.tgz#06906476c69749a3a235ea12163ae5985e4ed11b"
+  integrity sha512-xiesA/cfx2ddHgPwcoY8t6kKes+2oBT85ibrfl4O9Mlb4H5NQzHdTxpzoUD9D3Zto55ACkHYgGwvO3Z8OZrHeA==
+  dependencies:
+    "@heroicons/react" "^2.0.11"
 
 "@rushstack/eslint-patch@^1.1.3":
   version "1.1.4"

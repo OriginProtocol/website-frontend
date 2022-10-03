@@ -18,7 +18,7 @@ export default function Company({ locale, onLocale, articles, meta, categories }
         webProperty='originprotocol'
       />
       <section className='intro grey'>
-        <div className='container-fluid max-w-screen-xl mx-auto px-6'>
+        <div className='container-fluid max-w-screen-xl mx-auto px-6 mb-6'>
           <Typography.H1>Latest news</Typography.H1>
         </div>
       </section>
