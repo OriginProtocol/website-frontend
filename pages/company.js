@@ -153,7 +153,7 @@ export default function Company({ locale, onLocale, articles, meta, categories }
       </section>
       <section className='inquiries grey'>
         <div className='container-fluid max-w-screen-xl mx-auto py-20 px-6'>
-          <div className='content text-center m-auto'>
+          <div className='content text-center m-auto space-y-6'>
             <Typography.H2>Press inquiries</Typography.H2>
             <div className='mt-2 mb-4'>Origin Story powers NFT ecosystems, providing creators with branded storefronts and secondary marketplaces.</div>
             <a
