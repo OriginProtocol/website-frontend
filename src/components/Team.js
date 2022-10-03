@@ -9,7 +9,7 @@ const TeamMember = ({name, title, description, headshot, links}) => {
   return (
     <>
       <div className='card'>
-        <div className='d-flex flex-row'>
+        <div className='flex flex-row'>
         <img
           src={assetRootPath(headshot)}
           className="headshot mb-3"
@@ -47,7 +47,7 @@ const TeamMember = ({name, title, description, headshot, links}) => {
           top: 50px;
           font-family: 'Poppins';
           background-color: #ffffff20;
-          width: 21vw;
+          max-width: 21vw;
           height: auto;
           padding: 30px;
           border-radius: 20px;
@@ -99,7 +99,7 @@ const TeamMember = ({name, title, description, headshot, links}) => {
 
         @media (max-width: 799px) {
           .card {
-            width: 40vw;
+            max-width: 40vw;
             padding: 20px;
           }
 
@@ -117,7 +117,7 @@ const TeamMember = ({name, title, description, headshot, links}) => {
             font-size: 1rem;
             font-weight: 600;
           }
-  
+
           .title {
             font-size: 0.875rem;
             font-weight: 300;
@@ -136,7 +136,7 @@ const Team = () => {
   return (
     <>
       <section className='team gradient3'>
-        <div className='container-fluid'>
+        <div className='max-w-screen-xl mx-auto py-20 px-8'>
           <img
             src={assetRootPath('/images/graphics/spots1.svg')}
             className="spots1"
@@ -149,8 +149,8 @@ const Team = () => {
           />
           <div className='content text-center'>
             <Typography.H2 className='text-white'>Core team</Typography.H2>
-            <div className='text m-auto mt-3'>The core contributors hail from iconic tech companies like Coinbase, YouTube, Google, Paypal, Dropbox, and Pinterest. Our founders are serial entrepreneurs, and multiple team members have founded and exited successful ventures.</div>
-            <div className='container-fluid text-left mt-5'>
+            <div className='text w-3/4 mx-auto mt-3'>The core contributors hail from iconic tech companies like Coinbase, YouTube, Google, Paypal, Dropbox, and Pinterest. Our founders are serial entrepreneurs, and multiple team members have founded and exited successful ventures.</div>
+            <div className='container-fluid text-left mt-5 max-w-screen-xl mx-auto'>
               {team.core.map((t) => {
                 return (
                   <TeamMember name={t.name} title={t.title} description={t.description} headshot={t.headshot} links={t.links} />)
@@ -170,7 +170,7 @@ const Team = () => {
           position: relative;
           z-index: 1;
         }
-        
+
         .spots1 {
           position: absolute;
           width: 25%;
@@ -185,10 +185,6 @@ const Team = () => {
           bottom: 0;
           right: 0;
           z-index: 0;
-        }
-
-        .text {
-          width: 50%;
         }
 
         .container-fluid {
