@@ -1,129 +1,36 @@
-import React, { useState, useEffect, useMemo } from 'react'
-import { useStoreState } from 'pullstate'
-import StatStore from 'stores/StatStore'
-import useArticleQuery from 'queries/useArticleQuery'
-import { Typography, Card } from '@originprotocol/origin-storybook'
-import Dropdown from 'components/Dropdown'
-import DownCaret from 'components/DownCaret'
-import { assetRootPath } from 'utils/image'
+import { Card, Select } from '@originprotocol/origin-storybook'
 import withIsMobile from 'hoc/withIsMobile'
-import Scard from "./strapi/card";
+import React, { useEffect, useState } from 'react'
 import { getStrapiMedia } from '../../lib/media'
 
-const Category = ({categories, category, setCategory}) => {
+const Category = ({categories, setCategory}) => {
   const [open, setOpen] = useState(false)
   //const categories = ['All news', 'News', 'Food', 'Nature', 'Tech', 'Story']
   const capitalize = (name) => {
     return name.slice(0,1).toUpperCase() + name.slice(1, name.length)
   }
+
+  const categoriesFormatted = [{
+    id: null,
+    name: 'All articles',
+    unavailable: false,
+  }].concat(categories.map((category) => {
+    return {
+      id: category.id,
+      name: capitalize(category.attributes.name),
+      unavailable: false
+    }
+  }))
+
   return (
-    <>
-      <Dropdown
-        content={
-          <div className="dropdown-menu d-flex flex-column">
-            <div
-              key={0}
-              className="dropdown-item justify-content-start align-items-center"
-              onClick={(e) => {
-                e.preventDefault()
-                setCategory(0)
-                setOpen(false)
-              }}
-            >
-              All news
-            </div>
-            {categories.map((c) => {
-              return (
-                <div
-                  key={c.id}
-                  className="dropdown-item justify-content-start align-items-center"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    setCategory(c.id)
-                    setOpen(false)
-                  }}
-                >
-                  {`${capitalize(c.attributes.name)}`}
-                </div>
-              )
-            })}
-          </div>
-        }
-        open={open}
-        onClose={() => setOpen(false)}
-      >
-        <div
-          className={`category-select d-flex flex-row align-items-center`}
-          onClick={(e) => {
-            e.preventDefault()
-            setOpen(!open)
-          }}
-        >
-          {!category ? 'All news' : capitalize(categories[category-1].attributes.name)}
-          <div className='downcaret'>
-            <DownCaret color={'black'} size={26} />
-          </div>
-        </div>
-      </Dropdown>
-      <style jsx>{`
-        .category-select {
-          display: inline-block;
-          border: 0;
-          border-radius: 50px;
-          white-space: nowrap;
-          margin-bottom: 10px;
-          padding: 15px 0 15px 25px;
-          color: #183140;
-          background-color: #ffffff;
-          box-shadow: 2px 2px 10px #c0c0c0;
-          width: 15vw;
-          cursor: pointer;
-        }
-
-        .category-select:hover {
-          background-color: #f2f3f5;
-        }
-
-        .dropdown-menu {
-          margin-right: 200px;
-          background-color: white;
-          font-size: 16px;
-          color: black;
-          max-width: 98px;
-          top: 100%;
-          left: 0;
-          padding: 5px;
-        }
-
-        .dropdown-item {
-          background-color: white;
-          color: black;
-          padding: 3px 5px 3px 10px;
-          line-height: 20px;
-          cursor: pointer;
-        }
-
-        .dropdown-item:hover {
-          background-color: #f2f3f5;
-        }
-
-        .downcaret {
-          display: relative;
-          margin-right: 25px;
-          margin-left: auto;
-        }
-
-        @media (max-width: 1199px) {
-
-        }
-
-        @media (max-width: 799px) {
-          .category-select {
-            width: 40vw;
-          }
-        }
-      `}</style>
-    </>
+    <div className='pl-6 md:pl-0 w-96'>
+      <Select
+        options={categoriesFormatted}
+        onSelect={(value) => {
+          setCategory(value.id)
+        }}
+      />
+    </div>
   )
 }
 
@@ -144,7 +51,7 @@ const News2 = ({isMobile, articles, meta, categories}) => {
   )*/
 
   const articlePages = Math.ceil((category ? categories[category-1].attributes.articles.data.length : meta.pagination.total) / 9)
-  
+
   /*const receivedPage = articleQuery.data
     ? articleQuery.data.meta.pagination.page
     : 1*/
@@ -182,9 +89,9 @@ const News2 = ({isMobile, articles, meta, categories}) => {
   <>
     {loaded && currentPageArticles && (
     <section className='stories light'>
-      <div className='container-fluid'>
+      <div className='container-fluid max-w-screen-xl mx-auto'>
         <Category categories={categories} category={category} setCategory={setCategory}/>
-        <div className='container mt-5'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-5 max-w-screen-xl mx-auto px-6 md:px-0'>
           {currentPageArticles.map((a, i) => {
             if (!category || category === a.attributes.category.data.id) {
               return (
@@ -196,12 +103,13 @@ const News2 = ({isMobile, articles, meta, categories}) => {
                   body={a.attributes.description}
                   linkText={'Read more'}
                   linkHref={`/article/${a.attributes.slug}`}
+                  key={a.attributes.title}
                 />
               )
             }
           })}
         </div>
-        <div className="pagination d-flex justify-content-center">
+        <div className="pagination flex justify-center">
           {pageNumbers.map((pageNumber, index) => {
             const isCurrent =
               pageNumber === page
@@ -209,16 +117,16 @@ const News2 = ({isMobile, articles, meta, categories}) => {
               index > 0 && pageNumber - pageNumbers[index - 1] !== 1
 
             return (
-              <div className="d-flex" key={pageNumber}>
+              <div className="flex" key={pageNumber}>
                 {skippedAPage && (
-                  <div className="page-skip d-flex align-items-center justify-content-center">
+                  <div className="page-skip flex items-center justify-center">
                     ...
                   </div>
                 )}
                 <div
                   className={`page-number ${
                     isCurrent ? 'current' : ''
-                  } d-flex align-items-center justify-content-center`}
+                  } flex items-center justify-center`}
                   onClick={() => {
                     if (isCurrent) {
                       return
@@ -236,11 +144,7 @@ const News2 = ({isMobile, articles, meta, categories}) => {
     </section>
     )}
     <style jsx>{`
-      .container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 2vw;
-      }
+
 
       .pagination {
         padding: 40px;

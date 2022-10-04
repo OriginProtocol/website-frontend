@@ -21,15 +21,15 @@ const Contributor = ({login, avatar, profile}) => {
       </div>
       <style jsx>{`
         .contributor {
-          width: 50px;
-          height: 50px;
+          width: 40px;
+          height: 40px;
           border-radius: 50%;
         }
 
         @media (min-width: 2000px) {
           .contributor {
-            width: 100px;
-            height: 100px;
+            width: 72px;
+            height: 72px;
           }
         }
       `}</style>
@@ -84,12 +84,12 @@ const Contributors = () => {
   return (
     <>
       <section className='contributors grey text-center'>
-        <div className='container-fluid'>
+        <div className='container-fluid max-w-screen-xl mx-auto py-20'>
           <Typography.H3>{`${contributorList.length} open-source contributors`}</Typography.H3>
-          <div className='list container-fluid mt-5'>
+          <div className='list container-fluid mt-10 px-6'>
             {contributorList?.map((c, i) => {
               return (
-                <Contributor login={c.login} avatar={c.avatar_url} profile={c.html_url} />
+                <Contributor login={c.login} avatar={c.avatar_url} profile={c.html_url} key={c.html_url} />
               )
             })}
           </div>
@@ -104,13 +104,13 @@ const Contributors = () => {
 
         @media (max-width: 1199px) {
           .list.container-fluid {
-            grid-template-columns: repeat(10, 1fr)
+            grid-template-columns: repeat(10, 1fr);
           }
         }
 
         @media (max-width: 767px) {
           .list.container-fluid {
-            grid-template-columns: repeat(6, 1fr)
+            grid-template-columns: repeat(6, 1fr);
           }
         }
       `}</style>

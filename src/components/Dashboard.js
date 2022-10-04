@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react'
-import { useStoreState } from 'pullstate'
-import StatStore from 'stores/StatStore'
-import usePriceQuery from 'queries/usePriceQuery'
-import useCirculatingSupplyQuery from 'queries/useCirculatingSupplyQuery'
-import useTotalSupplyQuery from 'queries/useTotalSupplyQuery'
-import { formatCurrency } from 'utils/math'
-import { assetRootPath } from 'utils/image'
-import { Typography } from '@originprotocol/origin-storybook'
 import withIsMobile from 'hoc/withIsMobile'
+import { useStoreState } from 'pullstate'
+import useCirculatingSupplyQuery from 'queries/useCirculatingSupplyQuery'
+import usePriceQuery from 'queries/usePriceQuery'
+import useTotalSupplyQuery from 'queries/useTotalSupplyQuery'
+import React, { useEffect } from 'react'
+import StatStore from 'stores/StatStore'
+import { assetRootPath } from 'utils/image'
+import { formatCurrency } from 'utils/math'
 
 const Dashboard = ({ogn, isMobile}) => {
   const symbol = ogn ? 'OGN' : 'OGV'
@@ -63,10 +62,10 @@ const Dashboard = ({ogn, isMobile}) => {
 
   return (
     <>
-      <div className='token-dashboard gradient2 d-flex flex-column'>
-        <div className='d-flex flex-row'>
+      <div className='token-dashboard gradient2 flex flex-col md:rounded-2xl py-12 px-6 md:py-12 md:px-20'>
+        <div className='flex flex-row'>
           <div className='text-container'>
-            <div className='d-flex flex-row'>
+            <div className='flex flex-row items-center'>
               <img
                 src={assetRootPath(`/images/logos/${coin}-logo.svg`)}
                 className={`logo`}
@@ -134,9 +133,6 @@ const Dashboard = ({ogn, isMobile}) => {
       <style jsx>{`
         .token-dashboard {
           color: white;
-          margin-top: 7.5vw;
-          padding: 50px;
-          border-radius: 20px;
           align-content: flex-start;
         }
 
@@ -181,13 +177,14 @@ const Dashboard = ({ogn, isMobile}) => {
         }
 
         @media (max-width: 767px) {
-          .token-dashboard {
-            padding: 20px;
+          .logo {
+            width: 10%;
+            margin-right: 6%;
           }
 
-          .logo {
-            width: 20%;
-            margin-right: 2%;
+          .text {
+            font-size: 1.4rem;
+            font-weight: 500;
           }
 
           .value-container {
@@ -205,6 +202,8 @@ const Dashboard = ({ogn, isMobile}) => {
           .button {
             align-self: auto;
             margin: 25px auto 0 auto;
+            width: 100%;
+            text-align: center;
           }
 
           .b1 {

@@ -1,7 +1,6 @@
+import { Typography } from '@originprotocol/origin-storybook'
 import React, { useState } from 'react'
-import { fbt } from 'fbt'
 import { toast } from 'react-toastify'
-import { ToastContainer, Typography } from '@originprotocol/origin-storybook'
 import analytics from 'utils/analytics'
 
 const EmailList = () => {
@@ -9,11 +8,17 @@ const EmailList = () => {
 
   return (
     <>
-      <section className="mail">
-        <div className='container-fluid'>
-          <div className="d-flex flex-column align-items-center text-center">
-            <Typography.H3 className='text-white'>Join our mailing list</Typography.H3>
-            <div className='lighter text mt-2 mb-4'>Be the first to hear about major NFT drops and important product updates. Your email will be kept private.</div>
+      <section className="p-5 relative overflow-hidden">
+        <span className='absolute z-0 right-0 -bottom-5 md:-bottom-5 md:hidden'>
+          <Image src='/images/graphics/splines34.svg' height={1363} width={1341} alt="spline" />
+        </span>
+        <span className='absolute z-0 right-0 -bottom-5 md:-bottom-5 hidden md:block'>
+          <Image src='/images/graphics/splines34.svg' height={800} width={800} alt="spline" />
+        </span>
+        <div className='relative z-10 max-w-screen-xl mx-auto'>
+          <div className="flex flex-col align-items-center text-center mt-20 mb-60 md:mb-20 md:space-y-6">
+            <Typography.H4 className='text-white'>Join our mailing list to stay in touch</Typography.H4>
+            <div className='lighter text mt-2 mb-4 mx-auto'>Be the first to hear about major NFT drops and important product updates. Your email will be kept private.</div>
             <form
               className='justify-content-center'
               onSubmit={async (e) => {
@@ -81,13 +86,12 @@ const EmailList = () => {
                 Join
               </button>
             </form>
-                
+
           </div>
         </div>
       </section>
       <style jsx>{`
         section {
-          padding: 5%;
         }
 
         .text {
@@ -95,7 +99,7 @@ const EmailList = () => {
         }
 
         .email {
-          width: 70%;
+          width: 20%;
           border: 0;
           border-radius: 10px;
           color: white;
@@ -122,6 +126,10 @@ const EmailList = () => {
         @media (max-width: 799px) {
           .text {
             width: 100%;
+          }
+
+          .email {
+            width: 70%;
           }
         }
       `}</style>

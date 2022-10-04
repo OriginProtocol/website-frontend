@@ -55,11 +55,12 @@ const Community = ({ locale, onLocale, isMobile }) => {
             mappedLinks={mappedLinks.links}
           />
           <section className='intro grey'>
-            <div className='container-fluid'>
-              <div className='container-fluid d-flex layout'>
-                <div className='d-flex flex-column'>
-                  <Typography.H3>
+            <div className='max-w-screen-xl mx-auto pb-20 px-8'>
+              <div className='flex layout justify-between'>
+                <div className='flex flex-col'>
+                  <Typography.H3 as='h1'>
                     {'Welcome to the '}
+                    <br className='hidden md:block' />
                     <span className='gradient1 bold'>Origin community</span>
                   </Typography.H3>
                   <div className='mt-3'>Origin is a decentralized ecosystem hundreds of thousands strong</div>
@@ -75,9 +76,9 @@ const Community = ({ locale, onLocale, isMobile }) => {
             </div>
           </section>
           <section className='contact light'>
-            <div className='container-fluid'>
+            <div className='max-w-screen-xl mx-auto py-20 px-8'>
               <Typography.H3>Partner with Origin</Typography.H3>
-              <div className='drops container-fluid mt-5 mb-5'>
+              <div className='drops container-fluid mt-5 mb-5 space-y-4 md:space-y-0'>
                 <Card
                   webProperty={'launchpad'}
                   title={'3LAU'}
@@ -123,7 +124,7 @@ const Community = ({ locale, onLocale, isMobile }) => {
                   linkHref={'https://blog.originprotocol.com/origin-partners-with-bt-to-release-an-album-unlike-anything-youve-seen-before-8659e48ad441'}
                 />
               </div>
-              <Typography.H3>Community</Typography.H3>
+              <Typography.H3 className='pt-10'>Community</Typography.H3>
               <div className='socials container-fluid mt-5 mb-5'>
                 {socials && socials.stats.map((social) => {
                   if (social.name.indexOf(' ') < 0) {
@@ -223,13 +224,13 @@ const Community = ({ locale, onLocale, isMobile }) => {
                   />
                 </div>
               )}
-            </div>  
+            </div>
           </section>
           <Team />
           <section className='extended light text-center'>
-            <div className='container-fluid'>
+            <div className='max-w-screen-xl mx-auto py-20 px-8'>
               <Typography.H5>Community Team</Typography.H5>
-              <div className='community container-fluid mt-5 mb-5'>
+              <div className='community container-fluid mt-10 mb-5'>
                 {team.community.map((t) => {
                   const headshot = t.headshot
                   return (
@@ -245,7 +246,7 @@ const Community = ({ locale, onLocale, isMobile }) => {
                 })}
               </div>
               <Typography.H5>Advisors</Typography.H5>
-              <div className='advisors container-fluid mt-5'>
+              <div className='advisors container-fluid mt-10'>
                 {team.advisors.map((t) => {
                   const headshot = t.headshot
                   return (
@@ -270,9 +271,9 @@ const Community = ({ locale, onLocale, isMobile }) => {
           </section>
           <Contributors />
           <section className='investors light text-center'>
-            <div className='container-fluid'>
+            <div className='max-w-screen-xl mx-auto pt-20 pb-32'>
               <Typography.H3>Notable investors</Typography.H3>
-              <div className='companies d-flex flex-row'>
+              <div className='companies flex flex-row'>
                 <img
                   src={assetRootPath('/images/logos/company-pantera.svg')}
                   className="company"
@@ -294,7 +295,7 @@ const Community = ({ locale, onLocale, isMobile }) => {
                   alt="Company"
                 />
               </div>
-              <div className='companies d-flex flex-row'>
+              <div className='companies flex flex-row'>
                 <img
                   src={assetRootPath('/images/logos/company-hackvc.svg')}
                   className="company"
@@ -379,13 +380,13 @@ const Community = ({ locale, onLocale, isMobile }) => {
 
             .extended .community {
               display: grid;
-              grid-template-columns: repeat(3, 1fr);
+              grid-template-columns: repeat(6, 1fr);
               grid-gap: 2vw;
             }
 
             .extended .advisors {
               display: grid;
-              grid-template-columns: repeat(3, 1fr);
+              grid-template-columns: repeat(6, 1fr);
               grid-gap: 2vw;
             }
 
@@ -415,7 +416,7 @@ const Community = ({ locale, onLocale, isMobile }) => {
               .contact .socials.container-fluid {
                 grid-template-columns: repeat(4, 1fr);
               }
-  
+
               .contact .telegram.container-fluid {
                 grid-template-columns: repeat(4, 1fr);
               }
@@ -446,10 +447,18 @@ const Community = ({ locale, onLocale, isMobile }) => {
                 grid-template-columns: repeat(2, 1fr);
                 grid-gap: 2vw;
               }
-  
+
               .contact .telegram.container-fluid {
                 grid-template-columns: repeat(2, 1fr);
                 grid-gap: 2vw;
+              }
+
+              .extended .community {
+                grid-template-columns: repeat(3, 1fr);
+              }
+
+              .extended .advisors {
+                grid-template-columns: repeat(3, 1fr);
               }
 
               .company {
@@ -459,7 +468,7 @@ const Community = ({ locale, onLocale, isMobile }) => {
               .extended {
                 font-size: 1rem;
               }
-              
+
               .extended .headshot {
                 width: 15vw;
                 height: 15vw;

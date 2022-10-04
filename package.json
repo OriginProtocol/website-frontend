@@ -19,7 +19,7 @@
   "dependencies": {
     "@analytics/google-analytics": "^1.0.3",
     "@analytics/mixpanel": "^0.4.0",
-    "@originprotocol/origin-storybook": "^0.12.6",
+    "@originprotocol/origin-storybook": "^0.13.2",
     "analytics": "^0.8.1",
     "babel": "^6.23.0",
     "babel-plugin-react-html-attrs": "2",
@@ -36,7 +36,6 @@
     "pullstate": "^1.23.0",
     "qs": "^6.11.0",
     "react": "18.2.0",
-    "react-bootstrap": "^2.5.0",
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.3",
     "react-moment": "^1.1.2",
@@ -48,7 +47,6 @@
     "typeface-lato": "^1.1.13"
   },
   "devDependencies": {
-    "bootstrap": "^5.2.0",
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5",
     "tailwind": "^4.0.0"
