@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Typography } from '@originprotocol/origin-storybook'
 import React, { useState } from 'react'
 import { toast } from 'react-toastify'
