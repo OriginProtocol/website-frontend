@@ -1,7 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
 import News from 'components/News'
-import News2 from 'components/News2'
 import { assetRootPath } from 'utils/image'
 import { Typography, Header, Footer, Card } from '@originprotocol/origin-storybook'
 import { mappedLinks } from 'utils/constants'
@@ -22,8 +21,7 @@ export default function Company({ locale, onLocale, articles, meta, categories }
           <Typography.H1>Latest news</Typography.H1>
         </div>
       </section>
-      {/*<News />*/}
-      <News2 articles={articles} meta={meta} categories={categories} />
+      <News articles={articles} meta={meta} categories={categories} />
       <section className='articles grey'>
         <div className='container-fluid max-w-screen-xl mx-auto py-10 px-6'>
           <Typography.H3>As seen in</Typography.H3>
