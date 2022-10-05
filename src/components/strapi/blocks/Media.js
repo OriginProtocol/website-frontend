@@ -1,6 +1,4 @@
-import React from 'react'
-import ReactMarkdown from "react-markdown"
-import { assetRootPath } from 'utils/image'
+import React from 'react';
 import { getStrapiMedia } from "../../../../lib/media";
 
 const Media = ({file}) => {

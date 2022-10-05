@@ -1,10 +1,13 @@
-import React from 'react'
-import ReactMarkdown from "react-markdown";
+import React from 'react';
 
 const RichText = ({body}) => {
   return (
     <>
-      <ReactMarkdown children={body} />
+      <div
+        dangerouslySetInnerHTML={{
+          __html: body
+        }}
+      />
       <style jsx>{`
 
       `}</style>
