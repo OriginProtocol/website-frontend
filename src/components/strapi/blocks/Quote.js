@@ -1,6 +1,5 @@
-import React from 'react'
-import ReactMarkdown from "react-markdown";
-import { Typography } from '@originprotocol/origin-storybook'
+import { Typography } from '@originprotocol/origin-storybook';
+import React from 'react';
 
 const Quote = ({title, body}) => {
   return (
