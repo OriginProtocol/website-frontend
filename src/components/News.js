@@ -34,7 +34,7 @@ const Category = ({categories, setCategory}) => {
   )
 }
 
-const News2 = ({isMobile, articles, meta, categories}) => {
+const News = ({isMobile, articles, meta, categories}) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -175,4 +175,4 @@ const News2 = ({isMobile, articles, meta, categories}) => {
   )
 }
 
-export default withIsMobile(News2)
+export default withIsMobile(News)
