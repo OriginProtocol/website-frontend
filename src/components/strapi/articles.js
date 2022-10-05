@@ -1,6 +1,5 @@
+import News from 'components/News';
 import React from "react";
-import Scard from "./card";
-import News from 'components/News'
 
 const Articles = ({ articles }) => {
   return (

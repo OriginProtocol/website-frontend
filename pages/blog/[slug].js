@@ -73,7 +73,11 @@ const Article = ({ article, categories }) => {
           </div>
           <div className="">
             <div className="px-6 md:px-14">
-              <ReactMarkdown children={article.attributes.body} />
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: article.attributes.body
+                }}
+              />
               <BlockManager blocks={article.attributes.blocks} />
               <hr className="uk-divider-small" />
               <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
