@@ -102,7 +102,7 @@ const News2 = ({isMobile, articles, meta, categories}) => {
                   imgAlt={'Origin Protocol'}
                   body={a.attributes.description}
                   linkText={'Read more'}
-                  linkHref={`/article/${a.attributes.slug}`}
+                  linkHref={`/blog/website/${a.attributes.slug}`}
                   key={a.attributes.title}
                 />
               )

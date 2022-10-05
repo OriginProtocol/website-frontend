@@ -218,7 +218,7 @@ export default function Company({ locale, onLocale, articles, meta, categories }
 export async function getServerSideProps() {
   // Run API calls in parallel
   const [articlesRes, categoriesRes] = await Promise.all([
-    fetchAPI("/articles", { populate: ["cover", "category"] }),
+    fetchAPI("/blog/website", { populate: ["cover", "category"] }),
     fetchAPI("/categories", { populate: "*" }),
   ]);
 
