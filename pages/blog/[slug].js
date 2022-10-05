@@ -1,18 +1,16 @@
 import Moment from "react-moment";
-import ReactMarkdown from "react-markdown";
 
-import Seo from "../../src/components/strapi/seo";
 import Layout from "../../src/components/strapi/layout";
+import Seo from "../../src/components/strapi/seo";
 
+import { Typography } from "@originprotocol/origin-storybook";
 import { fetchAPI } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
-import { Typography } from "@originprotocol/origin-storybook";
 
-import RichText from '../../src/components/strapi/blocks/RichText';
+import Link from "next/link";
 import Media from '../../src/components/strapi/blocks/Media';
 import Quote from '../../src/components/strapi/blocks/Quote';
-import Image from "next/image";
-import Link from "next/link";
+import RichText from '../../src/components/strapi/blocks/RichText';
 
 const getBlockComponent = ({ __component, ...rest }, index) => {
   let Block;
