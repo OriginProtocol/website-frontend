@@ -26,11 +26,6 @@ class MyDocument extends Document {
             integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
             crossOrigin="anonymous"
           />
-          <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-            crossOrigin="anonymous"
-          />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Staatliches"
