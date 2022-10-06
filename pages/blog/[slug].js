@@ -1,16 +1,16 @@
-import Moment from "react-moment";
+import Moment from "react-moment"
 
-import Layout from "../../src/components/strapi/layout";
-import Seo from "../../src/components/strapi/seo";
+import Layout from "../../src/components/strapi/layout"
+import Seo from "../../src/components/strapi/seo"
 
-import { Typography } from "@originprotocol/origin-storybook";
-import { fetchAPI } from "../../lib/api";
-import { getStrapiMedia } from "../../lib/media";
+import { Typography } from "@originprotocol/origin-storybook"
+import { fetchAPI } from "../../lib/api"
+import { getStrapiMedia } from "../../lib/media"
 
-import Link from "next/link";
-import Media from '../../src/components/strapi/blocks/Media';
-import Quote from '../../src/components/strapi/blocks/Quote';
-import RichText from '../../src/components/strapi/blocks/RichText';
+import Link from "next/link"
+import Media from '../../src/components/strapi/blocks/Media'
+import Quote from '../../src/components/strapi/blocks/Quote'
+import RichText from '../../src/components/strapi/blocks/RichText'
 
 const getBlockComponent = ({ __component, ...rest }, index) => {
   let Block;
@@ -79,7 +79,7 @@ const Article = ({ article, categories }) => {
               <BlockManager blocks={article.attributes.blocks} />
               <hr className="uk-divider-small" />
               <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
-                {/*<div>
+                <div>
                   {article.attributes.author.data.attributes.avatar && (
                     <img
                       src={getStrapiMedia(
@@ -96,10 +96,10 @@ const Article = ({ article, categories }) => {
                       }}
                     />
                   )}
-                </div>*/}
+                </div>
                 <div className="uk-width-expand">
                   <p className="uk-margin-remove-bottom">
-                    By {/*article.attributes.author.data.attributes.name*/}
+                    By {article.attributes.author.data.attributes.name}
                   </p>
                   <p className="uk-text-meta uk-margin-remove-top">
                     <Moment format="MMM Do YYYY">

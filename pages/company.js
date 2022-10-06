@@ -4,7 +4,7 @@ import News from 'components/News'
 import { assetRootPath } from 'utils/image'
 import { Typography, Header, Footer, Card } from '@originprotocol/origin-storybook'
 import { mappedLinks } from 'utils/constants'
-import { fetchAPI } from "../lib/api";
+import { fetchAPI } from "../lib/api"
 
 export default function Company({ locale, onLocale, articles, meta, categories }) {
   return (
