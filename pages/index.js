@@ -248,7 +248,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                   <Card
                     webProperty={'originprotocol'}
                     title={articleList[0].attributes.title}
-                    imgSrc={articleList[0].attributes.cover.data.attributes.formats.large.url}
+                    imgSrc={articleList[0].attributes.cover?.data.attributes.formats.large.url}
                     imgAlt={'Origin Protocol'}
                     body={articleList[0].attributes.description}
                     linkText={'Read more'}
@@ -257,7 +257,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                   <Card
                     webProperty={'originprotocol'}
                     title={articleList[1].attributes.title}
-                    imgSrc={articleList[1].attributes.cover.data.attributes.formats.large.url}
+                    imgSrc={articleList[1].attributes.cover?.data.attributes.formats.large.url}
                     imgAlt={'Origin Protocol'}
                     body={articleList[1].attributes.description}
                     linkText={'Read more'}
@@ -266,7 +266,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                   <Card
                     webProperty={'originprotocol'}
                     title={articleList[2].attributes.title}
-                    imgSrc={articleList[2].attributes.cover.data.attributes.formats.large.url}
+                    imgSrc={articleList[2].attributes.cover?.data.attributes.formats.large.url}
                     imgAlt={'Origin Protocol'}
                     body={articleList[2].attributes.description}
                     linkText={'Read more'}
