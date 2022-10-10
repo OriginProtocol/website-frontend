@@ -39,7 +39,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
       />
       <section className="grey relative">
         <span className={`${styles.splines34} absolute z-0`}>
-          <Image src='/images/graphics/splines34full.svg' height={1363} width={1341} alt="spline" />
+          <Image src='/images/graphics/splines34.webp' height={1363} width={1341} alt="spline" />
         </span>
         <div className="relative overflow-hidden max-w-screen-xl mx-auto pb-20 px-8">
           <Typography.H2 as='h1'>
@@ -70,18 +70,22 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
       <section className="story light flex flex-col z-10 relative">
         <div className='max-w-screen-xl mx-auto'>
           <div className="flex flex-col-reverse md:flex-row  layout items-center">
-            <div className="image-container self-end md:self-start pt-20 flex-1">
-              <img
-                src={assetRootPath('/images/screens/screens-story.svg')}
+            <div className="image-container self-end md:self-start pt-10 flex-1">
+              <Image
+                src={assetRootPath('/images/screens/screens-story.png')}
                 className="screen1"
                 alt="screens"
+                width='640'
+                height='580'
               />
             </div>
             <div className="text-container flex-1 md:ml-10 pt-20 md:pt-0 px-6 md:px-0 text-center md:text-left">
-              <img
+              <Image
                 src={assetRootPath('/images/logos/origin-story-wordmark.svg')}
                 className="mx-auto md:mx-0 mb-6 md:mb-0"
                 alt="Origin Story Logo"
+                width='190'
+                height='31'
               />
               <Typography.H3>The record-breaking NFT platform</Typography.H3>
               <div className='lighter mt-2 mb-4'>Origin Story powers NFT ecosystems, providing creators with branded storefronts and secondary marketplaces.</div>

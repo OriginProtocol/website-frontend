@@ -19,7 +19,7 @@
   "dependencies": {
     "@analytics/google-analytics": "^1.0.3",
     "@analytics/mixpanel": "^0.4.0",
-    "@originprotocol/origin-storybook": "^0.13.2",
+    "@originprotocol/origin-storybook": "^0.18.0",
     "analytics": "^0.8.1",
     "babel": "^6.23.0",
     "babel-plugin-react-html-attrs": "2",
@@ -34,6 +34,7 @@
     "next": "12.2.5",
     "per-env": "^1.0.2",
     "prettier": "^2.7.1",
+    "prop-types": "^15.8.1",
     "pullstate": "^1.23.0",
     "qs": "^6.11.0",
     "react": "18.2.0",
@@ -48,8 +49,10 @@
     "use-analytics": "^0.0.5"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.12",
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5",
+    "postcss": "^8.4.17",
     "tailwind": "^4.0.0"
   }
 }

@@ -6,6 +6,7 @@ import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
 import 'react-toastify/scss/main.scss'
 import '../styles/globals.css'
+import bundledCss from '@originprotocol/origin-storybook/lib/styles.css'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import analytics from 'utils/analytics'
 import { AnalyticsProvider } from 'use-analytics'
@@ -95,6 +96,7 @@ const MyApp = ({ Component, pageProps }) => {
 MyApp.getInitialProps = async (ctx) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(ctx);
+
   // Fetch global site settings from Strapi
   const globalRes = await fetchAPI("/global", {
     populate: {
@@ -105,7 +107,18 @@ MyApp.getInitialProps = async (ctx) => {
     },
   });
   // Pass the data to our page via props
-  return { ...appProps, pageProps: { global: globalRes.data } };
+  return {
+    ...appProps,
+    pageProps: { global: globalRes.data },
+    styles: [
+      process.env.NODE_ENV === 'production' ? <style
+        key="custom"
+        dangerouslySetInnerHTML={{
+          __html: bundledCss,
+        }}
+      />: <></>,
+    ],
+  };
 };
 
 export default MyApp;
