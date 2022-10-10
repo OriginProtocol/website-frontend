@@ -19,6 +19,7 @@ const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps;
   const router = useRouter()
 
+  // page tracking code from origin dollar repository
   const trackPageView = (url, lastURL) => {
     const data = {
       toURL: url,
