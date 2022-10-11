@@ -128,7 +128,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const articlesRes = await fetchAPI("/website/blog/en/" + params.slug);
+  const articlesRes = await fetchAPI(`/website/blog/en/${params.slug}`);
 
   return {
     props: { article: articlesRes.data },
