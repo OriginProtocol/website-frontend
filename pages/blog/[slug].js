@@ -37,7 +37,7 @@ BlockManager.defaultProps = {
   blocks: [],
 };
 
-const Article = ({ article, categories }) => {
+const Article = ({ article }) => {
   const imageUrl = article.cover?.formats.large.url;
 
   const seo = {
@@ -48,7 +48,7 @@ const Article = ({ article, categories }) => {
   };
 
   return (
-    <Layout categories={categories.data}>
+    <Layout>
       <Seo seo={seo} />
       <div className="pb-20 px-6" style={{
         backgroundColor: '#F6F8FE'
@@ -128,19 +128,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const articlesRes = await fetchAPI("/website/blog/en", {
-    filters: {
-      slug: params.slug,
-    },
-    populate: ["cover", "category", "author.avatar", "blocks", "blocks.file"],
-  });
-  const categories = {}
-  articlesRes.data.forEach(article => {
-    categories[article.category?.slug] = article.category
-  })
+  const articlesRes = await fetchAPI("/website/blog/en/" + params.slug);
 
   return {
-    props: { article: articlesRes.data[0], categories },
+    props: { article: articlesRes.data },
     revalidate: 1,
   };
 }
