@@ -6,7 +6,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useStoreState } from 'pullstate'
 import useSocialQuery from 'queries/useSocialQuery'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import StatStore from 'stores/StatStore'
 import { mappedLinks } from 'utils/constants'
 import { assetRootPath } from 'utils/image'
@@ -14,7 +14,6 @@ import { formatCurrency } from 'utils/math'
 import { fetchAPI } from '../lib/api'
 
 const Community = ({ locale, onLocale, isMobile, team }) => {
-  const [loaded, setLoaded] = useState(false);
 
   const socials = useStoreState(StatStore, (s) => {
     return s.socials || 0
@@ -30,7 +29,6 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
 
   useEffect(() => {
     socialQuery.refetch()
-    setLoaded(true)
   }, []);
 
   const links = {
@@ -49,7 +47,6 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
       <Head>
         <title>Community</title>
       </Head>
-      {loaded && (
         <div>
           <Header
             webProperty='originprotocol'
@@ -71,7 +68,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
               <div className='flex layout justify-between items-center'>
                 <div className='flex flex-col'>
                   <Typography.H3 as='h1'>
-                    {'Welcome to the '}
+                    Welcome to the
                     <br className='hidden md:block' />
                     <span className='gradient1 bold'>Origin community</span>
                   </Typography.H3>
@@ -484,7 +481,6 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
             }
           `}</style>
         </div>
-      )}
     </>
   )
 }
