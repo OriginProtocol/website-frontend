@@ -5,29 +5,15 @@ import withIsMobile from 'hoc/withIsMobile'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import useArticleQuery from 'queries/useArticleQuery'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { ToastContainer } from 'react-toastify'
-import StatStore from 'stores/StatStore'
 import styles from 'styles/Home.module.css'
 import { mappedLinks } from 'utils/constants'
 import { assetRootPath } from 'utils/image'
 import { adjustLinkHref } from 'utils/utils'
+import { fetchAPI } from "../lib/api"
 
-const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) => {
-  const articleQuery = useArticleQuery(1)
-  const articleList = articleQuery.isSuccess ? articleQuery.data.data : 0
-
-  StatStore.update((s) => {
-    s.article = articles,
-    s.categories = categories,
-    s.homepage = homepage
-  })
-
-  useEffect(() => {
-    articleQuery.refetch()
-  }, [])
-
+const Home = ({ locale, onLocale, isMobile, articles }) => {
   return (
     <>
       <Head>
@@ -247,35 +233,21 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                 </a>
               </Link>
             </div>
-            {articleList && (
+            {articles && (
               <div className='article-container mt-5 space-y-6 md:space-y-0 md:grid md:grid-cols-3 gap-10'>
-                  <Card
+                {
+                  articles.slice(0,3).map((article) => (
+                    <Card
                     webProperty={'originprotocol'}
-                    title={articleList[0].attributes.title}
-                    imgSrc={articleList[0].attributes.cover?.data.attributes.formats.large.url}
+                    title={article.title}
+                    imgSrc={article.cover?.formats.large.url}
                     imgAlt={'Origin Protocol'}
-                    body={articleList[0].attributes.description}
+                    body={article.description}
                     linkText={'Read more'}
-                    linkHref={`/blog/${articleList[0].attributes.slug}`}
+                    linkHref={`/blog/${article.slug}`}
                   />
-                  <Card
-                    webProperty={'originprotocol'}
-                    title={articleList[1].attributes.title}
-                    imgSrc={articleList[1].attributes.cover?.data.attributes.formats.large.url}
-                    imgAlt={'Origin Protocol'}
-                    body={articleList[1].attributes.description}
-                    linkText={'Read more'}
-                    linkHref={`/blog/${articleList[1].attributes.slug}`}
-                  />
-                  <Card
-                    webProperty={'originprotocol'}
-                    title={articleList[2].attributes.title}
-                    imgSrc={articleList[2].attributes.cover?.data.attributes.formats.large.url}
-                    imgAlt={'Origin Protocol'}
-                    body={articleList[2].attributes.description}
-                    linkText={'Read more'}
-                    linkHref={`/blog/${articleList[2].attributes.slug}`}
-                  />
+                  ))
+                }
               </div>
             )}
           </div>
@@ -450,6 +422,17 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
       <Footer />
     </>
   )
+}
+
+export async function getStaticProps() {
+  // Run API calls in parallel
+  const articlesRes = await fetchAPI("/website/blog/en");
+
+  return {
+    props: {
+      articles: articlesRes.data,
+    },
+  };
 }
 
 export default withIsMobile(Home)

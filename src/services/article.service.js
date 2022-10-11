@@ -3,7 +3,7 @@ export default class ArticleService {
     page,
     category
   ) {
-    const endpoint = `${process.env.NEXT_PUBLIC_CMS}/blog/website`
+    const endpoint = `${process.env.NEXT_PUBLIC_CMS}/website/blog/en`
     const response = await fetch(endpoint)
     if (!response.ok) {
       throw new Error(`Failed to fetch articles`, err)

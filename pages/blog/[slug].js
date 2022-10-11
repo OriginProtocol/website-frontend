@@ -38,12 +38,12 @@ BlockManager.defaultProps = {
 };
 
 const Article = ({ article, categories }) => {
-  const imageUrl = getStrapiMedia(article.attributes.cover);
+  const imageUrl = article.cover?.formats.large.url;
 
   const seo = {
-    metaTitle: article.attributes.title,
-    metaDescription: article.attributes.description,
-    shareImage: article.attributes.cover,
+    metaTitle: article.title,
+    metaDescription: article.description,
+    shareImage: article.cover,
     article: true,
   };
 
@@ -67,27 +67,25 @@ const Article = ({ article, categories }) => {
             data-uk-img
           />
           <div className="p-6 md:px-14 pt-10">
-            <Typography.H3 as='h1'>{article.attributes.title}</Typography.H3>
+            <Typography.H3 as='h1'>{article.title}</Typography.H3>
           </div>
           <div className="">
             <div className="px-6 md:px-14">
               <div
                 dangerouslySetInnerHTML={{
-                  __html: article.attributes.body
+                  __html: article.body
                 }}
               />
-              <BlockManager blocks={article.attributes.blocks} />
               <hr className="uk-divider-small" />
               <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
                 <div>
-                  {article.attributes.author.data.attributes.avatar && (
+                  {article.author.avatar && (
                     <img
                       src={getStrapiMedia(
-                        article.attributes.author.data.attributes.avatar
+                        article.author.avatar
                       )}
                       alt={
-                        article.attributes.author.data.attributes.avatar.data
-                          .attributes.alternativeText
+                        article.author.avatar.alternativeText
                       }
                       style={{
                         position: "static",
@@ -99,11 +97,11 @@ const Article = ({ article, categories }) => {
                 </div>
                 <div className="uk-width-expand">
                   <p className="uk-margin-remove-bottom">
-                    By {article.attributes.author.data.attributes.name}
+                    By {article.author.name}
                   </p>
                   <p className="uk-text-meta uk-margin-remove-top">
                     <Moment format="MMM Do YYYY">
-                      {article.attributes.published_at}
+                      {article.published_at}
                     </Moment>
                   </p>
                 </div>
@@ -117,12 +115,12 @@ const Article = ({ article, categories }) => {
 };
 
 export async function getStaticPaths() {
-  const articlesRes = await fetchAPI("/blog/website", { fields: ["slug"] });
+  const articlesRes = await fetchAPI("/website/blog/en", { fields: ["slug"] });
 
   return {
     paths: articlesRes.data.map((article) => ({
       params: {
-        slug: article.attributes.slug,
+        slug: article.slug,
       },
     })),
     fallback: false,
@@ -130,16 +128,19 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const articlesRes = await fetchAPI("/blog/website", {
+  const articlesRes = await fetchAPI("/website/blog/en", {
     filters: {
       slug: params.slug,
     },
     populate: ["cover", "category", "author.avatar", "blocks", "blocks.file"],
   });
-  const categoriesRes = await fetchAPI("/categories");
+  const categories = {}
+  articlesRes.data.forEach(article => {
+    categories[article.category?.slug] = article.category
+  })
 
   return {
-    props: { article: articlesRes.data[0], categories: categoriesRes },
+    props: { article: articlesRes.data[0], categories },
     revalidate: 1,
   };
 }
