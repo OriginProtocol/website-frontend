@@ -1,23 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import { Typography } from '@originprotocol/origin-storybook'
 import { assetRootPath } from 'utils/image'
-import team from '../../public/team.json'
+import Image from 'next/image'
 
-const TeamMember = ({name, title, description, headshot, links}) => {
+const TeamMember = ({name, title, description, avatar, links}) => {
   const linkKeys = Object.keys(links)
 
   return (
     <>
       <div className='card'>
-        <div className='flex flex-row'>
-        <img
-          src={assetRootPath(headshot)}
-          className="headshot mb-3"
+        <div className='flex flex-row mb-3'>
+        <Image
+          src={assetRootPath(avatar.url)}
+          className="rounded-full"
           alt={name}
+          height='100'
+          width='100'
         />
         <div className='links'>
           <ul>
             {linkKeys.map((l, i) => {
+              if (!links[l]) return ''
+
               return (
                 <li key={i}>
                   <a
@@ -126,7 +130,7 @@ const TeamMember = ({name, title, description, headshot, links}) => {
   )
 }
 
-const Team = () => {
+const Team = ({team}) => {
   return (
     <>
       <section className='team gradient3'>
@@ -147,7 +151,11 @@ const Team = () => {
             <div className='container-fluid text-left mt-5 max-w-screen-xl mx-auto'>
               {team.core.map((t) => {
                 return (
-                  <TeamMember name={t.name} title={t.title} description={t.description} headshot={t.headshot} links={t.links} />)
+                  <TeamMember name={t.name} title={t.title} description={t.bio} avatar={t.avatar} key={t.name} links={{
+                    linkedin: t.linkedinUrl,
+                    twitter: t.twitterUrl,
+                    wikipedia: t.otherUrl,
+                  }} />)
               })}
             </div>
           </div>

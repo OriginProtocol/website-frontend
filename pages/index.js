@@ -425,7 +425,6 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
 }
 
 export async function getStaticProps() {
-  // Run API calls in parallel
   const articlesRes = await fetchAPI("/website/blog/en");
 
   return {

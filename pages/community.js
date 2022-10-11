@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react'
-import Head from 'next/head'
-import { useStoreState } from 'pullstate'
-import StatStore from 'stores/StatStore'
-import { Typography, Header, Footer, Card, AltCard } from '@originprotocol/origin-storybook'
+import { AltCard, Card, Footer, Header, Typography } from '@originprotocol/origin-storybook'
 import Contributors from 'components/Contributors'
 import Team from 'components/Team'
-import team from '../public/team.json'
-import useSocialQuery from 'queries/useSocialQuery'
 import withIsMobile from 'hoc/withIsMobile'
+import Head from 'next/head'
+import Image from 'next/image'
+import { useStoreState } from 'pullstate'
+import useSocialQuery from 'queries/useSocialQuery'
+import React, { useEffect, useState } from 'react'
+import StatStore from 'stores/StatStore'
+import { mappedLinks } from 'utils/constants'
 import { assetRootPath } from 'utils/image'
 import { formatCurrency } from 'utils/math'
-import { mappedLinks } from 'utils/constants'
+import { fetchAPI } from '../lib/api'
 
-const Community = ({ locale, onLocale, isMobile }) => {
+const Community = ({ locale, onLocale, isMobile, team }) => {
   const [loaded, setLoaded] = useState(false);
 
   const socials = useStoreState(StatStore, (s) => {
@@ -136,6 +137,7 @@ const Community = ({ locale, onLocale, isMobile }) => {
                         imgAlt={social.name}
                         linkHref={links[social.name]}
                         narrow={false}
+                        key={social.name}
                       />
                     )
                   }
@@ -226,20 +228,22 @@ const Community = ({ locale, onLocale, isMobile }) => {
               )}
             </div>
           </section>
-          <Team />
+          <Team team={team} />
           <section className='extended light text-center'>
             <div className='max-w-screen-xl mx-auto py-20 px-8'>
               <Typography.H5>Community Team</Typography.H5>
               <div className='community container-fluid mt-10 mb-5'>
                 {team.community.map((t) => {
-                  const headshot = t.headshot
+                  const avatar = t.avatar
                   return (
-                    <div className='profile'>
-                      <img
-                        src={assetRootPath(headshot)}
-                        className="headshot mb-3"
+                    <div className='profile' key={t.name}>
+                      <Image
+                        src={assetRootPath(avatar.url)}
+                        className="rounded-full mb-3"
                         alt={t.name}
-                      />
+                        height='400'
+                        width='400'
+                        />
                       <div className='name'>{t.name}</div>
                     </div>
                   )
@@ -247,19 +251,21 @@ const Community = ({ locale, onLocale, isMobile }) => {
               </div>
               <Typography.H5>Advisors</Typography.H5>
               <div className='advisors container-fluid mt-10'>
-                {team.advisors.map((t) => {
-                  const headshot = t.headshot
+                {team.advisor.map((t) => {
+                  const avatar = t.avatar
                   return (
-                    <div className='profile'>
+                    <div className='profile' key={t.name}>
                       <a
-                        href={t.link}
+                        href={t.linkedinUrl || t.twitterUrl || t.otherUrl}
                         target='_blank'
                         rel='noopenner noreferrer'
                       >
-                        <img
-                          src={assetRootPath(headshot)}
-                          className="headshot mb-3"
+                        <Image
+                          src={assetRootPath(avatar.url)}
+                          className="rounded-full mb-3"
                           alt={t.name}
+                          height='400'
+                          width='400'
                         />
                         <div className='name'>{t.name}</div>
                       </a>
@@ -318,12 +324,12 @@ const Community = ({ locale, onLocale, isMobile }) => {
                 />
               </div>
               <div className='people container mt-5'>
-                {team.investors.map((t) => {
-                  const headshot = t.headshot
+                {team.investor.map((t) => {
+                  const avatar = t.avatar
                   return (
-                    <div className='profile'>
+                    <div className='profile' key={t.name}>
                       <img
-                        src={assetRootPath(headshot)}
+                        src={assetRootPath(avatar.url)}
                         className="headshot mb-3"
                         alt={t.name}
                       />
@@ -481,6 +487,16 @@ const Community = ({ locale, onLocale, isMobile }) => {
       )}
     </>
   )
+}
+
+export async function getStaticProps() {
+  const teamRes = await fetchAPI("/website/team/en");
+
+  return {
+    props: {
+      team: teamRes.data,
+    },
+  };
 }
 
 export default withIsMobile(Community)

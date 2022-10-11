@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Typography } from '@originprotocol/origin-storybook'
 import useRepositoryQuery from 'queries/useRepositoryQuery'
 import useContributorQuery from 'queries/useContributorQuery'
+import Image from 'next/image'
 
 const Contributor = ({login, avatar, profile}) => {
   return (
@@ -12,10 +13,12 @@ const Contributor = ({login, avatar, profile}) => {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <img
+          <Image
             src={avatar}
-            className="contributor"
+            className="contributor rounded-full"
             alt={login}
+            width='64'
+            height='64'
           />
         </a>
       </div>
@@ -23,7 +26,6 @@ const Contributor = ({login, avatar, profile}) => {
         .contributor {
           width: 40px;
           height: 40px;
-          border-radius: 50%;
         }
 
         @media (min-width: 2000px) {

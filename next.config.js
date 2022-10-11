@@ -12,7 +12,7 @@ module.exports = {
   reactStrictMode: true,
   images: {
     loader: "default",
-    domains: ["localhost", "cmsmediaproduction.s3.amazonaws.com"],
+    domains: ["localhost", "cmsmediaproduction.s3.amazonaws.com", "avatars.githubusercontent.com"],
   },
   i18n: {
     locales: ['en-US'],
