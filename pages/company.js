@@ -213,18 +213,20 @@ export default function Company({ locale, onLocale, articles, meta, categories }
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // Run API calls in parallel
-  const [articlesRes, categoriesRes] = await Promise.all([
-    fetchAPI("/blog/website", { populate: ["cover", "category"] }),
-    fetchAPI("/categories", { populate: "*" }),
-  ]);
+  const articlesRes = await fetchAPI("/website/blog/en", { populate: ["cover", "category"] });
+
+  const categories = {}
+  articlesRes.data.forEach(article => {
+    categories[article.category?.slug] = article.category
+  })
 
   return {
     props: {
       articles: articlesRes.data,
       meta: articlesRes.meta,
-      categories: categoriesRes.data,
+      categories: Object.values(categories),
     },
   };
 }

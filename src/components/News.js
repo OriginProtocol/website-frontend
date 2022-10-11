@@ -16,8 +16,8 @@ const Category = ({categories, setCategory}) => {
     unavailable: false,
   }].concat(categories.map((category) => {
     return {
-      id: category.id,
-      name: capitalize(category.attributes.name),
+      id: category.slug,
+      name: capitalize(category.name),
       unavailable: false
     }
   }))
@@ -45,7 +45,7 @@ const News = ({isMobile, articles, meta, categories}) => {
   const [page, setPage] = useState(1)
   const [pageNumbers, setPageNumbers] = useState([])
 
-  const articlePages = Math.ceil((category ? categories[category-1].attributes.articles.data.length : meta.pagination.total) / 9)
+  const articlePages = Math.ceil((category ? articles.filter((article) => article.slug === category.slug).length : meta.pagination.total) / 9)
   const currentPageArticles = articles ? articles.slice(9 * (page - 1), 9 * page) : []
 
   useEffect(() => {
@@ -74,17 +74,17 @@ const News = ({isMobile, articles, meta, categories}) => {
         <Category categories={categories} category={category} setCategory={setCategory}/>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-5 max-w-screen-xl mx-auto px-6 md:px-0'>
           {currentPageArticles.map((a, i) => {
-            if (!category || category === a.attributes.category.data.id) {
+            if (!category || category === a.category.slug) {
               return (
                 <Card
                   webProperty={'originprotocol'}
-                  title={a.attributes.title}
-                  imgSrc={getStrapiMedia(a.attributes.cover)}
+                  title={a.title}
+                  imgSrc={getStrapiMedia(a.cover)}
                   imgAlt={'Origin Protocol'}
-                  body={a.attributes.description}
+                  body={a.description}
                   linkText={'Read more'}
-                  linkHref={`/blog/${a.attributes.slug}`}
-                  key={a.attributes.title}
+                  linkHref={`/blog/${a.slug}`}
+                  key={a.title}
                 />
               )
             }
