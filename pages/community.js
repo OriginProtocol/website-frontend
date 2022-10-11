@@ -64,7 +64,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
                 priority
               />
             </div>
-            <div className='max-w-screen-xl mx-auto pb-20 px-8 relative z-10'>
+            <div className='max-w-screen-xl mx-auto pb-20 px-8 relative'>
               <div className='flex layout justify-between items-center'>
                 <div className='flex flex-col'>
                   <Typography.H3 as='h1'>
