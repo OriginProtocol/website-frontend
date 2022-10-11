@@ -55,9 +55,20 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
             webProperty='originprotocol'
             mappedLinks={mappedLinks.links}
           />
-          <section className='intro grey'>
-            <div className='max-w-screen-xl mx-auto pb-20 px-8'>
-              <div className='flex layout justify-between'>
+          <section className='intro grey relative  overflow-hidden'>
+            <div className="absolute z-0 top-44" style={{
+              right: 'calc(50% - 70rem)'
+            }}>
+              <Image
+                src={assetRootPath('/images/graphics/splines32.png')}
+                alt="screens"
+                width='1124'
+                height='1002'
+                priority
+              />
+            </div>
+            <div className='max-w-screen-xl mx-auto pb-20 px-8 relative z-10'>
+              <div className='flex layout justify-between items-center'>
                 <div className='flex flex-col'>
                   <Typography.H3 as='h1'>
                     {'Welcome to the '}
@@ -342,17 +353,6 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
           </section>
           <Footer />
           <style jsx>{`
-            section.intro {
-              background-image: url(/images/graphics/splines33.svg);
-              background-repeat: no-repeat;
-              background-position: 100% 100%;
-              background-size: 40vw;
-            }
-
-            .intro .container-fluid {
-              justify-content: space-around;
-            }
-
             .layout {
               flex-direction: row;
             }

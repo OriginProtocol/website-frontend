@@ -126,7 +126,7 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
       <section className="company light">
         <div className='mx-auto'>
           <div className="flex flex-col">
-            <div className="flex flex-col mx-auto pt-10 px-10 max-w-screen-xl md:flex-row md:flex-1 md:pt-24">
+            <div className="flex flex-col mx-auto pt-10 px-10 max-w-screen-xl md:flex-row md:flex-1 md:mt-12 md:pb-24">
               <div className={`${styles.ellipsesContainer}`}>
                 <img
                   src={assetRootPath('/images/graphics/ellipses-homepage.png')}
@@ -134,7 +134,7 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
                   alt="Ellipses"
                 />
               </div>
-              <div className="md:flex md:flex-col md:items-start md:justify-center md:pl-32 md:flex-1">
+              <div className="md:flex md:flex-col md:items-start md:justify-center md:pl-16 md:flex-1">
                 <Typography.H3>It's all about the community</Typography.H3>
                 <div className='lighter mt-2 mb-4'>Join hundreds of thousands of community members and token holders, hundreds of open-source developers, or our world-class core team.</div>
                 <Link href={adjustLinkHref('/community')}>
@@ -149,7 +149,7 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
               </div>
             </div>
             <div className="team flex layout flex-col-reverse mt-10 md:flex-row max-w-screen-xl mx-auto">
-              <div className="text-container px-6 mt-10 max-w-xl md:pr-20">
+              <div className="text-container px-6 mt-10 max-w-xl md:mr-12">
                 <Typography.H3>A world-class team</Typography.H3>
                 <div className='lighter mt-2 mb-6'>Our team is led by serial entrepreneurs, early employees at YouTube, and engineering managers at Google, Coinbase and Dropbox.</div>
                 <div className='grid grid-cols-3 gap-4 md:flex md:items-center'>
@@ -198,9 +198,9 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
                   </a>
                 </div>
               </div>
-              <div className='relative'>
-                <span className={`absolute right-0 -top-10 md:-top-32 md:left-20 w-4/5 md:w-full`}>
-                  <Image src='/images/graphics/splines32.svg' height={732} width={654} alt="spline32" priority />
+              <div className='relative my-10 md:my-0'>
+                <span className={`absolute right-20 md:right-0 -top-28 md:-top-36 w-96 md:w-full`}>
+                  <Image src='/images/graphics/splines32.svg' height={732} width={654} alt="spline32" />
                 </span>
                 <div className={`${styles.videoContainer} mt-10 mb-10 relative`}>
                 <iframe
