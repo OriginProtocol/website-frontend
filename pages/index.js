@@ -69,7 +69,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
       </section>
       <section className="story light flex flex-col z-10 relative">
         <div className='max-w-screen-xl mx-auto'>
-          <div className="flex flex-col-reverse md:flex-row  layout items-center">
+          <div className="flex flex-col-reverse md:flex-row layout items-center">
             <div className="image-container self-end md:self-start pt-10 flex-1">
               <Image
                 src={assetRootPath('/images/screens/screens-story.png')}
@@ -256,7 +256,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                     imgAlt={'Origin Protocol'}
                     body={articleList[0].attributes.description}
                     linkText={'Read more'}
-                    linkHref={`/article/${articleList[0].attributes.slug}`}
+                    linkHref={`/blog/${articleList[0].attributes.slug}`}
                   />
                   <Card
                     webProperty={'originprotocol'}
@@ -265,7 +265,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                     imgAlt={'Origin Protocol'}
                     body={articleList[1].attributes.description}
                     linkText={'Read more'}
-                    linkHref={`/article/${articleList[1].attributes.slug}`}
+                    linkHref={`/blog/${articleList[1].attributes.slug}`}
                   />
                   <Card
                     webProperty={'originprotocol'}
@@ -274,7 +274,7 @@ const Home = ({ locale, onLocale, isMobile, articles, categories, homepage }) =>
                     imgAlt={'Origin Protocol'}
                     body={articleList[2].attributes.description}
                     linkText={'Read more'}
-                    linkHref={`/article/${articleList[2].attributes.slug}`}
+                    linkHref={`/blog/${articleList[2].attributes.slug}`}
                   />
               </div>
             )}

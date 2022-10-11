@@ -80,10 +80,10 @@ const MyApp = ({ Component, pageProps }) => {
         />
       </Head>
       <GlobalContext.Provider value={global.attributes}>
-      <QueryClientProvider client={queryClient}>
-        <AnalyticsProvider instance={analytics}>
-          <Component {...pageProps} />
-        </AnalyticsProvider>
+        <QueryClientProvider client={queryClient}>
+          <AnalyticsProvider instance={analytics}>
+            <Component {...pageProps} />
+          </AnalyticsProvider>
         </QueryClientProvider>
       </GlobalContext.Provider>
     </>
