@@ -5,12 +5,13 @@ import Seo from "../../src/components/strapi/seo"
 
 import { Typography } from "@originprotocol/origin-storybook"
 import { fetchAPI } from "../../lib/api"
-import { getStrapiMedia } from "../../lib/media"
 
+import Image from "next/image"
 import Link from "next/link"
 import Media from '../../src/components/strapi/blocks/Media'
 import Quote from '../../src/components/strapi/blocks/Quote'
 import RichText from '../../src/components/strapi/blocks/RichText'
+import styles from 'styles/Article.module.css'
 
 const getBlockComponent = ({ __component, ...rest }, index) => {
   let Block;
@@ -54,23 +55,30 @@ const Article = ({ article }) => {
         backgroundColor: '#F6F8FE'
       }}>
         <div
-          className="max-w-screen-xl mx-auto pb-2"
+          className="max-w-screen-xl mx-auto"
         >
-          <Link href='/company'>Back to home page</Link>
+          <Typography.Link className="flex space-x-2">
+            <Image src='/images/left-arrow.svg' width='10' height='7'  className="ml-2"/>
+            <Link href='/company' className="ml-3">
+              Back to home page
+            </Link>
+          </Typography.Link>
+        </div>
+        <div className="mb-6 mt-2 max-w-screen-xl mx-auto">
+          <Typography.H3 as='h1'>{article.title}</Typography.H3>
         </div>
         <div className="max-w-screen-xl mx-auto bg-white rounded-2xl pb-10">
-          <div
-            id="banner"
-            className="bg-cover flex justify-center items-center m-0 h-96 w-full rounded-tl-2xl rounded-tr-2xl"
-            data-src={imageUrl}
-            data-srcset={imageUrl}
-            data-uk-img
-          />
-          <div className="p-6 md:px-14 pt-10">
-            <Typography.H3 as='h1'>{article.title}</Typography.H3>
-          </div>
-          <div className="">
-            <div className="px-6 md:px-14">
+          {imageUrl && (
+            <div
+              id="banner"
+              className="bg-cover flex justify-center items-center m-0 h-96 w-full rounded-tl-2xl rounded-tr-2xl"
+              data-src={imageUrl}
+              data-srcset={imageUrl}
+              data-uk-img
+            />
+          )}
+          <div className="pt-4">
+            <div className={`py-6 pl-6 pr-6 md:px-14 ${styles.article}`}>
               <div
                 dangerouslySetInnerHTML={{
                   __html: article.body
@@ -81,12 +89,8 @@ const Article = ({ article }) => {
                 <div>
                   {article.author.avatar && (
                     <img
-                      src={getStrapiMedia(
-                        article.author.avatar
-                      )}
-                      alt={
-                        article.author.avatar.alternativeText
-                      }
+                      src={article.author.avatar.url}
+                      alt={article.author.avatar.alternativeText}
                       style={{
                         position: "static",
                         borderRadius: "20%",
