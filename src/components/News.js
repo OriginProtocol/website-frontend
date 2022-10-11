@@ -23,7 +23,7 @@ const Category = ({categories, setCategory}) => {
   }))
 
   return (
-    <div className='pl-6 md:pl-6 w-96'>
+    <div className='pl-6 md:pl-6 w-96 pt-4'>
       <Select
         options={categoriesFormatted}
         onSelect={(value) => {

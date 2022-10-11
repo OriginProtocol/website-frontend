@@ -16,7 +16,7 @@ export default function Company({ locale, onLocale, articles, meta, categories }
         mappedLinks={mappedLinks.links}
         webProperty='originprotocol'
       />
-      <section className='intro grey'>
+      <section className='intro grey pb-12'>
         <div className='container-fluid max-w-screen-xl mx-auto px-6 mb-6'>
           <Typography.H1>Latest news</Typography.H1>
         </div>
