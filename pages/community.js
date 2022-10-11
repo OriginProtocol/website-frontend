@@ -83,7 +83,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
                 <Card
                   webProperty={'launchpad'}
                   title={'3LAU'}
-                  imgSrc={assetRootPath('/images/screens/background-3lau.svg')}
+                  imgSrc={assetRootPath('/images/screens/background-3lau.png')}
                   imgAlt={'3LAU'}
                   thumbnailSrc={assetRootPath('/images/screens/avatar-3lau.svg')}
                   thumbnailAlt={'3LAU'}
@@ -94,7 +94,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
                 <Card
                   webProperty={'launchpad'}
                   title={'Inspiration4 Mission'}
-                  imgSrc={assetRootPath('/images/screens/background-inspiration4.svg')}
+                  imgSrc={assetRootPath('/images/screens/background-inspiration4.png')}
                   imgAlt={'Inspiration4'}
                   thumbnailSrc={assetRootPath('/images/screens/avatar-inspiration4.svg')}
                   thumbnailAlt={'Inspiration4'}
@@ -105,7 +105,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
                 <Card
                   webProperty={'launchpad'}
                   title={'Trevor Jones x Don Diablo x Alotta Money'}
-                  imgSrc={assetRootPath('/images/screens/background-ethereal.svg')}
+                  imgSrc={assetRootPath('/images/screens/background-ethereal.png')}
                   imgAlt={'ETHEREAL'}
                   thumbnailSrc={assetRootPath('/images/screens/avatar-ethereal.svg')}
                   thumbnailAlt={'ETHEREAL'}
@@ -116,7 +116,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
                 <Card
                   webProperty={'launchpad'}
                   title={'BT'}
-                  imgSrc={assetRootPath('/images/screens/background-bt.svg')}
+                  imgSrc={assetRootPath('/images/screens/background-bt.png')}
                   imgAlt={'BT'}
                   thumbnailSrc={assetRootPath('/images/screens/avatar-bt.svg')}
                   thumbnailAlt={'BT'}

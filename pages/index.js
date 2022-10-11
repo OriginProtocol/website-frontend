@@ -25,7 +25,7 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
       />
       <section className="grey relative">
         <span className={`${styles.splines34} absolute z-0`}>
-          <Image src='/images/graphics/splines34.webp' height={1363} width={1341} alt="spline" />
+          <Image src='/images/graphics/splines34.webp' height={1363} width={1341} alt="spline" priority />
         </span>
         <div className="relative overflow-hidden max-w-screen-xl mx-auto pb-20 px-8">
           <Typography.H2 as='h1'>
@@ -63,6 +63,7 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
                 alt="screens"
                 width='640'
                 height='580'
+                priority
               />
             </div>
             <div className="text-container flex-1 md:ml-10 pt-20 md:pt-0 px-6 md:px-0 text-center md:text-left">
@@ -199,7 +200,7 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
               </div>
               <div className='relative'>
                 <span className={`absolute right-0 -top-10 md:-top-32 md:left-20 w-4/5 md:w-full`}>
-                  <Image src='/images/graphics/splines32.svg' height={732} width={654} alt="spline32" />
+                  <Image src='/images/graphics/splines32.svg' height={732} width={654} alt="spline32" priority />
                 </span>
                 <div className={`${styles.videoContainer} mt-10 mb-10 relative`}>
                 <iframe
