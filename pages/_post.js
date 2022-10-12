@@ -1,16 +1,16 @@
 import Moment from "react-moment"
 
-import Layout from "../../src/components/strapi/layout"
-import Seo from "../../src/components/strapi/seo"
+import Layout from "../src/components/strapi/layout"
+import Seo from "../src/components/strapi/seo"
 
 import { Typography } from "@originprotocol/origin-storybook"
-import { fetchAPI } from "../../lib/api"
+import { fetchAPI } from "../lib/api"
 
 import Image from "next/image"
 import Link from "next/link"
-import Media from '../../src/components/strapi/blocks/Media'
-import Quote from '../../src/components/strapi/blocks/Quote'
-import RichText from '../../src/components/strapi/blocks/RichText'
+import Media from '../src/components/strapi/blocks/Media'
+import Quote from '../src/components/strapi/blocks/Quote'
+import RichText from '../src/components/strapi/blocks/RichText'
 import styles from 'styles/Article.module.css'
 
 const getBlockComponent = ({ __component, ...rest }, index) => {
@@ -117,27 +117,5 @@ const Article = ({ article }) => {
     </Layout>
   );
 };
-
-export async function getStaticPaths() {
-  const articlesRes = await fetchAPI("/website/blog/en", { fields: ["slug"] });
-
-  return {
-    paths: articlesRes.data.map((article) => ({
-      params: {
-        slug: article.slug,
-      },
-    })),
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params }) {
-  const articlesRes = await fetchAPI(`/website/blog/en/${params.slug}`);
-
-  return {
-    props: { article: articlesRes.data },
-    revalidate: 1,
-  };
-}
 
 export default Article;

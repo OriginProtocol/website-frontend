@@ -1,3 +1,5 @@
+const locales = require('./locales');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -15,8 +17,8 @@ module.exports = {
     domains: ["localhost", "cmsmediaproduction.s3.amazonaws.com", "avatars.githubusercontent.com"],
   },
   i18n: {
-    locales: ['en-US'],
-    defaultLocale: 'en-US',
+    locales,
+    defaultLocale: 'en',
   },
   async redirects() {
     return [
@@ -65,6 +67,15 @@ module.exports = {
         destination: '/api/mailing-list/unsubscribe',
         permanent: true,
       },
+    ]
+  },
+  async rewrites() {
+    return [
+      {
+        // TODO: Cache response
+        source: '/sitemap.xml',
+        destination: `${NEXT_PUBLIC_STRAPI_API_URL}/api/website/sitemap`
+      }
     ]
   },
 };
