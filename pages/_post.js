@@ -4,7 +4,6 @@ import Layout from "../src/components/strapi/layout"
 import Seo from "../src/components/strapi/seo"
 
 import { Typography } from "@originprotocol/origin-storybook"
-import { fetchAPI } from "../lib/api"
 
 import Image from "next/image"
 import Link from "next/link"

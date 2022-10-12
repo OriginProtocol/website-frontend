@@ -74,7 +74,7 @@ module.exports = {
       {
         // TODO: Cache response
         source: '/sitemap.xml',
-        destination: `${NEXT_PUBLIC_STRAPI_API_URL}/api/website/sitemap`
+        destination: `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/website/sitemap`
       }
     ]
   },
