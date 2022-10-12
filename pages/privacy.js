@@ -15,7 +15,7 @@ const Privacy = () => {
         webProperty='originprotocol'
       />
       <section>
-        <div className="container-fluid legal py-20 px-32">
+        <div className='container-fluid py-20 px-32'>
           <div>
               Last updated: October 30th, 2020
               <br/><br/>
