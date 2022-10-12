@@ -93,7 +93,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
                   title={'3LAU'}
                   imgSrc={assetRootPath('/images/screens/background-3lau.png')}
                   imgAlt={'3LAU'}
-                  thumbnailSrc={assetRootPath('/images/screens/avatar-3lau.svg')}
+                  thumbnailSrc={assetRootPath('/images/screens/avatar-3lau.png')}
                   thumbnailAlt={'3LAU'}
                   body={"Acclaimed musician and producer 3LAU's Ultraviolet Vinyl NFT collection was auctioned on Origin's NFT platform with each NFT..."}
                   linkText={'Learn more'}
@@ -104,7 +104,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
                   title={'Inspiration4 Mission'}
                   imgSrc={assetRootPath('/images/screens/background-inspiration4.png')}
                   imgAlt={'Inspiration4'}
-                  thumbnailSrc={assetRootPath('/images/screens/avatar-inspiration4.svg')}
+                  thumbnailSrc={assetRootPath('/images/screens/avatar-inspiration4.png')}
                   thumbnailAlt={'Inspiration4'}
                   body={'Inspiration4, powered by SpaceX, was the first civilian orbital space mission. Mission Commander Jared Isaacman chose to raise 200...'}
                   linkText={'Learn more'}
@@ -115,7 +115,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
                   title={'Trevor Jones x Don Diablo x Alotta Money'}
                   imgSrc={assetRootPath('/images/screens/background-ethereal.png')}
                   imgAlt={'ETHEREAL'}
-                  thumbnailSrc={assetRootPath('/images/screens/avatar-ethereal.svg')}
+                  thumbnailSrc={assetRootPath('/images/screens/avatar-ethereal.png')}
                   thumbnailAlt={'ETHEREAL'}
                   body={'ΞTHΞRΞAL is the coming of age of EthBoy. The original EthBoy was designed as a programmatic art piece that dynamically changes scen...'}
                   linkText={'Learn more'}
@@ -126,7 +126,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
                   title={'BT'}
                   imgSrc={assetRootPath('/images/screens/background-bt.png')}
                   imgAlt={'BT'}
-                  thumbnailSrc={assetRootPath('/images/screens/avatar-bt.svg')}
+                  thumbnailSrc={assetRootPath('/images/screens/avatar-bt.png')}
                   thumbnailAlt={'BT'}
                   body={"Metaversal is BT's 14th artist album and the first album imagined as a programatic blockchain experience. It encompasses beautiful audio..."}
                   linkText={'Learn more'}

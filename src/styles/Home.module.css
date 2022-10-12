@@ -4,7 +4,7 @@
 }
 
 section.company {
-  background-image: url(/images/graphics/splines32.svg);
+  background-image: url(/images/graphics/splines32.png);
   background-repeat: no-repeat;
   background-position: 90% 90%;
   background-size: 40vw;
@@ -141,7 +141,7 @@ section.company {
 
 @media (max-width: 992px) {
   section.intro {
-    background-image: url(/images/graphics/splines34.svg);
+    background-image: url(/images/graphics/splines34.webp);
     background-repeat: no-repeat;
     background-position: 100% 60vw;
     background-size: 100vw;

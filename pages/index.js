@@ -114,7 +114,7 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
             </div>
             <div className='image-container flex-1 pb-10 md:absolute md:top-6 md:-right-20 md:w-1/2'>
               <img
-                src={assetRootPath('/images/screens/screens-ousd.svg')}
+                src={assetRootPath('/images/screens/screens-ousd.png')}
                 className="screen3"
                 alt="OUSD"
               />
@@ -200,7 +200,7 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
               </div>
               <div className='relative my-10 md:my-0'>
                 <span className={`absolute right-20 md:right-0 -top-28 md:-top-36 w-96 md:w-full`}>
-                  <Image src='/images/graphics/splines32.svg' height={732} width={654} alt="spline32" />
+                  <Image src='/images/graphics/splines32.png' height={732} width={654} alt="spline32" />
                 </span>
                 <div className={`${styles.videoContainer} mt-10 mb-10 relative`}>
                 <iframe

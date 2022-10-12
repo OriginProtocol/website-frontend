@@ -168,7 +168,7 @@ export default function Company({ locale, onLocale, articles, meta, categories }
       <Footer />
       <style jsx>{`
         section.inquiries {
-          background-image: url(/images/graphics/splines25.svg);
+          background-image: url(/images/graphics/splines25.png);
           background-repeat: no-repeat;
           background-position: 100% 100%;
           background-size: 40vw;

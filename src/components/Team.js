@@ -136,12 +136,12 @@ const Team = ({team}) => {
       <section className='team gradient3'>
         <div className='max-w-screen-xl mx-auto py-20 px-8'>
           <img
-            src={assetRootPath('/images/graphics/spots1.svg')}
+            src={assetRootPath('/images/graphics/spots1.png')}
             className="spots1"
             alt="spots"
           />
           <img
-            src={assetRootPath('/images/graphics/spots2.svg')}
+            src={assetRootPath('/images/graphics/spots2.png')}
             className="spots2"
             alt="spots"
           />
