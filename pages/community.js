@@ -136,7 +136,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
               <Typography.H3 className='pt-10'>Community</Typography.H3>
               <div className='socials container-fluid mt-5 mb-5'>
                 {socials && socials.stats.map((social) => {
-                  if (social.name.indexOf(' ') < 0) {
+                  if (social.name.indexOf(' ') < 0 && social.name !== 'Facebook') {
                     return (
                       <AltCard
                         title={social.name.toUpperCase()}
