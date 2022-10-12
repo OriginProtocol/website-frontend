@@ -24,7 +24,7 @@ const Privacy = () => {
               We get information about you in a range of ways.
               <br/>
               <br/>
-              <b>Information You Give Us.</b> We collect your‎ name, email address as well as other information you directly give us on our Site.
+              <b>Information You Give Us.</b> We collect your name, email address as well as other information you directly give us on our Site.
               <br/><br/>
               <b>Information We Get From Others.</b> We may get information about you from other sources. We may add this to information we get from this Site.
               <br/><br/>
