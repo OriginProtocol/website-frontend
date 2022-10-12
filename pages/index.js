@@ -154,27 +154,27 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
                 <div className='lighter mt-2 mb-6'>Our team is led by serial entrepreneurs, early employees at YouTube, and engineering managers at Google, Coinbase and Dropbox.</div>
                 <div className='grid grid-cols-3 gap-4 md:flex md:items-center'>
                   <img
-                    src={assetRootPath('/images/logos/paypal.svg')}
+                    src={assetRootPath('/images/logos/company-paypal.svg')}
                     className="companies"
                     alt="Paypal"
                   />
                   <img
-                    src={assetRootPath('/images/logos/youtube.svg')}
+                    src={assetRootPath('/images/logos/company-youtube.svg')}
                     className="companies"
                     alt="Youtube"
                   />
                   <img
-                    src={assetRootPath('/images/logos/google.svg')}
+                    src={assetRootPath('/images/logos/company-google.svg')}
                     className="companies"
                     alt="Google"
                   />
                   <img
-                    src={assetRootPath('/images/logos/dropbox.svg')}
+                    src={assetRootPath('/images/logos/company-dropbox.svg')}
                     className="companies"
                     alt="Dropbox"
                   />
                   <img
-                    src={assetRootPath('/images/logos/coinbase.svg')}
+                    src={assetRootPath('/images/logos/company-coinbase.svg')}
                     className="companies"
                     alt="Coinbase"
                   />
