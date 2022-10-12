@@ -1,22 +1,22 @@
-import { fbt } from 'fbt-runtime'
-import { getDocsLink } from 'utils/getDocsLink'
-import { assetRootPath } from 'utils/image'
+import { fbt } from "fbt-runtime";
+import { getDocsLink } from "utils/getDocsLink";
+import { assetRootPath } from "utils/image";
 
-const analyticsURL = process.env.ANALYTICS_URL
-const jobsURL = process.env.JOBS_URL
-const termsURL = process.env.TERMS_URL
-const privacyURL = process.env.PRIVACY_URL
-const discordURL = process.env.DISCORD_URL
-const telegramURL = process.env.TELEGRAM_URL
-const wechatURL = process.env.WECHAT_URL
-const githubURL = process.env.GITHUB_URL
-const redditURL = process.env.REDDIT_URL
-const weiboURL = process.env.WEIBO_URL
-const facebookURL = process.env.FACEBOOK_URL
-const twitterURL = process.env.TWITTER_URL
-const mediumURL = process.env.MEDIUM_URL
-const youtubeURL = process.env.YOUTUBE_URL
-const instagramURL = process.env.INSTAGRAM_URL
+const analyticsURL = process.env.ANALYTICS_URL;
+const jobsURL = process.env.JOBS_URL;
+const termsURL = process.env.TERMS_URL;
+const privacyURL = process.env.PRIVACY_URL;
+const discordURL = process.env.DISCORD_URL;
+const telegramURL = process.env.TELEGRAM_URL;
+const wechatURL = process.env.WECHAT_URL;
+const githubURL = process.env.GITHUB_URL;
+const redditURL = process.env.REDDIT_URL;
+const weiboURL = process.env.WEIBO_URL;
+const facebookURL = process.env.FACEBOOK_URL;
+const twitterURL = process.env.TWITTER_URL;
+const mediumURL = process.env.MEDIUM_URL;
+const youtubeURL = process.env.YOUTUBE_URL;
+const instagramURL = process.env.INSTAGRAM_URL;
 
 export default function Footer({ locale }) {
   return (
@@ -32,7 +32,7 @@ export default function Footer({ locale }) {
                   rel="noopener noreferrer"
                   className="nav-link"
                 >
-                  {fbt('Analytics', 'Analytics link')}
+                  {fbt("Analytics", "Analytics link")}
                 </a>
                 <a
                   href={jobsURL}
@@ -40,7 +40,7 @@ export default function Footer({ locale }) {
                   rel="noopener noreferrer"
                   className="nav-link"
                 >
-                  {fbt('Jobs', 'Jobs link')}
+                  {fbt("Jobs", "Jobs link")}
                 </a>
                 <a
                   href={getDocsLink(locale)}
@@ -48,7 +48,7 @@ export default function Footer({ locale }) {
                   rel="noopener noreferrer"
                   className="nav-link"
                 >
-                  {fbt('Docs', 'Documentation link')}
+                  {fbt("Docs", "Documentation link")}
                 </a>
                 <a
                   href={discordURL}
@@ -56,7 +56,7 @@ export default function Footer({ locale }) {
                   rel="noopener noreferrer"
                   className="nav-link"
                 >
-                  {fbt('Discord', 'Discord link')}
+                  {fbt("Discord", "Discord link")}
                 </a>
                 <a
                   href={githubURL}
@@ -64,7 +64,7 @@ export default function Footer({ locale }) {
                   rel="noopener noreferrer"
                   className="nav-link"
                 >
-                  {fbt('Github', 'Github link')}
+                  {fbt("Github", "Github link")}
                 </a>
               </nav>
               <div className="legal flex flex-column align-items-center">
@@ -74,8 +74,8 @@ export default function Footer({ locale }) {
                   rel="noopener noreferrer"
                 >
                   {fbt(
-                    'Originally released by Origin Protocol',
-                    'Originally released by Origin Protocol'
+                    "Originally released by Origin Protocol",
+                    "Originally released by Origin Protocol"
                   )}
                 </a>
                 <nav className="nav flex">
@@ -85,7 +85,7 @@ export default function Footer({ locale }) {
                     rel="noopener noreferrer"
                     className="nav-link"
                   >
-                    {fbt('Terms of Service', 'Terms of Service')}
+                    {fbt("Terms of Service", "Terms of Service")}
                   </a>
                   <a
                     href={privacyURL}
@@ -93,7 +93,7 @@ export default function Footer({ locale }) {
                     rel="noopener noreferrer"
                     className="nav-link"
                   >
-                    {fbt('Privacy Policy', 'Privacy Policy')}
+                    {fbt("Privacy Policy", "Privacy Policy")}
                   </a>
                 </nav>
               </div>
@@ -170,5 +170,5 @@ export default function Footer({ locale }) {
         }
       `}</style>
     </>
-  )
+  );
 }

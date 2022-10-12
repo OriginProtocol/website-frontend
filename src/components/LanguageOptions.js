@@ -1,6 +1,6 @@
-import classnames from 'classnames'
+import classnames from "classnames";
 
-import Languages from '../constants/Languages'
+import Languages from "../constants/Languages";
 
 const LanguageOptions = ({ locale, onLocale, setOpen }) => {
   return (
@@ -11,13 +11,13 @@ const LanguageOptions = ({ locale, onLocale, setOpen }) => {
           title={lang[0]}
           href="#"
           onClick={(e) => {
-            e.preventDefault()
+            e.preventDefault();
 
-            typeof onLocale === 'function' && onLocale(lang[0])
-            typeof setOpen === 'function' && setOpen(false)
+            typeof onLocale === "function" && onLocale(lang[0]);
+            typeof setOpen === "function" && setOpen(false);
           }}
         >
-          <div className={classnames('d-flex', { active: lang[0] == locale })}>
+          <div className={classnames("d-flex", { active: lang[0] == locale })}>
             <div className={`dropdown-marble dropdown-item`}>{lang[2]}</div>
             {lang[1]}
           </div>
@@ -54,7 +54,7 @@ const LanguageOptions = ({ locale, onLocale, setOpen }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default LanguageOptions
+export default LanguageOptions;

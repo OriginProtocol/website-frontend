@@ -1,11 +1,15 @@
-import { useQuery } from 'react-query'
+import { useQuery } from "react-query";
 
-import { QUERY_KEYS } from 'constants/queryKeys'
+import { QUERY_KEYS } from "constants/queryKeys";
 
-import { repositoryService } from '../services/repository.service'
+import { repositoryService } from "../services/repository.service";
 
 const useRepositoryQuery = (options) => {
-  return useQuery(QUERY_KEYS.Repository(), () => repositoryService.fetchRepository(), options)
-}
+  return useQuery(
+    QUERY_KEYS.Repository(),
+    () => repositoryService.fetchRepository(),
+    options
+  );
+};
 
-export default useRepositoryQuery
+export default useRepositoryQuery;

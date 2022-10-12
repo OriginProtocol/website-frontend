@@ -1,130 +1,139 @@
-import withIsMobile from 'hoc/withIsMobile'
-import { useStoreState } from 'pullstate'
-import useCirculatingSupplyQuery from 'queries/useCirculatingSupplyQuery'
-import usePriceQuery from 'queries/usePriceQuery'
-import useTotalSupplyQuery from 'queries/useTotalSupplyQuery'
-import React, { useEffect } from 'react'
-import StatStore from 'stores/StatStore'
-import { assetRootPath } from 'utils/image'
-import { formatCurrency } from 'utils/math'
+import withIsMobile from "hoc/withIsMobile";
+import { useStoreState } from "pullstate";
+import useCirculatingSupplyQuery from "queries/useCirculatingSupplyQuery";
+import usePriceQuery from "queries/usePriceQuery";
+import useTotalSupplyQuery from "queries/useTotalSupplyQuery";
+import React, { useEffect } from "react";
+import StatStore from "stores/StatStore";
+import { assetRootPath } from "utils/image";
+import { formatCurrency } from "utils/math";
 
-const Dashboard = ({ogn, isMobile}) => {
-  const symbol = ogn ? 'OGN' : 'OGV'
-  const coin = symbol.toLowerCase()
-  const link = ogn ? 'origin-protocol' : 'origin-dollar-governance'
-  const buy = ogn ? 'app.uniswap.org/#/swap?outputCurrency=0x8207c1FfC5B6804F6024322CcF34F29c3541Ae26&chain=mainnet' : 'ousd.com'
-  const description = ogn ? 'Origin Token (OGN) stakers earn their share of Story’s platform fees. ' : 'Origin Governance Token (OGV) stakers earn fees from OUSD’s growth. '
+const Dashboard = ({ ogn, isMobile }) => {
+  const symbol = ogn ? "OGN" : "OGV";
+  const coin = symbol.toLowerCase();
+  const link = ogn ? "origin-protocol" : "origin-dollar-governance";
+  const buy = ogn
+    ? "app.uniswap.org/#/swap?outputCurrency=0x8207c1FfC5B6804F6024322CcF34F29c3541Ae26&chain=mainnet"
+    : "ousd.com";
+  const description = ogn
+    ? "Origin Token (OGN) stakers earn their share of Story’s platform fees. "
+    : "Origin Governance Token (OGV) stakers earn fees from OUSD’s growth. ";
 
   const price = useStoreState(StatStore, (s) => {
-    return s.price || 0
-  })
+    return s.price || 0;
+  });
 
   const circulatingSupply = useStoreState(StatStore, (s) => {
-    return s.circulatingSupply || 0
-  })
+    return s.circulatingSupply || 0;
+  });
 
   const totalSupply = useStoreState(StatStore, (s) => {
-    return s.totalSupply || 0
-  })
+    return s.totalSupply || 0;
+  });
 
   const priceQuery = usePriceQuery({
     onSuccess: (price) => {
       StatStore.update((s) => {
-        s.price.ogn = price['origin-protocol'].usd,
-        s.price.ogv = price['origin-dollar-governance'].usd
-      })
+        (s.price.ogn = price["origin-protocol"].usd),
+          (s.price.ogv = price["origin-dollar-governance"].usd);
+      });
     },
-  })
+  });
 
   const circulatingSupplyQuery = useCirculatingSupplyQuery({
     onSuccess: (circulatingSupply) => {
       StatStore.update((s) => {
-        s.circulatingSupply.ogn = circulatingSupply[0],
-        s.circulatingSupply.ogv = circulatingSupply[1]
-      })
+        (s.circulatingSupply.ogn = circulatingSupply[0]),
+          (s.circulatingSupply.ogv = circulatingSupply[1]);
+      });
     },
-  })
+  });
 
   const totalSupplyQuery = useTotalSupplyQuery({
     onSuccess: (totalSupply) => {
       StatStore.update((s) => {
-        s.totalSupply.ogn = totalSupply[0],
-        s.totalSupply.ogv = totalSupply[1]
-      })
+        (s.totalSupply.ogn = totalSupply[0]),
+          (s.totalSupply.ogv = totalSupply[1]);
+      });
     },
-  })
+  });
 
   useEffect(() => {
-    priceQuery.refetch()
-    circulatingSupplyQuery.refetch()
-    totalSupplyQuery.refetch()
-  }, [])
+    priceQuery.refetch();
+    circulatingSupplyQuery.refetch();
+    totalSupplyQuery.refetch();
+  }, []);
 
   return (
     <>
-      <div className='token-dashboard gradient2 flex flex-col md:rounded-2xl py-12 pl-6 pr-6 md:py-12 md:px-20'>
-        <div className='flex flex-row'>
-          <div className='text-container'>
-            <div className='flex flex-row items-center'>
+      <div className="token-dashboard gradient2 flex flex-col md:rounded-2xl py-12 pl-6 pr-6 md:py-12 md:px-20">
+        <div className="flex flex-row">
+          <div className="text-container">
+            <div className="flex flex-row items-center">
               <img
                 src={assetRootPath(`/images/logos/${coin}-logo.svg`)}
                 className={`logo`}
                 alt="Logo"
               />
-              <span className='text mt-1'>{symbol} token</span>
+              <span className="text mt-1">{symbol} token</span>
             </div>
-            <div className='lighter mt-2 mb-4'>
+            <div className="lighter mt-2 mb-4">
               {`${description} View on `}
               <a
                 href={`https://coinmarketcap.com/currencies/${link}`}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='bold'
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bold"
               >
-                  CoinMarketCap
+                CoinMarketCap
               </a>
-              {' or '}
+              {" or "}
               <a
                 href={`https://www.coingecko.com/en/coins/${link}`}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='bold'
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bold"
               >
-                  CoinGecko
+                CoinGecko
               </a>
             </div>
           </div>
           <a
             href={`https://${buy}`}
-            target='_blank'
-            rel='noopener noreferrer'
+            target="_blank"
+            rel="noopener noreferrer"
             className={`button white b1`}
           >
             Buy {symbol}
           </a>
         </div>
-        <div className='value-container'>
-          <div className='value'>
+        <div className="value-container">
+          <div className="value">
             <div>{`${symbol} PRICE`}</div>
-            <div className='number'>{`$${formatCurrency(price[coin], 4)}`}</div>
+            <div className="number">{`$${formatCurrency(price[coin], 4)}`}</div>
           </div>
-          <div className='value'>
+          <div className="value">
             <div>MARKET CAP</div>
-            <div className='number'>{`$${formatCurrency(circulatingSupply[coin] * price[coin], 0)}`}</div>
+            <div className="number">{`$${formatCurrency(
+              circulatingSupply[coin] * price[coin],
+              0
+            )}`}</div>
           </div>
-          <div className='value'>
+          <div className="value">
             <div>CIRCULATING SUPPLY</div>
-            <div className='number'>{formatCurrency(circulatingSupply[coin], 0)}</div>
+            <div className="number">
+              {formatCurrency(circulatingSupply[coin], 0)}
+            </div>
           </div>
-          <div className='value'>
+          <div className="value">
             <div>TOTAL SUPPLY</div>
-            <div className='number'>{formatCurrency(totalSupply[coin], 0)}</div>
+            <div className="number">{formatCurrency(totalSupply[coin], 0)}</div>
           </div>
         </div>
         <a
           href={`https://${buy}`}
-          target='_blank'
-          rel='noopener noreferrer'
+          target="_blank"
+          rel="noopener noreferrer"
           className={`button white b2`}
         >
           Buy {symbol}
@@ -148,7 +157,7 @@ const Dashboard = ({ogn, isMobile}) => {
 
         .text {
           display: inline;
-          font-family: 'Poppins';
+          font-family: "Poppins";
           font-size: 2rem;
         }
 
@@ -159,7 +168,7 @@ const Dashboard = ({ogn, isMobile}) => {
         }
 
         .number {
-          font-family: 'Poppins';
+          font-family: "Poppins";
           font-size: 2.25rem;
           font-weight: 700;
         }
@@ -170,7 +179,7 @@ const Dashboard = ({ogn, isMobile}) => {
 
         @media (max-width: 1199px) {
           .number {
-            font-family: 'Poppins';
+            font-family: "Poppins";
             font-size: 1.5rem;
             font-weight: 700;
           }
@@ -194,7 +203,7 @@ const Dashboard = ({ogn, isMobile}) => {
           }
 
           .number {
-            font-family: 'Poppins';
+            font-family: "Poppins";
             font-size: 1.25rem;
             font-weight: 700;
           }
@@ -216,7 +225,7 @@ const Dashboard = ({ogn, isMobile}) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default withIsMobile(Dashboard)
+export default withIsMobile(Dashboard);

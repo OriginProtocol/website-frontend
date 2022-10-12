@@ -1,90 +1,90 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 class Dropdown extends Component {
   constructor(props) {
-    super(props)
-    this.onBlur = this.onBlur.bind(this)
+    super(props);
+    this.onBlur = this.onBlur.bind(this);
     this.state = {
       open: false,
-    }
+    };
   }
 
   componentDidMount() {
     if (this.props.open) {
-      this.doOpen()
+      this.doOpen();
     }
   }
 
   componentWillUnmount() {
     if (this.state.open) {
-      this.doClose()
+      this.doClose();
     }
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.open === this.props.open) {
-      return
+      return;
     }
 
     if (prevProps.open && !this.props.open) {
       // Should close
-      this.doClose()
+      this.doClose();
     } else if (!prevProps.open && this.props.open) {
       // Should open
-      this.doOpen()
+      this.doOpen();
     }
   }
 
   onBlur() {
     if (!this.mouseOver) {
-      this.doClose()
+      this.doClose();
     }
   }
 
   doOpen() {
     if (this.state.open) {
-      return
+      return;
     }
 
-    document.addEventListener('click', this.onBlur)
+    document.addEventListener("click", this.onBlur);
 
-    this.setState({ open: true })
+    this.setState({ open: true });
 
     setTimeout(
-      () => this.dropdownEl && this.dropdownEl.classList.add('show'),
+      () => this.dropdownEl && this.dropdownEl.classList.add("show"),
       10
-    )
+    );
   }
 
   doClose() {
     if (!this.state.open || this.state.closing) {
-      return
+      return;
     }
 
-    document.removeEventListener('click', this.onBlur)
+    document.removeEventListener("click", this.onBlur);
 
-    this.dropdownEl.classList.remove('show')
+    this.dropdownEl.classList.remove("show");
     if (this.props.onClose) {
       if (this.props.animateOnExit) {
-        this.setState({ closing: true })
+        this.setState({ closing: true });
 
         this.onCloseTimeout = setTimeout(() => {
-          this.setState({ open: false, closing: false })
-          this.props.onClose()
-        }, 300)
-        return
+          this.setState({ open: false, closing: false });
+          this.props.onClose();
+        }, 300);
+        return;
       }
 
-      this.props.onClose()
+      this.props.onClose();
     }
 
-    this.setState({ open: false })
+    this.setState({ open: false });
   }
 
   render() {
-    let className = 'dropdown'
-    if (this.props.className) className += ` ${this.props.className}`
-    const El = this.props.el || 'div'
+    let className = "dropdown";
+    if (this.props.className) className += ` ${this.props.className}`;
+    const El = this.props.el || "div";
 
     return (
       <El
@@ -96,8 +96,8 @@ class Dropdown extends Component {
         {this.props.children}
         {this.props.content && this.state.open ? this.props.content : null}
       </El>
-    )
+    );
   }
 }
 
-export default Dropdown
+export default Dropdown;

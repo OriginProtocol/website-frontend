@@ -1,21 +1,14 @@
-import React, { useState } from 'react'
-import Head from 'next/head'
-import Footer from 'components/Footer'
+import React, { useState } from "react";
+import Head from "next/head";
+import Footer from "components/Footer";
 
-const Layout = ({
-  locale,
-  onLocale,
-  children,
-}) => {
-
+const Layout = ({ locale, onLocale, children }) => {
   return (
     <>
       <Head>
         <title>Origin Protocol</title>
       </Head>
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
       <Footer locale={locale} />
       <style jsx>{`
         .container {
@@ -25,7 +18,7 @@ const Layout = ({
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

@@ -1,28 +1,28 @@
-import Moment from "react-moment"
+import Moment from "react-moment";
 
-import Layout from "../src/components/strapi/layout"
-import Seo from "../src/components/strapi/seo"
+import Layout from "../src/components/strapi/layout";
+import Seo from "../src/components/strapi/seo";
 
-import { Typography } from "@originprotocol/origin-storybook"
+import { Typography } from "@originprotocol/origin-storybook";
 
-import Image from "next/image"
-import Link from "next/link"
-import Media from '../src/components/strapi/blocks/Media'
-import Quote from '../src/components/strapi/blocks/Quote'
-import RichText from '../src/components/strapi/blocks/RichText'
-import styles from 'styles/Article.module.css'
+import Image from "next/image";
+import Link from "next/link";
+import Media from "../src/components/strapi/blocks/Media";
+import Quote from "../src/components/strapi/blocks/Quote";
+import RichText from "../src/components/strapi/blocks/RichText";
+import styles from "styles/Article.module.css";
 
 const getBlockComponent = ({ __component, ...rest }, index) => {
   let Block;
 
   switch (__component) {
-    case 'shared.rich-text':
+    case "shared.rich-text":
       Block = RichText;
       break;
-    case 'shared.media':
+    case "shared.media":
       Block = Media;
       break;
-    case 'shared.quote':
+    case "shared.quote":
       Block = Quote;
       break;
   }
@@ -30,7 +30,7 @@ const getBlockComponent = ({ __component, ...rest }, index) => {
 };
 
 const BlockManager = ({ blocks }) => {
-  return <div>{blocks.map(getBlockComponent)}</div>
+  return <div>{blocks.map(getBlockComponent)}</div>;
 };
 
 BlockManager.defaultProps = {
@@ -50,21 +50,27 @@ const Article = ({ article }) => {
   return (
     <Layout>
       <Seo seo={seo} />
-      <div className="pb-20 px-6" style={{
-        backgroundColor: '#F6F8FE'
-      }}>
-        <div
-          className="max-w-screen-xl mx-auto"
-        >
+      <div
+        className="pb-20 px-6"
+        style={{
+          backgroundColor: "#F6F8FE",
+        }}
+      >
+        <div className="max-w-screen-xl mx-auto">
           <Typography.Link className="flex space-x-2">
-            <Image src='/images/left-arrow.svg' width='10' height='7'  className="ml-2"/>
-            <Link href='/company' className="ml-3">
+            <Image
+              src="/images/left-arrow.svg"
+              width="10"
+              height="7"
+              className="ml-2"
+            />
+            <Link href="/company" className="ml-3">
               Back to home page
             </Link>
           </Typography.Link>
         </div>
         <div className="mb-6 mt-2 max-w-screen-xl mx-auto">
-          <Typography.H3 as='h1'>{article.title}</Typography.H3>
+          <Typography.H3 as="h1">{article.title}</Typography.H3>
         </div>
         <div className="max-w-screen-xl mx-auto bg-white rounded-2xl pb-10">
           {imageUrl && (
@@ -80,7 +86,7 @@ const Article = ({ article }) => {
             <div className={`py-6 pl-6 pr-6 md:px-14 ${styles.article}`}>
               <div
                 dangerouslySetInnerHTML={{
-                  __html: article.body
+                  __html: article.body,
                 }}
               />
               <hr className="uk-divider-small" />
@@ -103,9 +109,7 @@ const Article = ({ article }) => {
                     By {article.author.name}
                   </p>
                   <p className="uk-text-meta uk-margin-remove-top">
-                    <Moment format="MMM Do YYYY">
-                      {article.published_at}
-                    </Moment>
+                    <Moment format="MMM Do YYYY">{article.published_at}</Moment>
                   </p>
                 </div>
               </div>

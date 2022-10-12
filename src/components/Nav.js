@@ -1,34 +1,34 @@
-import React from 'react'
-import classnames from 'classnames'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import React from "react";
+import classnames from "classnames";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-import withIsMobile from 'hoc/withIsMobile'
-import { formatCurrency } from 'utils/math'
-import { getDocsLink } from 'utils/getDocsLink'
-import LanguageOptions from 'components/LanguageOptions'
+import withIsMobile from "hoc/withIsMobile";
+import { formatCurrency } from "utils/math";
+import { getDocsLink } from "utils/getDocsLink";
+import LanguageOptions from "components/LanguageOptions";
 //import LanguageSelected from 'components/LanguageSelected'
-import LocaleDropdown from 'components/LocaleDropdown'
+import LocaleDropdown from "components/LocaleDropdown";
 
 //import Languages from '../constants/Languages'
-import { adjustLinkHref } from 'utils/utils'
-import { assetRootPath } from 'utils/image'
+import { adjustLinkHref } from "utils/utils";
+import { assetRootPath } from "utils/image";
 
 const Nav = ({ dapp, isMobile, locale, onLocale, page }) => {
-  const { pathname } = useRouter()
+  const { pathname } = useRouter();
 
   return (
     <>
       <nav
         className={classnames(
-          'navbar navbar-expand-lg d-flex justify-content-center flex-column'
+          "navbar navbar-expand-lg d-flex justify-content-center flex-column"
         )}
       >
         <div className="container p-lg-0 flex-nowrap">
-          <Link href={adjustLinkHref('/')}>
+          <Link href={adjustLinkHref("/")}>
             <a className="navbar-brand d-flex flex-column justify-content-center">
               <img
-                src={assetRootPath('/images/logos/origin-wordmark-blue.svg')}
+                src={assetRootPath("/images/logos/origin-wordmark-blue.svg")}
                 className="origin-logo"
                 alt="Origin Logo"
               />
@@ -44,7 +44,7 @@ const Nav = ({ dapp, isMobile, locale, onLocale, page }) => {
             aria-label="Toggle menu side panel"
           >
             <img
-              src={assetRootPath('/images/menu-icon.svg')}
+              src={assetRootPath("/images/menu-icon.svg")}
               alt="Activity menu"
             />
           </button>
@@ -77,7 +77,7 @@ const Nav = ({ dapp, isMobile, locale, onLocale, page }) => {
               aria-label="Toggle language navigation"
             >
               <img
-                src={assetRootPath('/images/close.svg')}
+                src={assetRootPath("/images/close.svg")}
                 alt="Close icon"
                 loading="lazy"
               />
@@ -95,75 +95,67 @@ const Nav = ({ dapp, isMobile, locale, onLocale, page }) => {
               aria-label="Toggle navigation"
             >
               <img
-                src={assetRootPath('/images/close.svg')}
+                src={assetRootPath("/images/close.svg")}
                 alt="Close icon"
                 loading="lazy"
               />
             </button>
             <div className="d-flex flex-column flex-lg-row mb-auto w-100 align-items-center">
-                <ul className={`navbar-nav ml-auto`}>
-                  <li
-                    className={classnames('nav-item', {
-                      active: pathname === '/',
-                    })}
+              <ul className={`navbar-nav ml-auto`}>
+                <li
+                  className={classnames("nav-item", {
+                    active: pathname === "/",
+                  })}
+                >
+                  <Link href={adjustLinkHref("/")}>
+                    <a className="nav-link">Home</a>
+                  </Link>
+                </li>
+                <li className={classnames("nav-item")}>
+                  <a
+                    href={"https://ousd.com"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="nav-link"
                   >
-                    <Link href={adjustLinkHref('/')}>
-                      <a className="nav-link">
-                        Home
-                      </a>
-                    </Link>
-                  </li>
-                  <li
-                    className={classnames('nav-item')}
-                  >
-                    <a
-                      href={'https://ousd.com'}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="nav-link"
-                    >
-                      Products
-                    </a>
-                  </li>
-                  <li
-                    className={classnames('nav-item', {
-                      active: pathname === '/company',
-                    })}
-                  >
-                    <Link href={adjustLinkHref('/company')}>
-                      <a className="nav-link">
-                        Company
-                      </a>
-                    </Link>
-                  </li>
-                  <li
-                    className={classnames('nav-item', {
-                      active: pathname === '/community',
-                    })}
-                  >
-                    <Link href={adjustLinkHref('/community')}>
-                      <a className="nav-link">
-                        Community
-                      </a>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                      English
-                  </li>
-                </ul>
-              {<div
-                className={`d-flex flex-column ${
-                  dapp ? 'flex-lg-row-reverse' : 'flex-lg-row'
-                }`}
-              >
-                <LocaleDropdown
-                  locale={locale}
-                  onLocale={onLocale}
-                  outerClassName={`${dapp ? 'ml-2' : ''}`}
-                  className="nav-dropdown"
-                  useNativeSelectbox={false}
-                />
-                </div>}
+                    Products
+                  </a>
+                </li>
+                <li
+                  className={classnames("nav-item", {
+                    active: pathname === "/company",
+                  })}
+                >
+                  <Link href={adjustLinkHref("/company")}>
+                    <a className="nav-link">Company</a>
+                  </Link>
+                </li>
+                <li
+                  className={classnames("nav-item", {
+                    active: pathname === "/community",
+                  })}
+                >
+                  <Link href={adjustLinkHref("/community")}>
+                    <a className="nav-link">Community</a>
+                  </Link>
+                </li>
+                <li className="nav-item">English</li>
+              </ul>
+              {
+                <div
+                  className={`d-flex flex-column ${
+                    dapp ? "flex-lg-row-reverse" : "flex-lg-row"
+                  }`}
+                >
+                  <LocaleDropdown
+                    locale={locale}
+                    onLocale={onLocale}
+                    outerClassName={`${dapp ? "ml-2" : ""}`}
+                    className="nav-dropdown"
+                    useNativeSelectbox={false}
+                  />
+                </div>
+              }
             </div>
           </div>
         </div>
@@ -225,7 +217,7 @@ const Nav = ({ dapp, isMobile, locale, onLocale, page }) => {
         .navLinks {
           z-index: 4;
         }
-        
+
         @media (max-width: 992px) {
           .container {
             width: 100%;
@@ -345,7 +337,7 @@ const Nav = ({ dapp, isMobile, locale, onLocale, page }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default withIsMobile(Nav)
+export default withIsMobile(Nav);

@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-export default function DownCaret({ color = '#608fcf', size = '30' }) {
+export default function DownCaret({ color = "#608fcf", size = "30" }) {
   return (
     <svg
       style={{ marginRight: -13 }}
@@ -13,5 +13,5 @@ export default function DownCaret({ color = '#608fcf', size = '30' }) {
         <line x1="10" y1="12" x2="13" y2="9" />
       </g>
     </svg>
-  )
+  );
 }

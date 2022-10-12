@@ -1,16 +1,16 @@
-import classnames from 'classnames'
+import classnames from "classnames";
 
-import Languages from '../constants/Languages'
+import Languages from "../constants/Languages";
 
 const LanguagesByKey = Languages.reduce((m, o) => {
-  m[o[0]] = o[2]
-  return m
-}, {})
+  m[o[0]] = o[2];
+  return m;
+}, {});
 
 const LanguageSelected = ({ locale, open, dark }) => {
   return (
     <>
-      <div className={classnames('language-selected', { open, dark })}>
+      <div className={classnames("language-selected", { open, dark })}>
         {LanguagesByKey[locale]}
       </div>
       <style jsx>{`
@@ -46,7 +46,7 @@ const LanguageSelected = ({ locale, open, dark }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default LanguageSelected
+export default LanguageSelected;

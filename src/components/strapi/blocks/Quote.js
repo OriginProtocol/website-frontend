@@ -1,14 +1,14 @@
-import { Typography } from '@originprotocol/origin-storybook';
-import React from 'react';
+import { Typography } from "@originprotocol/origin-storybook";
+import React from "react";
 
-const Quote = ({title, body}) => {
+const Quote = ({ title, body }) => {
   return (
     <>
-      <div className='container text-center'>
-        <div className='quote'>
+      <div className="container text-center">
+        <div className="quote">
           <Typography.H4>{`"${body}"`}</Typography.H4>
         </div>
-        <div className='name mt-3'>
+        <div className="name mt-3">
           <Typography.Body>{title}</Typography.Body>
         </div>
       </div>
@@ -18,7 +18,7 @@ const Quote = ({title, body}) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
 export default Quote;

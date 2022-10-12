@@ -29,6 +29,8 @@ module.exports = [
   'sr',
   'sr-CS',
   'sr-Latn',
+  'sr_CS',
+  'sr_Latn',
   'ta',
   'te',
   'th',
@@ -39,5 +41,7 @@ module.exports = [
   'vi',
   'zh',
   'zh-Hans',
-  'zh-Hant'
+  'zh-Hant',
+  'zh_Hans',
+  'zh_Hant',
 ]

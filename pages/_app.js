@@ -1,55 +1,57 @@
 import App from "next/app";
 import Head from "next/head";
-import React, { createContext, useEffect } from 'react'
-import { useRouter } from 'next/router'
+import React, { createContext, useEffect } from "react";
+import { useRouter } from "next/router";
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
-import 'react-toastify/scss/main.scss'
-import '../styles/globals.css'
-import bundledCss from '@originprotocol/origin-storybook/lib/styles.css'
-import { QueryClient, QueryClientProvider } from 'react-query'
-import analytics from 'utils/analytics'
-import { AnalyticsProvider } from 'use-analytics'
-import { setUserSource } from 'utils/user'
+import "react-toastify/scss/main.scss";
+import "../styles/globals.css";
+import bundledCss from "@originprotocol/origin-storybook/lib/styles.css";
+import { QueryClient, QueryClientProvider } from "react-query";
+import analytics from "utils/analytics";
+import { AnalyticsProvider } from "use-analytics";
+import { setUserSource } from "utils/user";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 export const GlobalContext = createContext({});
 
 const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps;
-  const router = useRouter()
+  const router = useRouter();
 
   // page tracking code from origin dollar repository
   const trackPageView = (url, lastURL) => {
     const data = {
       toURL: url,
-    }
+    };
 
     if (lastURL) {
-      data.fromURL = lastURL
+      data.fromURL = lastURL;
     }
 
-    analytics.page(data)
+    analytics.page(data);
 
-    if (url.indexOf('?') > 0) {
-      const searchParams = new URLSearchParams(url.substr(url.indexOf('?') + 1))
-      const utmSource = searchParams.get('utm_source')
+    if (url.indexOf("?") > 0) {
+      const searchParams = new URLSearchParams(
+        url.substr(url.indexOf("?") + 1)
+      );
+      const utmSource = searchParams.get("utm_source");
       if (utmSource) {
-        setUserSource(utmSource)
+        setUserSource(utmSource);
       }
     } else {
       /* if first page load is not equipped with the 'utm_source' we permanently mark
        * user source as unknown
        */
-      setUserSource('unknown')
+      setUserSource("unknown");
     }
-  }
+  };
 
   useEffect(() => {
-    let lastURL = window.location.pathname + window.location.search
+    let lastURL = window.location.pathname + window.location.search;
 
     // track initial page load
-    trackPageView(lastURL)
+    trackPageView(lastURL);
 
     const handleRouteChange = (url) => {
       /* There is this weird behaviour with react router where `routeChangeComplete` gets triggered
@@ -57,19 +59,19 @@ const MyApp = ({ Component, pageProps }) => {
        * parameters present the inital page view would be tracked twice.
        */
       if (url === lastURL) {
-        return
+        return;
       }
       // track when user navigates to a new page
-      trackPageView(url, lastURL)
-      lastURL = url
-    }
+      trackPageView(url, lastURL);
+      lastURL = url;
+    };
 
-    router.events.on('routeChangeComplete', handleRouteChange)
+    router.events.on("routeChangeComplete", handleRouteChange);
 
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [])
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, []);
 
   return (
     <>
@@ -87,8 +89,8 @@ const MyApp = ({ Component, pageProps }) => {
         </QueryClientProvider>
       </GlobalContext.Provider>
     </>
-  )
-}
+  );
+};
 
 // getInitialProps disables automatic static optimization for pages that don't
 // have getStaticProps. So article, category and home pages still get SSG.
@@ -112,12 +114,16 @@ MyApp.getInitialProps = async (ctx) => {
     ...appProps,
     pageProps: { global: globalRes.data },
     styles: [
-      process.env.NODE_ENV === 'production' ? <style
-        key="custom"
-        dangerouslySetInnerHTML={{
-          __html: bundledCss,
-        }}
-      />: <></>,
+      process.env.NODE_ENV === "production" ? (
+        <style
+          key="custom"
+          dangerouslySetInnerHTML={{
+            __html: bundledCss,
+          }}
+        />
+      ) : (
+        <></>
+      ),
     ],
   };
 };
