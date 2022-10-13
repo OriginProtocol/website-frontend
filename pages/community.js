@@ -18,8 +18,10 @@ import { mappedLinks } from "utils/constants";
 import { assetRootPath } from "utils/image";
 import { formatCurrency } from "utils/math";
 import { fetchAPI } from "../lib/api";
+import Seo from "../src/components/strapi/seo";
+import formatSeo from "../src/utils/seo";
 
-const Community = ({ locale, onLocale, isMobile, team }) => {
+const Community = ({ locale, onLocale, isMobile, team, seo }) => {
   const socials = useStoreState(StatStore, (s) => {
     return s.socials || 0
   })
@@ -52,6 +54,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
       <Head>
         <title>Community</title>
       </Head>
+      <Seo seo={seo} />
       <div>
         <Header webProperty="originprotocol" mappedLinks={mappedLinks.links} />
         <section className="intro grey relative  overflow-hidden">
@@ -638,10 +641,12 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
 
 export async function getStaticProps() {
   const teamRes = await fetchAPI("/website/team/en");
+  const seoRes = await fetchAPI("/website/page/en/%2Fcommunity");
 
   return {
     props: {
       team: teamRes.data,
+      seo: formatSeo(seoRes)
     },
   };
 }
