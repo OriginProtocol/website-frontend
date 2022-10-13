@@ -63,6 +63,7 @@ const Article = ({ article }) => {
               width="10"
               height="7"
               className="ml-2"
+              alt="left arrow"
             />
             <Link href="/company" className="ml-3">
               Back to home page

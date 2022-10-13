@@ -4,10 +4,6 @@ module.exports = {
     "./pages/**/*.{js,jsx}",
     "./src/**/*.{js,jsx}"
   ],
-  purge: [
-    "./pages/**/*.{js,jsx}",
-    "./src/**/*.{js,jsx}"
-  ],
   theme: {
     extend: {},
   },

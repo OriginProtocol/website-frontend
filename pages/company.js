@@ -10,6 +10,8 @@ import {
 } from "@originprotocol/origin-storybook";
 import { mappedLinks } from "utils/constants";
 import { fetchAPI } from "../lib/api";
+import formatSeo from "../src/utils/seo";
+import Seo from "../src/components/strapi/seo";
 
 export default function Company({
   locale,
@@ -17,12 +19,14 @@ export default function Company({
   articles,
   meta,
   categories,
+  seo,
 }) {
   return (
     <>
       <Head>
         <title>Company</title>
       </Head>
+      <Seo seo={seo} />
       <Header mappedLinks={mappedLinks.links} webProperty="originprotocol" />
       <section className="intro grey pb-12">
         <div className="container-fluid max-w-screen-xl mx-auto px-6 mb-6">
@@ -234,11 +238,14 @@ export async function getStaticProps() {
     categories[article?.category?.slug] = article.category;
   });
 
+  const seoRes = await fetchAPI("/website/page/en/%2Fcommunity");
+
   return {
     props: {
       articles: articlesRes?.data || null,
       meta: articlesRes?.meta || null,
       categories: Object.values(categories),
+      seo: formatSeo(seoRes),
     },
   };
 }

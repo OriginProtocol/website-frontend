@@ -1,7 +1,6 @@
 export default class RepositoryService {
   async fetchRepository() {
-    const endpoint = `${process.env.NEXT_PUBLIC_GITHUB}/orgs/OriginProtocol/repos?per_page=100`;
-    const response = await fetch(endpoint);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_GITHUB}/orgs/OriginProtocol/repos?per_page=100`);
     if (!response.ok) {
       throw new Error(`Failed to fetch repositories`, err);
     }
