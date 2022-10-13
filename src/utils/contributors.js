@@ -3,11 +3,7 @@ async function fetchContributors(repositories) {
 
   const contributorLists = await Promise.all(
     repositories.slice(0, 19).map(async (repository) => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_GITHUB}/repos/OriginProtocol/${repository.name}/contributors?per_page=100`, {
-        headers: {
-          authorization: `token ${process.env.GITHUB_API_KEY}`
-        }
-      });
+      const response = await fetch(`${process.env.NEXT_PUBLIC_GITHUB}/repos/OriginProtocol/${repository.name}/contributors?per_page=100`);
 
       if (!response.ok) {
         throw new Error(`Failed to fetch ${repository.name} contributors`, response.statusText);
@@ -29,11 +25,7 @@ async function fetchContributors(repositories) {
 }
 
 export default async function fetchContributorsFromRepos () {
-  const reposRes = await fetch(`${process.env.NEXT_PUBLIC_GITHUB}/orgs/OriginProtocol/repos?per_page=100`, {
-    headers: {
-      authorization: `token ${process.env.GITHUB_API_KEY}`
-    }
-  });
+  const reposRes = await fetch(`${process.env.NEXT_PUBLIC_GITHUB}/orgs/OriginProtocol/repos?per_page=100`);
 
   const repos = await reposRes.json()
   const contributorsRes = await fetchContributors(repos)
