@@ -53,7 +53,6 @@ const TeamMember = ({ name, title, description, avatar, links }) => {
         .card {
           position: relative;
           top: 50px;
-          font-family: "Poppins";
           background-color: #ffffff20;
           max-width: 21vw;
           height: auto;

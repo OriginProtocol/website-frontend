@@ -157,7 +157,6 @@ const Dashboard = ({ ogn, isMobile }) => {
 
         .text {
           display: inline;
-          font-family: "Poppins";
           font-size: 2rem;
         }
 
@@ -168,7 +167,6 @@ const Dashboard = ({ ogn, isMobile }) => {
         }
 
         .number {
-          font-family: "Poppins";
           font-size: 2.25rem;
           font-weight: 700;
         }
@@ -179,7 +177,6 @@ const Dashboard = ({ ogn, isMobile }) => {
 
         @media (max-width: 1199px) {
           .number {
-            font-family: "Poppins";
             font-size: 1.5rem;
             font-weight: 700;
           }
@@ -203,7 +200,6 @@ const Dashboard = ({ ogn, isMobile }) => {
           }
 
           .number {
-            font-family: "Poppins";
             font-size: 1.25rem;
             font-weight: 700;
           }
