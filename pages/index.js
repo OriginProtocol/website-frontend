@@ -210,7 +210,7 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
                 </div>
                 <div className="flex md:justify-center space-x-4 mt-8 mb-16">
                   <a
-                    href="https://story.xyz"
+                    href="/community"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="button gradient2 shadow px-6 md:px-10"
@@ -218,7 +218,7 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
                     Meet our team
                   </a>
                   <a
-                    href="https://story.xyz"
+                    href="https://angel.co/company/originprotocol/jobs"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="button white shadow px-6 md:px-10"
