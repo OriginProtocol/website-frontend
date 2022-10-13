@@ -267,8 +267,9 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
             </div>
             {articles && (
               <div className="article-container mt-5 space-y-6 md:space-y-0 md:grid md:grid-cols-3 gap-10">
-                {articles.slice(0, 3).map((article) => (
+                {articles.slice(0, 3).map((article, i) => (
                   <Card
+                    key={i}
                     webProperty={"originprotocol"}
                     title={article.title}
                     imgSrc={article.cover?.formats.large.url}

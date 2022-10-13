@@ -101,7 +101,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
                 title={"3LAU"}
                 imgSrc={assetRootPath("/images/screens/background-3lau.png")}
                 imgAlt={"3LAU"}
-                thumbnailSrc={assetRootPath("/images/screens/avatar-3lau.svg")}
+                thumbnailSrc={assetRootPath("/images/screens/avatar-3lau.png")}
                 thumbnailAlt={"3LAU"}
                 body={
                   "Acclaimed musician and producer 3LAU's Ultraviolet Vinyl NFT collection was auctioned on Origin's NFT platform with each NFT..."
@@ -119,7 +119,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
                 )}
                 imgAlt={"Inspiration4"}
                 thumbnailSrc={assetRootPath(
-                  "/images/screens/avatar-inspiration4.svg"
+                  "/images/screens/avatar-inspiration4.png"
                 )}
                 thumbnailAlt={"Inspiration4"}
                 body={
@@ -138,7 +138,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
                 )}
                 imgAlt={"ETHEREAL"}
                 thumbnailSrc={assetRootPath(
-                  "/images/screens/avatar-ethereal.svg"
+                  "/images/screens/avatar-ethereal.png"
                 )}
                 thumbnailAlt={"ETHEREAL"}
                 body={
@@ -154,7 +154,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
                 title={"BT"}
                 imgSrc={assetRootPath("/images/screens/background-bt.png")}
                 imgAlt={"BT"}
-                thumbnailSrc={assetRootPath("/images/screens/avatar-bt.svg")}
+                thumbnailSrc={assetRootPath("/images/screens/avatar-bt.png")}
                 thumbnailAlt={"BT"}
                 body={
                   "Metaversal is BT's 14th artist album and the first album imagined as a programatic blockchain experience. It encompasses beautiful audio..."
@@ -279,96 +279,108 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
             <Typography.H7>Region-specific channels</Typography.H7>
             {socials && (
               <div className="telegram container-fluid mt-5">
-                <AltCard
-                  title={"INDONESIAN"}
-                  body={`${formatCurrency(
-                    socials.stats[5].subscribed_count / 1000,
-                    1
-                  )}k followers`}
-                  imgSrc={assetRootPath("/images/logos/social-telegram.svg")}
-                  imgAlt={"Telegram"}
-                  linkHref={process.env.NEXT_PUBLIC_TELEGRAM_INDONESIA_URL}
-                  narrow={true}
-                  thumbnailSrc={assetRootPath(
-                    "/images/graphics/flag-indonesia.png"
-                  )}
-                  thumbnailAlt={"Flag"}
-                />
-                <AltCard
-                  title={"KOREAN"}
-                  body={`${formatCurrency(
-                    socials.stats[6].subscribed_count / 1000,
-                    1
-                  )}k followers`}
-                  imgSrc={assetRootPath("/images/logos/social-telegram.svg")}
-                  imgAlt={"Telegram"}
-                  linkHref={process.env.NEXT_PUBLIC_TELEGRAM_KOREA_URL}
-                  narrow={true}
-                  thumbnailSrc={assetRootPath(
-                    "/images/graphics/flag-korea.png"
-                  )}
-                  thumbnailAlt={"Flag"}
-                />
-                <AltCard
-                  title={"RUSSIAN"}
-                  body={`${formatCurrency(
-                    socials.stats[7].subscribed_count / 1000,
-                    1
-                  )}k followers`}
-                  imgSrc={assetRootPath("/images/logos/social-telegram.svg")}
-                  imgAlt={"Telegram"}
-                  linkHref={process.env.NEXT_PUBLIC_TELEGRAM_RUSSIA_URL}
-                  narrow={true}
-                  thumbnailSrc={assetRootPath(
-                    "/images/graphics/flag-russia.png"
-                  )}
-                  thumbnailAlt={"Flag"}
-                />
-                <AltCard
-                  title={"SPANISH"}
-                  body={`${formatCurrency(
-                    socials.stats[8].subscribed_count / 1000,
-                    1
-                  )}k followers`}
-                  imgSrc={assetRootPath("/images/logos/social-telegram.svg")}
-                  imgAlt={"Telegram"}
-                  linkHref={process.env.NEXT_PUBLIC_TELEGRAM_SPAIN_URL}
-                  narrow={true}
-                  thumbnailSrc={assetRootPath(
-                    "/images/graphics/flag-spain.png"
-                  )}
-                  thumbnailAlt={"Flag"}
-                />
-                <AltCard
-                  title={"TURKISH"}
-                  body={`${formatCurrency(
-                    socials.stats[9].subscribed_count / 1000,
-                    1
-                  )}k followers`}
-                  imgSrc={assetRootPath("/images/logos/social-telegram.svg")}
-                  imgAlt={"Telegram"}
-                  linkHref={process.env.NEXT_PUBLIC_TELEGRAM_TURKEY_URL}
-                  narrow={true}
-                  thumbnailSrc={assetRootPath(
-                    "/images/graphics/flag-turkey.png"
-                  )}
-                  thumbnailAlt={"Flag"}
-                />
-                <AltCard
-                  title={"VIETNAMESE"}
-                  body={`${formatCurrency(
-                    socials.stats[10].subscribed_count / 1000,
-                    1
-                  )}k followers`}
-                  imgSrc={assetRootPath("/images/logos/social-telegram.svg")}
-                  imgAlt={"Telegram"}
-                  linkHref={process.env.NEXT_PUBLIC_TELEGRAM_VIETNAM_URL}
-                  narrow={true}
-                  thumbnailSrc={assetRootPath(
-                    "/images/graphics/flag-vietnam.png"
-                  )}
-                  thumbnailAlt={"Flag"}
-                />
+                {socials.stats[5]?.name === 'Telegram (Indonesia)' &&
+                  <AltCard
+                    title={"INDONESIAN"}
+                    body={`${formatCurrency(
+                      socials.stats[5].subscribed_count / 1000,
+                      1
+                    )}k followers`}
+                    imgSrc={assetRootPath("/images/logos/social-telegram.svg")}
+                    imgAlt={"Telegram"}
+                    linkHref={process.env.NEXT_PUBLIC_TELEGRAM_INDONESIA_URL}
+                    narrow={true}
+                    thumbnailSrc={assetRootPath(
+                      "/images/graphics/flag-indonesia.png"
+                    )}
+                    thumbnailAlt={"Flag"}
+                  />
+                }
+                {socials.stats[5]?.name === 'Telegram (Korean)' &&
+                  <AltCard
+                    title={"KOREAN"}
+                    body={`${formatCurrency(
+                      socials.stats[6].subscribed_count / 1000,
+                      1
+                    )}k followers`}
+                    imgSrc={assetRootPath("/images/logos/social-telegram.svg")}
+                    imgAlt={"Telegram"}
+                    linkHref={process.env.NEXT_PUBLIC_TELEGRAM_KOREA_URL}
+                    narrow={true}
+                    thumbnailSrc={assetRootPath(
+                      "/images/graphics/flag-korea.png"
+                    )}
+                    thumbnailAlt={"Flag"}
+                  />
+                }
+                {socials.stats[5]?.name === 'Telegram (Russia)' &&
+                  <AltCard
+                    title={"RUSSIAN"}
+                    body={`${formatCurrency(
+                      socials.stats[7].subscribed_count / 1000,
+                      1
+                    )}k followers`}
+                    imgSrc={assetRootPath("/images/logos/social-telegram.svg")}
+                    imgAlt={"Telegram"}
+                    linkHref={process.env.NEXT_PUBLIC_TELEGRAM_RUSSIA_URL}
+                    narrow={true}
+                    thumbnailSrc={assetRootPath(
+                      "/images/graphics/flag-russia.png"
+                    )}
+                    thumbnailAlt={"Flag"}
+                  />
+                }
+                {socials.stats[5]?.name === 'Telegram (Spanish)' &&
+                  <AltCard
+                    title={"SPANISH"}
+                    body={`${formatCurrency(
+                      socials.stats[8].subscribed_count / 1000,
+                      1
+                    )}k followers`}
+                    imgSrc={assetRootPath("/images/logos/social-telegram.svg")}
+                    imgAlt={"Telegram"}
+                    linkHref={process.env.NEXT_PUBLIC_TELEGRAM_SPAIN_URL}
+                    narrow={true}
+                    thumbnailSrc={assetRootPath(
+                      "/images/graphics/flag-spain.png"
+                    )}
+                    thumbnailAlt={"Flag"}
+                  />
+                }
+                {socials.stats[5]?.name === 'Telegram (Turkish)' &&
+                  <AltCard
+                    title={"TURKISH"}
+                    body={`${formatCurrency(
+                      socials.stats[9]?.subscribed_count / 1000,
+                      1
+                    )}k followers`}
+                    imgSrc={assetRootPath("/images/logos/social-telegram.svg")}
+                    imgAlt={"Telegram"}
+                    linkHref={process.env.NEXT_PUBLIC_TELEGRAM_TURKEY_URL}
+                    narrow={true}
+                    thumbnailSrc={assetRootPath(
+                      "/images/graphics/flag-turkey.png"
+                    )}
+                    thumbnailAlt={"Flag"}
+                  />
+                }
+                {socials.stats[5]?.name === 'Telegram (Vietnam)' &&
+                  <AltCard
+                    title={"VIETNAMESE"}
+                    body={`${formatCurrency(
+                      socials.stats[10]?.subscribed_count / 1000,
+                      1
+                    )}k followers`}
+                    imgSrc={assetRootPath("/images/logos/social-telegram.svg")}
+                    imgAlt={"Telegram"}
+                    linkHref={process.env.NEXT_PUBLIC_TELEGRAM_VIETNAM_URL}
+                    narrow={true}
+                    thumbnailSrc={assetRootPath(
+                      "/images/graphics/flag-vietnam.png"
+                    )}
+                    thumbnailAlt={"Flag"}
+                  />
+                }
               </div>
             )}
           </div>
