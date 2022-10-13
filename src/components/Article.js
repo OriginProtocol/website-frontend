@@ -1,15 +1,15 @@
 import Moment from "react-moment";
 
-import Layout from "../src/components/strapi/layout";
-import Seo from "../src/components/strapi/seo";
+import Layout from "./strapi/layout";
+import Seo from "./strapi/seo";
 
 import { Typography } from "@originprotocol/origin-storybook";
 
 import Image from "next/image";
 import Link from "next/link";
-import Media from "../src/components/strapi/blocks/Media";
-import Quote from "../src/components/strapi/blocks/Quote";
-import RichText from "../src/components/strapi/blocks/RichText";
+import Media from "./strapi/blocks/Media";
+import Quote from "./strapi/blocks/Quote";
+import RichText from "./strapi/blocks/RichText";
 import styles from "styles/Article.module.css";
 
 const getBlockComponent = ({ __component, ...rest }, index) => {

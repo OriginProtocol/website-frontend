@@ -1,6 +1,6 @@
 import React from "react";
 import { fetchAPI } from "../lib/api";
-import Article from "./_post";
+import Article from "../src/components/Article";
 
 const FallbackRenderer = ({ article }) => {
   return <Article article={article} />;
