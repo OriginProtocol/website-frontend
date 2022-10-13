@@ -10,10 +10,7 @@ const Privacy = () => {
       <Head>
         <title>Origin Protocol</title>
       </Head>
-      <Header
-        mappedLinks={mappedLinks.links}
-        webProperty='originprotocol'
-      />
+      <Header mappedLinks={mappedLinks.links} webProperty="originprotocol" />
       <section>
         <>
           <br/><br/>
@@ -94,7 +91,7 @@ const Privacy = () => {
       </section>
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Privacy
+export default Privacy;

@@ -15,10 +15,7 @@ const Tos = () => {
       <Head>
         <title>Origin Protocol</title>
       </Head>
-      <Header
-        mappedLinks={mappedLinks.links}
-        webProperty='originprotocol'
-      />
+      <Header mappedLinks={mappedLinks.links} webProperty="originprotocol" />
       <section>
         {loaded &&
           <>
@@ -179,7 +176,7 @@ const Tos = () => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Tos
+export default Tos;

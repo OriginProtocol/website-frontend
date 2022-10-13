@@ -1,18 +1,16 @@
-import React from 'react';
+import React from "react";
 
-const RichText = ({body}) => {
+const RichText = ({ body }) => {
   return (
     <>
       <div
         dangerouslySetInnerHTML={{
-          __html: body
+          __html: body,
         }}
       />
-      <style jsx>{`
-
-      `}</style>
+      <style jsx>{``}</style>
     </>
-  )
-}
+  );
+};
 
 export default RichText;

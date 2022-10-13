@@ -1,7 +1,7 @@
 export function assetRootPath(src) {
-  if (!src) return ''
+  if (!src) return "";
 
   return `${
-    src.startsWith('/') && process.env.DEPLOY_MODE === 'ipfs' ? '.' : ''
-  }${src}`
+    src.startsWith("/") && process.env.DEPLOY_MODE === "ipfs" ? "." : ""
+  }${src}`;
 }

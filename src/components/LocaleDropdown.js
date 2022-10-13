@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import classnames from 'classnames'
+import React, { useState } from "react";
+import classnames from "classnames";
 
-import Languages from '../constants/Languages'
-import Dropdown from 'components/Dropdown'
-import LanguageSelected from 'components/LanguageSelected'
-import LanguageOptions from 'components/LanguageOptions'
+import Languages from "../constants/Languages";
+import Dropdown from "components/Dropdown";
+import LanguageSelected from "components/LanguageSelected";
+import LanguageOptions from "components/LanguageOptions";
 
 const LocaleDropdown = ({
   className,
@@ -15,7 +15,7 @@ const LocaleDropdown = ({
   useNativeSelectbox,
   footer,
 }) => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   if (useNativeSelectbox) {
     return (
@@ -30,7 +30,7 @@ const LocaleDropdown = ({
           </option>
         ))}
       </select>
-    )
+    );
   }
 
   return (
@@ -38,7 +38,7 @@ const LocaleDropdown = ({
       <Dropdown
         className="d-flex align-items-center"
         content={
-          <div className={`dropdown-menu show ${footer ? 'dropup' : ''}`}>
+          <div className={`dropdown-menu show ${footer ? "dropup" : ""}`}>
             <LanguageOptions
               locale={locale}
               onLocale={onLocale}
@@ -51,19 +51,16 @@ const LocaleDropdown = ({
       >
         <div
           className={classnames(
-            'dropdown-marble selected',
+            "dropdown-marble selected",
             { open, outerClassName, footer },
-            dropup || 'dropdown'
+            dropup || "dropdown"
           )}
           onClick={(e) => {
-            e.preventDefault()
-            setOpen(!open)
+            e.preventDefault();
+            setOpen(!open);
           }}
         >
-          <a
-            href="#"
-            className={className}
-          >
+          <a href="#" className={className}>
             <LanguageSelected locale={locale} dark={footer} open={open} />
           </a>
         </div>
@@ -90,7 +87,7 @@ const LocaleDropdown = ({
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default LocaleDropdown
+export default LocaleDropdown;

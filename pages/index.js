@@ -1,17 +1,23 @@
-import { Button, Card, Footer, Header, Typography } from '@originprotocol/origin-storybook'
-import Dashboard from 'components/Dashboard'
-import EmailList from 'components/EmailList'
-import withIsMobile from 'hoc/withIsMobile'
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-import { ToastContainer } from 'react-toastify'
-import styles from 'styles/Home.module.css'
-import { mappedLinks } from 'utils/constants'
-import { assetRootPath } from 'utils/image'
-import { adjustLinkHref } from 'utils/utils'
-import { fetchAPI } from "../lib/api"
+import {
+  Button,
+  Card,
+  Footer,
+  Header,
+  Typography,
+} from "@originprotocol/origin-storybook";
+import Dashboard from "components/Dashboard";
+import EmailList from "components/EmailList";
+import withIsMobile from "hoc/withIsMobile";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { ToastContainer } from "react-toastify";
+import styles from "styles/Home.module.css";
+import { mappedLinks } from "utils/constants";
+import { assetRootPath } from "utils/image";
+import { adjustLinkHref } from "utils/utils";
+import { fetchAPI } from "../lib/api";
 
 const Home = ({ locale, onLocale, isMobile, articles }) => {
   return (
@@ -19,100 +25,115 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
       <Head>
         <title>Origin Protocol</title>
       </Head>
-      <Header
-        mappedLinks={mappedLinks.links}
-        webProperty='originprotocol'
-      />
+      <Header mappedLinks={mappedLinks.links} webProperty="originprotocol" />
       <section className="grey relative">
         <span className={`${styles.splines34} absolute z-0`}>
-          <Image src='/images/graphics/splines34.webp' height={1363} width={1341} alt="spline" priority />
+          <Image
+            src="/images/graphics/splines34.webp"
+            height={1363}
+            width={1341}
+            alt="spline"
+            priority
+          />
         </span>
         <div className="relative overflow-hidden max-w-screen-xl mx-auto pb-20 px-8">
-          <Typography.H2 as='h1'>
-            Onboarding the next{' '}
-            <br className='hidden md:block' />
-            <span className='gradient1 font-bold'>100M users </span>
-            {'to crypto'}
+          <Typography.H2 as="h1">
+            Onboarding the next <br className="hidden md:block" />
+            <span className="gradient1 font-bold">100M users </span>
+            {"to crypto"}
           </Typography.H2>
-          <div className='lighter mt-2 mb-4'>{'Origin’s flagship products are tackling the fastest growing verticals in crypto'}</div>
+          <div className="lighter mt-2 mb-4">
+            {
+              "Origin’s flagship products are tackling the fastest growing verticals in crypto"
+            }
+          </div>
           <a
-            href='https://story.xyz'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='button white shadow md:mr-2'
+            href="https://story.xyz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button white shadow md:mr-2"
           >
             NFTs
           </a>
           <a
-            href='https://ousd.com'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='button white shadow'
+            href="https://ousd.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button white shadow"
           >
             DeFi
           </a>
         </div>
       </section>
       <section className="story light flex flex-col z-10 relative">
-        <div className='max-w-screen-xl mx-auto'>
+        <div className="max-w-screen-xl mx-auto">
           <div className="flex flex-col-reverse md:flex-row layout items-center">
             <div className="image-container self-end md:self-start pt-10 flex-1">
               <Image
-                src={assetRootPath('/images/screens/screens-story.png')}
+                src={assetRootPath("/images/screens/screens-story.png")}
                 className="screen1"
                 alt="screens"
-                width='640'
-                height='580'
+                width="640"
+                height="580"
                 priority
               />
             </div>
             <div className="text-container flex-1 md:ml-10 pt-20 md:pt-0 px-6 md:px-0 text-center md:text-left">
               <Image
-                src={assetRootPath('/images/logos/origin-story-wordmark.svg')}
+                src={assetRootPath("/images/logos/origin-story-wordmark.svg")}
                 className="mx-auto md:mx-0 mb-6 md:mb-0"
                 alt="Origin Story Logo"
-                width='190'
-                height='31'
+                width="190"
+                height="31"
               />
               <Typography.H3>The record-breaking NFT platform</Typography.H3>
-              <div className='lighter mt-2 mb-4'>Origin Story powers NFT ecosystems, providing creators with branded storefronts and secondary marketplaces.</div>
+              <div className="lighter mt-2 mb-4">
+                Origin Story powers NFT ecosystems, providing creators with
+                branded storefronts and secondary marketplaces.
+              </div>
               <Button
-                href='https://story.xyz'
-                target='_blank'
-                rel='noopener noreferrer'
-                label='Learn more'
-                type='primary'
-                webProperty='originprotocol'
-                size='large'
+                href="https://story.xyz"
+                target="_blank"
+                rel="noopener noreferrer"
+                label="Learn more"
+                type="primary"
+                webProperty="originprotocol"
+                size="large"
               />
             </div>
           </div>
-          <div className='md:mt-10 md:mb-20'>
+          <div className="md:mt-10 md:mb-20">
             <Dashboard ogn />
           </div>
         </div>
       </section>
       <section className="ousd dark gradient3 flex flex-col">
-        <div className='max-w-screen-xl mx-auto md:pb-20 relative'>
+        <div className="max-w-screen-xl mx-auto md:pb-20 relative">
           <div className="flex flex-col md:flex-row layout">
-            <div className='text-container text-center pt-14 pb-10 px-6 md:text-left md:pt-32 md:pb-28 md:pr-10 md:w-1/2'>
+            <div className="text-container text-center pt-14 pb-10 px-6 md:text-left md:pt-32 md:pb-28 md:pr-10 md:w-1/2">
               <img
-                src={assetRootPath('/images/logos/origin-dollar-wordmark.svg')}
+                src={assetRootPath("/images/logos/origin-dollar-wordmark.svg")}
                 className="origin-dollar-logo mb-2 mx-auto md:mx-0"
                 alt="Origin Dollar Logo"
               />
-              <Typography.H3 className='text-white'>The yield-generating stablecoin</Typography.H3>
-              <div className='lighter mt-2 mb-4'>Origin Dollar simplifies DeFi by eliminating the need for staking or lock-ups. Hold OUSD in any Ethereum wallet or custody solution and watch the balance increase every day.</div>
+              <Typography.H3 className="text-white">
+                The yield-generating stablecoin
+              </Typography.H3>
+              <div className="lighter mt-2 mb-4">
+                Origin Dollar simplifies DeFi by eliminating the need for
+                staking or lock-ups. Hold OUSD in any Ethereum wallet or custody
+                solution and watch the balance increase every day.
+              </div>
               <a
-                href='https://ousd.com'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='button gradient2'
+                href="https://ousd.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button gradient2"
               >
                 Learn more
               </a>
             </div>
-            <div className='image-container flex-1 pb-10 md:absolute md:top-6 md:-right-20 md:w-1/2'>
+            <div className="image-container flex-1 pb-10 md:absolute md:top-6 md:-right-20 md:w-1/2">
               <img
                 src={assetRootPath('/images/screens/screens-ousd.png')}
                 className="screen3"
@@ -124,24 +145,28 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
         </div>
       </section>
       <section className="company light">
-        <div className='mx-auto'>
+        <div className="mx-auto">
           <div className="flex flex-col">
             <div className="flex flex-col mx-auto pt-10 px-10 max-w-screen-xl md:flex-row md:flex-1 md:mt-12 md:pb-24">
               <div className={`${styles.ellipsesContainer}`}>
                 <img
-                  src={assetRootPath('/images/graphics/ellipses-homepage.png')}
+                  src={assetRootPath("/images/graphics/ellipses-homepage.png")}
                   className="ellipses pb-10"
                   alt="Ellipses"
                 />
               </div>
               <div className="md:flex md:flex-col md:items-start md:justify-center md:pl-16 md:flex-1">
                 <Typography.H3>It's all about the community</Typography.H3>
-                <div className='lighter mt-2 mb-4'>Join hundreds of thousands of community members and token holders, hundreds of open-source developers, or our world-class core team.</div>
-                <Link href={adjustLinkHref('/community')}>
+                <div className="lighter mt-2 mb-4">
+                  Join hundreds of thousands of community members and token
+                  holders, hundreds of open-source developers, or our
+                  world-class core team.
+                </div>
+                <Link href={adjustLinkHref("/community")}>
                   <a
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='button gradient2'
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button gradient2"
                   >
                     Learn more
                   </a>
@@ -151,8 +176,12 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
             <div className="team flex layout flex-col-reverse mt-10 md:flex-row max-w-screen-xl mx-auto">
               <div className="text-container px-6 mt-10 max-w-xl md:mr-12">
                 <Typography.H3>A world-class team</Typography.H3>
-                <div className='lighter mt-2 mb-6'>Our team is led by serial entrepreneurs, early employees at YouTube, and engineering managers at Google, Coinbase and Dropbox.</div>
-                <div className='grid grid-cols-3 gap-4 md:flex md:items-center'>
+                <div className="lighter mt-2 mb-6">
+                  Our team is led by serial entrepreneurs, early employees at
+                  YouTube, and engineering managers at Google, Coinbase and
+                  Dropbox.
+                </div>
+                <div className="grid grid-cols-3 gap-4 md:flex md:items-center">
                   <img
                     src={assetRootPath('/images/logos/company-paypal.svg')}
                     className="companies"
@@ -179,20 +208,20 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
                     alt="Coinbase"
                   />
                 </div>
-                <div className='flex md:justify-center space-x-4 mt-8 mb-16'>
+                <div className="flex md:justify-center space-x-4 mt-8 mb-16">
                   <a
-                    href='https://story.xyz'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='button gradient2 shadow px-6 md:px-10'
+                    href="https://story.xyz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button gradient2 shadow px-6 md:px-10"
                   >
                     Meet our team
                   </a>
                   <a
-                    href='https://story.xyz'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='button white shadow px-6 md:px-10'
+                    href="https://story.xyz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button white shadow px-6 md:px-10"
                   >
                     View careers
                   </a>
@@ -202,32 +231,34 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
                 <span className={`absolute right-20 md:right-0 -top-28 md:-top-36 w-96 md:w-full`}>
                   <Image src='/images/graphics/splines32.png' height={732} width={654} alt="spline32" />
                 </span>
-                <div className={`${styles.videoContainer} mt-10 mb-10 relative`}>
-                <iframe
-                  width={`${isMobile ? '280' : '560'}`}
-                  height={`${isMobile ? '158' : '316'}`}
-                  src="https://www.youtube.com/embed/ERh2n-vlpQ4"
-                  className={`${styles.iframe}`}
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen>
-                </iframe>
-              </div>
+                <div
+                  className={`${styles.videoContainer} mt-10 mb-10 relative`}
+                >
+                  <iframe
+                    width={`${isMobile ? "280" : "560"}`}
+                    height={`${isMobile ? "158" : "316"}`}
+                    src="https://www.youtube.com/embed/ERh2n-vlpQ4"
+                    className={`${styles.iframe}`}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
       <section className="news grey md:mt-32">
-        <div className='mx-auto'>
+        <div className="mx-auto">
           <div className="flex flex-col px-7 py-12 max-w-screen-xl mx-auto md:py-32">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between">
               <Typography.H2>Latest stories</Typography.H2>
-              <Link href={adjustLinkHref('/company')}>
+              <Link href={adjustLinkHref("/company")}>
                 <a
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="link text-blue-500"
                 >
                   View all stories
@@ -235,180 +266,181 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
               </Link>
             </div>
             {articles && (
-              <div className='article-container mt-5 space-y-6 md:space-y-0 md:grid md:grid-cols-3 gap-10'>
-                {
-                  articles.slice(0,3).map((article) => (
-                    <Card
-                    webProperty={'originprotocol'}
+              <div className="article-container mt-5 space-y-6 md:space-y-0 md:grid md:grid-cols-3 gap-10">
+                {articles.slice(0, 3).map((article) => (
+                  <Card
+                    webProperty={"originprotocol"}
                     title={article.title}
                     imgSrc={article.cover?.formats.large.url}
-                    imgAlt={'Origin Protocol'}
+                    imgAlt={"Origin Protocol"}
                     body={article.description}
-                    linkText={'Read more'}
+                    linkText={"Read more"}
                     linkHref={`/blog/${article.slug}`}
                   />
-                  ))
-                }
+                ))}
               </div>
             )}
           </div>
         </div>
       </section>
       <section className="jobs light py-12 px-6">
-        <div className='mx-auto'>
+        <div className="mx-auto">
           <div className="flex flex-col max-w-screen-xl mx-auto">
             <Typography.H2>Work at Origin</Typography.H2>
-            <div className='mb-3'></div>
-            <div className='lighter mt-2 mb-4'>We’re always looking for the best talent. See open positions below.</div>
-            <div className='mb-5'></div>
-            <Typography.H3>Engineering</Typography.H3>
-            <div className='mt-4'></div>
-            <div className='space-y-2'>
-              <div className="flex flex-row justify-between items-center">
-                <div className='role'>Data Engineer</div>
-                <a
-                  href='https://angel.co/company/originprotocol/jobs/2222160-data-engineer'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className="button gradient2"
-                >
-                  Apply
-                </a>
-              </div>
-              <div className="flex flex-row justify-between items-center">
-                <div className='role'>Frontend Engineer</div>
-                <a
-                  href='https://angel.co/company/originprotocol/jobs/335794-frontend-engineer'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className="button gradient2"
-                >
-                  Apply
-                </a>
-              </div>
-              <div className="flex flex-row justify-between items-center">
-                <div className='role'>Senior Full-stack Engineer</div>
-                <a
-                  href='https://angel.co/company/originprotocol/jobs/2226588-senior-full-stack-engineer'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className="button gradient2"
-                >
-                  Apply
-                </a>
-              </div>
-              <div className="flex flex-row justify-between items-center">
-                <div className='role'>Senior Solidity Engineer</div>
-                <a
-                  href='https://angel.co/company/originprotocol/jobs/308390-senior-solidity-engineer'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className="button gradient2"
-                >
-                  Apply
-                </a>
-              </div>
-              <div className='mb-2'></div>
+            <div className="mb-3"></div>
+            <div className="lighter mt-2 mb-4">
+              We’re always looking for the best talent. See open positions
+              below.
             </div>
-            <Typography.H3 className='mt-8'>Design</Typography.H3>
-            <div className='mt-4'></div>
+            <div className="mb-5"></div>
+            <Typography.H3>Engineering</Typography.H3>
+            <div className="mt-4"></div>
+            <div className="space-y-2">
+              <div className="flex flex-row justify-between items-center">
+                <div className="role">Data Engineer</div>
+                <a
+                  href="https://angel.co/company/originprotocol/jobs/2222160-data-engineer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button gradient2"
+                >
+                  Apply
+                </a>
+              </div>
+              <div className="flex flex-row justify-between items-center">
+                <div className="role">Frontend Engineer</div>
+                <a
+                  href="https://angel.co/company/originprotocol/jobs/335794-frontend-engineer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button gradient2"
+                >
+                  Apply
+                </a>
+              </div>
+              <div className="flex flex-row justify-between items-center">
+                <div className="role">Senior Full-stack Engineer</div>
+                <a
+                  href="https://angel.co/company/originprotocol/jobs/2226588-senior-full-stack-engineer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button gradient2"
+                >
+                  Apply
+                </a>
+              </div>
+              <div className="flex flex-row justify-between items-center">
+                <div className="role">Senior Solidity Engineer</div>
+                <a
+                  href="https://angel.co/company/originprotocol/jobs/308390-senior-solidity-engineer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button gradient2"
+                >
+                  Apply
+                </a>
+              </div>
+              <div className="mb-2"></div>
+            </div>
+            <Typography.H3 className="mt-8">Design</Typography.H3>
+            <div className="mt-4"></div>
             <div className="flex flex-row justify-between items-center">
-              <div className='role'>Marketing Designer</div>
+              <div className="role">Marketing Designer</div>
               <a
-                href='https://angel.co/company/originprotocol/jobs/2226436-marketing-designer'
-                target='_blank'
-                rel='noopener noreferrer'
+                href="https://angel.co/company/originprotocol/jobs/2226436-marketing-designer"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="button gradient2"
               >
                 Apply
               </a>
             </div>
-            <div className='mb-2'></div>
-            <Typography.H3 className='mt-8'>Marketing</Typography.H3>
-            <div className='mt-4'></div>
-            <div className='space-y-2'>
+            <div className="mb-2"></div>
+            <Typography.H3 className="mt-8">Marketing</Typography.H3>
+            <div className="mt-4"></div>
+            <div className="space-y-2">
               <div className="flex flex-row justify-between items-center">
-                <div className='role'>Email Marketer</div>
+                <div className="role">Email Marketer</div>
                 <a
-                  href='https://angel.co/company/originprotocol/jobs/2360663-email-marketer'
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  href="https://angel.co/company/originprotocol/jobs/2360663-email-marketer"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="button gradient2"
                 >
                   Apply
                 </a>
               </div>
               <div className="flex flex-row justify-between items-center">
-                <div className='role'>Performance Marketer (Paid Ads)</div>
+                <div className="role">Performance Marketer (Paid Ads)</div>
                 <a
-                  href='https://angel.co/company/originprotocol/jobs/2226610-performance-marketer-paid-ads'
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  href="https://angel.co/company/originprotocol/jobs/2226610-performance-marketer-paid-ads"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="button gradient2"
                 >
                   Apply
                 </a>
               </div>
               <div className="flex flex-row justify-between items-center">
-                <div className='role'>Public and Media Relations Manager</div>
+                <div className="role">Public and Media Relations Manager</div>
                 <a
-                  href='https://angel.co/company/originprotocol/jobs/370212-public-and-media-relations-manager'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className="button gradient2"
-                >
-                  Apply
-                </a>
-              </div>
-            </div>
-            <div className='mb-2'></div>
-            <Typography.H3 className='mt-8'>Product</Typography.H3>
-            <div className='space-y-2'>
-              <div className='mt-4' />
-              <div className="flex flex-row justify-between items-center">
-                <div className='role'>Product Manager (DeFi)</div>
-                <a
-                  href='https://angel.co/company/originprotocol/jobs/1860239-product-manager-defi'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className="button gradient2"
-                >
-                  Apply
-                </a>
-              </div>
-              <div className="flex flex-row justify-between items-center">
-                <div className='role'>Product Manager (NFTs)</div>
-                <a
-                  href='https://angel.co/company/originprotocol/jobs/1505992-product-manager-nfts'
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  href="https://angel.co/company/originprotocol/jobs/370212-public-and-media-relations-manager"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="button gradient2"
                 >
                   Apply
                 </a>
               </div>
             </div>
-            <div className='mb-2'></div>
-            <Typography.H3 className='mt-8'>Sales</Typography.H3>
-            <div className='mt-4'></div>
-            <div className='space-y-2'>
+            <div className="mb-2"></div>
+            <Typography.H3 className="mt-8">Product</Typography.H3>
+            <div className="space-y-2">
+              <div className="mt-4" />
               <div className="flex flex-row justify-between items-center">
-                <div className='role'>Business Development Manager (DeFi)</div>
+                <div className="role">Product Manager (DeFi)</div>
                 <a
-                  href='https://angel.co/company/originprotocol/jobs/2226595-business-development-manager-defi'
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  href="https://angel.co/company/originprotocol/jobs/1860239-product-manager-defi"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="button gradient2"
                 >
                   Apply
                 </a>
               </div>
               <div className="flex flex-row justify-between items-center">
-                <div className='role'>Business Development Manager (NFTs)</div>
+                <div className="role">Product Manager (NFTs)</div>
                 <a
-                  href='https://angel.co/company/originprotocol/jobs/2360681-business-development-manager-nfts'
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  href="https://angel.co/company/originprotocol/jobs/1505992-product-manager-nfts"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button gradient2"
+                >
+                  Apply
+                </a>
+              </div>
+            </div>
+            <div className="mb-2"></div>
+            <Typography.H3 className="mt-8">Sales</Typography.H3>
+            <div className="mt-4"></div>
+            <div className="space-y-2">
+              <div className="flex flex-row justify-between items-center">
+                <div className="role">Business Development Manager (DeFi)</div>
+                <a
+                  href="https://angel.co/company/originprotocol/jobs/2226595-business-development-manager-defi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button gradient2"
+                >
+                  Apply
+                </a>
+              </div>
+              <div className="flex flex-row justify-between items-center">
+                <div className="role">Business Development Manager (NFTs)</div>
+                <a
+                  href="https://angel.co/company/originprotocol/jobs/2360681-business-development-manager-nfts"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="button gradient2"
                 >
                   Apply
@@ -422,8 +454,8 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
       <ToastContainer />
       <Footer />
     </>
-  )
-}
+  );
+};
 
 export async function getStaticProps() {
   const articlesRes = await fetchAPI("/website/blog/en");
@@ -435,4 +467,4 @@ export async function getStaticProps() {
   };
 }
 
-export default withIsMobile(Home)
+export default withIsMobile(Home);

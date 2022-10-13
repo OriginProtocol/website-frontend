@@ -1,15 +1,12 @@
 export default class ArticleService {
-  async fetchArticle(
-    page,
-    category
-  ) {
-    const endpoint = `${process.env.NEXT_PUBLIC_CMS}/website/blog/en`
-    const response = await fetch(endpoint)
+  async fetchArticle(page, category) {
+    const endpoint = `${process.env.NEXT_PUBLIC_CMS}/website/blog/en`;
+    const response = await fetch(endpoint);
     if (!response.ok) {
-      throw new Error(`Failed to fetch articles`, err)
+      throw new Error(`Failed to fetch articles`, err);
     }
-    return await response.json()
+    return await response.json();
   }
 }
 
-export const articleService = new ArticleService()
+export const articleService = new ArticleService();

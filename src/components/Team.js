@@ -1,55 +1,59 @@
-import React, { useState, useEffect } from 'react'
-import { Typography } from '@originprotocol/origin-storybook'
-import { assetRootPath } from 'utils/image'
-import Image from 'next/image'
+import React, { useState, useEffect } from "react";
+import { Typography } from "@originprotocol/origin-storybook";
+import { assetRootPath } from "utils/image";
+import Image from "next/image";
 
-const TeamMember = ({name, title, description, avatar, links}) => {
-  const linkKeys = Object.keys(links)
+const TeamMember = ({ name, title, description, avatar, links }) => {
+  const linkKeys = Object.keys(links);
 
   return (
     <>
-      <div className='card'>
-        <div className='flex flex-row mb-3'>
-        <Image
-          src={assetRootPath(avatar.url)}
-          className="rounded-full"
-          alt={name}
-          height='100'
-          width='100'
-        />
-        <div className='links'>
-          <ul>
-            {linkKeys.map((l, i) => {
-              if (!links[l]) return ''
+      <div className="card">
+        <div className="flex flex-row mb-3">
+          <Image
+            src={assetRootPath(avatar.url)}
+            className="rounded-full"
+            alt={name}
+            height="100"
+            width="100"
+          />
+          <div className="links">
+            <ul>
+              {linkKeys.map((l, i) => {
+                if (!links[l]) return "";
 
-              return (
-                <li key={i}>
-                  <a
-                    href={links[l]}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
-                    <img
-                      src={l === 'wikipedia' || l === 'github' ? assetRootPath(`./images/logos/external-link.svg`) : assetRootPath(`./images/logos/icon-${l}.svg`)}
-                      className="link ml-2"
-                      alt={l}
-                    />
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
+                return (
+                  <li key={i}>
+                    <a
+                      href={links[l]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={
+                          l === "wikipedia" || l === "github"
+                            ? assetRootPath(`./images/logos/external-link.svg`)
+                            : assetRootPath(`./images/logos/icon-${l}.svg`)
+                        }
+                        className="link ml-2"
+                        alt={l}
+                      />
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
-        </div>
-        <div className='name'>{name}</div>
-        <div className='title mb-3'>{title}</div>
-        <div className='description'>{description}</div>
+        <div className="name">{name}</div>
+        <div className="title mb-3">{title}</div>
+        <div className="description">{description}</div>
       </div>
       <style jsx>{`
         .card {
           position: relative;
           top: 50px;
-          font-family: 'Poppins';
+          font-family: "Poppins";
           background-color: #ffffff20;
           max-width: 21vw;
           height: auto;
@@ -127,14 +131,14 @@ const TeamMember = ({name, title, description, avatar, links}) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-const Team = ({team}) => {
+const Team = ({ team }) => {
   return (
     <>
-      <section className='team gradient3'>
-        <div className='max-w-screen-xl mx-auto py-20 px-8'>
+      <section className="team gradient3">
+        <div className="max-w-screen-xl mx-auto py-20 px-8">
           <img
             src={assetRootPath('/images/graphics/spots1.png')}
             className="spots1"
@@ -145,17 +149,30 @@ const Team = ({team}) => {
             className="spots2"
             alt="spots"
           />
-          <div className='content text-center'>
-            <Typography.H2 className='text-white'>Core team</Typography.H2>
-            <div className='text w-3/4 mx-auto mt-3'>The core contributors hail from iconic tech companies like Coinbase, YouTube, Google, Paypal, Dropbox, and Pinterest. Our founders are serial entrepreneurs, and multiple team members have founded and exited successful ventures.</div>
-            <div className='container-fluid text-left mt-5 max-w-screen-xl mx-auto'>
+          <div className="content text-center">
+            <Typography.H2 className="text-white">Core team</Typography.H2>
+            <div className="text w-3/4 mx-auto mt-3">
+              The core contributors hail from iconic tech companies like
+              Coinbase, YouTube, Google, Paypal, Dropbox, and Pinterest. Our
+              founders are serial entrepreneurs, and multiple team members have
+              founded and exited successful ventures.
+            </div>
+            <div className="container-fluid text-left mt-5 max-w-screen-xl mx-auto">
               {team.core.map((t) => {
                 return (
-                  <TeamMember name={t.name} title={t.title} description={t.bio} avatar={t.avatar} key={t.name} links={{
-                    linkedin: t.linkedinUrl,
-                    twitter: t.twitterUrl,
-                    wikipedia: t.otherUrl,
-                  }} />)
+                  <TeamMember
+                    name={t.name}
+                    title={t.title}
+                    description={t.bio}
+                    avatar={t.avatar}
+                    key={t.name}
+                    links={{
+                      linkedin: t.linkedinUrl,
+                      twitter: t.twitterUrl,
+                      wikipedia: t.otherUrl,
+                    }}
+                  />
+                );
               })}
             </div>
           </div>
@@ -214,7 +231,7 @@ const Team = ({team}) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Team
+export default Team;

@@ -1,11 +1,11 @@
-import Image from 'next/image'
-import { Typography } from '@originprotocol/origin-storybook'
-import React, { useState } from 'react'
-import { toast } from 'react-toastify'
-import analytics from 'utils/analytics'
+import Image from "next/image";
+import { Typography } from "@originprotocol/origin-storybook";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
+import analytics from "utils/analytics";
 
 const EmailList = () => {
-  const [email, setEmail] = useState()
+  const [email, setEmail] = useState();
 
   return (
     <>
@@ -16,78 +16,71 @@ const EmailList = () => {
         <span className='absolute z-0 right-0 -bottom-5 md:-bottom-5 hidden md:block'>
           <Image src='/images/graphics/splines34.png' height={800} width={800} alt="spline" />
         </span>
-        <div className='relative z-10 max-w-screen-xl mx-auto'>
+        <div className="relative z-10 max-w-screen-xl mx-auto">
           <div className="flex flex-col align-items-center text-center mt-20 mb-60 md:mb-20 md:space-y-6">
-            <Typography.H4 className='text-white'>Join our mailing list to stay in touch</Typography.H4>
-            <div className='lighter text mt-2 mb-4 mx-auto'>Be the first to hear about major NFT drops and important product updates. Your email will be kept private.</div>
+            <Typography.H4 className="text-white">
+              Join our mailing list to stay in touch
+            </Typography.H4>
+            <div className="lighter text mt-2 mb-4 mx-auto">
+              Be the first to hear about major NFT drops and important product
+              updates. Your email will be kept private.
+            </div>
             <form
-              className='justify-content-center'
+              className="justify-content-center"
               onSubmit={async (e) => {
-                e.preventDefault()
+                e.preventDefault();
 
                 analytics.track(`On Mailing List Subscription`, {
-                  category: 'general',
-                })
+                  category: "general",
+                });
 
-                const searchParams = new URLSearchParams()
-                searchParams.set('email', email)
+                const searchParams = new URLSearchParams();
+                searchParams.set("email", email);
 
-                const response = await fetch('/api/mailing-list/join', {
-                  method: 'POST',
-                  mode: 'cors',
-                  cache: 'no-cache',
-                  credentials: 'same-origin',
+                const response = await fetch(`/mailing-list/join`, {
+                  method: "POST",
+                  mode: "cors",
+                  cache: "no-cache",
+                  credentials: "same-origin",
                   headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
+                    "Content-Type": "application/x-www-form-urlencoded",
                   },
-                  referrerPolicy: 'no-referrer',
+                  referrerPolicy: "no-referrer",
                   body: searchParams,
-                })
+                });
 
                 if (response.ok) {
-                  const json = await response.json()
+                  const json = await response.json();
                   if (json.success) {
-                    setEmail('')
+                    setEmail("");
                     if (json.message === `You're already registered!`) {
-                      toast(
-                          "You're already registered!"
-                      )
+                      toast("You're already registered!");
                     } else {
-                      toast(
-                          'Thanks for signing up!'
-                      )
+                      toast("Thanks for signing up!");
                     }
                   } else {
-                    toast.error(
-                        'Error subscribing you to the email list'
-                    )
+                    toast.error("Error subscribing you to the email list");
                   }
                 } else {
-                  toast.error(
-                      'Error subscribing you to the email list'
-                  )
+                  toast.error("Error subscribing you to the email list");
                 }
               }}
             >
               <input
                 type="email"
                 onChange={(e) => {
-                  e.preventDefault()
-                  setEmail(e.target.value)
+                  e.preventDefault();
+                  setEmail(e.target.value);
                 }}
                 required
                 value={email}
-                placeholder='Email'
-                className='email'
+                placeholder="Email"
+                className="email"
               />
-              <button
-                type='submit'
-                className='submit'
-              >
+              <button type="submit" className="submit">
                 Join
               </button>
             </form>
-
           </div>
         </div>
       </section>
@@ -109,7 +102,7 @@ const EmailList = () => {
           padding: 15px 20px;
         }
 
-        ::placeholder{
+        ::placeholder {
           color: white;
         }
 
@@ -135,7 +128,7 @@ const EmailList = () => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default EmailList
+export default EmailList;
