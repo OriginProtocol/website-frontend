@@ -29,7 +29,7 @@ export default function Company({
           <Typography.H1>Latest news</Typography.H1>
         </div>
       </section>
-      <News articles={articles} meta={meta} categories={categories} />
+      {!articles?.length ? null : <News articles={articles} meta={meta} categories={categories} />}
       <section className="articles grey">
         <div className="container-fluid max-w-screen-xl mx-auto py-10 px-6">
           <Typography.H3>As seen in</Typography.H3>
@@ -230,14 +230,14 @@ export async function getStaticProps() {
   });
 
   const categories = {};
-  articlesRes.data.forEach((article) => {
-    categories[article.category?.slug] = article.category;
+  articlesRes?.data?.forEach((article) => {
+    categories[article?.category?.slug] = article.category;
   });
 
   return {
     props: {
-      articles: articlesRes.data,
-      meta: articlesRes.meta,
+      articles: articlesRes?.data || null,
+      meta: articlesRes?.meta || null,
       categories: Object.values(categories),
     },
   };
