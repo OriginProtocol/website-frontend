@@ -7,7 +7,7 @@ const FallbackRenderer = ({ article }) => {
 };
 
 export async function getStaticPaths() {
-  const { data } = await fetchAPI("/website/blog/en/slugs");
+  const { data } = await fetchAPI("/website/blog/slugs");
 
   return {
     paths: data.map((slug) => ({
