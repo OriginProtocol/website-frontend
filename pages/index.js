@@ -135,7 +135,7 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
             </div>
             <div className="image-container flex-1 pb-10 md:absolute md:top-6 md:-right-20 md:w-1/2">
               <img
-                src={assetRootPath("/images/screens/screens-ousd.svg")}
+                src={assetRootPath('/images/screens/screens-ousd.png')}
                 className="screen3"
                 alt="OUSD"
               />
@@ -183,27 +183,27 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
                 </div>
                 <div className="grid grid-cols-3 gap-4 md:flex md:items-center">
                   <img
-                    src={assetRootPath("/images/logos/paypal.svg")}
+                    src={assetRootPath('/images/logos/company-paypal.svg')}
                     className="companies"
                     alt="Paypal"
                   />
                   <img
-                    src={assetRootPath("/images/logos/youtube.svg")}
+                    src={assetRootPath('/images/logos/company-youtube.svg')}
                     className="companies"
                     alt="Youtube"
                   />
                   <img
-                    src={assetRootPath("/images/logos/google.svg")}
+                    src={assetRootPath('/images/logos/company-google.svg')}
                     className="companies"
                     alt="Google"
                   />
                   <img
-                    src={assetRootPath("/images/logos/dropbox.svg")}
+                    src={assetRootPath('/images/logos/company-dropbox.svg')}
                     className="companies"
                     alt="Dropbox"
                   />
                   <img
-                    src={assetRootPath("/images/logos/coinbase.svg")}
+                    src={assetRootPath('/images/logos/company-coinbase.svg')}
                     className="companies"
                     alt="Coinbase"
                   />
@@ -227,16 +227,9 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
                   </a>
                 </div>
               </div>
-              <div className="relative my-10 md:my-0">
-                <span
-                  className={`absolute right-20 md:right-0 -top-28 md:-top-36 w-96 md:w-full`}
-                >
-                  <Image
-                    src="/images/graphics/splines32.svg"
-                    height={732}
-                    width={654}
-                    alt="spline32"
-                  />
+              <div className='relative my-10 md:my-0'>
+                <span className={`absolute right-20 md:right-0 -top-28 md:-top-36 w-96 md:w-full`}>
+                  <Image src='/images/graphics/splines32.png' height={732} width={654} alt="spline32" />
                 </span>
                 <div
                   className={`${styles.videoContainer} mt-10 mb-10 relative`}

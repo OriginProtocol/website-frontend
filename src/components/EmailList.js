@@ -10,21 +10,11 @@ const EmailList = () => {
   return (
     <>
       <section className="p-5 relative overflow-hidden">
-        <span className="absolute z-0 right-0 -bottom-5 md:-bottom-5 md:hidden">
-          <Image
-            src="/images/graphics/splines34.svg"
-            height={1363}
-            width={1341}
-            alt="spline"
-          />
+        <span className='absolute z-0 right-0 -bottom-5 md:-bottom-5 md:hidden'>
+          <Image src='/images/graphics/splines34.png' height={1363} width={1341} alt="spline" />
         </span>
-        <span className="absolute z-0 right-0 -bottom-5 md:-bottom-5 hidden md:block">
-          <Image
-            src="/images/graphics/splines34.svg"
-            height={800}
-            width={800}
-            alt="spline"
-          />
+        <span className='absolute z-0 right-0 -bottom-5 md:-bottom-5 hidden md:block'>
+          <Image src='/images/graphics/splines34.png' height={800} width={800} alt="spline" />
         </span>
         <div className="relative z-10 max-w-screen-xl mx-auto">
           <div className="flex flex-col align-items-center text-center mt-20 mb-60 md:mb-20 md:space-y-6">

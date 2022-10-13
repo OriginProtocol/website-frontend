@@ -165,11 +165,79 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
                 }
               />
             </div>
-            <Typography.H3 className="pt-10">Community</Typography.H3>
-            <div className="socials container-fluid mt-5 mb-5">
-              {socials &&
-                socials.stats.map((social) => {
-                  if (social.name.indexOf(" ") < 0) {
+            <div className='max-w-screen-xl mx-auto pb-20 px-8 relative'>
+              <div className='flex layout justify-between items-center'>
+                <div className='flex flex-col'>
+                  <Typography.H3 as='h1'>
+                    Welcome to the
+                    <br className='hidden md:block' />
+                    <span className='gradient1 bold'>Origin community</span>
+                  </Typography.H3>
+                  <div className='mt-3'>Origin is a decentralized ecosystem hundreds of thousands strong</div>
+                </div>
+                <div className="image-container">
+                  <img
+                    src={assetRootPath('/images/graphics/ellipses-community.png')}
+                    className="ellipses"
+                    alt="Ellipses"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+          <section className='contact light'>
+            <div className='max-w-screen-xl mx-auto py-20 px-8'>
+              <Typography.H3>Partner with Origin</Typography.H3>
+              <div className='drops container-fluid mt-5 mb-5 space-y-4 md:space-y-0'>
+                <Card
+                  webProperty={'launchpad'}
+                  title={'3LAU'}
+                  imgSrc={assetRootPath('/images/screens/background-3lau.png')}
+                  imgAlt={'3LAU'}
+                  thumbnailSrc={assetRootPath('/images/screens/avatar-3lau.png')}
+                  thumbnailAlt={'3LAU'}
+                  body={"Acclaimed musician and producer 3LAU's Ultraviolet Vinyl NFT collection was auctioned on Origin's NFT platform with each NFT..."}
+                  linkText={'Learn more'}
+                  linkHref={'https://blog.originprotocol.com/origin-nft-platform-powers-record-setting-11-7m-auction-with-3lau-c30a6812192c'}
+                />
+                <Card
+                  webProperty={'launchpad'}
+                  title={'Inspiration4 Mission'}
+                  imgSrc={assetRootPath('/images/screens/background-inspiration4.png')}
+                  imgAlt={'Inspiration4'}
+                  thumbnailSrc={assetRootPath('/images/screens/avatar-inspiration4.png')}
+                  thumbnailAlt={'Inspiration4'}
+                  body={'Inspiration4, powered by SpaceX, was the first civilian orbital space mission. Mission Commander Jared Isaacman chose to raise 200...'}
+                  linkText={'Learn more'}
+                  linkHref={'https://blog.originprotocol.com/origin-and-inspiration4-partner-for-good-acafa7c41eb8'}
+                />
+                <Card
+                  webProperty={'launchpad'}
+                  title={'Trevor Jones x Don Diablo x Alotta Money'}
+                  imgSrc={assetRootPath('/images/screens/background-ethereal.png')}
+                  imgAlt={'ETHEREAL'}
+                  thumbnailSrc={assetRootPath('/images/screens/avatar-ethereal.png')}
+                  thumbnailAlt={'ETHEREAL'}
+                  body={'ΞTHΞRΞAL is the coming of age of EthBoy. The original EthBoy was designed as a programmatic art piece that dynamically changes scen...'}
+                  linkText={'Learn more'}
+                  linkHref={'https://blog.originprotocol.com/trevor-jones-don-diablo-and-alotta-money-launch-%CE%BEth%CE%BEr%CE%BEal-on-origins-nft-launchpad-f62f5e2c9629'}
+                />
+                <Card
+                  webProperty={'launchpad'}
+                  title={'BT'}
+                  imgSrc={assetRootPath('/images/screens/background-bt.png')}
+                  imgAlt={'BT'}
+                  thumbnailSrc={assetRootPath('/images/screens/avatar-bt.png')}
+                  thumbnailAlt={'BT'}
+                  body={"Metaversal is BT's 14th artist album and the first album imagined as a programatic blockchain experience. It encompasses beautiful audio..."}
+                  linkText={'Learn more'}
+                  linkHref={'https://blog.originprotocol.com/origin-partners-with-bt-to-release-an-album-unlike-anything-youve-seen-before-8659e48ad441'}
+                />
+              </div>
+              <Typography.H3 className='pt-10'>Community</Typography.H3>
+              <div className='socials container-fluid mt-5 mb-5'>
+                {socials && socials.stats.map((social) => {
+                  if (social.name.indexOf(' ') < 0 && social.name !== 'Facebook') {
                     return (
                       <AltCard
                         title={social.name.toUpperCase()}
