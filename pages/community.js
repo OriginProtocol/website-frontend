@@ -237,7 +237,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
             </div>
             <Typography.H3 className='pt-10'>Community</Typography.H3>
             <div className='socials container-fluid mt-5 mb-5'>
-              {socials && socials.stats.map((social) => {
+              {socials && socials?.stats?.map((social) => {
                 if (social.name.indexOf(' ') < 0 && social.name !== 'Facebook') {
                   return (
                     <AltCard
@@ -390,7 +390,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
           <div className="max-w-screen-xl mx-auto py-20 px-8">
             <Typography.H5>Community Team</Typography.H5>
             <div className="community container-fluid mt-10 mb-5">
-              {team.community.map((t) => {
+              {team?.community?.map((t) => {
                 const avatar = t.avatar;
                 return (
                   <div className="profile" key={t.name}>
@@ -408,7 +408,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
             </div>
             <Typography.H5>Advisors</Typography.H5>
             <div className="advisors container-fluid mt-10">
-              {team.advisor.map((t) => {
+              {team?.advisor?.map((t) => {
                 const avatar = t.avatar;
                 return (
                   <div className="profile" key={t.name}>
