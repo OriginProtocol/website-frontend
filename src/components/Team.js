@@ -158,7 +158,7 @@ const Team = ({ team }) => {
               founded and exited successful ventures.
             </div>
             <div className="container-fluid text-left mt-5 max-w-screen-xl mx-auto">
-              {team.core.map((t) => {
+              {team?.core?.map((t) => {
                 return (
                   <TeamMember
                     name={t.name}

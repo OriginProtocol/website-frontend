@@ -10,7 +10,7 @@ export async function getStaticPaths() {
   const { data } = await fetchAPI("/website/blog/slugs");
 
   return {
-    paths: data.map((slug) => ({
+    paths: (data || []).map((slug) => ({
       params: { slug },
       // TODO: Should all locales be pre-generated?
       locale: "en",
