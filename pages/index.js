@@ -18,13 +18,16 @@ import { mappedLinks } from "utils/constants";
 import { assetRootPath } from "utils/image";
 import { adjustLinkHref } from "utils/utils";
 import { fetchAPI } from "../lib/api";
+import Seo from "components/strapi/seo";
+import formatSeo from "../src/utils/seo";
 
-const Home = ({ locale, onLocale, isMobile, articles }) => {
+const Home = ({ locale, onLocale, isMobile, articles, seo }) => {
   return (
     <>
       <Head>
         <title>Origin Protocol</title>
       </Head>
+      <Seo seo={seo} />
       <Header mappedLinks={mappedLinks.links} webProperty="originprotocol" />
       <section className="grey relative">
         <span className={`${styles.splines34} absolute z-0`}>
@@ -231,8 +234,8 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
                 </div>
               </div>
               <div className='relative my-10 md:my-0'>
-                <span className={`absolute right-20 md:right-0 -top-28 md:-top-36 w-96 md:w-full`}>
-                  <Image src='/images/graphics/splines32.png' height={732} width={654} alt="spline32" />
+                <span className={`absolute right-20 md:-right-20 -top-28 md:-top-20 md:w-full`}>
+                  <Image src='/images/graphics/splines32.png' width={732} height={654} alt="spline32" />
                 </span>
                 <div
                   className={`${styles.videoContainer} mt-10 mb-10 relative`}
@@ -463,10 +466,12 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
 
 export async function getStaticProps() {
   const articlesRes = await fetchAPI("/website/blog/en");
+  const seoRes = await fetchAPI("/website/page/en/%2F");
 
   return {
     props: {
       articles: articlesRes.data,
+      seo: formatSeo(seoRes)
     },
   };
 }

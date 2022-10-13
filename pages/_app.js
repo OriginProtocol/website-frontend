@@ -109,6 +109,7 @@ MyApp.getInitialProps = async (ctx) => {
       },
     },
   });
+
   // Pass the data to our page via props
   return {
     ...appProps,
