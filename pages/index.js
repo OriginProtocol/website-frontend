@@ -209,14 +209,17 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
                   />
                 </div>
                 <div className="flex md:justify-center space-x-4 mt-8 mb-16">
-                  <a
+                  <Link
                     href="/community"
+                  >
+                    <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="button gradient2 shadow px-6 md:px-10"
-                  >
-                    Meet our team
-                  </a>
+                      className="button gradient2 shadow px-6 md:px-10"
+                    >
+                      Meet our team
+                    </a>
+                  </Link>
                   <a
                     href="https://angel.co/company/originprotocol/jobs"
                     target="_blank"

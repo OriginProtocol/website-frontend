@@ -21,20 +21,20 @@ import { fetchAPI } from "../lib/api";
 
 const Community = ({ locale, onLocale, isMobile, team }) => {
   const socials = useStoreState(StatStore, (s) => {
-    return s.socials || 0;
-  });
+    return s.socials || 0
+  })
 
   const socialQuery = useSocialQuery({
     onSuccess: (socials) => {
       StatStore.update((s) => {
-        s.socials = socials;
-      });
+        s.socials = socials
+      })
     },
-  });
+  })
 
   useEffect(() => {
-    socialQuery.refetch();
-  }, []);
+    socialQuery.refetch()
+  }, [])
 
   const links = {
     Facebook: process.env.NEXT_PUBLIC_FACEBOOK_URL,
