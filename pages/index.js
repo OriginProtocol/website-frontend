@@ -279,7 +279,7 @@ const Home = ({ locale, onLocale, isMobile, articles }) => {
                     imgAlt={"Origin Protocol"}
                     body={article.description}
                     linkText={"Read more"}
-                    linkHref={`/blog/${article.slug}`}
+                    linkHref={`/${article.slug}`}
                   />
                 ))}
               </div>
