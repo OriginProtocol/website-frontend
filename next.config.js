@@ -1,6 +1,6 @@
 const locales = require('./locales');
 
-const { NEXT_LEGACY_WEBSITE_HOST, NEXT_PUBLIC_STRAPI_API_URL, NEXT_PUBLIC_DISCORD_URL, NEXT_PUBLIC_TELEGRAM_URL } = process.env
+const { NEXT_LEGACY_WEBSITE_HOST, STRAPI_API_URL, NEXT_PUBLIC_DISCORD_URL, NEXT_PUBLIC_TELEGRAM_URL } = process.env
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -72,7 +72,8 @@ const legacyAPIRedirects = legacyAPIPaths.map(path => ({
 
 const legacyPageRedirects = legacyPageMappings.map(([source, destination]) => ({
   source,
-  destination
+  destination,
+  permanent: true
 }))
 
 module.exports = {
@@ -97,7 +98,7 @@ module.exports = {
       {
         // TODO: Cache response
         source: '/sitemap.xml',
-        destination: `${NEXT_PUBLIC_STRAPI_API_URL}/api/website/sitemap`,
+        destination: `${STRAPI_API_URL}/api/website/sitemap`,
         locale: false
       }
     ]
