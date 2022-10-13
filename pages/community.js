@@ -483,7 +483,7 @@ const Community = ({ locale, onLocale, isMobile, team }) => {
               />
             </div>
             <div className="people container mt-5">
-              {team.investor.map((t) => {
+              {team?.investor?.map((t) => {
                 const avatar = t.avatar;
                 return (
                   <div className="profile" key={t.name}>
