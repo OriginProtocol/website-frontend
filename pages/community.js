@@ -3,7 +3,7 @@ import {
   Card,
   Footer,
   Header,
-  Typography,
+  Typography
 } from "@originprotocol/origin-storybook";
 import Contributors from "components/Contributors";
 import Team from "components/Team";
@@ -19,9 +19,10 @@ import { assetRootPath } from "utils/image";
 import { formatCurrency } from "utils/math";
 import { fetchAPI } from "../lib/api";
 import Seo from "../src/components/strapi/seo";
+import fetchContributorsFromRepos from "../src/utils/contributors";
 import formatSeo from "../src/utils/seo";
 
-const Community = ({ locale, onLocale, isMobile, team, seo }) => {
+const Community = ({ locale, onLocale, isMobile, team, seo, contributors }) => {
   const socials = useStoreState(StatStore, (s) => {
     return s.socials || 0
   })
@@ -435,7 +436,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo }) => {
             </div>
           </div>
         </section>
-        <Contributors />
+        <Contributors contributors={contributors} />
         <section className="investors light text-center">
           <div className="max-w-screen-xl mx-auto pt-20 pb-32">
             <Typography.H3>Notable investors</Typography.H3>
@@ -642,12 +643,15 @@ const Community = ({ locale, onLocale, isMobile, team, seo }) => {
 export async function getStaticProps() {
   const teamRes = await fetchAPI("/website/team/en");
   const seoRes = await fetchAPI("/website/page/en/%2Fcommunity");
+  const contributors = await fetchContributorsFromRepos();
 
   return {
     props: {
       team: teamRes.data,
-      seo: formatSeo(seoRes)
+      seo: formatSeo(seoRes),
+      contributors,
     },
+    revalidate: 60 * 60, // Cache response for 1hr
   };
 }
 
