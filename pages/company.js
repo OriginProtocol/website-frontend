@@ -235,7 +235,9 @@ export async function getStaticProps() {
 
   const categories = {};
   articlesRes?.data?.forEach((article) => {
-    categories[article?.category?.slug] = article.category;
+    if (article && article.category) {
+      categories[article.category.slug] = article.category;
+    }
   });
 
   const seoRes = await fetchAPI("/website/page/en/%2Fcommunity");
