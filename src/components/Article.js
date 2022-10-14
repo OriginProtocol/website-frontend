@@ -100,7 +100,7 @@ const Article = ({ article }) => {
               <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
                 <div>
                   {article.author.avatar && (
-                    <img
+                    <Image
                       src={article.author.avatar.url}
                       alt={article.author.avatar.alternativeText}
                       style={{
@@ -108,6 +108,8 @@ const Article = ({ article }) => {
                         borderRadius: "20%",
                         height: 60,
                       }}
+                      width="64px"
+                      height="64px"
                     />
                   )}
                 </div>
