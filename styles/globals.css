@@ -105,17 +105,14 @@ section.grey {
 
 h1 {
   font-size: 4rem;
-  font-family: 'Poppins';
 }
 
 h2 {
   font-size: 3rem;
-  font-family: 'Poppins';
   margin-top: 20px;
 }
 
 h3 {
-  font-family: Poppins;
   font-size: 1,75rem;
   font-weight: 500;
   line-height: 1.32;
@@ -124,7 +121,6 @@ h3 {
 }
 
 h4 {
-  font-family: Poppins;
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.32;

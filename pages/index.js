@@ -81,7 +81,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo }) => {
                 priority
               />
             </div>
-            <div className="text-container flex-1 md:ml-10 pt-20 md:pt-0 px-6 md:px-0 text-center md:text-left">
+            <div className="text-container flex-1 md:ml-10 pt-20 md:pt-0 px-6 md:px-0 text-center sm:text-left">
               <Image
                 src={assetRootPath("/images/logos/origin-story-wordmark.svg")}
                 className="mx-auto md:mx-0 mb-6 md:mb-0"
@@ -234,7 +234,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo }) => {
                 </div>
               </div>
               <div className='relative my-10 md:my-0'>
-                <span className={`absolute right-20 md:-right-20 -top-28 md:-top-20 md:w-full`}>
+                <span className={`absolute left-8 right-4 md:left-0 md:-right-20 -top-12 md:-top-20 md:w-full`}>
                   <Image src='/images/graphics/splines32.png' width={732} height={654} alt="spline32" />
                 </span>
                 <div
@@ -278,7 +278,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo }) => {
                     key={i}
                     webProperty={"originprotocol"}
                     title={article.title}
-                    imgSrc={article.cover?.formats.large.url}
+                    imgSrc={article.cover?.url}
                     imgAlt={"Origin Protocol"}
                     body={article.description}
                     linkText={"Read more"}
@@ -471,8 +471,9 @@ export async function getStaticProps() {
   return {
     props: {
       articles: articlesRes.data,
-      seo: formatSeo(seoRes)
+      seo: formatSeo(seoRes),
     },
+    revalidate: 5 * 60, // Cache response for 5m
   };
 }
 

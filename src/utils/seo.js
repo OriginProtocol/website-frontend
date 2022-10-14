@@ -1,4 +1,6 @@
 const formatSeo = (seoRes) => {
+  if (!seoRes || !seoRes.data) return {}
+
   const seo = {
     metaTitle: seoRes.data.metaTitle,
     metaDescription: seoRes.data.metaDescription,
