@@ -471,8 +471,9 @@ export async function getStaticProps() {
   return {
     props: {
       articles: articlesRes.data,
-      seo: formatSeo(seoRes)
+      seo: formatSeo(seoRes),
     },
+    revalidate: 5 * 60, // Cache response for 5m
   };
 }
 
