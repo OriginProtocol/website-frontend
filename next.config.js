@@ -49,9 +49,7 @@ const legacyPageMappings = [
   ['/dapp', '/'],
   ['/rewards', '/'],
   ['/whitepaper', '/'],
-  ['/developers', '/'],
   ['/privacy/extension', '/'],
-  ['/nft-terms', '/'],
   ['/aup', '/'],
   ['/creator', '/'],
   ['/litepaper', '/'],
@@ -59,6 +57,10 @@ const legacyPageMappings = [
   ['/huobi-launch', '/'],
   ['/reward', '/'],
   ['/reward/:path*', '/:path*'],
+
+  // Forward to legacy site
+  ['/developers', 'https://github.com/OriginProtocol'],
+  ['/nft-terms', `${NEXT_LEGACY_WEBSITE_HOST}/nft-terms`],
 ]
 
 const legacyAPIRedirects = legacyAPIPaths.map(path => ({
