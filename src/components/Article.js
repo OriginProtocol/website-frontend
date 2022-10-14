@@ -77,7 +77,7 @@ const Article = ({ article }) => {
           {imageUrl && (
             <div
               id="banner"
-              className="bg-cover flex justify-center items-center m-0 h-96 w-full rounded-tl-2xl rounded-tr-2xl relative"
+              className="bg-cover flex justify-center items-center m-0 h-96 w-full rounded-tl-2xl rounded-tr-2xl relative overflow-hidden"
               data-src={imageUrl}
               data-srcset={imageUrl}
               data-uk-img
