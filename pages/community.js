@@ -87,10 +87,12 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors }) => {
                 </div>
               </div>
               <div className="image-container">
-                <img
+                <Image
                   src={assetRootPath("/images/graphics/ellipses-community.png")}
                   className="ellipses"
                   alt="Ellipses"
+                  width="505px"
+                  height="505px"
                 />
               </div>
             </div>
@@ -375,49 +377,65 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors }) => {
           <div className="max-w-screen-xl mx-auto pt-20 pb-32">
             <Typography.H3>Notable investors</Typography.H3>
             <div className="companies flex flex-row">
-              <img
+              <Image
                 src={assetRootPath("/images/logos/company-pantera.svg")}
                 className="company"
                 alt="Company"
+                width="200px"
+                height="50px"
               />
-              <img
+              <Image
                 src={assetRootPath(
                   "/images/logos/company-foundationcapital.svg"
                 )}
                 className="company"
                 alt="Company"
+                width="200px"
+                height="50px"
               />
-              <img
+              <Image
                 src={assetRootPath("/images/logos/company-spartan.svg")}
                 className="company"
                 alt="Company"
+                width="200px"
+                height="50px"
               />
-              <img
+              <Image
                 src={assetRootPath("/images/logos/company-blocktower.svg")}
                 className="company"
                 alt="Company"
+                width="200px"
+                height="50px"
               />
             </div>
             <div className="companies flex flex-row">
-              <img
+              <Image
                 src={assetRootPath("/images/logos/company-hackvc.svg")}
                 className="company"
                 alt="Company"
+                width="200px"
+                height="50px"
               />
-              <img
+              <Image
                 src={assetRootPath("/images/logos/company-f33.svg")}
                 className="company"
                 alt="Company"
+                width="200px"
+                height="50px"
               />
-              <img
+              <Image
                 src={assetRootPath("/images/logos/company-1kx.svg")}
                 className="company"
                 alt="Company"
+                width="200px"
+                height="50px"
               />
-              <img
+              <Image
                 src={assetRootPath("/images/logos/company-preangel.svg")}
                 className="company"
                 alt="Company"
+                width="200px"
+                height="50px"
               />
             </div>
             <div className="people container mt-5">
@@ -425,10 +443,12 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors }) => {
                 const avatar = t.avatar;
                 return (
                   <div className="profile" key={t.name}>
-                    <img
+                    <Image
                       src={assetRootPath(avatar.url)}
-                      className="headshot mb-3"
+                      className="headshot mb-3 rounded-full"
                       alt={t.name}
+                      width="100px"
+                      height="100px"
                     />
                     <div className="name">{t.name}</div>
                   </div>
