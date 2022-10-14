@@ -37,7 +37,7 @@ BlockManager.defaultProps = {
   blocks: [],
 };
 
-const Article = ({ article }) => {
+const Article = ({ article, navLinks }) => {
   const imageUrl = article.cover?.url;
 
   const seo = {
@@ -48,7 +48,7 @@ const Article = ({ article }) => {
   };
 
   return (
-    <Layout>
+    <Layout navLinks={navLinks}>
       <Seo seo={seo} />
       <div
         className="pb-20 px-6"
