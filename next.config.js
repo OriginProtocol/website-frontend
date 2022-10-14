@@ -99,8 +99,7 @@ module.exports = {
     return {
       beforeFiles: [{
         source: '/sitemap.xml',
-        destination: `${STRAPI_API_URL}/api/website/sitemap`,
-        locale: false
+        destination: `${STRAPI_API_URL}/api/website/sitemap`
       }]
     }
   },
