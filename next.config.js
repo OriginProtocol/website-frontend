@@ -96,13 +96,12 @@ module.exports = {
     ]
   },
   async rewrites() {
-    return [
-      {
-        // TODO: Cache response
+    return {
+      beforeFiles: [{
         source: '/sitemap.xml',
         destination: `${STRAPI_API_URL}/api/website/sitemap`,
         locale: false
-      }
-    ]
+      }]
+    }
   },
 };

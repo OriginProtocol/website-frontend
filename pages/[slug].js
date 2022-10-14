@@ -7,11 +7,11 @@ const FallbackRenderer = ({ article }) => {
 };
 
 export async function getStaticPaths() {
-  const { data } = await fetchAPI("/website/blog/en");
+  const { data } = await fetchAPI("/website/blog/slugs");
 
   return {
-    paths: (data || []).map((post) => ({
-      params: { slug: post.slug },
+    paths: (data || []).map((slug) => ({
+      params: { slug },
       // TODO: Should all locales be pre-generated?
       locale: "en",
     })),
