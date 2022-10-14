@@ -38,7 +38,7 @@ BlockManager.defaultProps = {
 };
 
 const Article = ({ article }) => {
-  const imageUrl = article.cover?.formats.large.url;
+  const imageUrl = article.cover?.url;
 
   const seo = {
     metaTitle: article.title,
@@ -77,11 +77,17 @@ const Article = ({ article }) => {
           {imageUrl && (
             <div
               id="banner"
-              className="bg-cover flex justify-center items-center m-0 h-96 w-full rounded-tl-2xl rounded-tr-2xl"
+              className="bg-cover flex justify-center items-center m-0 h-96 w-full rounded-tl-2xl rounded-tr-2xl relative"
               data-src={imageUrl}
               data-srcset={imageUrl}
               data-uk-img
-            />
+            >
+              <Image
+                src={imageUrl}
+                alt={article.cover?.alternativeText}
+                layout='fill'
+              />
+            </div>
           )}
           <div className="pt-4">
             <div className={`py-6 pl-6 pr-6 md:px-14 ${styles.article}`}>
