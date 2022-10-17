@@ -14,15 +14,15 @@ import { useStoreState } from "pullstate";
 import useSocialQuery from "queries/useSocialQuery";
 import React, { useEffect } from "react";
 import StatStore from "stores/StatStore";
-import { mappedLinks } from "utils/constants";
 import { assetRootPath } from "utils/image";
 import { formatCurrency } from "utils/math";
 import { fetchAPI } from "../lib/api";
 import Seo from "../src/components/strapi/seo";
 import fetchContributorsFromRepos from "../src/utils/contributors";
 import formatSeo from "../src/utils/seo";
+import transformLinks from "../src/utils/tansformLinks";
 
-const Community = ({ locale, onLocale, isMobile, team, seo, contributors }) => {
+const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLinks }) => {
   const socials = useStoreState(StatStore, (s) => {
     return s.socials || 0
   })
@@ -57,7 +57,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors }) => {
       </Head>
       <Seo seo={seo} />
       <div>
-        <Header webProperty="originprotocol" mappedLinks={mappedLinks.links} />
+        <Header webProperty="originprotocol" mappedLinks={navLinks} />
         <section className="intro grey relative  overflow-hidden">
           <div
             className="absolute z-0 top-44"
@@ -598,12 +598,22 @@ export async function getStaticProps() {
   const teamRes = await fetchAPI("/website/team/en");
   const seoRes = await fetchAPI("/website/page/en/%2Fcommunity");
   const contributors = await fetchContributorsFromRepos();
+  const navRes = await fetchAPI("/website-nav-links", {
+    populate: {
+      links: {
+        populate: "*",
+      },
+    }
+  });
+
+  const navLinks = transformLinks(navRes.data);
 
   return {
     props: {
       team: teamRes.data,
       seo: formatSeo(seoRes),
       contributors,
+      navLinks,
     },
     revalidate: 60 * 60, // Cache response for 1hr
   };

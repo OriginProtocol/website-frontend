@@ -3,10 +3,11 @@ import {
   Card,
   Footer,
   Header,
-  Typography,
+  Typography
 } from "@originprotocol/origin-storybook";
 import Dashboard from "components/Dashboard";
 import EmailList from "components/EmailList";
+import Seo from "components/strapi/seo";
 import withIsMobile from "hoc/withIsMobile";
 import Head from "next/head";
 import Image from "next/image";
@@ -14,21 +15,21 @@ import Link from "next/link";
 import React from "react";
 import { ToastContainer } from "react-toastify";
 import styles from "styles/Home.module.css";
-import { mappedLinks } from "utils/constants";
 import { assetRootPath } from "utils/image";
 import { adjustLinkHref } from "utils/utils";
 import { fetchAPI } from "../lib/api";
-import Seo from "components/strapi/seo";
 import formatSeo from "../src/utils/seo";
+import transformLinks from "../src/utils/tansformLinks";
 
-const Home = ({ locale, onLocale, isMobile, articles, seo }) => {
+const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
+  console.log(navLinks[0].links);
   return (
     <>
       <Head>
         <title>Origin Protocol</title>
       </Head>
       <Seo seo={seo} />
-      <Header mappedLinks={mappedLinks.links} webProperty="originprotocol" />
+      <Header mappedLinks={navLinks} webProperty="originprotocol" />
       <section className="grey relative">
         <span className={`${styles.splines34} absolute z-0`}>
           <Image
@@ -228,12 +229,10 @@ const Home = ({ locale, onLocale, isMobile, articles, seo }) => {
                   />
                 </div>
                 <div className="flex md:justify-center space-x-4 mt-8 mb-16">
-                  <Link
-                    href="/community"
-                  >
+                  <Link href="/community">
                     <a
-                    target="_blank"
-                    rel="noopener noreferrer"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="button gradient2 shadow px-6 md:px-10"
                     >
                       Meet our team
@@ -249,9 +248,16 @@ const Home = ({ locale, onLocale, isMobile, articles, seo }) => {
                   </a>
                 </div>
               </div>
-              <div className='relative my-10 md:my-0'>
-                <span className={`absolute left-8 right-4 md:left-0 md:-right-20 -top-12 md:-top-20 md:w-full`}>
-                  <Image src='/images/graphics/splines32.png' width={732} height={654} alt="spline32" />
+              <div className="relative my-10 md:my-0">
+                <span
+                  className={`absolute left-8 right-4 md:left-0 md:-right-20 -top-12 md:-top-20 md:w-full`}
+                >
+                  <Image
+                    src="/images/graphics/splines32.png"
+                    width={732}
+                    height={654}
+                    alt="spline32"
+                  />
                 </span>
                 <div
                   className={`${styles.videoContainer} mt-10 mb-10 relative`}
@@ -483,11 +489,21 @@ const Home = ({ locale, onLocale, isMobile, articles, seo }) => {
 export async function getStaticProps() {
   const articlesRes = await fetchAPI("/website/blog/en");
   const seoRes = await fetchAPI("/website/page/en/%2F");
+  const navRes = await fetchAPI("/website-nav-links", {
+    populate: {
+      links: {
+        populate: "*",
+      },
+    }
+  });
+
+  const navLinks = transformLinks(navRes.data);
 
   return {
     props: {
       articles: articlesRes.data,
       seo: formatSeo(seoRes),
+      navLinks,
     },
     revalidate: 5 * 60, // Cache response for 5m
   };
