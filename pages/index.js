@@ -3,10 +3,11 @@ import {
   Card,
   Footer,
   Header,
-  Typography,
+  Typography
 } from "@originprotocol/origin-storybook";
 import Dashboard from "components/Dashboard";
 import EmailList from "components/EmailList";
+import Seo from "components/strapi/seo";
 import withIsMobile from "hoc/withIsMobile";
 import Head from "next/head";
 import Image from "next/image";
@@ -14,21 +15,21 @@ import Link from "next/link";
 import React from "react";
 import { ToastContainer } from "react-toastify";
 import styles from "styles/Home.module.css";
-import { mappedLinks } from "utils/constants";
 import { assetRootPath } from "utils/image";
 import { adjustLinkHref } from "utils/utils";
 import { fetchAPI } from "../lib/api";
-import Seo from "components/strapi/seo";
 import formatSeo from "../src/utils/seo";
+import transformLinks from "../src/utils/tansformLinks";
 
-const Home = ({ locale, onLocale, isMobile, articles, seo }) => {
+const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
+  console.log(navLinks[0].links);
   return (
     <>
       <Head>
         <title>Origin Protocol</title>
       </Head>
       <Seo seo={seo} />
-      <Header mappedLinks={mappedLinks.links} webProperty="originprotocol" />
+      <Header mappedLinks={navLinks} webProperty="originprotocol" />
       <section className="grey relative">
         <span className={`${styles.splines34} absolute z-0`}>
           <Image
@@ -81,7 +82,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo }) => {
                 priority
               />
             </div>
-            <div className="text-container flex-1 md:ml-10 pt-20 md:pt-0 px-6 md:px-0 text-center md:text-left">
+            <div className="text-container flex-1 md:ml-10 pt-20 md:pt-0 px-6 md:px-0 text-center sm:text-left">
               <Image
                 src={assetRootPath("/images/logos/origin-story-wordmark.svg")}
                 className="mx-auto md:mx-0 mb-6 md:mb-0"
@@ -114,10 +115,12 @@ const Home = ({ locale, onLocale, isMobile, articles, seo }) => {
         <div className="max-w-screen-xl mx-auto md:pb-20 relative">
           <div className="flex flex-col md:flex-row layout">
             <div className="text-container text-center pt-14 pb-10 px-6 md:text-left md:pt-32 md:pb-28 md:pr-10 md:w-1/2">
-              <img
+              <Image
                 src={assetRootPath("/images/logos/origin-dollar-wordmark.svg")}
                 className="origin-dollar-logo mb-2 mx-auto md:mx-0"
                 alt="Origin Dollar Logo"
+                width="190px"
+                height="31px"
               />
               <Typography.H3 className="text-white">
                 The yield-generating stablecoin
@@ -137,10 +140,12 @@ const Home = ({ locale, onLocale, isMobile, articles, seo }) => {
               </a>
             </div>
             <div className="image-container flex-1 pb-10 md:absolute md:top-6 md:-right-20 md:w-1/2">
-              <img
+              <Image
                 src={assetRootPath('/images/screens/screens-ousd.png')}
                 className="screen3"
                 alt="OUSD"
+                width="918"
+                height="698"
               />
             </div>
           </div>
@@ -152,10 +157,12 @@ const Home = ({ locale, onLocale, isMobile, articles, seo }) => {
           <div className="flex flex-col">
             <div className="flex flex-col mx-auto pt-10 px-10 max-w-screen-xl md:flex-row md:flex-1 md:mt-12 md:pb-24">
               <div className={`${styles.ellipsesContainer}`}>
-                <img
+                <Image
                   src={assetRootPath("/images/graphics/ellipses-homepage.png")}
                   className="ellipses pb-10"
                   alt="Ellipses"
+                  width="635px"
+                  height="635px"
                 />
               </div>
               <div className="md:flex md:flex-col md:items-start md:justify-center md:pl-16 md:flex-1">
@@ -185,39 +192,47 @@ const Home = ({ locale, onLocale, isMobile, articles, seo }) => {
                   Dropbox.
                 </div>
                 <div className="grid grid-cols-3 gap-4 md:flex md:items-center">
-                  <img
+                  <Image
                     src={assetRootPath('/images/logos/company-paypal.svg')}
                     className="companies"
                     alt="Paypal"
+                    width="80px"
+                    height="17px"
                   />
-                  <img
+                  <Image
                     src={assetRootPath('/images/logos/company-youtube.svg')}
                     className="companies"
                     alt="Youtube"
+                    width="80px"
+                    height="17px"
                   />
-                  <img
+                  <Image
                     src={assetRootPath('/images/logos/company-google.svg')}
                     className="companies"
                     alt="Google"
+                    width="80px"
+                    height="17px"
                   />
-                  <img
+                  <Image
                     src={assetRootPath('/images/logos/company-dropbox.svg')}
                     className="companies"
                     alt="Dropbox"
+                    width="80px"
+                    height="17px"
                   />
-                  <img
+                  <Image
                     src={assetRootPath('/images/logos/company-coinbase.svg')}
                     className="companies"
                     alt="Coinbase"
+                    width="80px"
+                    height="17px"
                   />
                 </div>
                 <div className="flex md:justify-center space-x-4 mt-8 mb-16">
-                  <Link
-                    href="/community"
-                  >
+                  <Link href="/community">
                     <a
-                    target="_blank"
-                    rel="noopener noreferrer"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="button gradient2 shadow px-6 md:px-10"
                     >
                       Meet our team
@@ -233,9 +248,16 @@ const Home = ({ locale, onLocale, isMobile, articles, seo }) => {
                   </a>
                 </div>
               </div>
-              <div className='relative my-10 md:my-0'>
-                <span className={`absolute right-20 md:-right-20 -top-28 md:-top-20 md:w-full`}>
-                  <Image src='/images/graphics/splines32.png' width={732} height={654} alt="spline32" />
+              <div className="relative my-10 md:my-0">
+                <span
+                  className={`absolute left-8 right-4 md:left-0 md:-right-20 -top-12 md:-top-20 md:w-full`}
+                >
+                  <Image
+                    src="/images/graphics/splines32.png"
+                    width={732}
+                    height={654}
+                    alt="spline32"
+                  />
                 </span>
                 <div
                   className={`${styles.videoContainer} mt-10 mb-10 relative`}
@@ -278,7 +300,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo }) => {
                     key={i}
                     webProperty={"originprotocol"}
                     title={article.title}
-                    imgSrc={article.cover?.formats.large.url}
+                    imgSrc={article.cover?.url}
                     imgAlt={"Origin Protocol"}
                     body={article.description}
                     linkText={"Read more"}
@@ -467,12 +489,23 @@ const Home = ({ locale, onLocale, isMobile, articles, seo }) => {
 export async function getStaticProps() {
   const articlesRes = await fetchAPI("/website/blog/en");
   const seoRes = await fetchAPI("/website/page/en/%2F");
+  const navRes = await fetchAPI("/website-nav-links", {
+    populate: {
+      links: {
+        populate: "*",
+      },
+    }
+  });
+
+  const navLinks = transformLinks(navRes.data);
 
   return {
     props: {
       articles: articlesRes.data,
-      seo: formatSeo(seoRes)
+      seo: formatSeo(seoRes),
+      navLinks,
     },
+    revalidate: 5 * 60, // Cache response for 5m
   };
 }
 

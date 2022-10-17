@@ -1,4 +1,5 @@
 import withIsMobile from "hoc/withIsMobile";
+import Image from "next/image";
 import { useStoreState } from "pullstate";
 import useCirculatingSupplyQuery from "queries/useCirculatingSupplyQuery";
 import usePriceQuery from "queries/usePriceQuery";
@@ -70,12 +71,14 @@ const Dashboard = ({ ogn, isMobile }) => {
         <div className="flex flex-row">
           <div className="text-container">
             <div className="flex flex-row items-center">
-              <img
+              <Image
                 src={assetRootPath(`/images/logos/${coin}-logo.svg`)}
-                className={`logo`}
+                className="logo"
                 alt="Logo"
+                width="50px"
+                height="50px"
               />
-              <span className="text mt-1">{symbol} token</span>
+              <span className="text mt-1 ml-2">{symbol} token</span>
             </div>
             <div className="lighter mt-2 mb-4">
               {`${description} View on `}
@@ -150,14 +153,8 @@ const Dashboard = ({ ogn, isMobile }) => {
           margin-left: auto;
         }
 
-        .logo {
-          width: 7%;
-          margin-right: 2%;
-        }
-
         .text {
           display: inline;
-          font-family: "Poppins";
           font-size: 2rem;
         }
 
@@ -168,7 +165,6 @@ const Dashboard = ({ ogn, isMobile }) => {
         }
 
         .number {
-          font-family: "Poppins";
           font-size: 2.25rem;
           font-weight: 700;
         }
@@ -179,18 +175,12 @@ const Dashboard = ({ ogn, isMobile }) => {
 
         @media (max-width: 1199px) {
           .number {
-            font-family: "Poppins";
             font-size: 1.5rem;
             font-weight: 700;
           }
         }
 
         @media (max-width: 767px) {
-          .logo {
-            width: 10%;
-            margin-right: 6%;
-          }
-
           .text {
             font-size: 1.4rem;
             font-weight: 500;
@@ -203,7 +193,6 @@ const Dashboard = ({ ogn, isMobile }) => {
           }
 
           .number {
-            font-family: "Poppins";
             font-size: 1.25rem;
             font-weight: 700;
           }

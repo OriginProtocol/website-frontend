@@ -85,7 +85,7 @@ const News = ({ isMobile, articles, meta, categories }) => {
                     <Card
                       webProperty={"originprotocol"}
                       title={a.title}
-                      imgSrc={a.cover?.formats.large.url}
+                      imgSrc={a.cover?.url}
                       imgAlt={"Origin Protocol"}
                       body={a.description}
                       linkText={"Read more"}

@@ -29,14 +29,16 @@ const TeamMember = ({ name, title, description, avatar, links }) => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img
+                      <Image
                         src={
                           l === "wikipedia" || l === "github"
-                            ? assetRootPath(`./images/logos/external-link.svg`)
-                            : assetRootPath(`./images/logos/icon-${l}.svg`)
+                            ? assetRootPath(`/images/logos/external-link.svg`)
+                            : assetRootPath(`/images/logos/icon-${l}.svg`)
                         }
                         className="link ml-2"
                         alt={l}
+                        width="20px"
+                        height="20px"
                       />
                     </a>
                   </li>
@@ -53,7 +55,6 @@ const TeamMember = ({ name, title, description, avatar, links }) => {
         .card {
           position: relative;
           top: 50px;
-          font-family: "Poppins";
           background-color: #ffffff20;
           max-width: 21vw;
           height: auto;
@@ -139,16 +140,22 @@ const Team = ({ team }) => {
     <>
       <section className="team gradient3">
         <div className="max-w-screen-xl mx-auto py-20 px-8">
-          <img
-            src={assetRootPath('/images/graphics/spots1.png')}
-            className="spots1"
-            alt="spots"
-          />
-          <img
-            src={assetRootPath('/images/graphics/spots2.png')}
-            className="spots2"
-            alt="spots"
-          />
+          <div className="spots1">
+            <Image
+              src={assetRootPath('/images/graphics/spots1.png')}
+              alt="spots"
+              width="500px"
+              height="1000px"
+            />
+          </div>
+          <div className="spots2">
+            <Image
+              src={assetRootPath('/images/graphics/spots2.png')}
+              alt="spots"
+              width="800px"
+              height="600px"
+            />
+          </div>
           <div className="content text-center">
             <Typography.H2 className="text-white">Core team</Typography.H2>
             <div className="text w-3/4 mx-auto mt-3">
@@ -201,7 +208,7 @@ const Team = ({ team }) => {
         .spots2 {
           position: absolute;
           width: 50%;
-          bottom: 0;
+          bottom: -6px;
           right: 0;
           z-index: 0;
         }
