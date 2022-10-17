@@ -22,7 +22,6 @@ import formatSeo from "../src/utils/seo";
 import transformLinks from "../src/utils/tansformLinks";
 
 const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
-  console.log(navLinks[0].links);
   return (
     <>
       <Head>
