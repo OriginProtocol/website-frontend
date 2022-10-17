@@ -3,6 +3,7 @@ import {
 } from "@originprotocol/origin-storybook";
 import News from "components/News";
 import Head from "next/head";
+import Image from "next/image";
 import React from "react";
 import { assetRootPath } from "utils/image";
 import { fetchAPI } from "../lib/api";
@@ -36,52 +37,70 @@ export default function Company({
         <div className="container-fluid max-w-screen-xl mx-auto py-10 px-6">
           <Typography.H3>As seen in</Typography.H3>
           <div className="companies flex flex-row">
-            <img
+            <Image
               src={assetRootPath("/images/logos/company-coindesk.svg")}
               className="company"
               alt="Company"
+              width="200px"
+              height="50px"
             />
-            <img
+            <Image
               src={assetRootPath("/images/logos/company-wsj.svg")}
               className="company"
               alt="Company"
+              width="200px"
+              height="50px"
             />
-            <img
+            <Image
               src={assetRootPath("/images/logos/company-nasdaq.svg")}
               className="company"
               alt="Company"
+              width="200px"
+              height="50px"
             />
-            <img
+            <Image
               src={assetRootPath("/images/logos/company-tnw.svg")}
               className="company"
               alt="Company"
+              width="200px"
+              height="50px"
             />
-            <img
+            <Image
               src={assetRootPath("/images/logos/company-fastcompany.svg")}
               className="company"
               alt="Company"
+              width="200px"
+              height="50px"
             />
           </div>
           <div className="companies flex flex-row">
-            <img
+            <Image
               src={assetRootPath("/images/logos/company-vice.svg")}
               className="company"
               alt="Company"
+              width="200px"
+              height="50px"
             />
-            <img
+            <Image
               src={assetRootPath("/images/logos/company-cointelegraph.svg")}
               className="company"
               alt="Company"
+              width="200px"
+              height="50px"
             />
-            <img
+            <Image
               src={assetRootPath("/images/logos/company-inc.svg")}
               className="company"
               alt="Company"
+              width="200px"
+              height="50px"
             />
-            <img
+            <Image
               src={assetRootPath("/images/logos/company-techcrunch.svg")}
               className="company"
               alt="Company"
+              width="200px"
+              height="50px"
             />
           </div>
         </div>
