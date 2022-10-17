@@ -1,17 +1,14 @@
-import React from "react";
-import Head from "next/head";
-import News from "components/News";
-import { assetRootPath } from "utils/image";
 import {
-  Typography,
-  Header,
-  Footer,
-  Card,
+  Card, Footer, Header, Typography
 } from "@originprotocol/origin-storybook";
-import { mappedLinks } from "utils/constants";
+import News from "components/News";
+import Head from "next/head";
+import React from "react";
+import { assetRootPath } from "utils/image";
 import { fetchAPI } from "../lib/api";
-import formatSeo from "../src/utils/seo";
 import Seo from "../src/components/strapi/seo";
+import formatSeo from "../src/utils/seo";
+import transformLinks from "../src/utils/tansformLinks";
 
 export default function Company({
   locale,
@@ -20,6 +17,7 @@ export default function Company({
   meta,
   categories,
   seo,
+  navLinks,
 }) {
   return (
     <>
@@ -27,7 +25,7 @@ export default function Company({
         <title>Company</title>
       </Head>
       <Seo seo={seo} />
-      <Header mappedLinks={mappedLinks.links} webProperty="originprotocol" />
+      <Header mappedLinks={navLinks} webProperty="originprotocol" />
       <section className="intro grey pb-12">
         <div className="container-fluid max-w-screen-xl mx-auto px-6 mb-6">
           <Typography.H1>Latest news</Typography.H1>
@@ -235,10 +233,21 @@ export async function getStaticProps() {
 
   const categories = {};
   articlesRes?.data?.forEach((article) => {
-    categories[article?.category?.slug] = article.category;
+    if (article && article.category) {
+      categories[article.category.slug] = article.category;
+    }
   });
 
   const seoRes = await fetchAPI("/website/page/en/%2Fcommunity");
+  const navRes = await fetchAPI("/website-nav-links", {
+    populate: {
+      links: {
+        populate: "*",
+      },
+    }
+  });
+
+  const navLinks = transformLinks(navRes.data);
 
   return {
     props: {
@@ -246,6 +255,8 @@ export async function getStaticProps() {
       meta: articlesRes?.meta || null,
       categories: Object.values(categories),
       seo: formatSeo(seoRes),
+      navLinks,
     },
+    revalidate: 5 * 60, // Cache response for 5m
   };
 }
