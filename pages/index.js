@@ -115,10 +115,12 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
         <div className="max-w-screen-xl mx-auto md:pb-20 relative">
           <div className="flex flex-col md:flex-row layout">
             <div className="text-container text-center pt-14 pb-10 px-6 md:text-left md:pt-32 md:pb-28 md:pr-10 md:w-1/2">
-              <img
+              <Image
                 src={assetRootPath("/images/logos/origin-dollar-wordmark.svg")}
                 className="origin-dollar-logo mb-2 mx-auto md:mx-0"
                 alt="Origin Dollar Logo"
+                width="190px"
+                height="31px"
               />
               <Typography.H3 className="text-white">
                 The yield-generating stablecoin
@@ -138,10 +140,12 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
               </a>
             </div>
             <div className="image-container flex-1 pb-10 md:absolute md:top-6 md:-right-20 md:w-1/2">
-              <img
-                src={assetRootPath("/images/screens/screens-ousd.png")}
+              <Image
+                src={assetRootPath('/images/screens/screens-ousd.png')}
                 className="screen3"
                 alt="OUSD"
+                width="918"
+                height="698"
               />
             </div>
           </div>
@@ -153,10 +157,12 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
           <div className="flex flex-col">
             <div className="flex flex-col mx-auto pt-10 px-10 max-w-screen-xl md:flex-row md:flex-1 md:mt-12 md:pb-24">
               <div className={`${styles.ellipsesContainer}`}>
-                <img
+                <Image
                   src={assetRootPath("/images/graphics/ellipses-homepage.png")}
                   className="ellipses pb-10"
                   alt="Ellipses"
+                  width="635px"
+                  height="635px"
                 />
               </div>
               <div className="md:flex md:flex-col md:items-start md:justify-center md:pl-16 md:flex-1">
@@ -186,30 +192,40 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
                   Dropbox.
                 </div>
                 <div className="grid grid-cols-3 gap-4 md:flex md:items-center">
-                  <img
-                    src={assetRootPath("/images/logos/company-paypal.svg")}
+                  <Image
+                    src={assetRootPath('/images/logos/company-paypal.svg')}
                     className="companies"
                     alt="Paypal"
+                    width="80px"
+                    height="17px"
                   />
-                  <img
-                    src={assetRootPath("/images/logos/company-youtube.svg")}
+                  <Image
+                    src={assetRootPath('/images/logos/company-youtube.svg')}
                     className="companies"
                     alt="Youtube"
+                    width="80px"
+                    height="17px"
                   />
-                  <img
-                    src={assetRootPath("/images/logos/company-google.svg")}
+                  <Image
+                    src={assetRootPath('/images/logos/company-google.svg')}
                     className="companies"
                     alt="Google"
+                    width="80px"
+                    height="17px"
                   />
-                  <img
-                    src={assetRootPath("/images/logos/company-dropbox.svg")}
+                  <Image
+                    src={assetRootPath('/images/logos/company-dropbox.svg')}
                     className="companies"
                     alt="Dropbox"
+                    width="80px"
+                    height="17px"
                   />
-                  <img
-                    src={assetRootPath("/images/logos/company-coinbase.svg")}
+                  <Image
+                    src={assetRootPath('/images/logos/company-coinbase.svg')}
                     className="companies"
                     alt="Coinbase"
+                    width="80px"
+                    height="17px"
                   />
                 </div>
                 <div className="flex md:justify-center space-x-4 mt-8 mb-16">
