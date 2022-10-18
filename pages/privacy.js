@@ -2,7 +2,6 @@ import React from 'react'
 import Head from 'next/head'
 import { Typography, Header, Footer, Card } from '@originprotocol/origin-storybook'
 import { mappedLinks } from 'utils/constants'
-import RichText from '../src/components/strapi/blocks/RichText'
 
 const Privacy = () => {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { fetchAPI } from "../lib/api";
 import Article from "../src/components/Article";
-import transformLinks from "../src/utils/tansformLinks";
+import transformLinks from "../src/utils/transformLinks";
 
 const FallbackRenderer = ({ article, navLinks }) => {
   return <Article article={article} navLinks={navLinks} />;

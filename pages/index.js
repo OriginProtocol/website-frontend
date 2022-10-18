@@ -19,10 +19,9 @@ import { assetRootPath } from "utils/image";
 import { adjustLinkHref } from "utils/utils";
 import { fetchAPI } from "../lib/api";
 import formatSeo from "../src/utils/seo";
-import transformLinks from "../src/utils/tansformLinks";
+import transformLinks from "../src/utils/transformLinks";
 
 const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
-  console.log(navLinks[0].links);
   return (
     <>
       <Head>

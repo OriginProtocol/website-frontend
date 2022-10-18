@@ -20,7 +20,7 @@ import { fetchAPI } from "../lib/api";
 import Seo from "../src/components/strapi/seo";
 import fetchContributorsFromRepos from "../src/utils/contributors";
 import formatSeo from "../src/utils/seo";
-import transformLinks from "../src/utils/tansformLinks";
+import transformLinks from "../src/utils/transformLinks";
 
 const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLinks }) => {
   const socials = useStoreState(StatStore, (s) => {
