@@ -299,8 +299,9 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
                     key={i}
                     webProperty={"originprotocol"}
                     title={article.title}
-                    imgSrc={article.cover?.url}
-                    imgAlt={"Origin Protocol"}
+                    img={
+                      <Image src={article.cover?.url} alt='Origin Protocol' layout='fill' objectFit='cover' />
+                    }
                     body={article.description}
                     linkText={"Read more"}
                     linkHref={`/${article.slug}`}

@@ -105,10 +105,12 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
               <Card
                 webProperty={"launchpad"}
                 title={"3LAU"}
-                imgSrc={assetRootPath("/images/screens/background-3lau.png")}
-                imgAlt={"3LAU"}
-                thumbnailSrc={assetRootPath("/images/screens/avatar-3lau.png")}
-                thumbnailAlt={"3LAU"}
+                img={
+                  <Image src={assetRootPath("/images/screens/background-3lau.png")} alt={"3LAU"} layout='fill' objectFit="cover" />
+                }
+                thumbnail={
+                  <Image src={assetRootPath("/images/screens/avatar-3lau.png")} alt={"3LAU avatar"} layout='fill' objectFit="cover" />
+                }
                 body={
                   "Acclaimed musician and producer 3LAU's Ultraviolet Vinyl NFT collection was auctioned on Origin's NFT platform with each NFT..."
                 }
@@ -120,14 +122,12 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
               <Card
                 webProperty={"launchpad"}
                 title={"Inspiration4 Mission"}
-                imgSrc={assetRootPath(
-                  "/images/screens/background-inspiration4.png"
-                )}
-                imgAlt={"Inspiration4"}
-                thumbnailSrc={assetRootPath(
-                  "/images/screens/avatar-inspiration4.png"
-                )}
-                thumbnailAlt={"Inspiration4"}
+                img={
+                  <Image src={assetRootPath("/images/screens/background-inspiration4.png")} alt={"Inspiration4"} layout='fill' objectFit="cover" />
+                }
+                thumbnail={
+                  <Image src={assetRootPath("/images/screens/avatar-inspiration4.png")} alt={"Inspiration4 avatar"} layout='fill' objectFit="cover" />
+                }
                 body={
                   "Inspiration4, powered by SpaceX, was the first civilian orbital space mission. Mission Commander Jared Isaacman chose to raise 200..."
                 }
@@ -139,14 +139,12 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
               <Card
                 webProperty={"launchpad"}
                 title={"Trevor Jones x Don Diablo x Alotta Money"}
-                imgSrc={assetRootPath(
-                  "/images/screens/background-ethereal.png"
-                )}
-                imgAlt={"ETHEREAL"}
-                thumbnailSrc={assetRootPath(
-                  "/images/screens/avatar-ethereal.png"
-                )}
-                thumbnailAlt={"ETHEREAL"}
+                img={
+                  <Image src={assetRootPath("/images/screens/background-ethereal.png")} alt={"ETHEREAL"} layout='fill' objectFit="cover" />
+                }
+                thumbnail={
+                  <Image src={assetRootPath("/images/screens/avatar-ethereal.png")} alt={"ETHEREAL avatar"} layout='fill' objectFit="cover" />
+                }
                 body={
                   "ΞTHΞRΞAL is the coming of age of EthBoy. The original EthBoy was designed as a programmatic art piece that dynamically changes scen..."
                 }
@@ -158,10 +156,12 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
               <Card
                 webProperty={"launchpad"}
                 title={"BT"}
-                imgSrc={assetRootPath("/images/screens/background-bt.png")}
-                imgAlt={"BT"}
-                thumbnailSrc={assetRootPath("/images/screens/avatar-bt.png")}
-                thumbnailAlt={"BT"}
+                img={
+                  <Image src={assetRootPath("/images/screens/background-bt.png")} alt={"BT"} layout='fill' objectFit="cover" />
+                }
+                thumbnail={
+                  <Image src={assetRootPath("/images/screens/avatar-bt.png")} alt={"BT avatar"} layout='fill' objectFit="cover" />
+                }
                 body={
                   "Metaversal is BT's 14th artist album and the first album imagined as a programatic blockchain experience. It encompasses beautiful audio..."
                 }
