@@ -3,10 +3,10 @@ import googleAnalytics from "@analytics/google-analytics";
 import { isDevelopment } from "utils/constants";
 
 const plugins = [];
-if (process.env.GA_ID) {
+if (process.env.NEXT_PUBLIC_GA_ID) {
   plugins.push(
     googleAnalytics({
-      trackingId: process.env.GA_ID,
+      measurementIds: [process.env.NEXT_PUBLIC_GA_ID],
     })
   );
 }
