@@ -1,5 +1,6 @@
 import { Card, Select } from "@originprotocol/origin-storybook";
 import withIsMobile from "hoc/withIsMobile";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { getStrapiMedia } from "../../lib/media";
 
@@ -85,8 +86,7 @@ const News = ({ isMobile, articles, meta, categories }) => {
                     <Card
                       webProperty={"originprotocol"}
                       title={a.title}
-                      imgSrc={a.cover?.url}
-                      imgAlt={"Origin Protocol"}
+                      img={<Image src={a.cover?.url} alt={a.cover.alternativeText} layout='fill' objectFit='cover' />}
                       body={a.description}
                       linkText={"Read more"}
                       linkHref={`/${a.slug}`}
