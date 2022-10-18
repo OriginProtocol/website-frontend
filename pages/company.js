@@ -112,8 +112,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"Origin Logo"}
-              imgSrc={assetRootPath("/images/logos/origin-press.svg")}
-              imgAlt={"Origin Logo"}
+              img={<Image src={assetRootPath("/images/logos/origin-press.svg")} alt="Origin Logo" layout='fill' objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/logo-origin.svg")}
@@ -123,8 +122,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"Origin Dollar Logo"}
-              imgSrc={assetRootPath("/images/logos/dollar-press.svg")}
-              imgAlt={"Origin Dollar Logo"}
+              img={<Image src={assetRootPath("/images/logos/dollar-press.svg")} alt="Origin Dollar Logo" layout='fill' objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/logo-origin-dollar.svg")}
@@ -134,8 +132,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"Origin Story"}
-              imgSrc={assetRootPath("/images/logos/story-press.svg")}
-              imgAlt={"Origin Story"}
+              img={<Image src={assetRootPath("/images/logos/story-press.svg")} alt="Origin Story Logo" layout='fill' objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/logo-origin-story.svg")}
@@ -145,7 +142,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"OGN Symbol"}
-              imgSrc={assetRootPath("/images/logos/ogn-press.svg")}
+              img={<Image src={assetRootPath("/images/logos/ogn-press.svg")} alt="OGN Symbol" layout='fill' objectFit='cover' />}
               imgAlt={"OGN Symbol"}
               body={""}
               linkText={"Download SVG"}
@@ -156,8 +153,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"OUSD Symbol"}
-              imgSrc={assetRootPath("/images/logos/ousd-press.svg")}
-              imgAlt={"OUSD Symbol"}
+              img={<Image src={assetRootPath("/images/logos/ousd-press.svg")} alt="OUSD Symbol" layout='fill' objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/symbol-ousd.svg")}
@@ -167,8 +163,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"OGV Symbol"}
-              imgSrc={assetRootPath("/images/logos/ogv-press.svg")}
-              imgAlt={"OGV Symbol"}
+              img={<Image src={assetRootPath("/images/logos/ogv-press.svg")} alt="OGV Symbol" layout='fill' objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/symbol-ogv.svg")}
