@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import Head from 'next/head'
-import { Typography, Header, Footer, Card } from '@originprotocol/origin-storybook'
-import { mappedLinks } from 'utils/constants'
+import { Footer, Header, Typography } from '@originprotocol/origin-storybook';
+import Head from 'next/head';
+import React, { useEffect, useState } from 'react';
+import { fetchAPI } from '../lib/api';
+import transformLinks from '../src/utils/tansformLinks';
 
-const Tos = () => {
+const Tos = ({ navLinks }) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -15,7 +16,7 @@ const Tos = () => {
       <Head>
         <title>Origin Protocol</title>
       </Head>
-      <Header mappedLinks={mappedLinks.links} webProperty="originprotocol" />
+      <Header mappedLinks={navLinks} webProperty="originprotocol" />
       <section>
         {loaded &&
           <>
@@ -157,9 +158,10 @@ const Tos = () => {
                       Email: support@originprotocol.com<br/><br/>
                     </li>
                   </ol>
-                </li>  
-              </ol> 
+                </li>
+              </ol>
             </div>
+            <Footer />
           </>
         }
       </section>
@@ -168,15 +170,34 @@ const Tos = () => {
           counter-reset: item;
           list-style-type: none;
         }
-        ol>li { 
+        ol>li {
           counter-increment: item;
         }
-        ol>li::before { 
-          content: counters(item, '.') ' '; 
+        ol>li::before {
+          content: counters(item, '.') ' ';
         }
       `}</style>
     </>
   );
 };
+
+export async function getStaticProps() {
+  const navRes = await fetchAPI("/website-nav-links", {
+    populate: {
+      links: {
+        populate: "*",
+      },
+    }
+  });
+
+  const navLinks = transformLinks(navRes.data);
+
+  return {
+    props: {
+      navLinks,
+    },
+    revalidate: 5 * 60, // Cache response for 5m
+  };
+}
 
 export default Tos;
