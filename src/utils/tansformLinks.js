@@ -10,12 +10,14 @@ const transformLinks = (links) => {
       isButton: linkSet.attributes.isButton,
       highlightText: linkSet.attributes.highlightText || null,
       order: linkSet.attributes.order,
+      target: linkSet.attributes.target,
       links: linkSet.attributes.links.map((link) => {
         return {
           label: link.label,
           href: link.href,
           highlight: link.isHighlight,
-          icon: link.icon?.data?.attributes || null
+          icon: link.icon?.data?.attributes || null,
+          target: link.target,
         }
       }).sort(sortOrder)
     }
