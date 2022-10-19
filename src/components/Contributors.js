@@ -38,7 +38,7 @@ const Contributors = ({contributors}) => {
     <>
       <section className="contributors grey text-center">
         <div className="container-fluid max-w-screen-xl mx-auto py-20">
-          <Typography.H3>{`${contributors.length} open-source contributors`}</Typography.H3>
+          <Typography.H5>{`${contributors.length} open-source contributors`}</Typography.H5>
           <div className="list container-fluid mt-10 px-6">
             {contributors?.map((c, i) => {
               return (
