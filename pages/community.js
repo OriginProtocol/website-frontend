@@ -197,26 +197,8 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                   );
                 }
               })}
-              {/*<AltCard
-                  title={'YOUTUBE'}
-                  body={'156.8k followers'}
-                  imgSrc={assetRootPath('/images/logos/social-youtube.svg')}
-                  imgAlt={'Youtube'}
-                  linkText={"Join on Youtube"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                  narrow={false}
-                />
-                <AltCard
-                  title={'BLOCKFOLIO'}
-                  body={'156.8k followers'}
-                  imgSrc={assetRootPath('/images/logos/social-blockfolio.svg')}
-                  imgAlt={'Blockfolio'}
-                  linkText={"Join on Blockfolio"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                  narrow={false}
-                />*/}
             </div>
-            <Typography.H7>Region-specific channels</Typography.H7>
+            <Typography.H7 className="pt-12">Region-specific channels</Typography.H7>
             {socials && (
               <div className="telegram container-fluid mt-5">
                 {socials.stats[5]?.name === 'Telegram (Indonesia)' &&
@@ -236,7 +218,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                     thumbnailAlt={"Flag"}
                   />
                 }
-                {socials.stats[5]?.name === 'Telegram (Korean)' &&
+                {socials.stats[6]?.name === 'Telegram (Korean)' &&
                   <AltCard
                     title={"KOREAN"}
                     body={`${formatCurrency(
@@ -253,7 +235,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                     thumbnailAlt={"Flag"}
                   />
                 }
-                {socials.stats[5]?.name === 'Telegram (Russia)' &&
+                {socials.stats[7]?.name === 'Telegram (Russia)' &&
                   <AltCard
                     title={"RUSSIAN"}
                     body={`${formatCurrency(
@@ -270,7 +252,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                     thumbnailAlt={"Flag"}
                   />
                 }
-                {socials.stats[5]?.name === 'Telegram (Spanish)' &&
+                {socials.stats[8]?.name === 'Telegram (Spanish)' &&
                   <AltCard
                     title={"SPANISH"}
                     body={`${formatCurrency(
@@ -287,7 +269,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                     thumbnailAlt={"Flag"}
                   />
                 }
-                {socials.stats[5]?.name === 'Telegram (Turkish)' &&
+                {socials.stats[9]?.name === 'Telegram (Turkish)' &&
                   <AltCard
                     title={"TURKISH"}
                     body={`${formatCurrency(
@@ -304,7 +286,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                     thumbnailAlt={"Flag"}
                   />
                 }
-                {socials.stats[5]?.name === 'Telegram (Vietnam)' &&
+                {socials.stats[10]?.name === 'Telegram (Vietnam)' &&
                   <AltCard
                     title={"VIETNAMESE"}
                     body={`${formatCurrency(
