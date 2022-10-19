@@ -28,7 +28,7 @@ const Category = ({ categories, setCategory }) => {
   );
 
   return (
-    <div className="pl-6 md:pl-6 w-96 pt-4">
+    <div className="pl-0 w-96 pt-4">
       <Select
         options={categoriesFormatted}
         onSelect={(value) => {
@@ -73,7 +73,7 @@ const News = ({ isMobile, articles, meta, categories }) => {
     <>
       {loaded && currentPageArticles && (
         <section className="stories light">
-          <div className="container-fluid max-w-screen-xl mx-auto">
+          <div className="container-fluid max-w-screen-xl mx-auto px-6">
             <Category
               categories={categories}
               category={category}
