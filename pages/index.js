@@ -230,7 +230,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
                     height="17px"
                   />
                 </div>
-                <div className="flex md:justify-center space-x-4 mt-8 mb-16">
+                <div className="flex-column md:justify-center space-x-4 mt-8 mb-16">
                   <Button
                     href="/community"
                     target="_blank"
@@ -242,7 +242,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
                     href="https://angel.co/company/originprotocol/jobs"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="md:px-10"
+                    className="md:px-10 mt-2"
                     type='secondary'
                   >
                     View careers
@@ -302,7 +302,12 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
                     webProperty={"originprotocol"}
                     title={article.title}
                     img={
-                      <Image src={article.cover?.url} alt='Origin Protocol' layout='fill' objectFit='cover' />
+                      <Image
+                        src={article.cover?.url || assetRootPath('/images/logos/origin-press.svg')}
+                        alt='Origin Protocol'
+                        layout='fill'
+                        objectFit='cover'
+                      />
                     }
                     body={article.description}
                     linkText={"Read more"}
@@ -316,7 +321,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
       </section>
       <section className="jobs light pt-20 py-12 px-6">
         <div className="mx-auto">
-          <div className="flex flex-col max-w-screen-xl mx-auto">
+          <div className="flex flex-col max-w-screen-xl mx-auto md:px-14">
             <Typography.H3 as='h2'>Work at Origin</Typography.H3>
             <div className="mb-3"></div>
             <div className="lighter mt-2 mb-4">
