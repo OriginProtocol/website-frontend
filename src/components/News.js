@@ -3,6 +3,7 @@ import withIsMobile from "hoc/withIsMobile";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { getStrapiMedia } from "../../lib/media";
+import { assetRootPath } from "utils/image";
 
 const Category = ({ categories, setCategory }) => {
   const [open, setOpen] = useState(false);
