@@ -77,7 +77,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
             <div className="flex layout justify-between items-center">
               <div className="flex flex-col">
                 <Typography.H3 as="h1">
-                  Welcome to the
+                  Welcome to the {" "}
                   <br className="hidden md:block" />
                   <span className="gradient1 bold">Origin community</span>
                 </Typography.H3>
@@ -100,7 +100,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
         </section>
         <section className="contact light">
           <div className="max-w-screen-xl mx-auto py-20 px-8">
-            <Typography.H3>Partner with Origin</Typography.H3>
+            <Typography.H5>Partner with Origin</Typography.H5>
             <div className="drops container-fluid mt-5 mb-5 space-y-4 md:space-y-0">
               <Card
                 webProperty={"launchpad"}
@@ -175,7 +175,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
         </section>
         <section className='contact light'>
           <div className='max-w-screen-xl mx-auto pb-20 px-8'>
-            <Typography.H3 className='pt-10'>Community</Typography.H3>
+            <Typography.H5 className='pt-10'>Community</Typography.H5>
             <div className='socials container-fluid mt-5 mb-5'>
               {socials && socials?.stats?.map((social) => {
                 if (social.name.indexOf(' ') < 0 && social.name !== 'Facebook') {
@@ -375,7 +375,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
         <Contributors contributors={contributors} />
         <section className="investors light text-center">
           <div className="max-w-screen-xl mx-auto pt-20 pb-32">
-            <Typography.H3>Notable investors</Typography.H3>
+            <Typography.H5>Notable investors</Typography.H5>
             <div className="companies flex flex-row">
               <Image
                 src={assetRootPath("/images/logos/company-pantera.svg")}

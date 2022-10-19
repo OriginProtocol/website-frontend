@@ -1,3 +1,4 @@
+import { Button } from "@originprotocol/origin-storybook";
 import withIsMobile from "hoc/withIsMobile";
 import Image from "next/image";
 import { useStoreState } from "pullstate";
@@ -68,7 +69,7 @@ const Dashboard = ({ ogn, isMobile }) => {
   return (
     <>
       <div className="token-dashboard gradient2 flex flex-col md:rounded-2xl py-12 pl-6 pr-6 md:py-12 md:px-20">
-        <div className="flex flex-row">
+        <div className="flex flex-row justify-between">
           <div className="text-container">
             <div className="flex flex-row items-center">
               <Image
@@ -101,14 +102,15 @@ const Dashboard = ({ ogn, isMobile }) => {
               </a>
             </div>
           </div>
-          <a
+          <Button
             href={`https://${buy}`}
             target="_blank"
             rel="noopener noreferrer"
-            className={`button white b1`}
+            type='secondary'
+            className="self-start bg-white hover:text-gray-700 hidden sm:flex"
           >
             Buy {symbol}
-          </a>
+          </Button>
         </div>
         <div className="value-container">
           <div className="value">
@@ -133,14 +135,15 @@ const Dashboard = ({ ogn, isMobile }) => {
             <div className="number">{formatCurrency(totalSupply[coin], 0)}</div>
           </div>
         </div>
-        <a
+        <Button
           href={`https://${buy}`}
           target="_blank"
           rel="noopener noreferrer"
-          className={`button white b2`}
+          className="bg-white hover:text-gray-700 sm:hidden mt-8 text-center"
+          type='secondary'
         >
           Buy {symbol}
-        </a>
+        </Button>
       </div>
       <style jsx>{`
         .token-dashboard {
