@@ -121,7 +121,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"Origin Dollar Logo"}
-              img={<Image src={assetRootPath("/images/logos/dollar-press.svg")} alt="Origin Dollar Logo" layout='fill' objectFit='cover' />}
+              img={<Image src={assetRootPath("/images/logos/press-origin-dollar.png")} alt="Origin Dollar Logo" layout='fill' objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/logo-origin-dollar.svg")}
@@ -131,7 +131,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"Origin Story"}
-              img={<Image src={assetRootPath("/images/logos/story-press.svg")} alt="Origin Story Logo" layout='fill' objectFit='cover' />}
+              img={<Image src={assetRootPath("/images/logos/press-origin-story.png")} alt="Origin Story Logo" layout='fill' objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/logo-origin-story.svg")}
