@@ -334,13 +334,15 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                 const avatar = t.avatar;
                 return (
                   <div className="profile" key={t.name}>
-                    <Image
-                      src={assetRootPath(avatar.url)}
-                      className="rounded-full mb-3"
-                      alt={t.name}
-                      height="400"
-                      width="400"
-                    />
+                    <div className="p-2 sm:p-0">
+                      <Image
+                        src={assetRootPath(avatar.url)}
+                        className="rounded-full mb-3"
+                        alt={t.name}
+                        height="400"
+                        width="400"
+                      />
+                    </div>
                     <div className="name">{t.name}</div>
                   </div>
                 );
@@ -357,13 +359,15 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                       target="_blank"
                       rel="noopenner noreferrer"
                     >
-                      <Image
-                        src={assetRootPath(avatar.url)}
-                        className="rounded-full mb-3"
-                        alt={t.name}
-                        height="400"
-                        width="400"
-                      />
+                      <div className="p-2 sm:p-0">
+                        <Image
+                          src={assetRootPath(avatar.url)}
+                          className="rounded-full mb-3"
+                          alt={t.name}
+                          height="400"
+                          width="400"
+                        />
+                      </div>
                       <div className="name">{t.name}</div>
                     </a>
                   </div>
@@ -374,7 +378,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
         </section>
         <Contributors contributors={contributors} />
         <section className="investors light text-center">
-          <div className="max-w-screen-xl mx-auto pt-20 pb-32">
+          <div className="max-w-screen-xl mx-auto pt-20 pb-32 px-6">
             <Typography.H5>Notable investors</Typography.H5>
             <div className="companies flex flex-row">
               <Image
@@ -438,7 +442,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                 height="50px"
               />
             </div>
-            <div className="people container mt-5">
+            <div className="people container pt-6 max-w-xl mx-auto">
               {team?.investor?.map((t) => {
                 const avatar = t.avatar;
                 return (
