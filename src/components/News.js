@@ -87,7 +87,7 @@ const News = ({ isMobile, articles, meta, categories }) => {
                     <Card
                       webProperty={"originprotocol"}
                       title={a.title}
-                      img={<Image src={a.cover?.url || assetRootPath('/images/logos/origin-press.svg')} alt={a.cover?.alternativeText} layout='fill' objectFit='cover' />}
+                      img={<Image src={ a.cardCover?.url || a.cover?.url || assetRootPath('/images/logos/origin-press.svg')} alt={a.cover?.alternativeText} layout='fill' objectFit='cover' />}
                       body={a.description}
                       linkText={"Read more"}
                       linkHref={`/${a.slug}`}
