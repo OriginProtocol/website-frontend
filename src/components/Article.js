@@ -85,6 +85,8 @@ const Article = ({ article, navLinks }) => {
                 src={imageUrl}
                 alt={article.cover?.alternativeText}
                 layout='fill'
+                objectFit='cover'
+                priority
               />
             </div>
           )}
