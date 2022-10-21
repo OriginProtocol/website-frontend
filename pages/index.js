@@ -20,7 +20,7 @@ import { adjustLinkHref } from "utils/utils";
 import { fetchAPI } from "../lib/api";
 import Jobs from "../src/components/Jobs";
 import formatSeo from "../src/utils/seo";
-import transformLinks from "../src/utils/tansformLinks";
+import transformLinks from "../src/utils/transformLinks";
 
 const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
   return (

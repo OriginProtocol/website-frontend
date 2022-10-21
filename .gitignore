@@ -2,4 +2,7 @@ node_modules/
 .next/
 .env
 .DS_Store
+*/.DS_Store
+# Sentry
+.sentryclirc
 **/*/.DS_Store
