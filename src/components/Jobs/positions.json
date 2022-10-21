@@ -3,11 +3,7 @@
     "name": "Engineering",
     "positions": [
       {
-        "name": "Data Engineer",
-        "url": "https://angel.co/company/originprotocol/jobs/2222160-data-engineer"
-      },
-      {
-        "name": "Frontend Engineer",
+        "name": "Front-end Engineer",
         "url": "https://angel.co/company/originprotocol/jobs/335794-frontend-engineer"
       },
       {
@@ -16,7 +12,7 @@
       },
       {
         "name": "Senior Solidity Engineer",
-        "url": "https://angel.co/company/originprotocol/jobs/2226588-senior-full-stack-engineer"
+        "url": "https://angel.co/company/originprotocol/jobs/308390-senior-solidity-engineer"
       }
     ]
   },
