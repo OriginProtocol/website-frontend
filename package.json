@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@analytics/google-analytics": "^1.0.3",
-    "@analytics/mixpanel": "^0.4.0",
-    "@originprotocol/origin-storybook": "^0.19.11",
+    "@sentry/nextjs": "^7.15.0",
+    "@originprotocol/origin-storybook": "^0.19.12",
     "analytics": "^0.8.1",
     "babel": "^6.23.0",
     "babel-plugin-react-html-attrs": "2",
