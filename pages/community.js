@@ -77,7 +77,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
             <div className="flex layout justify-between items-center">
               <div className="flex flex-col">
                 <Typography.H3 as="h1">
-                  Welcome to the
+                  Welcome to the {" "}
                   <br className="hidden md:block" />
                   <span className="gradient1 bold">Origin community</span>
                 </Typography.H3>
@@ -100,15 +100,17 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
         </section>
         <section className="contact light">
           <div className="max-w-screen-xl mx-auto py-20 px-8">
-            <Typography.H3>Partner with Origin</Typography.H3>
+            <Typography.H5>Partner with Origin</Typography.H5>
             <div className="drops container-fluid mt-5 mb-5 space-y-4 md:space-y-0">
               <Card
                 webProperty={"launchpad"}
                 title={"3LAU"}
-                imgSrc={assetRootPath("/images/screens/background-3lau.png")}
-                imgAlt={"3LAU"}
-                thumbnailSrc={assetRootPath("/images/screens/avatar-3lau.png")}
-                thumbnailAlt={"3LAU"}
+                img={
+                  <Image src={assetRootPath("/images/screens/background-3lau.png")} alt={"3LAU"} layout='fill' objectFit="cover" />
+                }
+                thumbnail={
+                  <Image src={assetRootPath("/images/screens/avatar-3lau.png")} alt={"3LAU avatar"} layout='fill' objectFit="cover" />
+                }
                 body={
                   "Acclaimed musician and producer 3LAU's Ultraviolet Vinyl NFT collection was auctioned on Origin's NFT platform with each NFT..."
                 }
@@ -120,14 +122,12 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
               <Card
                 webProperty={"launchpad"}
                 title={"Inspiration4 Mission"}
-                imgSrc={assetRootPath(
-                  "/images/screens/background-inspiration4.png"
-                )}
-                imgAlt={"Inspiration4"}
-                thumbnailSrc={assetRootPath(
-                  "/images/screens/avatar-inspiration4.png"
-                )}
-                thumbnailAlt={"Inspiration4"}
+                img={
+                  <Image src={assetRootPath("/images/screens/background-inspiration4.png")} alt={"Inspiration4"} layout='fill' objectFit="cover" />
+                }
+                thumbnail={
+                  <Image src={assetRootPath("/images/screens/avatar-inspiration4.png")} alt={"Inspiration4 avatar"} layout='fill' objectFit="cover" />
+                }
                 body={
                   "Inspiration4, powered by SpaceX, was the first civilian orbital space mission. Mission Commander Jared Isaacman chose to raise 200..."
                 }
@@ -139,14 +139,12 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
               <Card
                 webProperty={"launchpad"}
                 title={"Trevor Jones x Don Diablo x Alotta Money"}
-                imgSrc={assetRootPath(
-                  "/images/screens/background-ethereal.png"
-                )}
-                imgAlt={"ETHEREAL"}
-                thumbnailSrc={assetRootPath(
-                  "/images/screens/avatar-ethereal.png"
-                )}
-                thumbnailAlt={"ETHEREAL"}
+                img={
+                  <Image src={assetRootPath("/images/screens/background-ethereal.png")} alt={"ETHEREAL"} layout='fill' objectFit="cover" />
+                }
+                thumbnail={
+                  <Image src={assetRootPath("/images/screens/avatar-ethereal.png")} alt={"ETHEREAL avatar"} layout='fill' objectFit="cover" />
+                }
                 body={
                   "ΞTHΞRΞAL is the coming of age of EthBoy. The original EthBoy was designed as a programmatic art piece that dynamically changes scen..."
                 }
@@ -158,10 +156,12 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
               <Card
                 webProperty={"launchpad"}
                 title={"BT"}
-                imgSrc={assetRootPath("/images/screens/background-bt.png")}
-                imgAlt={"BT"}
-                thumbnailSrc={assetRootPath("/images/screens/avatar-bt.png")}
-                thumbnailAlt={"BT"}
+                img={
+                  <Image src={assetRootPath("/images/screens/background-bt.png")} alt={"BT"} layout='fill' objectFit="cover" />
+                }
+                thumbnail={
+                  <Image src={assetRootPath("/images/screens/avatar-bt.png")} alt={"BT avatar"} layout='fill' objectFit="cover" />
+                }
                 body={
                   "Metaversal is BT's 14th artist album and the first album imagined as a programatic blockchain experience. It encompasses beautiful audio..."
                 }
@@ -175,7 +175,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
         </section>
         <section className='contact light'>
           <div className='max-w-screen-xl mx-auto pb-20 px-8'>
-            <Typography.H3 className='pt-10'>Community</Typography.H3>
+            <Typography.H5 className='pt-10'>Community</Typography.H5>
             <div className='socials container-fluid mt-5 mb-5'>
               {socials && socials?.stats?.map((social) => {
                 if (social.name.indexOf(' ') < 0 && social.name !== 'Facebook') {
@@ -197,26 +197,8 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                   );
                 }
               })}
-              {/*<AltCard
-                  title={'YOUTUBE'}
-                  body={'156.8k followers'}
-                  imgSrc={assetRootPath('/images/logos/social-youtube.svg')}
-                  imgAlt={'Youtube'}
-                  linkText={"Join on Youtube"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                  narrow={false}
-                />
-                <AltCard
-                  title={'BLOCKFOLIO'}
-                  body={'156.8k followers'}
-                  imgSrc={assetRootPath('/images/logos/social-blockfolio.svg')}
-                  imgAlt={'Blockfolio'}
-                  linkText={"Join on Blockfolio"}
-                  linkHref={'https://twitter.com/originprotocol'}
-                  narrow={false}
-                />*/}
             </div>
-            <Typography.H7>Region-specific channels</Typography.H7>
+            <Typography.H7 className="pt-12">Region-specific channels</Typography.H7>
             {socials && (
               <div className="telegram container-fluid mt-5">
                 {socials.stats[5]?.name === 'Telegram (Indonesia)' &&
@@ -236,7 +218,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                     thumbnailAlt={"Flag"}
                   />
                 }
-                {socials.stats[5]?.name === 'Telegram (Korean)' &&
+                {socials.stats[6]?.name === 'Telegram (Korean)' &&
                   <AltCard
                     title={"KOREAN"}
                     body={`${formatCurrency(
@@ -253,7 +235,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                     thumbnailAlt={"Flag"}
                   />
                 }
-                {socials.stats[5]?.name === 'Telegram (Russia)' &&
+                {socials.stats[7]?.name === 'Telegram (Russia)' &&
                   <AltCard
                     title={"RUSSIAN"}
                     body={`${formatCurrency(
@@ -270,7 +252,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                     thumbnailAlt={"Flag"}
                   />
                 }
-                {socials.stats[5]?.name === 'Telegram (Spanish)' &&
+                {socials.stats[8]?.name === 'Telegram (Spanish)' &&
                   <AltCard
                     title={"SPANISH"}
                     body={`${formatCurrency(
@@ -287,7 +269,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                     thumbnailAlt={"Flag"}
                   />
                 }
-                {socials.stats[5]?.name === 'Telegram (Turkish)' &&
+                {socials.stats[9]?.name === 'Telegram (Turkish)' &&
                   <AltCard
                     title={"TURKISH"}
                     body={`${formatCurrency(
@@ -304,7 +286,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                     thumbnailAlt={"Flag"}
                   />
                 }
-                {socials.stats[5]?.name === 'Telegram (Vietnam)' &&
+                {socials.stats[10]?.name === 'Telegram (Vietnam)' &&
                   <AltCard
                     title={"VIETNAMESE"}
                     body={`${formatCurrency(
@@ -334,13 +316,15 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                 const avatar = t.avatar;
                 return (
                   <div className="profile" key={t.name}>
-                    <Image
-                      src={assetRootPath(avatar.url)}
-                      className="rounded-full mb-3"
-                      alt={t.name}
-                      height="400"
-                      width="400"
-                    />
+                    <div className="p-2 sm:p-0">
+                      <Image
+                        src={assetRootPath(avatar.url)}
+                        className="rounded-full mb-3"
+                        alt={t.name}
+                        height="400"
+                        width="400"
+                      />
+                    </div>
                     <div className="name">{t.name}</div>
                   </div>
                 );
@@ -357,13 +341,15 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                       target="_blank"
                       rel="noopenner noreferrer"
                     >
-                      <Image
-                        src={assetRootPath(avatar.url)}
-                        className="rounded-full mb-3"
-                        alt={t.name}
-                        height="400"
-                        width="400"
-                      />
+                      <div className="p-2 sm:p-0">
+                        <Image
+                          src={assetRootPath(avatar.url)}
+                          className="rounded-full mb-3"
+                          alt={t.name}
+                          height="400"
+                          width="400"
+                        />
+                      </div>
                       <div className="name">{t.name}</div>
                     </a>
                   </div>
@@ -374,8 +360,8 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
         </section>
         <Contributors contributors={contributors} />
         <section className="investors light text-center">
-          <div className="max-w-screen-xl mx-auto pt-20 pb-32">
-            <Typography.H3>Notable investors</Typography.H3>
+          <div className="max-w-screen-xl mx-auto pt-20 pb-32 px-6">
+            <Typography.H5>Notable investors</Typography.H5>
             <div className="companies flex flex-row">
               <Image
                 src={assetRootPath("/images/logos/company-pantera.svg")}
@@ -438,7 +424,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                 height="50px"
               />
             </div>
-            <div className="people container mt-5">
+            <div className="people container pt-6 max-w-xl mx-auto">
               {team?.investor?.map((t) => {
                 const avatar = t.avatar;
                 return (

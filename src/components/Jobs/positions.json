@@ -1,0 +1,75 @@
+[
+  {
+    "name": "Engineering",
+    "positions": [
+      {
+        "name": "Data Engineer",
+        "url": "https://angel.co/company/originprotocol/jobs/2222160-data-engineer"
+      },
+      {
+        "name": "Frontend Engineer",
+        "url": "https://angel.co/company/originprotocol/jobs/335794-frontend-engineer"
+      },
+      {
+        "name": "Senior Full-stack Engineer",
+        "url": "https://angel.co/company/originprotocol/jobs/2226588-senior-full-stack-engineer"
+      },
+      {
+        "name": "Senior Solidity Engineer",
+        "url": "https://angel.co/company/originprotocol/jobs/2226588-senior-full-stack-engineer"
+      }
+    ]
+  },
+  {
+    "name": "Design",
+    "positions": [
+      {
+        "name": "Marketing Designer",
+        "url": "https://angel.co/company/originprotocol/jobs/2226436-marketing-designer"
+      }
+    ]
+  },
+  {
+    "name": "Marketing",
+    "positions": [
+      {
+        "name": "Email Marketer",
+        "url": "https://angel.co/company/originprotocol/jobs/2360663-email-marketer"
+      },
+      {
+        "name": "Performance Marketer (Paid Ads)",
+        "url": "https://angel.co/company/originprotocol/jobs/2226610-performance-marketer-paid-ads"
+      },
+      {
+        "name": "Public and Media Relations Manager",
+        "url": "https://angel.co/company/originprotocol/jobs/370212-public-and-media-relations-manager"
+      }
+    ]
+  },
+  {
+    "name": "Product",
+    "positions": [
+      {
+        "name": "Product Manager (DeFi)",
+        "url": "https://angel.co/company/originprotocol/jobs/1860239-product-manager-defi"
+      },
+      {
+        "name": "Product Manager (NFTs)",
+        "url": "https://angel.co/company/originprotocol/jobs/1505992-product-manager-nfts"
+      }
+    ]
+  },
+  {
+    "name": "Sales",
+    "positions": [
+      {
+        "name": "Business Development Manager (DeFi)",
+        "url": "https://angel.co/company/originprotocol/jobs/2226595-business-development-manager-defi"
+      },
+      {
+        "name": "Business Development Manager (NFTs)",
+        "url": "https://angel.co/company/originprotocol/jobs/2360681-business-development-manager-nfts"
+      }
+    ]
+  }
+]

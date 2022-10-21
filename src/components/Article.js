@@ -80,24 +80,25 @@ const Article = ({ article, navLinks }) => {
               className="bg-cover flex justify-center items-center m-0 h-96 w-full rounded-tl-2xl rounded-tr-2xl relative overflow-hidden"
               data-src={imageUrl}
               data-srcset={imageUrl}
-              data-uk-img
             >
               <Image
                 src={imageUrl}
                 alt={article.cover?.alternativeText}
                 layout='fill'
+                objectFit='cover'
+                priority
               />
             </div>
           )}
-          <div className="pt-4">
-            <div className={`py-6 pl-6 pr-6 md:px-14 ${styles.article}`}>
+          <div className="pt-6 md:pt-12">
+            <div className={`py-6 pl-6 pr-6 md:px-28 ${styles.article}`}>
               <div
                 dangerouslySetInnerHTML={{
                   __html: article.body,
                 }}
               />
-              <hr className="uk-divider-small" />
-              <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
+              <hr className="my-6" />
+              <div className="flex items-center">
                 <div>
                   {article.author.avatar && (
                     <Image
@@ -113,11 +114,11 @@ const Article = ({ article, navLinks }) => {
                     />
                   )}
                 </div>
-                <div className="uk-width-expand">
-                  <p className="uk-margin-remove-bottom">
+                <div className="ml-4">
+                  <p>
                     By {article.author.name}
                   </p>
-                  <p className="uk-text-meta uk-margin-remove-top">
+                  <p>
                     <Moment format="MMM Do YYYY">{article.published_at}</Moment>
                   </p>
                 </div>

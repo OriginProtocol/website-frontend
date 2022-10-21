@@ -18,6 +18,7 @@ import styles from "styles/Home.module.css";
 import { assetRootPath } from "utils/image";
 import { adjustLinkHref } from "utils/utils";
 import { fetchAPI } from "../lib/api";
+import Jobs from "../src/components/Jobs";
 import formatSeo from "../src/utils/seo";
 import transformLinks from "../src/utils/transformLinks";
 
@@ -50,22 +51,25 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
               "Origin’s flagship products are tackling the fastest growing verticals in crypto"
             }
           </div>
-          <a
+          <Button
             href="https://story.xyz"
             target="_blank"
             rel="noopener noreferrer"
-            className="button white shadow md:mr-2"
+            className="button white shadow mr-4 md:mr-2"
+            type='secondary'
+            size="medium"
           >
             NFTs
-          </a>
-          <a
+          </Button>
+          <Button
             href="https://ousd.com"
             target="_blank"
             rel="noopener noreferrer"
             className="button white shadow"
+            type='secondary'
           >
             DeFi
-          </a>
+          </Button>
         </div>
       </section>
       <section className="story light flex flex-col z-10 relative">
@@ -101,7 +105,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
                 label="Learn more"
                 type="primary"
                 webProperty="originprotocol"
-                size="large"
+                size="medium"
               />
             </div>
           </div>
@@ -129,14 +133,14 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
                 staking or lock-ups. Hold OUSD in any Ethereum wallet or custody
                 solution and watch the balance increase every day.
               </div>
-              <a
+              <Button
                 href="https://ousd.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="button gradient2"
               >
                 Learn more
-              </a>
+              </Button>
             </div>
             <div className="image-container flex-1 pb-10 md:absolute md:top-6 md:-right-20 md:w-1/2">
               <Image
@@ -171,15 +175,14 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
                   holders, hundreds of open-source developers, or our
                   world-class core team.
                 </div>
-                <Link href={adjustLinkHref("/community")}>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="button gradient2"
-                  >
-                    Learn more
-                  </a>
-                </Link>
+                <Button
+                  target="_blank"
+                  href={adjustLinkHref("/community")}
+                  rel="noopener noreferrer"
+                  className="button gradient2"
+                >
+                  Learn more
+                </Button>
               </div>
             </div>
             <div className="team flex layout flex-col-reverse mt-10 md:flex-row max-w-screen-xl mx-auto">
@@ -227,29 +230,28 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
                     height="17px"
                   />
                 </div>
-                <div className="flex md:justify-center space-x-4 mt-8 mb-16">
-                  <Link href="/community">
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="button gradient2 shadow px-6 md:px-10"
-                    >
-                      Meet our team
-                    </a>
-                  </Link>
-                  <a
+                <div className="flex-column md:justify-center space-x-4 mt-8 mb-16">
+                  <Button
+                    href="/community"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Meet our team
+                  </Button>
+                  <Button
                     href="https://angel.co/company/originprotocol/jobs"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="button white shadow px-6 md:px-10"
+                    className="md:px-10 mt-2"
+                    type='secondary'
                   >
                     View careers
-                  </a>
+                  </Button>
                 </div>
               </div>
               <div className="relative my-10 md:my-0">
                 <span
-                  className={`absolute left-8 right-4 md:left-0 md:-right-20 -top-12 md:-top-20 md:w-full`}
+                  className={`absolute left-10 sm:left-24 right-10 sm:right-24 md:left-0 md:-right-20 -top-12 sm:-top-20 md:-top-20 md:w-full`}
                 >
                   <Image
                     src="/images/graphics/splines32.png"
@@ -265,8 +267,10 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
                     width={`${isMobile ? "280" : "560"}`}
                     height={`${isMobile ? "158" : "316"}`}
                     src="https://www.youtube.com/embed/ERh2n-vlpQ4"
+                    srcDoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/ERh2n-vlpQ4?autoplay=1><img src=https://img.youtube.com/vi/ERh2n-vlpQ4/hqdefault.jpg alt='Video Working at Origin'><span>▶</span></a>"
+                    loading="lazy"
                     className={`${styles.iframe}`}
-                    title="YouTube video player"
+                    title="Working at Origin"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -299,8 +303,14 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
                     key={i}
                     webProperty={"originprotocol"}
                     title={article.title}
-                    imgSrc={article.cover?.url}
-                    imgAlt={"Origin Protocol"}
+                    img={
+                      <Image
+                        src={article.cardCover?.url || article.cover?.url || assetRootPath('/images/logos/origin-press.svg')}
+                        alt='Origin Protocol'
+                        layout='fill'
+                        objectFit='cover'
+                      />
+                    }
                     body={article.description}
                     linkText={"Read more"}
                     linkHref={`/${article.slug}`}
@@ -311,170 +321,16 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
           </div>
         </div>
       </section>
-      <section className="jobs light py-12 px-6">
+      <section className="jobs light pt-20 py-12 px-6">
         <div className="mx-auto">
-          <div className="flex flex-col max-w-screen-xl mx-auto">
-            <Typography.H2>Work at Origin</Typography.H2>
+          <div className="flex flex-col max-w-screen-xl mx-auto md:px-14">
+            <Typography.H3 as='h2'>Work at Origin</Typography.H3>
             <div className="mb-3"></div>
             <div className="lighter mt-2 mb-4">
               We’re always looking for the best talent. See open positions
               below.
             </div>
-            <div className="mb-5"></div>
-            <Typography.H3>Engineering</Typography.H3>
-            <div className="mt-4"></div>
-            <div className="space-y-2">
-              <div className="flex flex-row justify-between items-center">
-                <div className="role">Data Engineer</div>
-                <a
-                  href="https://angel.co/company/originprotocol/jobs/2222160-data-engineer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button gradient2"
-                >
-                  Apply
-                </a>
-              </div>
-              <div className="flex flex-row justify-between items-center">
-                <div className="role">Frontend Engineer</div>
-                <a
-                  href="https://angel.co/company/originprotocol/jobs/335794-frontend-engineer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button gradient2"
-                >
-                  Apply
-                </a>
-              </div>
-              <div className="flex flex-row justify-between items-center">
-                <div className="role">Senior Full-stack Engineer</div>
-                <a
-                  href="https://angel.co/company/originprotocol/jobs/2226588-senior-full-stack-engineer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button gradient2"
-                >
-                  Apply
-                </a>
-              </div>
-              <div className="flex flex-row justify-between items-center">
-                <div className="role">Senior Solidity Engineer</div>
-                <a
-                  href="https://angel.co/company/originprotocol/jobs/308390-senior-solidity-engineer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button gradient2"
-                >
-                  Apply
-                </a>
-              </div>
-              <div className="mb-2"></div>
-            </div>
-            <Typography.H3 className="mt-8">Design</Typography.H3>
-            <div className="mt-4"></div>
-            <div className="flex flex-row justify-between items-center">
-              <div className="role">Marketing Designer</div>
-              <a
-                href="https://angel.co/company/originprotocol/jobs/2226436-marketing-designer"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button gradient2"
-              >
-                Apply
-              </a>
-            </div>
-            <div className="mb-2"></div>
-            <Typography.H3 className="mt-8">Marketing</Typography.H3>
-            <div className="mt-4"></div>
-            <div className="space-y-2">
-              <div className="flex flex-row justify-between items-center">
-                <div className="role">Email Marketer</div>
-                <a
-                  href="https://angel.co/company/originprotocol/jobs/2360663-email-marketer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button gradient2"
-                >
-                  Apply
-                </a>
-              </div>
-              <div className="flex flex-row justify-between items-center">
-                <div className="role">Performance Marketer (Paid Ads)</div>
-                <a
-                  href="https://angel.co/company/originprotocol/jobs/2226610-performance-marketer-paid-ads"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button gradient2"
-                >
-                  Apply
-                </a>
-              </div>
-              <div className="flex flex-row justify-between items-center">
-                <div className="role">Public and Media Relations Manager</div>
-                <a
-                  href="https://angel.co/company/originprotocol/jobs/370212-public-and-media-relations-manager"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button gradient2"
-                >
-                  Apply
-                </a>
-              </div>
-            </div>
-            <div className="mb-2"></div>
-            <Typography.H3 className="mt-8">Product</Typography.H3>
-            <div className="space-y-2">
-              <div className="mt-4" />
-              <div className="flex flex-row justify-between items-center">
-                <div className="role">Product Manager (DeFi)</div>
-                <a
-                  href="https://angel.co/company/originprotocol/jobs/1860239-product-manager-defi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button gradient2"
-                >
-                  Apply
-                </a>
-              </div>
-              <div className="flex flex-row justify-between items-center">
-                <div className="role">Product Manager (NFTs)</div>
-                <a
-                  href="https://angel.co/company/originprotocol/jobs/1505992-product-manager-nfts"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button gradient2"
-                >
-                  Apply
-                </a>
-              </div>
-            </div>
-            <div className="mb-2"></div>
-            <Typography.H3 className="mt-8">Sales</Typography.H3>
-            <div className="mt-4"></div>
-            <div className="space-y-2">
-              <div className="flex flex-row justify-between items-center">
-                <div className="role">Business Development Manager (DeFi)</div>
-                <a
-                  href="https://angel.co/company/originprotocol/jobs/2226595-business-development-manager-defi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button gradient2"
-                >
-                  Apply
-                </a>
-              </div>
-              <div className="flex flex-row justify-between items-center">
-                <div className="role">Business Development Manager (NFTs)</div>
-                <a
-                  href="https://angel.co/company/originprotocol/jobs/2360681-business-development-manager-nfts"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button gradient2"
-                >
-                  Apply
-                </a>
-              </div>
-            </div>
+            <Jobs />
           </div>
         </div>
       </section>

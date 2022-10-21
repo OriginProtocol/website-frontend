@@ -1,4 +1,5 @@
 import {
+  Button,
   Card, Footer, Header, Typography
 } from "@originprotocol/origin-storybook";
 import News from "components/News";
@@ -35,70 +36,68 @@ export default function Company({
       {!articles?.length ? null : <News articles={articles} meta={meta} categories={categories} />}
       <section className="articles grey">
         <div className="container-fluid max-w-screen-xl mx-auto py-10 px-6">
-          <Typography.H3>As seen in</Typography.H3>
-          <div className="companies flex flex-row">
+          <Typography.H4 as='h3'>As seen in</Typography.H4>
+          <div className="flex flex-wrap justify-center items-center gap-4 py-10">
             <Image
               src={assetRootPath("/images/logos/company-coindesk.svg")}
               className="company"
-              alt="Company"
+              alt="Coindesk"
               width="200px"
               height="50px"
             />
             <Image
               src={assetRootPath("/images/logos/company-wsj.svg")}
               className="company"
-              alt="Company"
+              alt="Wall Street Journal"
               width="200px"
               height="50px"
             />
             <Image
               src={assetRootPath("/images/logos/company-nasdaq.svg")}
               className="company"
-              alt="Company"
+              alt="Nasdaq"
               width="200px"
               height="50px"
             />
             <Image
               src={assetRootPath("/images/logos/company-tnw.svg")}
               className="company"
-              alt="Company"
+              alt="TNW"
               width="200px"
               height="50px"
             />
             <Image
               src={assetRootPath("/images/logos/company-fastcompany.svg")}
               className="company"
-              alt="Company"
+              alt="Fast Company"
               width="200px"
               height="50px"
             />
-          </div>
-          <div className="companies flex flex-row">
             <Image
               src={assetRootPath("/images/logos/company-vice.svg")}
               className="company"
-              alt="Company"
+              alt="Vice"
               width="200px"
               height="50px"
             />
             <Image
               src={assetRootPath("/images/logos/company-cointelegraph.svg")}
               className="company"
-              alt="Company"
+              alt="Coin Telegraph"
               width="200px"
               height="50px"
             />
             <Image
               src={assetRootPath("/images/logos/company-inc.svg")}
               className="company"
-              alt="Company"
+              alt="inc"
               width="200px"
               height="50px"
             />
             <Image
               src={assetRootPath("/images/logos/company-techcrunch.svg")}
               className="company"
-              alt="Company"
+              alt="Techcrunch"
               width="200px"
               height="50px"
             />
@@ -106,14 +105,13 @@ export default function Company({
         </div>
       </section>
       <section className="press light">
-        <div className="container-fluid max-w-screen-xl mx-auto py-10 px-6">
-          <Typography.H3>Press kit</Typography.H3>
+        <div className="container-fluid max-w-screen-xl mx-auto py-20 px-6">
+          <Typography.H4 as='h3'>Press kit</Typography.H4>
           <div className="container mt-5">
             <Card
               webProperty={"press"}
               title={"Origin Logo"}
-              imgSrc={assetRootPath("/images/logos/origin-press.svg")}
-              imgAlt={"Origin Logo"}
+              img={<Image src={assetRootPath("/images/logos/origin-press.svg")} alt="Origin Logo" layout='fill' objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/logo-origin.svg")}
@@ -123,8 +121,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"Origin Dollar Logo"}
-              imgSrc={assetRootPath("/images/logos/dollar-press.svg")}
-              imgAlt={"Origin Dollar Logo"}
+              img={<Image src={assetRootPath("/images/logos/press-origin-dollar.png")} alt="Origin Dollar Logo" layout='fill' objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/logo-origin-dollar.svg")}
@@ -134,8 +131,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"Origin Story"}
-              imgSrc={assetRootPath("/images/logos/story-press.svg")}
-              imgAlt={"Origin Story"}
+              img={<Image src={assetRootPath("/images/logos/press-origin-story.png")} alt="Origin Story Logo" layout='fill' objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/logo-origin-story.svg")}
@@ -145,7 +141,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"OGN Symbol"}
-              imgSrc={assetRootPath("/images/logos/ogn-press.svg")}
+              img={<Image src={assetRootPath("/images/logos/ogn-press.svg")} alt="OGN Symbol" layout='fill' objectFit='cover' />}
               imgAlt={"OGN Symbol"}
               body={""}
               linkText={"Download SVG"}
@@ -156,8 +152,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"OUSD Symbol"}
-              imgSrc={assetRootPath("/images/logos/ousd-press.svg")}
-              imgAlt={"OUSD Symbol"}
+              img={<Image src={assetRootPath("/images/logos/ousd-press.svg")} alt="OUSD Symbol" layout='fill' objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/symbol-ousd.svg")}
@@ -167,8 +162,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"OGV Symbol"}
-              imgSrc={assetRootPath("/images/logos/ogv-press.svg")}
-              imgAlt={"OGV Symbol"}
+              img={<Image src={assetRootPath("/images/logos/ogv-press.svg")} alt="OGV Symbol" layout='fill' objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/symbol-ogv.svg")}
@@ -186,14 +180,13 @@ export default function Company({
               Origin Story powers NFT ecosystems, providing creators with
               branded storefronts and secondary marketplaces.
             </div>
-            <a
+            <Button
               href={process.env.NEXT_PUBLIC_DISCORD_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="button gradient2"
             >
               Get in touch
-            </a>
+            </Button>
           </div>
         </div>
       </section>

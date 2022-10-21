@@ -1,7 +1,9 @@
 import { Card, Select } from "@originprotocol/origin-storybook";
 import withIsMobile from "hoc/withIsMobile";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { getStrapiMedia } from "../../lib/media";
+import { assetRootPath } from "utils/image";
 
 const Category = ({ categories, setCategory }) => {
   const [open, setOpen] = useState(false);
@@ -27,7 +29,7 @@ const Category = ({ categories, setCategory }) => {
   );
 
   return (
-    <div className="pl-6 md:pl-6 w-96 pt-4">
+    <div className="pl-0 w-96 pt-4">
       <Select
         options={categoriesFormatted}
         onSelect={(value) => {
@@ -72,7 +74,7 @@ const News = ({ isMobile, articles, meta, categories }) => {
     <>
       {loaded && currentPageArticles && (
         <section className="stories light">
-          <div className="container-fluid max-w-screen-xl mx-auto">
+          <div className="container-fluid max-w-screen-xl mx-auto px-6">
             <Category
               categories={categories}
               category={category}
@@ -85,8 +87,7 @@ const News = ({ isMobile, articles, meta, categories }) => {
                     <Card
                       webProperty={"originprotocol"}
                       title={a.title}
-                      imgSrc={a.cover?.url}
-                      imgAlt={"Origin Protocol"}
+                      img={<Image src={ a.cardCover?.url || a.cover?.url || assetRootPath('/images/logos/origin-press.svg')} alt={a.cover?.alternativeText} layout='fill' objectFit='cover' />}
                       body={a.description}
                       linkText={"Read more"}
                       linkHref={`/${a.slug}`}

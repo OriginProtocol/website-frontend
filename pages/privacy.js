@@ -1,15 +1,17 @@
-import React from 'react'
+import { Footer, Header, Typography } from '@originprotocol/origin-storybook'
 import Head from 'next/head'
-import { Typography, Header, Footer, Card } from '@originprotocol/origin-storybook'
-import { mappedLinks } from 'utils/constants'
+import { Typography, Header, Footer } from '@originprotocol/origin-storybook'
+import React from 'react'
+import { fetchAPI } from '../lib/api'
+import transformLinks from '../src/utils/transformLinks'
 
-const Privacy = () => {
+const Privacy = ({navLinks}) => {
   return (
     <>
       <Head>
         <title>Origin Protocol</title>
       </Head>
-      <Header mappedLinks={mappedLinks.links} webProperty="originprotocol" />
+      <Header mappedLinks={navLinks} webProperty="originprotocol" />
       <section>
         <>
           <br/><br/>
@@ -92,5 +94,24 @@ const Privacy = () => {
     </>
   );
 };
+
+export async function getStaticProps() {
+  const navRes = await fetchAPI("/website-nav-links", {
+    populate: {
+      links: {
+        populate: "*",
+      },
+    }
+  });
+
+  const navLinks = transformLinks(navRes.data);
+
+  return {
+    props: {
+      navLinks,
+    },
+    revalidate: 5 * 60, // Cache response for 5m
+  };
+}
 
 export default Privacy;
