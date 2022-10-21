@@ -23,3 +23,16 @@
   padding-bottom: 1rem;
   margin-bottom: 1rem;
 }
+
+.article h3 {
+  font-size: 1.2rem;
+  padding-top: 0.4rem;
+}
+
+.article figure {
+  text-align: center;
+}
+
+.article figure img {
+  display: inline !important;
+}
