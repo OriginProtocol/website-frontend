@@ -2,7 +2,7 @@ import { Footer, Header, Typography } from '@originprotocol/origin-storybook';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { fetchAPI } from '../lib/api';
-import transformLinks from '../src/utils/tansformLinks';
+import transformLinks from '../src/utils/transformLinks';
 
 const Tos = ({ navLinks }) => {
   const [loaded, setLoaded] = useState(false);
