@@ -100,7 +100,7 @@ const Article = ({ article, navLinks }) => {
               <hr className="my-6" />
               <div className="flex items-center">
                 <div>
-                  {article.author.avatar && (
+                  {article.author?.avatar && (
                     <Image
                       src={article.author.avatar.url}
                       alt={article.author.avatar.alternativeText}
@@ -115,9 +115,11 @@ const Article = ({ article, navLinks }) => {
                   )}
                 </div>
                 <div className="ml-4">
-                  <p>
-                    By {article.author.name}
-                  </p>
+                  {article.author?.name && (
+                    <p>
+                      By {article.author.name}
+                    </p>
+                  )}
                   <p>
                     <Moment format="MMM Do YYYY">{article.published_at}</Moment>
                   </p>
