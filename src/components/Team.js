@@ -138,24 +138,24 @@ const TeamMember = ({ name, title, description, avatar, links }) => {
 const Team = ({ team }) => {
   return (
     <>
-      <section className="team gradient3">
+      <section className="team relative gradient3">
+        <div className="spots1">
+          <Image
+            src={assetRootPath('/images/graphics/spots1.png')}
+            alt="spots"
+            width="500px"
+            height="1000px"
+          />
+        </div>
+        <div className="spots2">
+          <Image
+            src={assetRootPath('/images/graphics/spots2.png')}
+            alt="spots"
+            width="800px"
+            height="600px"
+          />
+        </div>
         <div className="max-w-screen-xl mx-auto py-20 px-8">
-          <div className="spots1">
-            <Image
-              src={assetRootPath('/images/graphics/spots1.png')}
-              alt="spots"
-              width="500px"
-              height="1000px"
-            />
-          </div>
-          <div className="spots2">
-            <Image
-              src={assetRootPath('/images/graphics/spots2.png')}
-              alt="spots"
-              width="800px"
-              height="600px"
-            />
-          </div>
           <div className="content text-center">
             <Typography.H5 as='h2' className="text-white">Core team</Typography.H5>
             <div className="text w-3/4 mx-auto mt-3">
@@ -199,7 +199,6 @@ const Team = ({ team }) => {
 
         .spots1 {
           position: absolute;
-          width: 25%;
           top: 0;
           left: 0;
           z-index: 0;
@@ -207,7 +206,6 @@ const Team = ({ team }) => {
 
         .spots2 {
           position: absolute;
-          width: 50%;
           bottom: -6px;
           right: 0;
           z-index: 0;

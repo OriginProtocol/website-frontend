@@ -56,7 +56,7 @@ const Article = ({ article, navLinks }) => {
           backgroundColor: "#F6F8FE",
         }}
       >
-        <div className="max-w-screen-xl mx-auto">
+        <div className="max-w-screen-lg mx-auto">
           <Typography.Link className="flex space-x-2">
             <Image
               src="/images/left-arrow.svg"
@@ -70,10 +70,10 @@ const Article = ({ article, navLinks }) => {
             </Link>
           </Typography.Link>
         </div>
-        <div className="mb-6 mt-2 max-w-screen-xl mx-auto">
-          <Typography.H3 as="h1">{article.title}</Typography.H3>
+        <div className="mb-2.5 mt-2 max-w-screen-lg mx-auto">
+          <Typography.H4 as="h1" style={{ fontSize: '2.75rem', lineHeight: '3.75rem' }}>{article.title}</Typography.H4>
         </div>
-        <div className="max-w-screen-xl mx-auto bg-white rounded-2xl pb-10">
+        <div className="max-w-screen-lg mx-auto bg-white rounded-2xl pb-10">
           {imageUrl && (
             <div
               id="banner"
