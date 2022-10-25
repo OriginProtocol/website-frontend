@@ -16,7 +16,7 @@ const Dashboard = ({ ogn, isMobile }) => {
   const link = ogn ? "origin-protocol" : "origin-dollar-governance";
   const buy = ogn
     ? "app.uniswap.org/#/swap?outputCurrency=0x8207c1FfC5B6804F6024322CcF34F29c3541Ae26&chain=mainnet"
-    : "ousd.com";
+    : "app.uniswap.org/#/swap?outputCurrency=0x9c354503C38481a7A7a51629142963F98eCC12D0&chain=mainnet";
   const description = ogn
     ? "Origin Token (OGN) stakers earn their share of Story’s platform fees. "
     : "Origin Governance Token (OGV) stakers earn fees from OUSD’s growth. ";
