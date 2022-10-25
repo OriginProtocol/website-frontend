@@ -4,7 +4,7 @@ const formatSeo = (seoRes) => {
   const seo = {
     metaTitle: seoRes.data.metaTitle,
     metaDescription: seoRes.data.metaDescription,
-    shareImage: seoRes.data.metaImage.url,
+    shareImage: seoRes.data.metaImage?.url || null,
   }
 
   if (seoRes.data.structuredData) {
