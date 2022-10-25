@@ -601,7 +601,7 @@ export async function getStaticProps() {
       contributors,
       navLinks,
     },
-    revalidate: 60 * 60, // Cache response for 1hr
+    revalidate: 5 * 60, // Cache response for 5 min
   };
 }
 
