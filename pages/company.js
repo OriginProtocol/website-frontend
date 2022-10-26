@@ -250,7 +250,7 @@ export async function getStaticProps() {
     }
   });
 
-  const seoRes = await fetchAPI("/website/page/en/%2Fcommunity");
+  const seoRes = await fetchAPI("/website/page/en/%2Fcompany");
   const navRes = await fetchAPI("/website-nav-links", {
     populate: {
       links: {
