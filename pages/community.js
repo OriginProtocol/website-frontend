@@ -358,7 +358,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
             </div>
           </div>
         </section>
-        <Contributors contributors={contributors} />
+        {contributors.length && <Contributors contributors={contributors} />}
         <section className="investors light text-center">
           <div className="max-w-screen-xl mx-auto pt-20 pb-32 px-6">
             <Typography.H5>Notable investors</Typography.H5>
