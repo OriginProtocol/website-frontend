@@ -28,16 +28,16 @@ export default function Company({
       </Head>
       <Seo seo={seo} />
       <Header mappedLinks={navLinks} webProperty="originprotocol" />
-      <section className="intro grey pb-12">
+      <section className="intro grey pt-10 pb-24">
         <div className="container-fluid max-w-screen-xl mx-auto px-6 mb-6">
-          <Typography.H1>Latest news</Typography.H1>
+          <Typography.H2 className='font-bold'>Latest news</Typography.H2>
         </div>
       </section>
       {!articles?.length ? null : <News articles={articles} meta={meta} categories={categories} />}
       <section className="articles grey">
-        <div className="container-fluid max-w-screen-xl mx-auto py-10 px-6">
-          <Typography.H4 as='h3'>As seen in</Typography.H4>
-          <div className="flex flex-wrap justify-center items-center gap-4 py-10">
+        <div className="container-fluid max-w-screen-xl mx-auto pt-10 md:pb-32 px-6">
+          <Typography.H3 as='h3' className='font-bold md:mt-28'>As seen in</Typography.H3>
+          <div className="flex flex-wrap justify-center items-center gap-14 py-10">
             <Image
               src={assetRootPath("/images/logos/company-coindesk.svg")}
               className="company"
@@ -105,9 +105,9 @@ export default function Company({
         </div>
       </section>
       <section className="press light">
-        <div className="container-fluid max-w-screen-xl mx-auto py-20 px-6">
-          <Typography.H4 as='h3'>Press kit</Typography.H4>
-          <div className="container mt-5">
+        <div className="container-fluid max-w-screen-xl mx-auto py-20 md:py-36 px-6">
+          <Typography.H3 as='h3' className='font-bold'>Press kit</Typography.H3>
+          <div className="container mt-10">
             <Card
               webProperty={"press"}
               title={"Origin Logo"}
@@ -121,7 +121,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"Origin Dollar Logo"}
-              img={<Image src={assetRootPath("/images/logos/press-origin-dollar.png")} alt="Origin Dollar Logo" layout='fill' objectFit='cover' />}
+              img={<Image src={assetRootPath("/images/logos/press-origin-dollar.svg")} alt="Origin Dollar Logo" layout='fill' objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/logo-origin-dollar.svg")}
@@ -131,7 +131,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"Origin Story"}
-              img={<Image src={assetRootPath("/images/logos/press-origin-story.png")} alt="Origin Story Logo" layout='fill' objectFit='cover' />}
+              img={<Image src={assetRootPath("/images/logos/press-origin-story.svg")} alt="Origin Story Logo" layout='fill' objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/logo-origin-story.svg")}
@@ -173,10 +173,10 @@ export default function Company({
         </div>
       </section>
       <section className="inquiries grey">
-        <div className="container-fluid max-w-screen-xl mx-auto py-20 px-6">
+        <div className="container-fluid max-w-screen-xl mx-auto py-20 md:py-32 px-6">
           <div className="content text-center m-auto space-y-6">
-            <Typography.H2>Press inquiries</Typography.H2>
-            <div className="mt-2 mb-4">
+            <Typography.H3 className='font-bold'>Press inquiries</Typography.H3>
+            <div className="mt-2 mb-4 pb-6 font-light">
               Origin Story powers NFT ecosystems, providing creators with
               branded storefronts and secondary marketplaces.
             </div>
@@ -202,7 +202,7 @@ export default function Company({
         .press .container {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
-          grid-gap: 2vw;
+          grid-gap: 2.5vw;
         }
 
         .inquiries .content {

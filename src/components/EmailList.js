@@ -18,10 +18,10 @@ const EmailList = () => {
         </span>
         <div className="relative z-10 max-w-screen-xl mx-auto">
           <div className="flex flex-col align-items-center text-center mt-20 mb-60 md:mb-20 md:space-y-6">
-            <Typography.H4 className="text-white">
+            <Typography.H5 className="text-white font-bold opacity-100">
               Join our mailing list to stay in touch
-            </Typography.H4>
-            <div className="lighter text mt-2 mb-4 mx-auto">
+            </Typography.H5>
+            <div className="opacity-75 text mt-2 mb-4 mx-auto">
               Be the first to hear about major NFT drops and important product
               updates. Your email will be kept private.
             </div>
@@ -97,7 +97,7 @@ const EmailList = () => {
           border: 0;
           border-radius: 10px;
           color: white;
-          background-color: #ffffff40;
+          background-color: #ffffff27;
           margin: 20px 0;
           padding: 15px 20px;
         }

@@ -6,8 +6,8 @@ const Jobs = () => {
     <div>
       {
         positionSections.map(section => (
-          <div key={section.name} className='mb-4'>
-            <Typography.H4 as='h3'>{section.name}</Typography.H4>
+          <div key={section.name} className='mt-16 mb-4'>
+            <Typography.H5 as='h3' className='font-bold'>{section.name}</Typography.H5>
             <div className="mt-4" />
               <div className="space-y-2">
                 {

@@ -157,8 +157,8 @@ const Team = ({ team }) => {
         </div>
         <div className="max-w-screen-xl mx-auto py-20 px-8">
           <div className="content text-center">
-            <Typography.H5 as='h2' className="text-white">Core team</Typography.H5>
-            <div className="text w-3/4 mx-auto mt-3">
+            <Typography.H3 as='h2' className="text-white font-bold">Core team</Typography.H3>
+            <div className="text w-3/4 mx-auto mt-3 font-light">
               The core contributors hail from iconic tech companies like
               Coinbase, YouTube, Google, Paypal, Dropbox, and Pinterest. Our
               founders are serial entrepreneurs, and multiple team members have
