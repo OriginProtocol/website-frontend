@@ -5,7 +5,7 @@ import Seo from "./strapi/seo";
 
 import { Typography } from "@originprotocol/origin-storybook";
 
-import Image from "next/image";
+import Image from "next/future/image";
 import Link from "next/link";
 import Media from "./strapi/blocks/Media";
 import Quote from "./strapi/blocks/Quote";
@@ -77,15 +77,17 @@ const Article = ({ article, navLinks }) => {
           {imageUrl && (
             <div
               id="banner"
-              className="bg-cover flex justify-center items-center m-0 h-96 w-full rounded-tl-2xl rounded-tr-2xl relative overflow-hidden"
+              className="bg-cover flex justify-center items-center m-0 rounded-tl-2xl rounded-tr-2xl relative overflow-hidden"
               data-src={imageUrl}
               data-srcset={imageUrl}
             >
               <Image
                 src={imageUrl}
                 alt={article.cover?.alternativeText}
-                layout='fill'
-                objectFit='cover'
+                width='0'
+                height='0'
+                sizes='100vw'
+                className='w-full h-auto'
                 priority
               />
             </div>
