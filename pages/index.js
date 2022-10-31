@@ -307,8 +307,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
                       <Image
                         src={article.cardCover?.url || article.cover?.url || assetRootPath('/images/logos/origin-press.svg')}
                         alt='Origin Protocol'
-                        layout='fill'
-                        objectFit='cover'
+                        width='640' height='312'
                       />
                     }
                     body={article.description}
