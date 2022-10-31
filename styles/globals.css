@@ -86,7 +86,7 @@ header {
 
 section {
   color: white;
-  background-color: #1a82ff;
+  background-color: #0074F0;
 }
 
 section.dark {
@@ -157,12 +157,15 @@ h6 {
   background-image: -webkit-linear-gradient(left,#000000,#1E313F);
 }
 
+.gradient4 {
+  background-image: -webkit-linear-gradient(left,#B361E6,#6A36FC);
+}
+
 .button {
   display: inline-block;
   border: 0;
   border-radius: 50px;
   white-space: nowrap;
-  padding: 1rem 3rem;
 }
 
 .shadow {

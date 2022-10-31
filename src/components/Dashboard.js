@@ -16,7 +16,7 @@ const Dashboard = ({ ogn, isMobile }) => {
   const link = ogn ? "origin-protocol" : "origin-dollar-governance";
   const buy = ogn
     ? "app.uniswap.org/#/swap?outputCurrency=0x8207c1FfC5B6804F6024322CcF34F29c3541Ae26&chain=mainnet"
-    : "ousd.com";
+    : "app.uniswap.org/#/swap?outputCurrency=0x9c354503C38481a7A7a51629142963F98eCC12D0&chain=mainnet";
   const description = ogn
     ? "Origin Token (OGN) stakers earn their share of Story’s platform fees. "
     : "Origin Governance Token (OGV) stakers earn fees from OUSD’s growth. ";
@@ -68,7 +68,7 @@ const Dashboard = ({ ogn, isMobile }) => {
 
   return (
     <>
-      <div className="token-dashboard gradient2 flex flex-col md:rounded-2xl py-12 pl-6 pr-6 md:py-12 md:px-20">
+      <div className={`token-dashboard ${ogn ? 'gradient2' : 'gradient4'} flex flex-col md:rounded-2xl py-12 pl-6 pr-6 md:py-12 md:px-20 mx-6`}>
         <div className="flex flex-row justify-between">
           <div className="text-container">
             <div className="flex flex-row items-center">
@@ -79,15 +79,15 @@ const Dashboard = ({ ogn, isMobile }) => {
                 width="50px"
                 height="50px"
               />
-              <span className="text mt-1 ml-2">{symbol} token</span>
+              <span className="text font-bold mt-1 ml-4">{symbol} Token</span>
             </div>
-            <div className="lighter mt-2 mb-4">
+            <div className="font-light mt-4 mb-14">
               {`${description} View on `}
               <a
                 href={`https://coinmarketcap.com/currencies/${link}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bold"
+                className="font-semibold"
               >
                 CoinMarketCap
               </a>
@@ -96,7 +96,7 @@ const Dashboard = ({ ogn, isMobile }) => {
                 href={`https://www.coingecko.com/en/coins/${link}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bold"
+                className="font-semibold"
               >
                 CoinGecko
               </a>
@@ -114,24 +114,24 @@ const Dashboard = ({ ogn, isMobile }) => {
         </div>
         <div className="value-container">
           <div className="value">
-            <div>{`${symbol} PRICE`}</div>
+            <div className='font-bold'>{`${symbol} PRICE`}</div>
             <div className="number">{`$${formatCurrency(price[coin], 4)}`}</div>
           </div>
           <div className="value">
-            <div>MARKET CAP</div>
+            <div className='font-bold'>MARKET CAP</div>
             <div className="number">{`$${formatCurrency(
               circulatingSupply[coin] * price[coin],
               0
             )}`}</div>
           </div>
           <div className="value">
-            <div>CIRCULATING SUPPLY</div>
+            <div className='font-bold'>CIRCULATING SUPPLY</div>
             <div className="number">
               {formatCurrency(circulatingSupply[coin], 0)}
             </div>
           </div>
           <div className="value">
-            <div>TOTAL SUPPLY</div>
+            <div className='font-bold'>TOTAL SUPPLY</div>
             <div className="number">{formatCurrency(totalSupply[coin], 0)}</div>
           </div>
         </div>
