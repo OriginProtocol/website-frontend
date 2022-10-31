@@ -74,13 +74,13 @@ const News = ({ isMobile, articles, meta, categories }) => {
     <>
       {loaded && currentPageArticles && (
         <section className="stories light">
-          <div className="container-fluid max-w-screen-xl mx-auto px-6">
+          <div className="container-fluid max-w-screen-xl mx-auto mt-6 md:mb-28 px-6">
             <Category
               categories={categories}
               category={category}
               setCategory={setCategory}
             />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-5 max-w-screen-xl mx-auto px-6 md:px-0">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-11 max-w-screen-xl mx-auto px-6 md:px-0">
               {currentPageArticles.map((a, i) => {
                 if (!category || category === a.category.slug) {
                   return (
@@ -97,7 +97,7 @@ const News = ({ isMobile, articles, meta, categories }) => {
                 }
               })}
             </div>
-            <div className="pagination flex justify-center">
+            <div className="pagination flex justify-center md:mt-16">
               {pageNumbers.map((pageNumber, index) => {
                 const isCurrent = pageNumber === page;
                 const skippedAPage =

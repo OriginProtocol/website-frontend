@@ -58,7 +58,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
       <Seo seo={seo} />
       <div>
         <Header webProperty="originprotocol" mappedLinks={navLinks} />
-        <section className="intro grey relative  overflow-hidden">
+        <section className="intro grey relative overflow-hidden">
           <div
             className="absolute z-0 top-44"
             style={{
@@ -76,12 +76,12 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
           <div className="max-w-screen-xl mx-auto pb-20 px-8 relative">
             <div className="flex layout justify-between items-center">
               <div className="flex flex-col">
-                <Typography.H3 as="h1">
-                  Welcome to the {" "}
+                <Typography.H2 as="h1">
+                  <span className='font-normal'>Welcome to the {" "}</span>
                   <br className="hidden md:block" />
-                  <span className="gradient1 bold">Origin community</span>
-                </Typography.H3>
-                <div className="mt-3">
+                  <span className="gradient1 py-1 font-black">Origin community</span>
+                </Typography.H2>
+                <div className="mt-5 font-norm">
                   Origin is a decentralized ecosystem hundreds of thousands
                   strong
                 </div>
@@ -99,9 +99,9 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
           </div>
         </section>
         <section className="contact light">
-          <div className="max-w-screen-xl mx-auto py-20 px-8">
-            <Typography.H5>Partner with Origin</Typography.H5>
-            <div className="drops container-fluid mt-5 mb-5 space-y-4 md:space-y-0">
+          <div className="max-w-screen-xl mx-auto pt-28 pb-16 px-8">
+            <Typography.H3 className='mb-16 font-bold'>Partner with Origin</Typography.H3>
+            <div className="drops container-fluid mt-5 space-y-4 md:space-y-0">
               <Card
                 webProperty={"launchpad"}
                 title={"3LAU"}
@@ -175,7 +175,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
         </section>
         <section className='contact light'>
           <div className='max-w-screen-xl mx-auto pb-20 px-8'>
-            <Typography.H5 className='pt-10'>Community</Typography.H5>
+            <Typography.H3 className='mb-16 font-bold'>Community</Typography.H3>
             <div className='socials container-fluid mt-5 mb-5'>
               {socials && socials?.stats?.map((social) => {
                 if (social.name.indexOf(' ') < 0 && social.name !== 'Facebook') {
@@ -310,8 +310,8 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
         <Team team={team} />
         <section className="extended light text-center">
           <div className="max-w-screen-xl mx-auto py-20 px-8">
-            <Typography.H5>Community Team</Typography.H5>
-            <div className="community container-fluid mt-10 mb-5">
+            <Typography.H3 className='font-bold text-left'>Community Team</Typography.H3>
+            <div className="community container-fluid mt-16 mb-5">
               {team?.community?.map((t) => {
                 const avatar = t.avatar;
                 return (
@@ -325,13 +325,13 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                         width="400"
                       />
                     </div>
-                    <div className="name">{t.name}</div>
+                    <Typography.Body2 className="name mt-4 font-bold">{t.name}</Typography.Body2>
                   </div>
                 );
               })}
             </div>
-            <Typography.H5>Advisors</Typography.H5>
-            <div className="advisors container-fluid mt-10">
+            <Typography.H3 className='font-bold text-left mt-20'>Advisors</Typography.H3>
+            <div className="advisors container-fluid mt-16">
               {team?.advisor?.map((t) => {
                 const avatar = t.avatar;
                 return (
@@ -350,7 +350,8 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                           width="400"
                         />
                       </div>
-                      <div className="name">{t.name}</div>
+                      <Typography.Body2 className="name mt-4 font-bold">{t.name}</Typography.Body2>
+                      <Typography.Caption className="name mt-1 opacity-75 font-light">{t.title}</Typography.Caption>
                     </a>
                   </div>
                 );
@@ -360,9 +361,9 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
         </section>
         {contributors.length && <Contributors contributors={contributors} />}
         <section className="investors light text-center">
-          <div className="max-w-screen-xl mx-auto pt-20 pb-32 px-6">
-            <Typography.H5>Notable investors</Typography.H5>
-            <div className="companies flex flex-row">
+          <div className="max-w-screen-xl mx-auto pt-24 pb-32 px-20">
+            <Typography.H3 className='pb-10 font-bold'>Notable investors</Typography.H3>
+            <div className="flex flex-row justify-between mt-24 mb-10 pb-20">
               <Image
                 src={assetRootPath("/images/logos/company-pantera.svg")}
                 className="company"
@@ -394,7 +395,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                 height="50px"
               />
             </div>
-            <div className="companies flex flex-row">
+            <div className="flex flex-row justify-around mt-10 mb-24">
               <Image
                 src={assetRootPath("/images/logos/company-hackvc.svg")}
                 className="company"
@@ -452,7 +453,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
           .contact .drops.container-fluid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-gap: 2vw;
+            grid-gap: 2.5vw;
           }
 
           .contact .socials.container-fluid {
@@ -467,11 +468,6 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
             grid-gap: 2vw;
           }
 
-          .companies {
-            justify-content: space-around;
-            margin: 50px 0;
-          }
-
           .extended {
             font-size: 1.25rem;
           }
@@ -479,13 +475,13 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
           .extended .community {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            grid-gap: 2vw;
+            grid-gap: 4vw;
           }
 
           .extended .advisors {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            grid-gap: 2vw;
+            grid-gap: 4vw;
           }
 
           .extended .profile {

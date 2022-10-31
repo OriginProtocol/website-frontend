@@ -5,23 +5,17 @@ import React from "react";
 const Contributor = ({ login, avatar, profile }) => {
   return (
     <>
-      <div>
+      <div className='rounded-full'>
         <a href={profile} target="_blank" rel="noopener noreferrer">
-          <Image
+          <img
             src={avatar}
-            className="contributor rounded-full"
+            className="contributor rounded-full border-[1px]"
             alt={login}
-            width="64"
-            height="64"
+            
           />
         </a>
       </div>
       <style jsx>{`
-        .contributor {
-          width: 40px;
-          height: 40px;
-        }
-
         @media (min-width: 2000px) {
           .contributor {
             width: 72px;
