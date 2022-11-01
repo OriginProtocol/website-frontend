@@ -8,7 +8,7 @@ const formatSeo = (seoRes) => {
   }
 
   if (seoRes.structuredData) {
-    seo.structuredData = JSON.stringify(seoRes.data.structuredData);
+    seo.structuredData = JSON.stringify(seoRes.structuredData);
   }
 
   if (seoRes.metaViewport) {
