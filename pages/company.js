@@ -63,7 +63,7 @@ export default function Company({
               src={assetRootPath("/images/logos/company-tnw.svg")}
               className="company"
               alt="TNW"
-              width="200px"
+              width="140px"
               height="50px"
             />
             <Image
@@ -92,7 +92,7 @@ export default function Company({
               className="company"
               alt="inc"
               width="200px"
-              height="50px"
+              height="40px"
             />
             <Image
               src={assetRootPath("/images/logos/company-techcrunch.svg")}
