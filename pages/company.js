@@ -63,7 +63,7 @@ export default function Company({
               src={assetRootPath("/images/logos/company-tnw.svg")}
               className="company"
               alt="TNW"
-              width="200px"
+              width="140px"
               height="50px"
             />
             <Image
@@ -92,7 +92,7 @@ export default function Company({
               className="company"
               alt="inc"
               width="200px"
-              height="50px"
+              height="40px"
             />
             <Image
               src={assetRootPath("/images/logos/company-techcrunch.svg")}
@@ -266,7 +266,7 @@ export async function getStaticProps() {
       articles: articlesRes?.data || null,
       meta: articlesRes?.meta || null,
       categories: Object.values(categories),
-      seo: formatSeo(seoRes),
+      seo: formatSeo(seoRes.data),
       navLinks,
     },
     revalidate: 5 * 60, // Cache response for 5m
