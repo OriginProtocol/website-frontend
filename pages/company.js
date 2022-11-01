@@ -87,6 +87,7 @@ export default function Company({
               width="200px"
               height="50px"
             />
+            
             <Image
               src={assetRootPath("/images/logos/company-inc.svg")}
               className="company"
