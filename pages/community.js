@@ -593,7 +593,7 @@ export async function getStaticProps() {
   return {
     props: {
       team: teamRes.data,
-      seo: formatSeo(seoRes),
+      seo: formatSeo(seoRes.data),
       contributors,
       navLinks,
     },
