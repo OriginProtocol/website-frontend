@@ -1,32 +1,15 @@
 import Moment from "react-moment";
-
 import Layout from "./strapi/layout";
 import Seo from "./strapi/seo";
-
 import { Typography } from "@originprotocol/origin-storybook";
-
 import Image from "next/image";
 import Link from "next/link";
-import Media from "./strapi/blocks/Media";
-import Quote from "./strapi/blocks/Quote";
-import RichText from "./strapi/blocks/RichText";
 import styles from "styles/Article.module.css";
+import RichText from "./strapi/blocks/RichText";
+import formatSeo from "../utils/seo";
 
 const getBlockComponent = ({ __component, ...rest }, index) => {
-  let Block;
-
-  switch (__component) {
-    case "shared.rich-text":
-      Block = RichText;
-      break;
-    case "shared.media":
-      Block = Media;
-      break;
-    case "shared.quote":
-      Block = Quote;
-      break;
-  }
-  return Block ? <Block key={`index-${index}`} {...rest} /> : null;
+  return <RichText key={`index-${index}`} {...rest} />;
 };
 
 const BlockManager = ({ blocks }) => {
@@ -40,12 +23,7 @@ BlockManager.defaultProps = {
 const Article = ({ article, navLinks }) => {
   const imageUrl = article.cover?.url;
 
-  const seo = {
-    metaTitle: article.title,
-    metaDescription: article.description,
-    shareImage: article.cover,
-    article: true,
-  };
+  const seo = formatSeo(article.seo);
 
   return (
     <Layout navLinks={navLinks}>

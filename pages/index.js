@@ -34,8 +34,8 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
         <span className={`${styles.splines34} absolute z-0`}>
           <Image
             src="/images/graphics/splines34.svg"
-            height={1363}
-            width={1341}
+            width={1100}
+            height={800}
             alt="spline"
             priority
           />
@@ -367,7 +367,7 @@ export async function getStaticProps() {
   return {
     props: {
       articles: articlesRes.data,
-      seo: formatSeo(seoRes),
+      seo: formatSeo(seoRes.data),
       navLinks,
     },
     revalidate: 5 * 60, // Cache response for 5m
