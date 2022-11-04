@@ -1474,10 +1474,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@originprotocol/origin-storybook@^0.22.2":
-  version "0.22.2"
-  resolved "https://registry.yarnpkg.com/@originprotocol/origin-storybook/-/origin-storybook-0.22.2.tgz#288a7f0e7f2ffa91deb09dde1d91feab9155123a"
-  integrity sha512-SiIvcfqJFL67qSmXrjyRDQO8oyD1OyALt8yp0RZLYd0hCIiPyFA9FFsjAqagdowehacorNPg8YSSetzzuGOd/w==
+"@originprotocol/origin-storybook@^0.22.3":
+  version "0.22.3"
+  resolved "https://registry.yarnpkg.com/@originprotocol/origin-storybook/-/origin-storybook-0.22.3.tgz#633b7225730c6a4dd4d53b9c631e9874a570ac51"
+  integrity sha512-Jqq+Q7fCWJRcDhPCk08XtSwWS2owxrl8eUaIrNp8H9e4hXrSV+qxmGziRSFxU3hFN3nDhgjXth1Fo9GKFo8HIA==
   dependencies:
     "@heroicons/react" "^2.0.11"
     next "^10.2.3 || ^12.3.1"
