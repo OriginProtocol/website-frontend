@@ -61,6 +61,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
               {'NFTs'}
               <Image
                 src="/images/right-arrow.svg"
+                alt="right arrow"
                 height={6}
                 width={6}
               />
@@ -76,6 +77,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
               {'DeFi'}
               <Image
                 src="/images/right-arrow.svg"
+                alt="right arrow"
                 height={6}
                 width={6}
               />
