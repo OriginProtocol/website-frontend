@@ -37,7 +37,7 @@ export default function Company({
       <section className="articles grey">
         <div className="container-fluid max-w-screen-xl mx-auto pt-10 md:pb-32 px-6">
           <Typography.H3 as='h3' className='font-bold md:mt-28'>As seen in</Typography.H3>
-          <div className="flex flex-wrap justify-center items-center gap-14 py-10">
+          <div className="flex flex-wrap justify-center items-center gap-x-14 gap-y-24 py-24">
             <Image
               src={assetRootPath("/images/logos/company-coindesk.svg")}
               className="company"
