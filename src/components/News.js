@@ -2,7 +2,6 @@ import { Card, Select } from "@originprotocol/origin-storybook";
 import withIsMobile from "hoc/withIsMobile";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { getStrapiMedia } from "../../lib/media";
 import { assetRootPath } from "utils/image";
 
 const Category = ({ categories, setCategory }) => {
@@ -87,7 +86,7 @@ const News = ({ isMobile, articles, meta, categories }) => {
                     <Card
                       webProperty={"originprotocol"}
                       title={a.title}
-                      img={<Image src={ a.cardCover?.url || a.cover?.url || assetRootPath('/images/logos/origin-press.svg')} alt={a.cover?.alternativeText} layout='fill' objectFit='cover' />}
+                      img={<Image src={ a.cardCover?.url || a.cover?.url || assetRootPath('/images/logos/origin-press.svg')} alt={a.cover?.alternativeText} width='640' height='312' />}
                       body={a.description}
                       linkText={"Read more"}
                       linkHref={`/${a.slug}`}

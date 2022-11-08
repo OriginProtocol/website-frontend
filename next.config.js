@@ -84,7 +84,7 @@ const moduleExports = {
   reactStrictMode: true,
   images: {
     loader: "default",
-    domains: ["localhost", "cmsmediaproduction.s3.amazonaws.com", "cmsmediastaging.s3.amazonaws.com", "avatars.githubusercontent.com"],
+    domains: ["localhost", "0.0.0.0", "cmsmediaproduction.s3.amazonaws.com", "cmsmediastaging.s3.amazonaws.com", "avatars.githubusercontent.com"],
   },
   i18n: {
     locales,

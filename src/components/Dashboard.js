@@ -68,7 +68,7 @@ const Dashboard = ({ ogn, isMobile }) => {
 
   return (
     <>
-      <div className={`token-dashboard ${ogn ? 'gradient2' : 'gradient4'} flex flex-col md:rounded-2xl py-12 pl-6 pr-6 md:py-12 md:px-20 mx-6`}>
+      <div className={`token-dashboard ${ogn ? 'gradient2' : 'gradient4'} flex flex-col md:rounded-2xl py-12 pl-6 pr-6 md:py-12 md:px-20 md:mx-6`}>
         <div className="flex flex-row justify-between">
           <div className="text-container">
             <div className="flex flex-row items-center">

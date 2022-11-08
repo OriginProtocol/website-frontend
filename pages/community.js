@@ -106,7 +106,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                 webProperty={"launchpad"}
                 title={"3LAU"}
                 img={
-                  <Image src={assetRootPath("/images/screens/background-3lau.png")} alt={"3LAU"} layout='fill' objectFit="cover" />
+                  <Image src={assetRootPath("/images/screens/background-3lau.png")} alt={"3LAU"} width='620' height='138' />
                 }
                 thumbnail={
                   <Image src={assetRootPath("/images/screens/avatar-3lau.png")} alt={"3LAU avatar"} layout='fill' objectFit="cover" />
@@ -123,7 +123,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                 webProperty={"launchpad"}
                 title={"Inspiration4 Mission"}
                 img={
-                  <Image src={assetRootPath("/images/screens/background-inspiration4.png")} alt={"Inspiration4"} layout='fill' objectFit="cover" />
+                  <Image src={assetRootPath("/images/screens/background-inspiration4.png")} alt={"Inspiration4"} width='620' height='138' />
                 }
                 thumbnail={
                   <Image src={assetRootPath("/images/screens/avatar-inspiration4.png")} alt={"Inspiration4 avatar"} layout='fill' objectFit="cover" />
@@ -140,7 +140,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                 webProperty={"launchpad"}
                 title={"Trevor Jones x Don Diablo x Alotta Money"}
                 img={
-                  <Image src={assetRootPath("/images/screens/background-ethereal.png")} alt={"ETHEREAL"} layout='fill' objectFit="cover" />
+                  <Image src={assetRootPath("/images/screens/background-ethereal.png")} alt={"ETHEREAL"} width='620' height='138' />
                 }
                 thumbnail={
                   <Image src={assetRootPath("/images/screens/avatar-ethereal.png")} alt={"ETHEREAL avatar"} layout='fill' objectFit="cover" />
@@ -157,7 +157,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                 webProperty={"launchpad"}
                 title={"BT"}
                 img={
-                  <Image src={assetRootPath("/images/screens/background-bt.png")} alt={"BT"} layout='fill' objectFit="cover" />
+                  <Image src={assetRootPath("/images/screens/background-bt.png")} alt={"BT"} width='620' height='138' />
                 }
                 thumbnail={
                   <Image src={assetRootPath("/images/screens/avatar-bt.png")} alt={"BT avatar"} layout='fill' objectFit="cover" />
@@ -359,7 +359,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
             </div>
           </div>
         </section>
-        <Contributors contributors={contributors} />
+        {contributors.length && <Contributors contributors={contributors} />}
         <section className="investors light text-center">
           <div className="max-w-screen-xl mx-auto pt-24 pb-32 px-20">
             <Typography.H3 className='pb-10 font-bold'>Notable investors</Typography.H3>
@@ -593,7 +593,7 @@ export async function getStaticProps() {
   return {
     props: {
       team: teamRes.data,
-      seo: formatSeo(seoRes),
+      seo: formatSeo(seoRes.data),
       contributors,
       navLinks,
     },

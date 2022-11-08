@@ -34,8 +34,8 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
         <span className={`${styles.splines34} absolute z-0`}>
           <Image
             src="/images/graphics/splines34.svg"
-            height={1363}
-            width={1341}
+            width={1100}
+            height={800}
             alt="spline"
             priority
           />
@@ -61,6 +61,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
               {'NFTs'}
               <Image
                 src="/images/right-arrow.svg"
+                alt="right arrow"
                 height={6}
                 width={6}
               />
@@ -76,6 +77,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
               {'DeFi'}
               <Image
                 src="/images/right-arrow.svg"
+                alt="right arrow"
                 height={6}
                 width={6}
               />
@@ -318,8 +320,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
                       <Image
                         src={article.cardCover?.url || article.cover?.url || assetRootPath('/images/logos/origin-press.svg')}
                         alt='Origin Protocol'
-                        layout='fill'
-                        objectFit='cover'
+                        width='640' height='312'
                       />
                     }
                     body={article.description}
@@ -368,7 +369,7 @@ export async function getStaticProps() {
   return {
     props: {
       articles: articlesRes.data,
-      seo: formatSeo(seoRes),
+      seo: formatSeo(seoRes.data),
       navLinks,
     },
     revalidate: 5 * 60, // Cache response for 5m

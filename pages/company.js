@@ -63,7 +63,7 @@ export default function Company({
               src={assetRootPath("/images/logos/company-tnw.svg")}
               className="company"
               alt="TNW"
-              width="200px"
+              width="140px"
               height="50px"
             />
             <Image
@@ -92,7 +92,7 @@ export default function Company({
               className="company"
               alt="inc"
               width="200px"
-              height="50px"
+              height="40px"
             />
             <Image
               src={assetRootPath("/images/logos/company-techcrunch.svg")}
@@ -111,7 +111,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"Origin Logo"}
-              img={<Image src={assetRootPath("/images/logos/origin-press.svg")} alt="Origin Logo" layout='fill' objectFit='cover' />}
+              img={<Image src={assetRootPath("/images/logos/origin-press.svg")} alt="Origin Logo" width="420px" height="210px" objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/logo-origin.svg")}
@@ -121,7 +121,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"Origin Dollar Logo"}
-              img={<Image src={assetRootPath("/images/logos/press-origin-dollar.svg")} alt="Origin Dollar Logo" layout='fill' objectFit='cover' />}
+              img={<Image src={assetRootPath("/images/logos/press-origin-dollar.svg")} alt="Origin Dollar Logo" width="420px" height="210px" objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/logo-origin-dollar.svg")}
@@ -131,7 +131,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"Origin Story"}
-              img={<Image src={assetRootPath("/images/logos/press-origin-story.svg")} alt="Origin Story Logo" layout='fill' objectFit='cover' />}
+              img={<Image src={assetRootPath("/images/logos/press-origin-story.svg")} alt="Origin Story Logo" width="420px" height="210px" objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/logo-origin-story.svg")}
@@ -141,7 +141,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"OGN Symbol"}
-              img={<Image src={assetRootPath("/images/logos/ogn-press.svg")} alt="OGN Symbol" layout='fill' objectFit='cover' />}
+              img={<Image src={assetRootPath("/images/logos/ogn-press.svg")} alt="OGN Symbol" width="420px" height="210px" objectFit='cover' />}
               imgAlt={"OGN Symbol"}
               body={""}
               linkText={"Download SVG"}
@@ -152,7 +152,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"OUSD Symbol"}
-              img={<Image src={assetRootPath("/images/logos/ousd-press.svg")} alt="OUSD Symbol" layout='fill' objectFit='cover' />}
+              img={<Image src={assetRootPath("/images/logos/ousd-press.svg")} alt="OUSD Symbol" width="420px" height="210px" objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/symbol-ousd.svg")}
@@ -162,7 +162,7 @@ export default function Company({
             <Card
               webProperty={"press"}
               title={"OGV Symbol"}
-              img={<Image src={assetRootPath("/images/logos/ogv-press.svg")} alt="OGV Symbol" layout='fill' objectFit='cover' />}
+              img={<Image src={assetRootPath("/images/logos/ogv-press.svg")} alt="OGV Symbol" width="420px" height="210px" objectFit='cover' />}
               body={""}
               linkText={"Download SVG"}
               linkHref={assetRootPath("/images/logos/symbol-ogv.svg")}
@@ -266,7 +266,7 @@ export async function getStaticProps() {
       articles: articlesRes?.data || null,
       meta: articlesRes?.meta || null,
       categories: Object.values(categories),
-      seo: formatSeo(seoRes),
+      seo: formatSeo(seoRes.data),
       navLinks,
     },
     revalidate: 5 * 60, // Cache response for 5m
