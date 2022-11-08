@@ -8,18 +8,6 @@ import styles from "styles/Article.module.css";
 import RichText from "./strapi/blocks/RichText";
 import formatSeo from "../utils/seo";
 
-const getBlockComponent = ({ __component, ...rest }, index) => {
-  return <RichText key={`index-${index}`} {...rest} />;
-};
-
-const BlockManager = ({ blocks }) => {
-  return <div>{blocks.map(getBlockComponent)}</div>;
-};
-
-BlockManager.defaultProps = {
-  blocks: [],
-};
-
 const Article = ({ article, navLinks }) => {
   const imageUrl = article.cover?.url;
 
