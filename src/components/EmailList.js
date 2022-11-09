@@ -17,7 +17,7 @@ const EmailList = () => {
           <Image src='/images/graphics/splines34.webp' height={550} width={550} alt="spline" />
         </span>
         <div className="relative z-10 max-w-screen-xl mx-auto">
-          <div className="flex flex-col align-items-center text-center mt-20 mb-60 md:mb-20 md:space-y-6">
+          <div className="flex flex-col align-items-center text-center mt-20 mb-20 md:space-y-6">
             <Typography.H5 className="text-white font-bold opacity-100">
               Join our mailing list to stay in touch
             </Typography.H5>

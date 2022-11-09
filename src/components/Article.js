@@ -1,11 +1,9 @@
 import Moment from "react-moment";
-import Layout from "./strapi/layout";
 import Seo from "./strapi/seo";
 import { Typography } from "@originprotocol/origin-storybook";
 import Image from "next/future/image";
 import Link from "next/link";
 import styles from "styles/Article.module.css";
-import RichText from "./strapi/blocks/RichText";
 import formatSeo from "../utils/seo";
 
 const Article = ({ article, navLinks }) => {
@@ -14,8 +12,9 @@ const Article = ({ article, navLinks }) => {
   const seo = formatSeo(article.seo);
 
   return (
-    <Layout navLinks={navLinks}>
+    <>
       <Seo seo={seo} />
+      <Header mappedLinks={navLinks} webProperty="originprotocol" />
       <div
         className="pb-20 px-6"
         style={{
@@ -31,7 +30,7 @@ const Article = ({ article, navLinks }) => {
               className="ml-2"
               alt="left arrow"
             />
-            <Link href="/company" className="ml-3">
+            <Link href="/blog" className="ml-3">
               Back to home page
             </Link>
           </Typography.Link>
@@ -97,7 +96,8 @@ const Article = ({ article, navLinks }) => {
           </div>
         </div>
       </div>
-    </Layout>
+      <Footer />
+    </>
   );
 };
 

@@ -12,7 +12,7 @@ import Seo from "../src/components/strapi/seo";
 import formatSeo from "../src/utils/seo";
 import transformLinks from "../src/utils/transformLinks";
 
-export default function Company({
+export default function Blog({
   locale,
   onLocale,
   articles,
@@ -24,7 +24,7 @@ export default function Company({
   return (
     <>
       <Head>
-        <title>Company</title>
+        <title>Blog</title>
       </Head>
       <Seo seo={seo} />
       <Header mappedLinks={navLinks} webProperty="originprotocol" />
@@ -250,7 +250,7 @@ export async function getStaticProps() {
     }
   });
 
-  const seoRes = await fetchAPI("/website/page/en/%2Fcompany");
+  const seoRes = await fetchAPI("/website/page/en/%2Fblog");
   const navRes = await fetchAPI("/website-nav-links", {
     populate: {
       links: {
