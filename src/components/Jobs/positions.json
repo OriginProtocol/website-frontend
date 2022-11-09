@@ -17,32 +17,6 @@
     ]
   },
   {
-    "name": "Design",
-    "positions": [
-      {
-        "name": "Marketing Designer",
-        "url": "https://angel.co/company/originprotocol/jobs/2226436-marketing-designer"
-      }
-    ]
-  },
-  {
-    "name": "Marketing",
-    "positions": [
-      {
-        "name": "Email Marketer",
-        "url": "https://angel.co/company/originprotocol/jobs/2360663-email-marketer"
-      },
-      {
-        "name": "Performance Marketer (Paid Ads)",
-        "url": "https://angel.co/company/originprotocol/jobs/2226610-performance-marketer-paid-ads"
-      },
-      {
-        "name": "Public and Media Relations Manager",
-        "url": "https://angel.co/company/originprotocol/jobs/370212-public-and-media-relations-manager"
-      }
-    ]
-  },
-  {
     "name": "Product",
     "positions": [
       {
@@ -52,15 +26,6 @@
       {
         "name": "Product Manager (NFTs)",
         "url": "https://angel.co/company/originprotocol/jobs/1505992-product-manager-nfts"
-      }
-    ]
-  },
-  {
-    "name": "Sales",
-    "positions": [
-      {
-        "name": "Business Development Manager (DeFi)",
-        "url": "https://angel.co/company/originprotocol/jobs/2226595-business-development-manager-defi"
       }
     ]
   }
