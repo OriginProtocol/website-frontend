@@ -1,15 +1,17 @@
-import Moment from "react-moment";
-import Seo from "./strapi/seo";
-import { Typography } from "@originprotocol/origin-storybook";
-import Image from "next/future/image";
-import Link from "next/link";
-import styles from "styles/Article.module.css";
-import formatSeo from "../utils/seo";
+import Moment from "react-moment"
+import Seo from "./strapi/seo"
+import { Typography, Header, Footer } from "@originprotocol/origin-storybook"
+import Image from "next/future/image"
+import Link from "next/link"
+import styles from "styles/Article.module.css"
+import formatSeo from "../utils/seo"
+import sanitizeHtml from 'sanitize-html'
+import he from 'he'
+import { sanitizationOptions } from "utils/constants"
 
 const Article = ({ article, navLinks }) => {
-  const imageUrl = article.cover?.url;
-
-  const seo = formatSeo(article.seo);
+  const imageUrl = article.cover?.url
+  const seo = formatSeo(article.seo)
 
   return (
     <>
@@ -61,7 +63,7 @@ const Article = ({ article, navLinks }) => {
             <div className={`py-6 pl-6 pr-6 md:px-28 ${styles.article}`}>
               <div
                 dangerouslySetInnerHTML={{
-                  __html: article.body,
+                  __html: sanitizeHtml(he.decode(article.body), sanitizationOptions),
                 }}
               />
               <hr className="my-6" />
@@ -76,8 +78,8 @@ const Article = ({ article, navLinks }) => {
                         borderRadius: "20%",
                         height: 60,
                       }}
-                      width="64px"
-                      height="64px"
+                      width="64"
+                      height="64"
                     />
                   )}
                 </div>
