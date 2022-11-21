@@ -99,6 +99,7 @@ const moduleExports = {
     // for more information.
     hideSourceMaps: true,
   },
+  experimental: { images: { allowFutureImage: true } },
   async redirects() {
     return [
       ...legacyAPIRedirects,

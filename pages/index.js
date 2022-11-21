@@ -87,7 +87,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
       </section>
       <section className="story light flex flex-col z-10 relative">
         <div className="max-w-screen-xl mx-auto">
-          <div className="flex flex-col-reverse md:flex-row layout items-center pt-10">
+          <div className="flex flex-col-reverse md:flex-row items-center pt-10">
             <div className="image-container self-end md:self-start pt-10 flex-1">
               <Image
                 src={assetRootPath("/images/screens/screens-story.png")}
@@ -128,7 +128,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
       </section>
       <section className="ousd dark gradient3 flex flex-col">
         <div className="max-w-screen-xl mx-auto md:pb-20">
-          <div className="flex flex-col md:flex-row layout relative">
+          <div className="flex flex-col md:flex-row relative">
             <div className="text-container text-center sm:text-left pt-14 pb-10 px-6 md:pt-32 md:pb-28 md:pr-10 md:w-1/2">
               <Image
                 src={assetRootPath("/images/logos/origin-dollar-wordmark.svg")}
@@ -154,7 +154,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
                 Learn more
               </a>
             </div>
-            <div className="image-container flex-1 pb-10 md:absolute md:top-1/2 -translate-y-1/2 md:-right-20 md:w-1/2">
+            <div className="image-container flex-1 pb-10 md:absolute md:top-1/2 md:-translate-y-1/2 md:-right-20 md:w-1/2">
               <Image
                 src={assetRootPath('/images/screens/screens-ousd.png')}
                 className="screen3"
@@ -181,7 +181,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
                 />
               </div>
               <div className="md:flex md:flex-col md:items-start md:justify-center md:pl-16 md:flex-1">
-                <Typography.H3 className='font-bold'>It's all about the community</Typography.H3>
+                <Typography.H3 className='font-bold mt-10 md:mt-0'>It's all about the community</Typography.H3>
                 <div className="opacity-75 font-light mt-5 mb-7">
                   Join hundreds of thousands of community members and token
                   holders, hundreds of open-source developers, or our
@@ -197,7 +197,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
                 </Button>
               </div>
             </div>
-            <div className="team flex layout flex-col-reverse mt-10 md:flex-row max-w-screen-xl mx-auto">
+            <div className="team flex flex-col-reverse md:flex-row mt-10 max-w-screen-xl mx-auto">
               <div className="text-container px-6 mt-10 max-w-xl md:mr-12">
                 <Typography.H3 className='font-bold'>A world-class team</Typography.H3>
                 <div className="opacity-75 font-light mt-3 mb-9">
@@ -262,9 +262,9 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
                   </Button>
                 </div>
               </div>
-              <div className="relative my-10 md:my-0">
+              <div className="relative my-20 md:mt-32 md:mb-10 lg:mt-10">
                 <span
-                  className={`absolute left-10 sm:left-24 right-10 sm:right-24 md:left-0 md:-right-20 -top-12 sm:-top-20 md:-top-20 md:w-full`}
+                  className={`absolute w-96 sm:w-auto left-24 right-24 md:left-0 md:-right-20 -top-20 md:-top-20 md:w-full`}
                 >
                   <Image
                     src="/images/graphics/splines32.png"
@@ -299,7 +299,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
           <div className="flex flex-col px-7 py-12 max-w-screen-xl mx-auto md:py-32">
             <div className="flex flex-col mt-1 md:mt-10 md:flex-row md:items-center md:justify-between">
               <Typography.H3 className='font-bold'>Latest stories</Typography.H3>
-              <Link href={adjustLinkHref("/company")}>
+              <Link href={adjustLinkHref("/blog")}>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"

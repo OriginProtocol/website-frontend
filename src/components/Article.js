@@ -1,33 +1,22 @@
-import Moment from "react-moment";
-import Layout from "./strapi/layout";
-import Seo from "./strapi/seo";
-import { Typography } from "@originprotocol/origin-storybook";
-import Image from "next/image";
-import Link from "next/link";
-import styles from "styles/Article.module.css";
-import RichText from "./strapi/blocks/RichText";
-import formatSeo from "../utils/seo";
-
-const getBlockComponent = ({ __component, ...rest }, index) => {
-  return <RichText key={`index-${index}`} {...rest} />;
-};
-
-const BlockManager = ({ blocks }) => {
-  return <div>{blocks.map(getBlockComponent)}</div>;
-};
-
-BlockManager.defaultProps = {
-  blocks: [],
-};
+import Moment from "react-moment"
+import Seo from "./strapi/seo"
+import { Typography, Header, Footer } from "@originprotocol/origin-storybook"
+import Image from "next/future/image"
+import Link from "next/link"
+import styles from "styles/Article.module.css"
+import formatSeo from "../utils/seo"
+import sanitizeHtml from 'sanitize-html'
+import he from 'he'
+import { sanitizationOptions } from "utils/constants"
 
 const Article = ({ article, navLinks }) => {
-  const imageUrl = article.cover?.url;
-
-  const seo = formatSeo(article.seo);
+  const imageUrl = article.cover?.url
+  const seo = formatSeo(article.seo)
 
   return (
-    <Layout navLinks={navLinks}>
+    <>
       <Seo seo={seo} />
+      <Header mappedLinks={navLinks} webProperty="originprotocol" />
       <div
         className="pb-20 px-6"
         style={{
@@ -43,7 +32,7 @@ const Article = ({ article, navLinks }) => {
               className="ml-2"
               alt="left arrow"
             />
-            <Link href="/company" className="ml-3">
+            <Link href="/blog" className="ml-3">
               Back to home page
             </Link>
           </Typography.Link>
@@ -55,15 +44,17 @@ const Article = ({ article, navLinks }) => {
           {imageUrl && (
             <div
               id="banner"
-              className="bg-cover flex justify-center items-center m-0 h-96 w-full rounded-tl-2xl rounded-tr-2xl relative overflow-hidden"
+              className="bg-cover flex justify-center items-center m-0 rounded-tl-2xl rounded-tr-2xl relative overflow-hidden"
               data-src={imageUrl}
               data-srcset={imageUrl}
             >
               <Image
                 src={imageUrl}
                 alt={article.cover?.alternativeText}
-                layout='fill'
-                objectFit='cover'
+                width='0'
+                height='0'
+                sizes='100vw'
+                className='w-full h-auto'
                 priority
               />
             </div>
@@ -72,7 +63,7 @@ const Article = ({ article, navLinks }) => {
             <div className={`py-6 pl-6 pr-6 md:px-28 ${styles.article}`}>
               <div
                 dangerouslySetInnerHTML={{
-                  __html: article.body,
+                  __html: sanitizeHtml(he.decode(article.body), sanitizationOptions),
                 }}
               />
               <hr className="my-6" />
@@ -87,8 +78,8 @@ const Article = ({ article, navLinks }) => {
                         borderRadius: "20%",
                         height: 60,
                       }}
-                      width="64px"
-                      height="64px"
+                      width="64"
+                      height="64"
                     />
                   )}
                 </div>
@@ -107,7 +98,8 @@ const Article = ({ article, navLinks }) => {
           </div>
         </div>
       </div>
-    </Layout>
+      <Footer />
+    </>
   );
 };
 
