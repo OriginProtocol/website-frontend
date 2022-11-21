@@ -362,8 +362,8 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
         {contributors.length && <Contributors contributors={contributors} />}
         <section className="investors light text-center">
           <div className="max-w-screen-xl mx-auto pt-24 pb-32 px-20">
-            <Typography.H3 className='pb-10 font-bold'>Notable investors</Typography.H3>
-            <div className="flex flex-row justify-between mt-24 mb-10 pb-20">
+            <Typography.H3 className='pb-4 font-bold'>Notable investors</Typography.H3>
+            <div className="flex flex-wrap justify-center items-center gap-x-14 gap-y-32 mt-24 mb-10 pb-10">
               <Image
                 src={assetRootPath("/images/logos/company-pantera.svg")}
                 className="company"
@@ -394,8 +394,6 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                 width="200px"
                 height="50px"
               />
-            </div>
-            <div className="flex flex-row justify-around mt-10 mb-24">
               <Image
                 src={assetRootPath("/images/logos/company-hackvc.svg")}
                 className="company"
