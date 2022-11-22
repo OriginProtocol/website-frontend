@@ -1207,6 +1207,11 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@fontsource/lato@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/lato/-/lato-4.5.10.tgz#1ab3d33282e605886e4a8b4c32b1f230a4cb5ea6"
+  integrity sha512-2hYR6r661Cq9B8zugtu6yxuOKqrVhAgfOSaPSq8XoxbC4ebsl0KOTy/vPoP+9U7JuQVLfrmikirW4a9Z0nDUug==
+
 "@heroicons/react@^2.0.11":
   version "2.0.11"
   resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.0.11.tgz#2c6cf4c66d81142ec87c102502407d8c353558bb"
@@ -4657,6 +4662,11 @@ flush-write-stream@^1.0.0:
   dependencies:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
+
+fontsource-lato@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/fontsource-lato/-/fontsource-lato-4.0.0.tgz#cdd93644f12ed4c326f84d871cef7b3732cd801e"
+  integrity sha512-YviJ8Dh/Mk5IDbnrcWwolx4kRFJOEYvzWoFkBtjebj8mXocIh7RVtk31IdRAW7/ZNb6oOPm2WtE1gpBvTRsN7g==
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -8967,11 +8977,6 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
-
-typeface-lato@^1.1.13:
-  version "1.1.13"
-  resolved "https://registry.npmjs.org/typeface-lato/-/typeface-lato-1.1.13.tgz"
-  integrity sha512-sTn5k3+fagGOi8FQfN2MPeUiTdvG0Z3LVqCaQdsg2sYa0fzNteFZussizdwiPxF45OoFN3zdU/ci+PtjolNSPQ==
 
 ua-parser-js@^0.7.30:
   version "0.7.31"

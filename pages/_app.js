@@ -6,6 +6,7 @@ import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
 import "react-toastify/scss/main.scss";
 import "../styles/globals.css";
+import "@fontsource/lato";
 import bundledCss from "@originprotocol/origin-storybook/lib/styles.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 import analytics from "utils/analytics";
