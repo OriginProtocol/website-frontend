@@ -37,6 +37,8 @@ const legacyPageMappings = [
   ['/team', '/community'],
   ['/about', '/community'],
 
+  ['/company', '/blog'],
+
   ['/discord', `${NEXT_PUBLIC_DISCORD_URL}`],
   ['/telegram', `${NEXT_PUBLIC_TELEGRAM_URL}`],
 
