@@ -111,63 +111,26 @@ export default function Blog({
             <Card
               webProperty={"press"}
               title={"Origin Logo"}
-              img={<Image src={assetRootPath("/images/logos/origin-press.svg")} alt="Origin Logo" width="420px" height="210px" objectFit='cover' />}
-              body={""}
-              linkText={"Download SVG"}
-              linkHref={assetRootPath("/images/logos/logo-origin.svg")}
-              linkText2={"Download PNG"}
-              linkHref2={assetRootPath("/images/logos/logo-origin.png")}
+              img={<Image src={assetRootPath("/images/logos/press-origin.svg")} alt="Origin Logo" width="420px" height="210px" objectFit='cover' />}
+              body={"Download the Origin Protocol logo."}
+              linkText={"Download"}
+              linkHref={assetRootPath("/images/origin-assets.zip")}
             />
             <Card
               webProperty={"press"}
               title={"Origin Dollar Logo"}
               img={<Image src={assetRootPath("/images/logos/press-origin-dollar.svg")} alt="Origin Dollar Logo" width="420px" height="210px" objectFit='cover' />}
-              body={""}
-              linkText={"Download SVG"}
-              linkHref={assetRootPath("/images/logos/logo-origin-dollar.svg")}
-              linkText2={"Download PNG"}
-              linkHref2={assetRootPath("/images/logos/logo-origin-dollar.png")}
+              body={"Download the Origin Dollar logo, OUSD symbol and OGV symbol."}
+              linkText={"Download"}
+              linkHref={assetRootPath("/images/origin-dollar-assets.zip")}
             />
             <Card
               webProperty={"press"}
               title={"Origin Story"}
               img={<Image src={assetRootPath("/images/logos/press-origin-story.svg")} alt="Origin Story Logo" width="420px" height="210px" objectFit='cover' />}
-              body={""}
-              linkText={"Download SVG"}
-              linkHref={assetRootPath("/images/logos/logo-origin-story.svg")}
-              linkText2={"Download PNG"}
-              linkHref2={assetRootPath("/images/logos/logo-origin-story.png")}
-            />
-            <Card
-              webProperty={"press"}
-              title={"OGN Symbol"}
-              img={<Image src={assetRootPath("/images/logos/ogn-press.svg")} alt="OGN Symbol" width="420px" height="210px" objectFit='cover' />}
-              imgAlt={"OGN Symbol"}
-              body={""}
-              linkText={"Download SVG"}
-              linkHref={assetRootPath("/images/logos/symbol-ogn.svg")}
-              linkText2={"Download PNG"}
-              linkHref2={assetRootPath("/images/logos/symbol-ogn.png")}
-            />
-            <Card
-              webProperty={"press"}
-              title={"OUSD Symbol"}
-              img={<Image src={assetRootPath("/images/logos/ousd-press.svg")} alt="OUSD Symbol" width="420px" height="210px" objectFit='cover' />}
-              body={""}
-              linkText={"Download SVG"}
-              linkHref={assetRootPath("/images/logos/symbol-ousd.svg")}
-              linkText2={"Download PNG"}
-              linkHref2={assetRootPath("/images/logos/symbol-ousd.png")}
-            />
-            <Card
-              webProperty={"press"}
-              title={"OGV Symbol"}
-              img={<Image src={assetRootPath("/images/logos/ogv-press.svg")} alt="OGV Symbol" width="420px" height="210px" objectFit='cover' />}
-              body={""}
-              linkText={"Download SVG"}
-              linkHref={assetRootPath("/images/logos/symbol-ogv.svg")}
-              linkText2={"Download PNG"}
-              linkHref2={assetRootPath("/images/logos/symbol-ogv.png")}
+              body={"Download the Origin Story logo, and symbol."}
+              linkText={"Download"}
+              linkHref={assetRootPath("/images/origin-story-assets.zip")}
             />
           </div>
         </div>
