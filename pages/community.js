@@ -596,7 +596,7 @@ export async function getStaticProps() {
       navLinks,
     },
     revalidate: 5 * 60, // Cache response for 5 min
-  };
+  }
 }
 
-export default withIsMobile(Community);
+export default withIsMobile(Community)

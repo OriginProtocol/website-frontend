@@ -5,14 +5,14 @@ import {
 import News from "components/News";
 import Head from "next/head";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import { assetRootPath } from "utils/image";
 import { fetchAPI } from "../lib/api";
 import Seo from "../src/components/strapi/seo";
 import formatSeo from "../src/utils/seo";
 import transformLinks from "../src/utils/transformLinks";
 
-export default function Blog({
+const Blog = ({
   locale,
   onLocale,
   articles,
@@ -20,20 +20,22 @@ export default function Blog({
   categories,
   seo,
   navLinks,
-}) {
+}) => {
+  const pageRef = useRef(null)
+
   return (
-    <>
+    <div ref={pageRef}>
       <Head>
         <title>Blog</title>
       </Head>
       <Seo seo={seo} />
       <Header mappedLinks={navLinks} webProperty="originprotocol" />
       <section className="intro grey pt-10 pb-24">
-        <div className="container-fluid max-w-screen-xl mx-auto px-6 mb-6">
+        <div className="container-fluid max-w-screen-xl mx-auto px-8 mb-6">
           <Typography.H2 className='font-bold'>Latest news</Typography.H2>
         </div>
       </section>
-      {!articles?.length ? null : <News articles={articles} meta={meta} categories={categories} />}
+      {!articles?.length ? null : <News articles={articles} meta={meta} categories={categories} pageRef={pageRef} />}
       <section className="articles grey">
         <div className="container-fluid max-w-screen-xl mx-auto pt-10 md:pb-32 px-6">
           <Typography.H3 as='h3' className='font-bold md:mt-28'>As seen in</Typography.H3>
@@ -111,63 +113,26 @@ export default function Blog({
             <Card
               webProperty={"press"}
               title={"Origin Logo"}
-              img={<Image src={assetRootPath("/images/logos/origin-press.svg")} alt="Origin Logo" width="420px" height="210px" objectFit='cover' />}
-              body={""}
-              linkText={"Download SVG"}
-              linkHref={assetRootPath("/images/logos/logo-origin.svg")}
-              linkText2={"Download PNG"}
-              linkHref2={assetRootPath("/images/logos/logo-origin.png")}
+              img={<Image src={assetRootPath("/images/logos/press-origin.svg")} alt="Origin Logo" width="420px" height="210px" objectFit='cover' />}
+              body={"Download the Origin Protocol logo."}
+              linkText={"Download"}
+              linkHref={assetRootPath("/images/origin-assets.zip")}
             />
             <Card
               webProperty={"press"}
               title={"Origin Dollar Logo"}
               img={<Image src={assetRootPath("/images/logos/press-origin-dollar.svg")} alt="Origin Dollar Logo" width="420px" height="210px" objectFit='cover' />}
-              body={""}
-              linkText={"Download SVG"}
-              linkHref={assetRootPath("/images/logos/logo-origin-dollar.svg")}
-              linkText2={"Download PNG"}
-              linkHref2={assetRootPath("/images/logos/logo-origin-dollar.png")}
+              body={"Download the Origin Dollar logo, OUSD symbol and OGV symbol."}
+              linkText={"Download"}
+              linkHref={assetRootPath("/images/origin-dollar-assets.zip")}
             />
             <Card
               webProperty={"press"}
               title={"Origin Story"}
               img={<Image src={assetRootPath("/images/logos/press-origin-story.svg")} alt="Origin Story Logo" width="420px" height="210px" objectFit='cover' />}
-              body={""}
-              linkText={"Download SVG"}
-              linkHref={assetRootPath("/images/logos/logo-origin-story.svg")}
-              linkText2={"Download PNG"}
-              linkHref2={assetRootPath("/images/logos/logo-origin-story.png")}
-            />
-            <Card
-              webProperty={"press"}
-              title={"OGN Symbol"}
-              img={<Image src={assetRootPath("/images/logos/ogn-press.svg")} alt="OGN Symbol" width="420px" height="210px" objectFit='cover' />}
-              imgAlt={"OGN Symbol"}
-              body={""}
-              linkText={"Download SVG"}
-              linkHref={assetRootPath("/images/logos/symbol-ogn.svg")}
-              linkText2={"Download PNG"}
-              linkHref2={assetRootPath("/images/logos/symbol-ogn.png")}
-            />
-            <Card
-              webProperty={"press"}
-              title={"OUSD Symbol"}
-              img={<Image src={assetRootPath("/images/logos/ousd-press.svg")} alt="OUSD Symbol" width="420px" height="210px" objectFit='cover' />}
-              body={""}
-              linkText={"Download SVG"}
-              linkHref={assetRootPath("/images/logos/symbol-ousd.svg")}
-              linkText2={"Download PNG"}
-              linkHref2={assetRootPath("/images/logos/symbol-ousd.png")}
-            />
-            <Card
-              webProperty={"press"}
-              title={"OGV Symbol"}
-              img={<Image src={assetRootPath("/images/logos/ogv-press.svg")} alt="OGV Symbol" width="420px" height="210px" objectFit='cover' />}
-              body={""}
-              linkText={"Download SVG"}
-              linkHref={assetRootPath("/images/logos/symbol-ogv.svg")}
-              linkText2={"Download PNG"}
-              linkHref2={assetRootPath("/images/logos/symbol-ogv.png")}
+              body={"Download the Origin Story logo, and symbol."}
+              linkText={"Download"}
+              linkHref={assetRootPath("/images/origin-story-assets.zip")}
             />
           </div>
         </div>
@@ -233,7 +198,7 @@ export default function Blog({
           }
         }
       `}</style>
-    </>
+    </div>
   );
 }
 
@@ -272,3 +237,5 @@ export async function getStaticProps() {
     revalidate: 5 * 60, // Cache response for 5m
   };
 }
+
+export default Blog

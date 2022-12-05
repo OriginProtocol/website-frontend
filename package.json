@@ -19,7 +19,7 @@
   "dependencies": {
     "@analytics/google-analytics": "^1.0.3",
     "@fontsource/lato": "^4.5.10",
-    "@originprotocol/origin-storybook": "^0.25.3",
+    "@originprotocol/origin-storybook": "^0.25.10",
     "@sentry/nextjs": "^7.15.0",
     "analytics": "^0.8.1",
     "babel": "^6.23.0",
