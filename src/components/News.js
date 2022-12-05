@@ -1,62 +1,101 @@
-import { Card, Select } from "@originprotocol/origin-storybook";
-import withIsMobile from "hoc/withIsMobile";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import { assetRootPath } from "utils/image";
+import React, { useEffect, useState } from 'react'
+import { Card, Select } from '@originprotocol/origin-storybook'
+import withIsMobile from 'hoc/withIsMobile'
+import Image from 'next/image'
+import Moment from 'react-moment'
+import { assetRootPath } from 'utils/image'
+import capitalize from 'lodash/capitalize'
 
-const Category = ({ categories, setCategory }) => {
-  const [open, setOpen] = useState(false);
-  //const categories = ['All news', 'News', 'Food', 'Nature', 'Tech', 'Story']
-  const capitalize = (name) => {
-    return name.slice(0, 1).toUpperCase() + name.slice(1, name.length);
-  };
-
-  const categoriesFormatted = [
+const Dropdown = ({ options, option, setOption, category }) => {
+  const [open, setOpen] = useState()
+  const optionsFormatted = category ? [
     {
-      id: null,
-      name: "All articles",
+      name: 'All news',
       unavailable: false,
     },
   ].concat(
-    categories.map((category) => {
+    options.map((option) => {
       return {
-        id: category.slug,
-        name: capitalize(category.name),
+        name: capitalize(option.name),
         unavailable: false,
-      };
+      }
     })
-  );
+  ) : [{
+    name: 'Most recent'
+  },
+  {
+    name: 'Least recent'
+  },]
 
   return (
-    <div className="pl-0 w-96 pt-4">
-      <Select
-        options={categoriesFormatted}
-        onSelect={(value) => {
-          setCategory(value.id);
+    <div
+      className='relative w-full md:!w-[200px]'
+      tabIndex='1'
+      onBlur={() => setOpen(false)}
+    >
+      <div
+        className='relative z-20 w-full md:w-[200px] px-6 py-3.5 bg-white shadow-2xl rounded-full cursor-pointer'
+        onClick={() => {
+          setOpen(!open)
         }}
-      />
+      >
+        <div className='flex flex-row justify-between'>
+          {option || 'All news'}
+          <Image
+            src={assetRootPath(`/images/arrow-down.svg`)}
+            width='20'
+            height='12'
+            alt='arrow'
+          />
+        </div>
+      </div>
+      <div
+        className={`absolute z-10 top-16 w-full md:w-[200px] bg-white drop-shadow-ousd rounded-lg cursor-pointer ${open ? '' : 'hidden'}`}
+      >
+        {optionsFormatted.map((c, i) => {
+          return (
+            <div
+              className={`w-full text-left px-6 py-3.5 hover:text-[#fafbfb] hover:bg-[#0074f0] ${i === 0 ? 'rounded-t-lg' : ''} ${i === optionsFormatted.length - 1 ? 'rounded-b-lg' : ''}`}
+              onClick={() => {
+                setOption(c.name === 'All news' ? '' : c.name)
+                setOpen(false)
+              }}
+              key={i}
+            >
+              {c.name}
+            </div>
+          )
+        })}
+      </div>
     </div>
-  );
-};
+  )
+}
 
 const News = ({ isMobile, articles, meta, categories }) => {
   const [loaded, setLoaded] = useState(false);
+  const perPage = isMobile ? 3 : 9
 
   useEffect(() => {
     setLoaded(true);
   }, []);
 
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState('');
   const [page, setPage] = useState(1);
   const [pageNumbers, setPageNumbers] = useState([]);
+  const [order, setOrder] = useState('Most recent')
+
+  const articlesSorted = articles.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+  const articlesOrdered = order === 'Most recent' ? articlesSorted : articlesSorted.reverse()
+
+  const categoryArticles = category ? articlesOrdered.filter((article) => article.category.slug === category) : articlesOrdered
 
   const articlePages = Math.ceil(
     (category
-      ? articles.filter((article) => article.slug === category.slug).length
-      : meta.pagination.total) / 9
+      ? categoryArticles.filter((article) => article.slug === category.slug).length
+      : meta.pagination.total) / perPage
   );
-  const currentPageArticles = articles
-    ? articles.slice(9 * (page - 1), 9 * page)
+  const currentPageArticles = articlesOrdered
+    ? categoryArticles.slice(perPage * (page - 1), perPage * page)
     : [];
 
   useEffect(() => {
@@ -73,13 +112,20 @@ const News = ({ isMobile, articles, meta, categories }) => {
     <>
       {loaded && currentPageArticles && (
         <section className="stories light">
-          <div className="container-fluid max-w-screen-xl mx-auto mt-6 md:mb-28 px-6">
-            <Category
-              categories={categories}
-              category={category}
-              setCategory={setCategory}
-            />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-11 max-w-screen-xl mx-auto px-6 md:px-0">
+          <div className="container-fluid max-w-screen-xl mx-auto mt-14 md:mb-28 px-6">
+            <div className='flex flex-col md:flex-row space-y-3 md:space-x-6 md:space-y-0'>
+              <Dropdown
+                options={categories}
+                option={category}
+                setOption={setCategory}
+                category
+              />
+              <Dropdown
+                option={order}
+                setOption={setOrder}
+              />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-11 max-w-screen-xl mx-auto px-6 md:!px-0">
               {currentPageArticles.map((a, i) => {
                 if (!category || category === a.category.slug) {
                   return (
@@ -87,7 +133,7 @@ const News = ({ isMobile, articles, meta, categories }) => {
                       webProperty={"originprotocol"}
                       title={a.title}
                       img={<Image src={ a.cardCover?.url || a.cover?.url || assetRootPath('/images/logos/origin-press.svg')} alt={a.cover?.alternativeText} width='640' height='312' />}
-                      body={a.description}
+                      body={<Moment format="MMMM D, YYYY">{a.publishedAt}</Moment>}
                       linkText={"Read more"}
                       linkHref={`/${a.slug}`}
                       key={a.title}

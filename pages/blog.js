@@ -29,7 +29,7 @@ export default function Blog({
       <Seo seo={seo} />
       <Header mappedLinks={navLinks} webProperty="originprotocol" />
       <section className="intro grey pt-10 pb-24">
-        <div className="container-fluid max-w-screen-xl mx-auto px-6 mb-6">
+        <div className="container-fluid max-w-screen-xl mx-auto px-8 mb-6">
           <Typography.H2 className='font-bold'>Latest news</Typography.H2>
         </div>
       </section>

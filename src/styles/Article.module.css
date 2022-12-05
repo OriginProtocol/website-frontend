@@ -60,6 +60,11 @@
 
 .article figure img {
   display: inline !important;
+  margin-top: 0;
+}
+
+.article figure, .article img {
+  margin-top: 1.5rem;
 }
 
 .article a {
