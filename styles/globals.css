@@ -161,6 +161,14 @@ h6 {
   background-image: -webkit-linear-gradient(left,#B361E6,#6A36FC);
 }
 
+.gradient4 {
+  background-image: -webkit-linear-gradient(left,#B361E6,#6A36FC);
+}
+
+.gradient5 {
+  background-image: -webkit-linear-gradient(top, #f6f8fe 50%, #ffffff 50%);
+}
+
 .button {
   display: inline-block;
   border: 0;
