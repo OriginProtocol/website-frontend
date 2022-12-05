@@ -43,9 +43,9 @@ const Article = ({ article, navLinks }) => {
               </Link>
             </div>
             <div className="max-w-[943px] mx-auto mt-6 md:mt-12">
-              <Typography.H4 as="h1" className='text-[24px] md:text-[56px] leading-[32px] md:leading-[72px]'>{article.title}</Typography.H4>
+              <Typography.H4 as="h1" className='!text-[24px] md:!text-[56px] !leading-[32px] md:!leading-[72px]'>{article.title}</Typography.H4>
             </div>
-            <div className="max-w-[943px] mx-auto mt-3 md:mt-6">
+            <div className="max-w-[943px] mx-auto mt-3 md:!mt-6">
               <Typography.Body3 className='text-[14px] md:text-[16px] text-[#475569]'>
                 <Moment format="MMMM D YYYY">{article.publishedAt}</Moment>
               </Typography.Body3>
