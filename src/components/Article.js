@@ -28,10 +28,10 @@ const Article = ({ article, navLinks }) => {
           <div className='bg-[#f6f8fe] px-8 md:px-16 lg:px-[134px]'>
             <div className="max-w-[943px] mx-auto">
               <Link href={'/blog'}>
-                <div className='inline-block px-4 md:px-6 py-1.5 text-center rounded-full border-black border-[1px]'>
+                <div className='inline-block px-4 md:px-6 py-1.5 text-center rounded-full border-black border-[1px] cursor-pointer'>
                   <div className='flex flex-row justify-between space-x-3 md:space-x-5'>
                     <Image
-                      src="/images/arrow-left-gradient.svg"
+                      src="/images/arrow-left.svg"
                       width="10"
                       height="6"
                       className=""
