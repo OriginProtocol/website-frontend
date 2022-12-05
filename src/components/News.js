@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Card, Select } from '@originprotocol/origin-storybook'
 import withIsMobile from 'hoc/withIsMobile'
 import Image from 'next/image'
@@ -34,7 +34,7 @@ const Dropdown = ({ options, option, setOption, category }) => {
       onBlur={() => setOpen(false)}
     >
       <div
-        className='relative z-20 w-full md:w-[200px] px-6 py-3.5 bg-white shadow-2xl rounded-full cursor-pointer'
+        className={`relative w-full md:w-[200px] px-6 py-3.5 bg-white shadow-2xl rounded-full cursor-pointer ${category ? 'z-40' : 'z-20'}`}
         onClick={() => {
           setOpen(!open)
         }}
@@ -50,7 +50,7 @@ const Dropdown = ({ options, option, setOption, category }) => {
         </div>
       </div>
       <div
-        className={`absolute z-10 top-16 w-full md:w-[200px] bg-white drop-shadow-ousd rounded-lg cursor-pointer ${open ? '' : 'hidden'}`}
+        className={`absolute top-16 w-full md:w-[200px] bg-white drop-shadow-ousd rounded-lg cursor-pointer ${open ? '' : 'hidden'} ${category ? 'z-40' : 'z-20'}`}
       >
         {optionsFormatted.map((c, i) => {
           return (
@@ -71,7 +71,7 @@ const Dropdown = ({ options, option, setOption, category }) => {
   )
 }
 
-const News = ({ isMobile, articles, meta, categories }) => {
+const News = ({ isMobile, articles, meta, categories, pageRef }) => {
   const [loaded, setLoaded] = useState(false);
   const perPage = isMobile ? 3 : 9
 
@@ -161,9 +161,10 @@ const News = ({ isMobile, articles, meta, categories }) => {
                       } flex items-center justify-center`}
                       onClick={() => {
                         if (isCurrent) {
-                          return;
+                          return
                         }
-                        setPage(pageNumber);
+                        setPage(pageNumber)
+                        pageRef.current.scrollIntoView()
                       }}
                     >
                       {pageNumber}

@@ -5,14 +5,14 @@ import {
 import News from "components/News";
 import Head from "next/head";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import { assetRootPath } from "utils/image";
 import { fetchAPI } from "../lib/api";
 import Seo from "../src/components/strapi/seo";
 import formatSeo from "../src/utils/seo";
 import transformLinks from "../src/utils/transformLinks";
 
-export default function Blog({
+const Blog = ({
   locale,
   onLocale,
   articles,
@@ -20,9 +20,11 @@ export default function Blog({
   categories,
   seo,
   navLinks,
-}) {
+}) => {
+  const pageRef = useRef(null)
+
   return (
-    <>
+    <div ref={pageRef}>
       <Head>
         <title>Blog</title>
       </Head>
@@ -33,7 +35,7 @@ export default function Blog({
           <Typography.H2 className='font-bold'>Latest news</Typography.H2>
         </div>
       </section>
-      {!articles?.length ? null : <News articles={articles} meta={meta} categories={categories} />}
+      {!articles?.length ? null : <News articles={articles} meta={meta} categories={categories} pageRef={pageRef} />}
       <section className="articles grey">
         <div className="container-fluid max-w-screen-xl mx-auto pt-10 md:pb-32 px-6">
           <Typography.H3 as='h3' className='font-bold md:mt-28'>As seen in</Typography.H3>
@@ -196,7 +198,7 @@ export default function Blog({
           }
         }
       `}</style>
-    </>
+    </div>
   );
 }
 
@@ -235,3 +237,5 @@ export async function getStaticProps() {
     revalidate: 5 * 60, // Cache response for 5m
   };
 }
+
+export default Blog
