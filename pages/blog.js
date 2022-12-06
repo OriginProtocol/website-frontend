@@ -5,14 +5,14 @@ import {
 import News from "components/News";
 import Head from "next/head";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import { assetRootPath } from "utils/image";
 import { fetchAPI } from "../lib/api";
 import Seo from "../src/components/strapi/seo";
 import formatSeo from "../src/utils/seo";
 import transformLinks from "../src/utils/transformLinks";
 
-export default function Blog({
+const Blog = ({
   locale,
   onLocale,
   articles,
@@ -20,20 +20,22 @@ export default function Blog({
   categories,
   seo,
   navLinks,
-}) {
+}) => {
+  const pageRef = useRef(null)
+
   return (
-    <>
+    <div ref={pageRef}>
       <Head>
         <title>Blog</title>
       </Head>
       <Seo seo={seo} />
       <Header mappedLinks={navLinks} webProperty="originprotocol" />
       <section className="intro grey pt-10 pb-24">
-        <div className="container-fluid max-w-screen-xl mx-auto px-6 mb-6">
+        <div className="container-fluid max-w-screen-xl mx-auto px-8 mb-6">
           <Typography.H2 className='font-bold'>Latest news</Typography.H2>
         </div>
       </section>
-      {!articles?.length ? null : <News articles={articles} meta={meta} categories={categories} />}
+      {!articles?.length ? null : <News articles={articles} meta={meta} categories={categories} pageRef={pageRef} />}
       <section className="articles grey">
         <div className="container-fluid max-w-screen-xl mx-auto pt-10 md:pb-32 px-6">
           <Typography.H3 as='h3' className='font-bold md:mt-28'>As seen in</Typography.H3>
@@ -110,7 +112,7 @@ export default function Blog({
           <div className="container mt-10">
             <Card
               webProperty={"press"}
-              title={"Origin Logo"}
+              title={"Origin Protocol"}
               img={<Image src={assetRootPath("/images/logos/press-origin.svg")} alt="Origin Logo" width="420px" height="210px" objectFit='cover' />}
               body={"Download the Origin Protocol logo."}
               linkText={"Download"}
@@ -118,7 +120,7 @@ export default function Blog({
             />
             <Card
               webProperty={"press"}
-              title={"Origin Dollar Logo"}
+              title={"Origin Dollar"}
               img={<Image src={assetRootPath("/images/logos/press-origin-dollar.svg")} alt="Origin Dollar Logo" width="420px" height="210px" objectFit='cover' />}
               body={"Download the Origin Dollar logo, OUSD symbol and OGV symbol."}
               linkText={"Download"}
@@ -128,7 +130,7 @@ export default function Blog({
               webProperty={"press"}
               title={"Origin Story"}
               img={<Image src={assetRootPath("/images/logos/press-origin-story.svg")} alt="Origin Story Logo" width="420px" height="210px" objectFit='cover' />}
-              body={"Download the Origin Story logo, and symbol."}
+              body={"Download the Origin Story logo and OGN symbol."}
               linkText={"Download"}
               linkHref={assetRootPath("/images/origin-story-assets.zip")}
             />
@@ -196,7 +198,7 @@ export default function Blog({
           }
         }
       `}</style>
-    </>
+    </div>
   );
 }
 
@@ -235,3 +237,5 @@ export async function getStaticProps() {
     revalidate: 5 * 60, // Cache response for 5m
   };
 }
+
+export default Blog
