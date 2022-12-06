@@ -15,6 +15,10 @@ const formatSeo = (seoRes) => {
     seo.metaViewport = seoRes.metaViewport;
   }
 
+  if (seoRes.canonicalURL) {
+    seo.canonicalURL = seoRes.canonicalURL;
+  }
+
   if (seoRes.metaSocial) {
     const metaSocial = {};
     seoRes.metaSocial.forEach((metaSoc) => {
