@@ -112,7 +112,7 @@ const Blog = ({
           <div className="container mt-10">
             <Card
               webProperty={"press"}
-              title={"Origin Logo"}
+              title={"Origin Protocol"}
               img={<Image src={assetRootPath("/images/logos/press-origin.svg")} alt="Origin Logo" width="420px" height="210px" objectFit='cover' />}
               body={"Download the Origin Protocol logo."}
               linkText={"Download"}
@@ -120,7 +120,7 @@ const Blog = ({
             />
             <Card
               webProperty={"press"}
-              title={"Origin Dollar Logo"}
+              title={"Origin Dollar"}
               img={<Image src={assetRootPath("/images/logos/press-origin-dollar.svg")} alt="Origin Dollar Logo" width="420px" height="210px" objectFit='cover' />}
               body={"Download the Origin Dollar logo, OUSD symbol and OGV symbol."}
               linkText={"Download"}
@@ -130,7 +130,7 @@ const Blog = ({
               webProperty={"press"}
               title={"Origin Story"}
               img={<Image src={assetRootPath("/images/logos/press-origin-story.svg")} alt="Origin Story Logo" width="420px" height="210px" objectFit='cover' />}
-              body={"Download the Origin Story logo, and symbol."}
+              body={"Download the Origin Story logo and OGN symbol."}
               linkText={"Download"}
               linkHref={assetRootPath("/images/origin-story-assets.zip")}
             />
