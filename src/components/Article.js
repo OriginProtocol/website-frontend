@@ -25,7 +25,7 @@ const Article = ({ article, navLinks }) => {
       {loaded && (
         <>
           <Header mappedLinks={navLinks} webProperty="originprotocol" />
-          <div className='bg-[#f6f8fe] px-8 md:px-16 lg:px-[134px]'>
+          <div className='bg-[#f6f8fe] px-8 md:px-16 lg:px-[134px] pb-8 md:pb-16'>
             <div className="max-w-[943px] mx-auto">
               <Link href={'/blog'}>
                 <div className='inline-block px-4 md:px-6 py-1.5 text-center rounded-full border-black border-[1px] cursor-pointer'>
@@ -52,7 +52,7 @@ const Article = ({ article, navLinks }) => {
             </div>
           </div>
           <div className='gradient5 px-4 md:px-16 lg:px-[134px]'>
-            <div className="relative max-w-[943px] mx-auto pt-8 md:pt-16 rounded-2xl">
+            <div className="relative max-w-[943px] mx-auto rounded-2xl">
               {imageUrl && (
                 <div
                   id="banner"

@@ -36,7 +36,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
             src="/images/graphics/splines34.svg"
             width={1100}
             height={800}
-            alt="spline"
+            alt="splines"
             priority
           />
         </span>
