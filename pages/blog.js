@@ -107,13 +107,13 @@ const Blog = ({
         </div>
       </section>
       <section className="press light">
-        <div className="container-fluid max-w-screen-xl mx-auto py-20 md:py-36 px-6">
+        <div className="max-w-screen-xl mx-auto py-20 md:py-36 px-12">
           <Typography.H3 as='h3' className='font-bold'>Press kit</Typography.H3>
-          <div className="container mt-10">
+          <div className="flex flex-col md:flex-row mt-10 space-y-8 md:space-x-8 md:space-y-0">
             <Card
               webProperty={"press"}
               title={"Origin Protocol"}
-              img={<Image src={assetRootPath("/images/logos/press-origin.svg")} alt="Origin Logo" width="420px" height="210px" objectFit='cover' />}
+              img={<Image src={assetRootPath("/images/logos/press-origin.svg")} alt="Origin Logo" width='640' height='336' />}
               body={"Download the Origin Protocol logo."}
               linkText={"Download"}
               linkHref={assetRootPath("/images/origin-assets.zip")}
@@ -121,7 +121,7 @@ const Blog = ({
             <Card
               webProperty={"press"}
               title={"Origin Dollar"}
-              img={<Image src={assetRootPath("/images/logos/press-origin-dollar.svg")} alt="Origin Dollar Logo" width="420px" height="210px" objectFit='cover' />}
+              img={<Image src={assetRootPath("/images/logos/press-origin-dollar.svg")} alt="Origin Dollar Logo" width='640' height='336'/>}
               body={"Download the Origin Dollar logo, OUSD symbol and OGV symbol."}
               linkText={"Download"}
               linkHref={assetRootPath("/images/origin-dollar-assets.zip")}
@@ -129,7 +129,7 @@ const Blog = ({
             <Card
               webProperty={"press"}
               title={"Origin Story"}
-              img={<Image src={assetRootPath("/images/logos/press-origin-story.svg")} alt="Origin Story Logo" width="420px" height="210px" objectFit='cover' />}
+              img={<Image src={assetRootPath("/images/logos/press-origin-story.svg")} alt="Origin Story Logo" width='640' height='336' />}
               body={"Download the Origin Story logo and OGN symbol."}
               linkText={"Download"}
               linkHref={assetRootPath("/images/origin-story-assets.zip")}
