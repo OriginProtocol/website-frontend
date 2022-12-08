@@ -106,7 +106,7 @@ const Blog = ({
           </div>
         </div>
       </section>
-      <section className="press light">
+      <section className="press light" id="press">
         <div className="max-w-screen-xl mx-auto py-20 md:py-36 px-12">
           <Typography.H3 as='h3' className='font-bold'>Press kit</Typography.H3>
           <div className="flex flex-col md:flex-row mt-10 space-y-8 md:space-x-8 md:space-y-0">
