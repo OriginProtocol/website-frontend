@@ -105,7 +105,7 @@ const Article = ({ article, navLinks }) => {
               </div>
             </div>
           </div>
-          <Footer />
+          <Footer webProperty="originprotocol" />
         </>
       )}
     </>

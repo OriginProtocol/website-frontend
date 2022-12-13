@@ -161,7 +161,7 @@ const Tos = ({ navLinks }) => {
                 </li>
               </ol>
             </div>
-            <Footer />
+            <Footer webProperty="originprotocol" />
           </>
         }
       </section>

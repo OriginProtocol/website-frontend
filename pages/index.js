@@ -348,7 +348,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
       </section>
       <EmailList />
       <ToastContainer />
-      <Footer />
+      <Footer webProperty="originprotocol" />
     </>
   );
 };

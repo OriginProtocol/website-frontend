@@ -155,7 +155,7 @@ const Blog = ({
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer webProperty="originprotocol" />
       <style jsx>{`
         section.inquiries {
           background-image: url(/images/graphics/splines25.png);
