@@ -89,7 +89,7 @@ const Privacy = ({navLinks}) => {
           </div>
         </>
       </section>
-      <Footer />
+      <Footer webProperty="originprotocol" />
     </>
   );
 };

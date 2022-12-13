@@ -442,7 +442,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
             </div>
           </div>
         </section>
-        <Footer />
+        <Footer webProperty="originprotocol" />
         <style jsx>{`
           .layout {
             flex-direction: row;
