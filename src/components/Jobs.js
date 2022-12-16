@@ -2,8 +2,6 @@ import { Button, Typography } from '@originprotocol/origin-storybook'
 import capitalize from 'lodash/capitalize'
 
 const Jobs = ({ jobs }) => {
-  console.log(jobs)
-
   const fields = [...new Set(jobs?.map((job) => {
     return job.attributes.field
   }))].sort()
