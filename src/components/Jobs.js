@@ -6,7 +6,7 @@ const Jobs = ({ jobs }) => {
 
   const fields = [...new Set(jobs?.map((job) => {
     return job.attributes.field
-  }))]
+  }))].sort()
 
   return (
     <div>
