@@ -22,7 +22,7 @@ import Jobs from "../src/components/Jobs";
 import formatSeo from "../src/utils/seo";
 import transformLinks from "../src/utils/transformLinks";
 
-const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
+const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => {
   return (
     <>
       <Head>
@@ -342,7 +342,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
               We’re always looking for the best talent. See open positions
               below.
             </div>
-            <Jobs />
+            <Jobs jobs={jobs} />
           </div>
         </div>
       </section>
@@ -355,6 +355,7 @@ const Home = ({ locale, onLocale, isMobile, articles, seo, navLinks }) => {
 
 export async function getStaticProps() {
   const articlesRes = await fetchAPI("/website/blog/en");
+  const jobsRes = await fetchAPI("/website-job-listings");
   const seoRes = await fetchAPI("/website/page/en/%2F");
   const navRes = await fetchAPI("/website-nav-links", {
     populate: {
@@ -369,6 +370,7 @@ export async function getStaticProps() {
   return {
     props: {
       articles: articlesRes.data,
+      jobs: jobsRes.data,
       seo: formatSeo(seoRes.data),
       navLinks,
     },
