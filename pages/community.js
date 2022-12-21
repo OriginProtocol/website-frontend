@@ -318,7 +318,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                   <div className="profile" key={t.name}>
                     <div className="p-2 sm:p-0">
                       <Image
-                        src={assetRootPath(avatar.url)}
+                        src={assetRootPath(avatar?.url)}
                         className="rounded-full mb-3"
                         alt={t.name}
                         height="400"
@@ -343,7 +343,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                     >
                       <div className="p-2 sm:p-0">
                         <Image
-                          src={assetRootPath(avatar.url)}
+                          src={assetRootPath(avatar?.url)}
                           className="rounded-full mb-3"
                           alt={t.name}
                           height="400"
@@ -429,7 +429,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                 return (
                   <div className="profile" key={t.name}>
                     <Image
-                      src={assetRootPath(avatar.url)}
+                      src={assetRootPath(avatar?.url)}
                       className="headshot mb-3 rounded-full"
                       alt={t.name}
                       width="100px"
