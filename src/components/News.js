@@ -87,7 +87,7 @@ const News = ({ isMobile, articles, meta, categories, pageRef }) => {
   const articlesSorted = articles.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
   const articlesOrdered = order === 'Most recent' ? articlesSorted : articlesSorted.reverse()
 
-  const categoryArticles = category ? articlesOrdered.filter((article) => article.category.slug === category) : articlesOrdered
+  const categoryArticles = category ? articlesOrdered.filter((article) => article.category?.slug === category) : articlesOrdered
 
   const articlePages = Math.ceil(
     (category

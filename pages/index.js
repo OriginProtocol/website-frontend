@@ -366,10 +366,11 @@ export async function getStaticProps() {
   });
 
   const navLinks = transformLinks(navRes.data);
+  const sortedArticles = articlesRes.data.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
 
   return {
     props: {
-      articles: articlesRes.data,
+      articles: sortedArticles,
       jobs: jobsRes.data,
       seo: formatSeo(seoRes.data),
       navLinks,
