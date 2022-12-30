@@ -17,11 +17,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@analytics/google-analytics": "^1.0.3",
     "@fontsource/lato": "^4.5.10",
     "@originprotocol/origin-storybook": "^0.26.1",
     "@sentry/nextjs": "^7.15.0",
-    "analytics": "^0.8.1",
     "babel": "^6.23.0",
     "babel-plugin-react-html-attrs": "2",
     "classnames": "^2.3.1",
@@ -48,8 +46,7 @@
     "sanitize-html": "^2.7.3",
     "sass": "^1.54.9",
     "storybook": "^6.5.12",
-    "tailwindcss": "^3.1.8",
-    "use-analytics": "^0.0.5"
+    "tailwindcss": "^3.1.8"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.12",

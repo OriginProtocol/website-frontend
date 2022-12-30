@@ -9,9 +9,6 @@ import "../styles/globals.css";
 import "@fontsource/lato";
 import bundledCss from "@originprotocol/origin-storybook/lib/styles.css";
 import { QueryClient, QueryClientProvider } from "react-query";
-import analytics from "utils/analytics";
-import { AnalyticsProvider } from "use-analytics";
-import { setUserSource } from "utils/user";
 import Script from 'next/script'
 import { GTM_ID, pageview } from '../lib/gtm'
 
