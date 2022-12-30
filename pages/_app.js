@@ -9,70 +9,22 @@ import "../styles/globals.css";
 import "@fontsource/lato";
 import bundledCss from "@originprotocol/origin-storybook/lib/styles.css";
 import { QueryClient, QueryClientProvider } from "react-query";
-import analytics from "utils/analytics";
-import { AnalyticsProvider } from "use-analytics";
-import { setUserSource } from "utils/user";
+import Script from 'next/script'
+import { GTM_ID, pageview } from '../lib/gtm'
 
 const queryClient = new QueryClient();
 export const GlobalContext = createContext({});
 
 const MyApp = ({ Component, pageProps }) => {
-  const { global } = pageProps;
-  const router = useRouter();
+  const { global } = pageProps
 
-  // page tracking code from origin dollar repository
-  const trackPageView = (url, lastURL) => {
-    const data = {
-      toURL: url,
-    };
-
-    if (lastURL) {
-      data.fromURL = lastURL;
-    }
-
-    analytics.page(data);
-
-    if (url.indexOf("?") > 0) {
-      const searchParams = new URLSearchParams(
-        url.substr(url.indexOf("?") + 1)
-      );
-      const utmSource = searchParams.get("utm_source");
-      if (utmSource) {
-        setUserSource(utmSource);
-      }
-    } else {
-      /* if first page load is not equipped with the 'utm_source' we permanently mark
-       * user source as unknown
-       */
-      setUserSource("unknown");
-    }
-  };
-
+  const router = useRouter()
   useEffect(() => {
-    let lastURL = window.location.pathname + window.location.search;
-
-    // track initial page load
-    trackPageView(lastURL);
-
-    const handleRouteChange = (url) => {
-      /* There is this weird behaviour with react router where `routeChangeComplete` gets triggered
-       * on initial load only if URL contains search parameters. And without this check and search
-       * parameters present the inital page view would be tracked twice.
-       */
-      if (url === lastURL) {
-        return;
-      }
-      // track when user navigates to a new page
-      trackPageView(url, lastURL);
-      lastURL = url;
-    };
-
-    router.events.on("routeChangeComplete", handleRouteChange);
-
+    router.events.on('routeChangeComplete', pageview)
     return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, []);
+      router.events.off('routeChangeComplete', pageview)
+    }
+  }, [router.events])
 
   return (
     <>
@@ -84,9 +36,20 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
       <GlobalContext.Provider value={global?.attributes}>
         <QueryClientProvider client={queryClient}>
-          <AnalyticsProvider instance={analytics}>
+            <Script
+              id="gtag-base"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                  })(window,document,'script','dataLayer', '${GTM_ID}');
+                `,
+              }}
+            />
             <Component {...pageProps} />
-          </AnalyticsProvider>
         </QueryClientProvider>
       </GlobalContext.Provider>
     </>

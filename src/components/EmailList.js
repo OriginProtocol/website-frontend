@@ -2,7 +2,6 @@ import Image from "next/image";
 import { Typography } from "@originprotocol/origin-storybook";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import analytics from "utils/analytics";
 
 const EmailList = () => {
   const [email, setEmail] = useState();
@@ -29,11 +28,6 @@ const EmailList = () => {
               className="justify-content-center"
               onSubmit={async (e) => {
                 e.preventDefault();
-
-                analytics.track(`On Mailing List Subscription`, {
-                  category: "general",
-                });
-
                 const searchParams = new URLSearchParams();
                 searchParams.set("email", email);
 
