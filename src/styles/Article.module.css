@@ -72,17 +72,25 @@
   color: #228dff;
 }
 
+.article strong {
+  font-weight: 700;
+}
+
+.article ul li {
+  list-style: disc;
+}
+
 @media (max-width: 768px) {
   .article h1 {
     font-size: 1.5rem;
     line-height: 2rem;
   }
-  
+
   .article h2 {
     font-size: 1.25rem;
     line-height: 2rem;
   }
-  
+
   .article h3 {
     font-size: 1.125;
     line-height: 1.75rem;
