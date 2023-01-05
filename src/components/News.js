@@ -84,7 +84,7 @@ const News = ({ isMobile, articles, meta, categories, pageRef }) => {
   const [pageNumbers, setPageNumbers] = useState([]);
   const [order, setOrder] = useState('Most recent')
 
-  const articlesSorted = articles.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+  const articlesSorted = articles.sort((a, b) => (b.publishBackdate || b.publishedAt).localeCompare(a.publishBackdate || a.publishedAt))
   const articlesOrdered = order === 'Most recent' ? articlesSorted : articlesSorted.reverse()
 
   const categoryArticles = category ? articlesOrdered.filter((article) => article.category?.slug === category) : articlesOrdered
@@ -133,7 +133,7 @@ const News = ({ isMobile, articles, meta, categories, pageRef }) => {
                       webProperty={"originprotocol"}
                       title={a.title}
                       img={<Image src={ a.cardCover?.url || a.cover?.url || assetRootPath('/images/logos/origin-press.svg')} alt={a.cover?.alternativeText} width='640' height='312' />}
-                      body={<Moment format="MMMM D, YYYY">{a.publishedAt}</Moment>}
+                      body={<Moment format="MMMM D, YYYY">{a.publishBackdate || a.publishedAt}</Moment>}
                       linkText={"Read more"}
                       linkHref={`/${a.slug}`}
                       key={a.title}
