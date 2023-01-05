@@ -354,7 +354,11 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
 };
 
 export async function getStaticProps() {
-  const articlesRes = await fetchAPI("/website/blog/en");
+  const articlesRes = await fetchAPI("/website/blog/en", {
+    pagination: {
+      pageSize: 1000
+    }
+  });
   const jobsRes = await fetchAPI("/website-job-listings");
   const seoRes = await fetchAPI("/website/page/en/%2F");
   const navRes = await fetchAPI("/website-nav-links", {

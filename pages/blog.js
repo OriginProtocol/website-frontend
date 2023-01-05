@@ -205,6 +205,9 @@ const Blog = ({
 export async function getStaticProps() {
   // Run API calls in parallel
   const articlesRes = await fetchAPI("/website/blog/en", {
+    pagination: {
+      pageSize: 1000
+    },
     populate: ["cover", "category"],
   });
 
