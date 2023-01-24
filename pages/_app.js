@@ -26,6 +26,10 @@ const MyApp = ({ Component, pageProps }) => {
     }
   }, [router.events])
 
+  useEffect(() => {
+    router.replace(router.pathname, undefined, { shallow: true });
+  }, [])
+
   return (
     <>
       <Head>
