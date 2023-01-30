@@ -7,6 +7,7 @@ import {
 } from "@originprotocol/origin-storybook";
 import Contributors from "components/Contributors";
 import Team from "components/Team";
+import ExtendedTeam from "components/ExtendedTeam";
 import withIsMobile from "hoc/withIsMobile";
 import Head from "next/head";
 import Image from "next/image";
@@ -308,57 +309,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
           </div>
         </section>
         <Team team={team} />
-        <section className="extended light text-center">
-          <div className="max-w-screen-xl mx-auto py-20 px-8">
-            <Typography.H3 className='font-bold text-left'>Community Team</Typography.H3>
-            <div className="community container-fluid mt-16 mb-5">
-              {team?.community?.map((t) => {
-                const avatar = t.avatar;
-                return (
-                  <div className="profile" key={t.name}>
-                    <div className="p-2 sm:p-0">
-                      <Image
-                        src={assetRootPath(avatar?.url)}
-                        className="rounded-full mb-3"
-                        alt={t.name}
-                        height="400"
-                        width="400"
-                      />
-                    </div>
-                    <Typography.Body2 className="name mt-4 font-bold">{t.name}</Typography.Body2>
-                  </div>
-                );
-              })}
-            </div>
-            <Typography.H3 className='font-bold text-left mt-20'>Advisors</Typography.H3>
-            <div className="advisors container-fluid mt-16">
-              {team?.advisor?.map((t) => {
-                const avatar = t.avatar;
-                return (
-                  <div className="profile" key={t.name}>
-                    <a
-                      href={t.linkedinUrl || t.twitterUrl || t.otherUrl}
-                      target="_blank"
-                      rel="noopenner noreferrer"
-                    >
-                      <div className="p-2 sm:p-0">
-                        <Image
-                          src={assetRootPath(avatar?.url)}
-                          className="rounded-full mb-3"
-                          alt={t.name}
-                          height="400"
-                          width="400"
-                        />
-                      </div>
-                      <Typography.Body2 className="name mt-4 font-bold">{t.name}</Typography.Body2>
-                      <Typography.Caption className="name mt-1 opacity-75 font-light">{t.title}</Typography.Caption>
-                    </a>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        <ExtendedTeam team={team} />
         {contributors.length && <Contributors contributors={contributors} />}
         <section className="investors light text-center">
           <div className="max-w-screen-xl mx-auto pt-24 pb-32 px-20">
@@ -466,26 +417,6 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
             grid-gap: 2vw;
           }
 
-          .extended {
-            font-size: 1.25rem;
-          }
-
-          .extended .community {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            grid-gap: 4vw;
-          }
-
-          .extended .advisors {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            grid-gap: 4vw;
-          }
-
-          .extended .profile {
-            margin: 0 auto 0 auto;
-          }
-
           .headshot {
             width: 7vw;
             height: 7vw;
@@ -545,27 +476,8 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
               grid-gap: 2vw;
             }
 
-            .extended .community {
-              grid-template-columns: repeat(3, 1fr);
-            }
-
-            .extended .advisors {
-              grid-template-columns: repeat(3, 1fr);
-            }
-
             .company {
               width: 15vw;
-            }
-
-            .extended {
-              font-size: 1rem;
-            }
-
-            .extended .headshot {
-              width: 15vw;
-              height: 15vw;
-              margin: 0 auto 0 auto;
-              border-radius: 50%;
             }
           }
         `}</style>
