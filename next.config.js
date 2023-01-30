@@ -147,6 +147,9 @@ const moduleExports = {
       beforeFiles: [{
         source: '/sitemap.xml',
         destination: `${STRAPI_API_URL}/api/website/sitemap`
+      }, {
+        source: '/robots.txt',
+        destination: APP_ENV === 'prod' ? '/robots.prod.txt' : '/robots.staging.txt',
       }]
     }
   },
