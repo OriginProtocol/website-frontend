@@ -42,9 +42,7 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
         </span>
         <div className="relative overflow-hidden max-w-screen-xl mx-auto pb-20 px-8">
           <Typography.H2 as="h1">
-            Onboarding the next <br className="hidden md:block" />
-            <span className="gradient1 font-black">100M users </span>
-            {"to crypto"}
+            Earn more <span className="gradient1 font-black">ETH</span>
           </Typography.H2>
           <div className="opacity-75 font-light mt-5 mb-9">
             {
