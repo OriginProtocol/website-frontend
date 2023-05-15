@@ -68,7 +68,7 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
             </div>
           </a>
           <a
-            href="https://ousd.com"
+            href="https://oeth.com"
             target="_blank"
             rel="noopener noreferrer"
             className="button white shadow w-32 md:w-40 px-6 py-3.5"
