@@ -19,7 +19,7 @@ const Dashboard = ({ ogn, isMobile }) => {
     : "app.uniswap.org/#/swap?outputCurrency=0x9c354503C38481a7A7a51629142963F98eCC12D0&chain=mainnet";
   const description = ogn
     ? "Origin Token (OGN) stakers earn their share of Story’s platform fees. "
-    : "Origin Governance Token (OGV) stakers earn fees from OUSD’s growth. ";
+    : "Origin Governance Token (OGV) stakers earn fees from the growth of Origin's DeFi products. ";
 
   const price = useStoreState(StatStore, (s) => {
     return s.price || 0;
