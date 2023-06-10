@@ -194,8 +194,8 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
               <div className="text-container text-center md:!text-left pt-14 pb-10 md:pt-32 md:pb-28 md:w-1/2">
                 <Image
                   src={assetRootPath("/images/logos/origin-ether-wordmark.svg")}
-                  className="origin-dollar-logo mb-2 mx-auto md:mx-0"
-                  alt="Origin Dollar Logo"
+                  className="origin-ether-logo mb-2 mx-auto md:mx-0"
+                  alt="Origin Ether Logo"
                   width="230px"
                   height="31px"
                 />
