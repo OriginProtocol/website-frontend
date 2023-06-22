@@ -124,45 +124,102 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
           </div>
         </div>
       </section>
-      <section className="ousd dark gradient3 flex flex-col">
-        <div className="max-w-screen-xl mx-auto md:pb-20">
-          <div className="flex flex-col md:flex-row relative">
-            <div className="text-container text-center sm:text-left pt-14 pb-10 px-6 md:pt-32 md:pb-28 md:pr-10 md:w-1/2">
-              <Image
-                src={assetRootPath("/images/logos/origin-dollar-wordmark.svg")}
-                className="origin-dollar-logo mb-2 mx-auto md:mx-0"
-                alt="Origin Dollar Logo"
-                width="230px"
-                height="31px"
-              />
-              <Typography.H3 className="text-white mt-3 font-bold">
-                The yield-generating stablecoin
-              </Typography.H3>
-              <div className="opacity-75 font-light mt-5 mb-9">
-                Origin Dollar simplifies DeFi by eliminating the need for
-                staking or lock-ups. Hold OUSD in any Ethereum wallet or custody
-                solution and watch the balance increase every day.
+      <section className="dark gradient3 relative">
+        <div className="absolute right-0 top-36 z-0 w-1/4 md:w-auto">
+          <Image
+            src={assetRootPath('/images/graphics/spots22.png')}
+            className="spots"
+            alt="spots"
+            width="498"
+            height="996"
+          />
+        </div>
+        <div className="absolute bottom-96 md:-bottom-1.5 left-0 z-0 w-1/3 md:w-auto">
+          <Image
+            src={assetRootPath('/images/graphics/splines21.png')}
+            className="splines"
+            alt="splines"
+            width="400"
+            height="1000"
+          />
+        </div>
+        <div className="flex flex-col md:pt-64 md:pb-20 relative overflow-auto">
+          <div className="max-w-screen-xl mx-auto md:space-y-32 z-0">
+            <div className="flex flex-col-reverse md:flex-row justify-between px-6">
+              <div className="text-container text-center md:!text-left pt-14 pb-10 md:pt-32 md:pb-28 md:w-1/2">
+                <Image
+                  src={assetRootPath("/images/logos/origin-dollar-wordmark.svg")}
+                  className="origin-dollar-logo mb-2 mx-auto md:mx-0"
+                  alt="Origin Dollar Logo"
+                  width="230px"
+                  height="31px"
+                />
+                <Typography.H3 className="text-white mt-3 font-bold">
+                  The yield-generating stablecoin
+                </Typography.H3>
+                <div className="opacity-75 font-light mt-5 mb-9">
+                  Origin Dollar simplifies DeFi by eliminating the need for
+                  staking or lock-ups. Hold OUSD in any Ethereum wallet or custody
+                  solution and watch the balance increase every day.
+                </div>
+                <a
+                  href="https://ousd.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button gradient2 w-32 md:w-40 px-6 py-4 text-center"
+                >
+                  Learn more
+                </a>
               </div>
-              <a
-                href="https://ousd.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button gradient4 w-32 md:w-40 px-6 py-4 text-center"
-              >
-                Learn more
-              </a>
+              <div className="w-1/4 md:w-2/5 pt-36 lg:pt-10 max-md:mx-auto">
+                <Image
+                  src={assetRootPath('/images/logos/ousd-logo.png')}
+                  className="ousd"
+                  alt="OUSD"
+                  width="500"
+                  height="500"
+                />
+              </div>
             </div>
-            <div className="image-container flex-1 pb-10 md:absolute md:top-1/2 md:-translate-y-1/2 md:-right-20 md:w-1/2">
-              <Image
-                src={assetRootPath('/images/screens/screens-ousd.png')}
-                className="screen3"
-                alt="OUSD"
-                width="918"
-                height="698"
-              />
+            <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between px-6 max-md:pb-24">
+              <div className="w-1/4 md:w-2/5 pt-36 lg:pt-10 max-md:mx-auto">
+                <Image
+                  src={assetRootPath('/images/logos/oeth-logo.png')}
+                  className="oeth"
+                  alt="OETH"
+                  width="500"
+                  height="500"
+                />
+              </div>
+              <div className="text-container text-center md:!text-left pt-14 pb-10 md:pt-32 md:pb-28 md:w-1/2">
+                <Image
+                  src={assetRootPath("/images/logos/origin-ether-wordmark.svg")}
+                  className="origin-ether-logo mb-2 mx-auto md:mx-0"
+                  alt="Origin Ether Logo"
+                  width="230px"
+                  height="31px"
+                />
+                <Typography.H3 className="text-white mt-3 font-bold">
+                  Ethereum Liquid Staking made simple
+                </Typography.H3>
+                <div className="opacity-75 font-light mt-5 mb-9">
+                  Origin Ether earns yield from liquid staking tokens. Holders
+                  earn superior yield, as APYs are optimized between LSTs
+                  and liquidity provision strategies. This accrues heightened trading fees 
+                  and rewards tokens on top of native validator rewards.
+                </div>
+                <a
+                  href="https://oeth.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button gradient2 w-32 md:w-40 px-6 py-4 text-center"
+                >
+                  Learn more
+                </a>
+              </div>
             </div>
+            <Dashboard />
           </div>
-          <Dashboard />
         </div>
       </section>
       <section className="company light">
