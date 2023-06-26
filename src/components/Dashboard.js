@@ -68,7 +68,7 @@ const Dashboard = ({ ogn, isMobile }) => {
 
   return (
     <>
-      <div className={`token-dashboard ${ogn ? 'gradient2' : 'gradient4'} flex flex-col md:rounded-2xl py-12 pl-6 pr-6 md:py-12 md:px-20 md:mx-6`}>
+      <div className={`token-dashboard ${ogn ? 'gradient2' : 'gradient4'} max-w-screen-2xl mx-auto flex flex-col md:rounded-2xl py-12 pl-6 pr-6 md:py-12 md:px-20`}>
         <div className="flex flex-row justify-between">
           <div className="text-container">
             <div className="flex flex-row items-center">
@@ -81,7 +81,7 @@ const Dashboard = ({ ogn, isMobile }) => {
               />
               <span className="text font-bold mt-1 ml-4">{symbol} Token</span>
             </div>
-            <div className="font-light mt-4 mb-14">
+            <div className="leading-7 font-light mt-4 mb-14">
               {`${description} View on `}
               <a
                 href={`https://coinmarketcap.com/currencies/${link}`}
