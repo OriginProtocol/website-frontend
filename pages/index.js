@@ -44,10 +44,8 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
           <Typography.H2 as="h1">
             Earn more <span className="gradient1 font-black">ETH</span>
           </Typography.H2>
-          <div className="opacity-75 font-light mt-5 mb-9">
-            {
-              "Origin’s flagship products are tackling the fastest growing verticals in crypto"
-            }
+          <div className="leading-7 opacity-75 font-normal mt-5 mb-9">
+              Origin’s flagship products are tackling the fastest growing verticals in crypto
           </div>
           <a
             href="https://story.xyz"
@@ -84,9 +82,9 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
         </div>
       </section>
       <section className="story light flex flex-col z-10 relative">
-        <div className="max-w-screen-xl mx-auto">
-          <div className="flex flex-col-reverse md:flex-row items-center pt-10">
-            <div className="image-container self-end md:self-start pt-10 flex-1">
+        <div>
+          <div className="max-w-screen-xl mx-auto flex flex-col-reverse md:flex-row items-center pt-10 px-6">
+            <div className="image-container self-end md:self-start pt-10 pb-10 md:pb-0 flex-1">
               <Image
                 src={assetRootPath("/images/screens/screens-story.png")}
                 className="screen1"
@@ -96,7 +94,7 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
                 priority
               />
             </div>
-            <div className="text-container flex-1 md:ml-10 pt-20 md:pt-0 px-6 md:px-0 text-center sm:text-left">
+            <div className="text-container flex-1 md:ml-10 pt-20 md:pt-0 md:px-0 text-center md:text-left">
               <Image
                 src={assetRootPath("/images/logos/origin-story-wordmark.svg")}
                 className="mx-auto md:mx-0 mb-6 md:mb-0"
@@ -105,7 +103,7 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
                 height="31"
               />
               <Typography.H3 className='mt-2 font-bold'>The record-breaking NFT platform</Typography.H3>
-              <div className="opacity-75 font-light mt-5 mb-9">
+              <div className="leading-7 opacity-75 font-normal mt-5 mb-9">
                 Origin Story powers NFT ecosystems, providing creators with
                 branded storefronts and secondary marketplaces.
               </div>
@@ -113,13 +111,13 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
                 href="https://story.xyz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="button gradient2 w-32 md:w-40 px-6 py-4 text-center"
+                className="button gradient2 w-40 px-10 py-4 text-center"
               >
                 Learn more
               </a>
             </div>
           </div>
-          <div className="md:mt-10 md:mb-20">
+          <div className="md:mt-10 md:mb-20 md:px-6">
             <Dashboard ogn />
           </div>
         </div>
@@ -134,19 +132,19 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
             height="996"
           />
         </div>
-        <div className="absolute bottom-96 md:-bottom-1.5 left-0 z-0 w-1/3 md:w-auto">
+        <div className="absolute bottom-[450px] sm:bottom-96 md:-bottom-1.5 left-0 z-0 w-1/3 md:w-auto">
           <Image
             src={assetRootPath('/images/graphics/splines21.png')}
             className="splines"
             alt="splines"
-            width="400"
-            height="1000"
+            width="600"
+            height="1500"
           />
         </div>
         <div className="flex flex-col md:pt-64 md:pb-20 relative overflow-auto">
-          <div className="max-w-screen-xl mx-auto md:space-y-32 z-0">
-            <div className="flex flex-col-reverse md:flex-row justify-between px-6">
-              <div className="text-container text-center md:!text-left pt-14 pb-10 md:pt-32 md:pb-28 md:w-1/2">
+          <div className="md:space-y-32 z-0">
+            <div className="max-w-screen-xl mx-auto px-6 flex flex-col-reverse md:flex-row justify-between">
+              <div className="text-container text-center md:!text-left pt-10 xl:!pt-16 pb-10 md:pb-28 md:w-1/2">
                 <Image
                   src={assetRootPath("/images/logos/origin-dollar-wordmark.svg")}
                   className="origin-dollar-logo mb-2 mx-auto md:mx-0"
@@ -154,10 +152,10 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
                   width="230px"
                   height="31px"
                 />
-                <Typography.H3 className="text-white mt-3 font-bold">
+                <Typography.H3 className="text-white mt-6 font-bold">
                   The yield-generating stablecoin
                 </Typography.H3>
-                <div className="opacity-75 font-light mt-5 mb-9">
+                <div className="leading-7 opacity-75 font-normal mt-4 md:mt-2 mb-6 md:mb-8">
                   Origin Dollar simplifies DeFi by eliminating the need for
                   staking or lock-ups. Hold OUSD in any Ethereum wallet or custody
                   solution and watch the balance increase every day.
@@ -166,14 +164,14 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
                   href="https://ousd.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="button gradient2 w-32 md:w-40 px-6 py-4 text-center"
+                  className="button gradient2 w-40 px-10 py-4 text-center"
                 >
                   Learn more
                 </a>
               </div>
-              <div className="w-1/4 md:w-2/5 pt-36 lg:pt-10 max-md:mx-auto">
+              <div className="w-1/3 md:w-2/5 pt-20 lg:pt-0 max-md:mx-auto">
                 <Image
-                  src={assetRootPath('/images/logos/ousd-logo.png')}
+                  src={assetRootPath('/images/logos/ousd-logo.svg')}
                   className="ousd"
                   alt="OUSD"
                   width="500"
@@ -181,17 +179,17 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
                 />
               </div>
             </div>
-            <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between px-6 max-md:pb-24">
-              <div className="w-1/4 md:w-2/5 pt-36 lg:pt-10 max-md:mx-auto">
+            <div className="max-w-screen-xl mx-auto px-6 flex flex-col md:flex-row justify-between max-md:pb-24">
+              <div className="w-1/3 md:w-2/5 pt-20 lg:pt-0 max-md:mx-auto">
                 <Image
-                  src={assetRootPath('/images/logos/oeth-logo.png')}
+                  src={assetRootPath('/images/logos/oeth-logo.svg')}
                   className="oeth"
                   alt="OETH"
                   width="500"
                   height="500"
                 />
               </div>
-              <div className="text-container text-center md:!text-left pt-14 pb-10 md:pt-32 md:pb-28 md:w-1/2">
+              <div className="text-container text-center md:!text-left pt-10 xl:!pt-16 md:pb-28 md:w-1/2">
                 <Image
                   src={assetRootPath("/images/logos/origin-ether-wordmark.svg")}
                   className="origin-ether-logo mb-2 mx-auto md:mx-0"
@@ -199,10 +197,10 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
                   width="230px"
                   height="31px"
                 />
-                <Typography.H3 className="text-white mt-3 font-bold">
+                <Typography.H3 className="text-white mt-6 font-bold">
                   Ethereum Liquid Staking made simple
                 </Typography.H3>
-                <div className="opacity-75 font-light mt-5 mb-9">
+                <div className="leading-7 opacity-75 font-normal mt-4 md:mt-2 mb-6 md:mb-8">
                   Origin Ether earns yield from liquid staking tokens. Holders
                   earn superior yield, as APYs are optimized between LSTs
                   and liquidity provision strategies. This accrues heightened trading fees 
@@ -212,13 +210,15 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
                   href="https://oeth.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="button gradient2 w-32 md:w-40 px-6 py-4 text-center"
+                  className="button gradient2 w-40 px-10 py-4 text-center"
                 >
                   Learn more
                 </a>
               </div>
             </div>
-            <Dashboard />
+            <div className="md:px-6">
+              <Dashboard />
+            </div>
           </div>
         </div>
       </section>
@@ -237,7 +237,7 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
               </div>
               <div className="md:flex md:flex-col md:items-start md:justify-center md:pl-16 md:flex-1">
                 <Typography.H3 className='font-bold mt-10 md:mt-0'>It's all about the community</Typography.H3>
-                <div className="opacity-75 font-light mt-5 mb-7">
+                <div className="leading-7 opacity-75 font-normal mt-5 mb-7">
                   Join hundreds of thousands of community members and token
                   holders, hundreds of open-source developers, or our
                   world-class core team.
@@ -255,7 +255,7 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
             <div className="team flex flex-col-reverse md:flex-row mt-10 max-w-screen-xl mx-auto">
               <div className="text-container px-6 mt-10 max-w-xl md:mr-12">
                 <Typography.H3 className='font-bold'>A world-class team</Typography.H3>
-                <div className="opacity-75 font-light mt-3 mb-9">
+                <div className="leading-7 opacity-75 font-normal mt-3 mb-9">
                   Our team is led by serial entrepreneurs, early employees at
                   YouTube, and engineering managers at Google, Coinbase and
                   Dropbox.
@@ -393,7 +393,7 @@ const Home = ({ locale, onLocale, isMobile, articles, jobs, seo, navLinks }) => 
           <div className="flex flex-col max-w-screen-xl mx-auto md:mt-4 md:px-14">
             <Typography.H3 as='h2' className='font-bold'>Work at Origin</Typography.H3>
             <div className="mb-3"></div>
-            <div className="lighter mt-2 mb-4">
+            <div className="leading-7 lighter mt-2 mb-4">
               We’re always looking for the best talent. See open positions
               below.
             </div>
