@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@fontsource/lato": "^4.5.10",
-    "@originprotocol/origin-storybook": "^0.26.1",
+    "@originprotocol/origin-storybook": "^0.27.14",
     "@sentry/nextjs": "^7.15.0",
     "babel": "^6.23.0",
     "babel-plugin-react-html-attrs": "2",
