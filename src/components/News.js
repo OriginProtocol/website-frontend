@@ -209,7 +209,11 @@ const News = ({
                         </Moment>
                       }
                       linkText={"Read more"}
-                      linkHref={`/${a.slug}`}
+                      linkHref={
+                        currentLocale === "en"
+                          ? `/${a.slug}`
+                          : `${currentLocale}/${a.slug}`
+                      }
                       key={a.title}
                     />
                   );
