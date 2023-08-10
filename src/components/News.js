@@ -212,7 +212,7 @@ const News = ({
                       linkHref={
                         currentLocale === "en"
                           ? `/${a.slug}`
-                          : `${currentLocale}/${a.slug}`
+                          : `/${currentLocale}/${a.slug}`
                       }
                       key={a.title}
                     />
