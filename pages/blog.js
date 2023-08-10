@@ -16,7 +16,6 @@ import formatSeo from "../src/utils/seo";
 import transformLinks from "../src/utils/transformLinks";
 
 const Blog = ({
-  locale,
   articles,
   meta,
   categories,

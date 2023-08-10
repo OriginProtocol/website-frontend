@@ -115,7 +115,7 @@ const News = ({
   const [order, setOrder] = useState("Most recent");
   const router = useRouter();
 
-  const articlesSorted = articles.sort((a, b) =>
+  const articlesSorted = articles?.sort((a, b) =>
     (b.publishBackdate || b.publishedAt).localeCompare(
       a.publishBackdate || a.publishedAt
     )
@@ -136,7 +136,7 @@ const News = ({
           (article) =>
             article.slug?.toLowerCase() === category.slug?.toLowerCase()
         ).length
-      : meta.pagination.total) / perPage
+      : meta?.pagination.total) / perPage
   );
   const currentPageArticles = articlesOrdered
     ? categoryArticles.slice(perPage * (page - 1), perPage * page)
@@ -148,7 +148,7 @@ const News = ({
     let pageNumbers = [1, 2, pages, pages - 1, page, page - 1, page + 1];
     pageNumbers = pageNumbers.filter((number) => number > 0 && number <= pages);
     pageNumbers = [...new Set(pageNumbers)];
-    pageNumbers = pageNumbers.sort((a, b) => a - b);
+    pageNumbers = pageNumbers?.sort((a, b) => a - b);
     setPageNumbers(pageNumbers);
   }, [page, articlePages]);
 
