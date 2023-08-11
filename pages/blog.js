@@ -1,6 +1,9 @@
 import {
   Button,
-  Card, Footer, Header, Typography
+  Card,
+  Footer,
+  Header,
+  Typography,
 } from "@originprotocol/origin-storybook";
 import News from "components/News";
 import Head from "next/head";
@@ -13,15 +16,15 @@ import formatSeo from "../src/utils/seo";
 import transformLinks from "../src/utils/transformLinks";
 
 const Blog = ({
-  locale,
-  onLocale,
   articles,
   meta,
   categories,
   seo,
   navLinks,
+  locales,
+  currentLocale,
 }) => {
-  const pageRef = useRef(null)
+  const pageRef = useRef(null);
 
   return (
     <div ref={pageRef}>
@@ -32,13 +35,23 @@ const Blog = ({
       <Header mappedLinks={navLinks} webProperty="originprotocol" />
       <section className="intro grey pt-10 pb-24">
         <div className="container-fluid max-w-screen-xl mx-auto px-8 mb-6">
-          <Typography.H2 className='font-bold'>Latest news</Typography.H2>
+          <Typography.H2 className="font-bold">Latest news</Typography.H2>
         </div>
       </section>
-      {!articles?.length ? null : <News articles={articles} meta={meta} categories={categories} pageRef={pageRef} />}
+
+      <News
+        articles={articles}
+        meta={meta}
+        categories={categories}
+        pageRef={pageRef}
+        locales={locales}
+        currentLocale={currentLocale}
+      />
       <section className="articles grey">
         <div className="container-fluid max-w-screen-xl mx-auto pt-10 md:pb-32 px-6">
-          <Typography.H3 as='h3' className='font-bold md:mt-28'>As seen in</Typography.H3>
+          <Typography.H3 as="h3" className="font-bold md:mt-28">
+            As seen in
+          </Typography.H3>
           <div className="flex flex-wrap justify-center items-center gap-x-14 gap-y-24 py-24">
             <Image
               src={assetRootPath("/images/logos/company-coindesk.svg")}
@@ -108,12 +121,21 @@ const Blog = ({
       </section>
       <section className="press light" id="press">
         <div className="max-w-screen-xl mx-auto py-20 md:py-36 px-12">
-          <Typography.H3 as='h3' className='font-bold'>Press kit</Typography.H3>
+          <Typography.H3 as="h3" className="font-bold">
+            Press kit
+          </Typography.H3>
           <div className="flex flex-col md:flex-row mt-10 space-y-8 md:space-x-8 md:space-y-0">
             <Card
               webProperty={"press"}
               title={"Origin Protocol"}
-              img={<Image src={assetRootPath("/images/logos/press-origin.svg")} alt="Origin Logo" width='640' height='336' />}
+              img={
+                <Image
+                  src={assetRootPath("/images/logos/press-origin.svg")}
+                  alt="Origin Logo"
+                  width="640"
+                  height="336"
+                />
+              }
               body={"Download the Origin Protocol logo."}
               linkText={"Download"}
               linkHref={assetRootPath("/images/origin-assets.zip")}
@@ -121,15 +143,31 @@ const Blog = ({
             <Card
               webProperty={"press"}
               title={"Origin Dollar"}
-              img={<Image src={assetRootPath("/images/logos/press-origin-dollar.svg")} alt="Origin Dollar Logo" width='640' height='336'/>}
-              body={"Download the Origin Dollar logo, OUSD symbol and OGV symbol."}
+              img={
+                <Image
+                  src={assetRootPath("/images/logos/press-origin-dollar.svg")}
+                  alt="Origin Dollar Logo"
+                  width="640"
+                  height="336"
+                />
+              }
+              body={
+                "Download the Origin Dollar logo, OUSD symbol and OGV symbol."
+              }
               linkText={"Download"}
               linkHref={assetRootPath("/images/origin-dollar-assets.zip")}
             />
             <Card
               webProperty={"press"}
               title={"Origin Story"}
-              img={<Image src={assetRootPath("/images/logos/press-origin-story.svg")} alt="Origin Story Logo" width='640' height='336' />}
+              img={
+                <Image
+                  src={assetRootPath("/images/logos/press-origin-story.svg")}
+                  alt="Origin Story Logo"
+                  width="640"
+                  height="336"
+                />
+              }
               body={"Download the Origin Story logo and OGN symbol."}
               linkText={"Download"}
               linkHref={assetRootPath("/images/origin-story-assets.zip")}
@@ -140,7 +178,7 @@ const Blog = ({
       <section className="inquiries grey">
         <div className="container-fluid max-w-screen-xl mx-auto py-20 md:py-32 px-6">
           <div className="content text-center m-auto space-y-6">
-            <Typography.H3 className='font-bold'>Press inquiries</Typography.H3>
+            <Typography.H3 className="font-bold">Press inquiries</Typography.H3>
             <div className="mt-2 mb-4 pb-6 font-light">
               Origin Story powers NFT ecosystems, providing creators with
               branded storefronts and secondary marketplaces.
@@ -200,13 +238,13 @@ const Blog = ({
       `}</style>
     </div>
   );
-}
+};
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale = "en" }) {
   // Run API calls in parallel
-  const articlesRes = await fetchAPI("/website/blog/en", {
+  const articlesRes = await fetchAPI(`/website/blog/${locale}`, {
     pagination: {
-      pageSize: 1000
+      pageSize: 1000,
     },
     populate: ["cover", "category"],
   });
@@ -218,16 +256,20 @@ export async function getStaticProps() {
     }
   });
 
-  const seoRes = await fetchAPI("/website/page/en/%2Fblog");
+  const seoRes = await fetchAPI(`/website/page/${locale}/%2Fblog`);
   const navRes = await fetchAPI("/website-nav-links", {
     populate: {
       links: {
         populate: "*",
       },
-    }
+    },
   });
 
   const navLinks = transformLinks(navRes.data);
+  const localeRes = await fetchAPI("/i18n/locales");
+  const locales = localeRes.map((locale) => {
+    return [locale.name, locale.code];
+  });
 
   return {
     props: {
@@ -235,10 +277,12 @@ export async function getStaticProps() {
       meta: articlesRes?.meta || null,
       categories: Object.values(categories),
       seo: formatSeo(seoRes.data),
+      locales,
+      currentLocale: locale,
       navLinks,
     },
     revalidate: 5 * 60, // Cache response for 5m
   };
 }
 
-export default Blog
+export default Blog;

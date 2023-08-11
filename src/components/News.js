@@ -1,98 +1,142 @@
-import React, { useEffect, useState, useRef } from 'react'
-import { Card, Select } from '@originprotocol/origin-storybook'
-import withIsMobile from 'hoc/withIsMobile'
-import Image from 'next/image'
-import Moment from 'react-moment'
-import { assetRootPath } from 'utils/image'
-import capitalize from 'lodash/capitalize'
+import React, { useEffect, useState, useRef } from "react";
+import { Card, Select } from "@originprotocol/origin-storybook";
+import withIsMobile from "hoc/withIsMobile";
+import Image from "next/image";
+import Moment from "react-moment";
+import { assetRootPath } from "utils/image";
+import capitalize from "lodash/capitalize";
+import { useRouter } from "next/router";
 
 const Dropdown = ({ options, option, setOption, category }) => {
-  const [open, setOpen] = useState()
-  const optionsFormatted = category ? [
-    {
-      name: 'All news',
-      unavailable: false,
-    },
-  ].concat(
-    options.map((option) => {
-      return {
-        name: capitalize(option.name),
-        unavailable: false,
-      }
-    })
-  ) : [{
-    name: 'Most recent'
-  },
-  {
-    name: 'Least recent'
-  },]
+  const [open, setOpen] = useState();
+  const optionsFormatted =
+    category === "category"
+      ? [
+          {
+            name: "All news",
+            unavailable: false,
+          },
+        ].concat(
+          options.map((option) => {
+            return {
+              name: capitalize(option.name),
+              unavailable: false,
+            };
+          })
+        )
+      : category === "locale"
+      ? options.map((locale) => {
+          return {
+            name: locale[0],
+            value: locale[1],
+            unavailable: false,
+          };
+        })
+      : [
+          {
+            name: "Most recent",
+          },
+          {
+            name: "Least recent",
+          },
+        ];
 
   return (
     <div
-      className='relative w-full md:!w-[200px]'
-      tabIndex='1'
+      className="relative w-full md:!w-[200px]"
+      tabIndex="1"
       onBlur={() => setOpen(false)}
     >
       <div
-        className={`relative w-full md:w-[200px] px-6 py-3.5 bg-white shadow-2xl rounded-full cursor-pointer ${category ? 'z-40' : 'z-20'}`}
+        className={`relative w-full md:w-[200px] px-6 py-3.5 bg-white shadow-2xl rounded-full cursor-pointer ${
+          category ? "z-40" : "z-20"
+        }`}
         onClick={() => {
-          setOpen(!open)
+          setOpen(!open);
         }}
       >
-        <div className='flex flex-row justify-between'>
-          {option || 'All news'}
+        <div className="flex flex-row justify-between">
+          {option || "All news"}
           <Image
             src={assetRootPath(`/images/arrow-down.svg`)}
-            width='20'
-            height='12'
-            alt='arrow'
+            width="20"
+            height="12"
+            alt="arrow"
           />
         </div>
       </div>
       <div
-        className={`absolute top-16 w-full md:w-[200px] bg-white drop-shadow-ousd rounded-lg cursor-pointer ${open ? '' : 'hidden'} ${category ? 'z-40' : 'z-20'}`}
+        className={`absolute top-16 w-full md:w-[200px] bg-white drop-shadow-ousd rounded-lg cursor-pointer ${
+          open ? "" : "hidden"
+        } ${category ? "z-40" : "z-20"}`}
       >
         {optionsFormatted.map((c, i) => {
           return (
             <div
-              className={`w-full text-left px-6 py-3.5 hover:text-[#fafbfb] hover:bg-[#0074f0] ${i === 0 ? 'rounded-t-lg' : ''} ${i === optionsFormatted.length - 1 ? 'rounded-b-lg' : ''}`}
+              className={`w-full text-left px-6 py-3.5 hover:text-[#fafbfb] hover:bg-[#0074f0] ${
+                i === 0 ? "rounded-t-lg" : ""
+              } ${i === optionsFormatted.length - 1 ? "rounded-b-lg" : ""}`}
               onClick={() => {
-                setOption(c.name === 'All news' ? '' : c.name)
-                setOpen(false)
+                setOption(
+                  c.value ? c.value : c.name === "All news" ? "" : c.name
+                );
+                setOpen(false);
               }}
               key={i}
             >
               {c.name}
             </div>
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-const News = ({ isMobile, articles, meta, categories, pageRef }) => {
+const News = ({
+  isMobile,
+  articles,
+  meta,
+  categories,
+  pageRef,
+  locales,
+  currentLocale,
+}) => {
   const [loaded, setLoaded] = useState(false);
-  const perPage = isMobile ? 3 : 9
+  const perPage = isMobile ? 3 : 9;
 
   useEffect(() => {
     setLoaded(true);
   }, []);
 
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState("");
   const [page, setPage] = useState(1);
   const [pageNumbers, setPageNumbers] = useState([]);
-  const [order, setOrder] = useState('Most recent')
+  const [order, setOrder] = useState("Most recent");
+  const router = useRouter();
 
-  const articlesSorted = articles.sort((a, b) => (b.publishBackdate || b.publishedAt).localeCompare(a.publishBackdate || a.publishedAt))
-  const articlesOrdered = order === 'Most recent' ? articlesSorted : articlesSorted.reverse()
+  const articlesSorted = articles?.sort((a, b) =>
+    (b.publishBackdate || b.publishedAt).localeCompare(
+      a.publishBackdate || a.publishedAt
+    )
+  );
+  const articlesOrdered =
+    order === "Most recent" ? articlesSorted : articlesSorted.reverse();
 
-  const categoryArticles = category ? articlesOrdered.filter((article) => article.category?.slug === category) : articlesOrdered
+  const categoryArticles = category
+    ? articlesOrdered.filter(
+        (article) =>
+          article.category?.slug?.toLowerCase() === category.toLowerCase()
+      )
+    : articlesOrdered;
 
   const articlePages = Math.ceil(
     (category
-      ? categoryArticles.filter((article) => article.slug === category.slug).length
-      : meta.pagination.total) / perPage
+      ? categoryArticles.filter(
+          (article) =>
+            article.slug?.toLowerCase() === category.slug?.toLowerCase()
+        ).length
+      : meta?.pagination.total) / perPage
   );
   const currentPageArticles = articlesOrdered
     ? categoryArticles.slice(perPage * (page - 1), perPage * page)
@@ -104,7 +148,7 @@ const News = ({ isMobile, articles, meta, categories, pageRef }) => {
     let pageNumbers = [1, 2, pages, pages - 1, page, page - 1, page + 1];
     pageNumbers = pageNumbers.filter((number) => number > 0 && number <= pages);
     pageNumbers = [...new Set(pageNumbers)];
-    pageNumbers = pageNumbers.sort((a, b) => a - b);
+    pageNumbers = pageNumbers?.sort((a, b) => a - b);
     setPageNumbers(pageNumbers);
   }, [page, articlePages]);
 
@@ -113,29 +157,63 @@ const News = ({ isMobile, articles, meta, categories, pageRef }) => {
       {loaded && currentPageArticles && (
         <section className="stories light">
           <div className="container-fluid max-w-screen-xl mx-auto mt-14 md:mb-28 px-6">
-            <div className='flex flex-col md:flex-row space-y-3 md:space-x-6 md:space-y-0'>
+            <div className="flex flex-col md:flex-row space-y-3 md:space-x-6 md:space-y-0">
               <Dropdown
                 options={categories}
                 option={category}
                 setOption={setCategory}
-                category
+                category="category"
               />
               <Dropdown
                 option={order}
                 setOption={setOrder}
+                category="publishedAt"
+              />
+              <Dropdown
+                options={locales}
+                option={
+                  locales.find((locale) => locale[1] === currentLocale)?.[0] ??
+                  "English (en)"
+                }
+                setOption={(locale) => {
+                  router.push("/blog", "/blog", { locale });
+                }}
+                category="locale"
               />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-11 max-w-screen-xl mx-auto px-6 md:!px-0">
               {currentPageArticles.map((a, i) => {
-                if (!category || category === a.category.slug) {
+                if (
+                  !category ||
+                  category.toLowerCase() === a.category.slug.toLowerCase()
+                ) {
                   return (
                     <Card
                       webProperty={"originprotocol"}
                       title={a.title}
-                      img={<Image src={ a.cardCover?.url || a.cover?.url || assetRootPath('/images/logos/origin-press.svg')} alt={a.cover?.alternativeText} width='640' height='312' />}
-                      body={<Moment format="MMMM D, YYYY">{a.publishBackdate || a.publishedAt}</Moment>}
+                      img={
+                        <Image
+                          src={
+                            a.cardCover?.url ||
+                            a.cover?.url ||
+                            assetRootPath("/images/logos/origin-press.svg")
+                          }
+                          alt={a.cover?.alternativeText}
+                          width="640"
+                          height="312"
+                        />
+                      }
+                      body={
+                        <Moment format="MMMM D, YYYY">
+                          {a.publishBackdate || a.publishedAt}
+                        </Moment>
+                      }
                       linkText={"Read more"}
-                      linkHref={`/${a.slug}`}
+                      linkHref={
+                        currentLocale === "en"
+                          ? `/${a.slug}`
+                          : `/${currentLocale}/${a.slug}`
+                      }
                       key={a.title}
                     />
                   );
@@ -161,10 +239,10 @@ const News = ({ isMobile, articles, meta, categories, pageRef }) => {
                       } flex items-center justify-center`}
                       onClick={() => {
                         if (isCurrent) {
-                          return
+                          return;
                         }
-                        setPage(pageNumber)
-                        pageRef.current.scrollIntoView()
+                        setPage(pageNumber);
+                        pageRef.current.scrollIntoView();
                       }}
                     >
                       {pageNumber}
