@@ -16,7 +16,7 @@ export async function getStaticPaths() {
       // TODO: Should all locales be pre-generated?
       locale: "en",
     })),
-    fallback: "blocking",
+    fallback: true,
   };
 }
 
@@ -28,7 +28,7 @@ export async function getStaticProps({ params, locale }) {
       links: {
         populate: "*",
       },
-    }
+    },
   });
 
   const navLinks = transformLinks(navRes.data);

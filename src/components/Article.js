@@ -1,23 +1,25 @@
-import React, { useState, useEffect } from 'react'
-import Moment from "react-moment"
-import Seo from "./strapi/seo"
-import { Typography, Header, Footer } from "@originprotocol/origin-storybook"
-import Image from "next/future/image"
-import Link from "next/link"
-import styles from "styles/Article.module.css"
-import formatSeo from "../utils/seo"
-import sanitizeHtml from 'sanitize-html'
-import he from 'he'
-import { sanitizationOptions } from "utils/constants"
+import React, { useState, useEffect } from "react";
+import Moment from "react-moment";
+import Seo from "./strapi/seo";
+import { Typography, Header, Footer } from "@originprotocol/origin-storybook";
+import Image from "next/future/image";
+import Link from "next/link";
+import styles from "styles/Article.module.css";
+import formatSeo from "../utils/seo";
+import sanitizeHtml from "sanitize-html";
+import he from "he";
+import { sanitizationOptions } from "utils/constants";
 
 const Article = ({ article, navLinks }) => {
-  const [loaded, setLoaded] = useState()
-  const imageUrl = article.cover?.url
-  const seo = formatSeo(article.seo)
+  const [loaded, setLoaded] = useState();
+  const imageUrl = article?.cover?.url;
+  const seo = formatSeo(article?.seo ?? {});
 
   useEffect(() => {
-    setLoaded(true)
-  }, [])
+    setLoaded(true);
+  }, []);
+
+  if (!article) return null;
 
   return (
     <>
@@ -25,11 +27,11 @@ const Article = ({ article, navLinks }) => {
       {loaded && (
         <>
           <Header mappedLinks={navLinks} webProperty="originprotocol" />
-          <div className='bg-[#f6f8fe] px-8 md:px-16 lg:px-[134px] pb-8 md:pb-12'>
+          <div className="bg-[#f6f8fe] px-8 md:px-16 lg:px-[134px] pb-8 md:pb-12">
             <div className="max-w-[763px] mx-auto">
-              <Link href={'/blog'}>
-                <div className='inline-block px-4 md:px-6 py-1.5 text-center rounded-full border-black border-[1px] cursor-pointer'>
-                  <div className='flex flex-row justify-between space-x-3 md:space-x-5'>
+              <Link href={"/blog"}>
+                <div className="inline-block px-4 md:px-6 py-1.5 text-center rounded-full border-black border-[1px] cursor-pointer">
+                  <div className="flex flex-row justify-between space-x-3 md:space-x-5">
                     <Image
                       src="/images/arrow-left.svg"
                       width="10"
@@ -37,21 +39,33 @@ const Article = ({ article, navLinks }) => {
                       className=""
                       alt="arrow"
                     />
-                    <Typography.Body3 className='text-[12px] md:text-[16px]' style={{ fontWeight: 500 }}>Back to News</Typography.Body3>
+                    <Typography.Body3
+                      className="text-[12px] md:text-[16px]"
+                      style={{ fontWeight: 500 }}
+                    >
+                      Back to News
+                    </Typography.Body3>
                   </div>
                 </div>
               </Link>
               <div className="mt-6 md:mt-12">
-                <Typography.H4 as="h1" className='!text-[24px] md:!text-[44px] !leading-[32px] md:!leading-[60px]'>{article.title}</Typography.H4>
+                <Typography.H4
+                  as="h1"
+                  className="!text-[24px] md:!text-[44px] !leading-[32px] md:!leading-[60px]"
+                >
+                  {article.title}
+                </Typography.H4>
               </div>
               <div className="mt-3 md:!mt-6">
-                <Typography.Body3 className='text-[14px] md:text-[16px] text-[#475569]'>
-                  <Moment format="MMMM D YYYY">{article.publishBackdate || article.publishedAt}</Moment>
+                <Typography.Body3 className="text-[14px] md:text-[16px] text-[#475569]">
+                  <Moment format="MMMM D YYYY">
+                    {article.publishBackdate || article.publishedAt}
+                  </Moment>
                 </Typography.Body3>
               </div>
             </div>
           </div>
-          <div className='gradient5 px-4 md:px-16 lg:px-[134px]'>
+          <div className="gradient5 px-4 md:px-16 lg:px-[134px]">
             <div className="relative max-w-[763px] mx-auto rounded-2xl">
               {imageUrl && (
                 <div
@@ -63,44 +77,43 @@ const Article = ({ article, navLinks }) => {
                   <Image
                     src={imageUrl}
                     alt={article.cover?.alternativeText}
-                    width='0'
-                    height='0'
-                    sizes='100vw'
-                    className='w-full h-auto'
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className="w-full h-auto"
                     priority
                   />
                 </div>
               )}
             </div>
           </div>
-          <div className='bg-[#ffffff] px-8 md:px-16 lg:px-[134px] pt-8 md:pt-16 pb-10 md:pb-[120px]'>
+          <div className="bg-[#ffffff] px-8 md:px-16 lg:px-[134px] pt-8 md:pt-16 pb-10 md:pb-[120px]">
             <div className={`max-w-[763px] mx-auto`}>
               <div
                 className={`font-sansSailec ${styles.article}`}
                 dangerouslySetInnerHTML={{
-                  __html: sanitizeHtml(he.decode(article.body), sanitizationOptions),
+                  __html: sanitizeHtml(
+                    he.decode(article.body),
+                    sanitizationOptions
+                  ),
                 }}
               />
               <div className="flex items-center mt-12 md:mt-20 space-x-6">
                 {article.author?.avatar && (
-                  <div className='w-[57px] h-[57px]'>
+                  <div className="w-[57px] h-[57px]">
                     <Image
                       src={article.author.avatar.url}
                       alt={article.author.avatar.alternativeText}
-                      width='0'
-                      height='0'
-                      sizes='100vw'
-                      className='w-full h-full rounded-full'
-                      style={{ objectFit: 'cover' }}
+                      width="0"
+                      height="0"
+                      sizes="100vw"
+                      className="w-full h-full rounded-full"
+                      style={{ objectFit: "cover" }}
                     />
                   </div>
                 )}
-                <Typography.Body3 className='text-[18px]'>
-                  {article.author?.name && (
-                    <p>
-                      {article.author.name}
-                    </p>
-                  )}
+                <Typography.Body3 className="text-[18px]">
+                  {article.author?.name && <p>{article.author.name}</p>}
                 </Typography.Body3>
               </div>
             </div>
