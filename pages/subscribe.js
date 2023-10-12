@@ -20,7 +20,7 @@ const Subscribe = ({ navLinks }) => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="my-10 md:my-16 sm:px-12 md:px-24 max-w-6xl mx-auto scale-90 sm:scale-100">
+        <div className="mb-10 md:mb-16 sm:px-12 md:px-24 max-w-6xl mx-auto scale-90 sm:scale-100">
           <Typography.H3 className="text-center">
             Be the first to hear about <br />
             <div className="gradient1 pb-2">
