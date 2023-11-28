@@ -41,7 +41,7 @@ const Article = ({ article, navLinks }) => {
                     />
                     <Typography.Body3
                       className="text-[12px] md:text-[16px]"
-                      style={{ fontWeight: 500 }}
+                      style={{ fontWeight: 600 }}
                     >
                       Back to News
                     </Typography.Body3>
