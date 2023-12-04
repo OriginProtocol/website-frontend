@@ -3,6 +3,8 @@ import { fetchAPI } from "../lib/api";
 import Article from "../src/components/Article";
 import transformLinks from "../src/utils/transformLinks";
 
+import * as locales from "../locales"
+
 const FallbackRenderer = ({ article, navLinks }) => {
   return <Article article={article} navLinks={navLinks} />;
 };
@@ -11,11 +13,15 @@ export async function getStaticPaths() {
   const { data } = await fetchAPI("/website/blog/slugs");
 
   return {
-    paths: (data || []).map((slug) => ({
-      params: { slug },
-      // TODO: Should all locales be pre-generated?
-      locale: "en",
-    })),
+    paths: (data || []).reduce((all, slug) => {
+        return [
+          ...all,
+          ...locales.map(locale => ({
+            params: { slug },
+            locale,
+          }))
+        ]
+    }, []),
     fallback: true,
   };
 }
