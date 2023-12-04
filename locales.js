@@ -17,6 +17,7 @@ module.exports = [
   'it',
   'ja',
   'ko',
+  'kr',
   'lo',
   'ms',
   'nl',
