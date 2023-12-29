@@ -84,7 +84,7 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                 </Typography.H2>
                 <div className="mt-5 font-norm">
                   Origin is a decentralized ecosystem hundreds of thousands
-                  strong
+                  strong.
                 </div>
               </div>
               <div className="image-container">
@@ -300,6 +300,23 @@ const Community = ({ locale, onLocale, isMobile, team, seo, contributors, navLin
                     narrow={true}
                     thumbnailSrc={assetRootPath(
                       "/images/graphics/flag-vietnam.png"
+                    )}
+                    thumbnailAlt={"Flag"}
+                  />
+                }
+                {socials.stats[11]?.name === 'Telegram (China)' &&
+                  <AltCard
+                    title={"CHINA"}
+                    body={`${formatCurrency(
+                      socials.stats[11]?.subscribed_count / 1000,
+                      1
+                    )}k followers`}
+                    imgSrc={assetRootPath("/images/logos/social-telegram.svg")}
+                    imgAlt={"Telegram"}
+                    linkHref={process.env.NEXT_PUBLUC_TELEGRAM_CHINA_URL}
+                    narrow={true}
+                    thumbnailSrc={assetRootPath(
+                      "/images/graphics/flag-china.png"
                     )}
                     thumbnailAlt={"Flag"}
                   />
