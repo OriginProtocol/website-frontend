@@ -40,7 +40,7 @@ const Article = ({ article, navLinks }) => {
                       alt="arrow"
                     />
                     <Typography.Body3
-                      className="text-[12px] md:text-[16px]"
+                      className="text-[12px] md:text-[16px] rtl:!mr-4"
                       style={{ fontWeight: 500 }}
                     >
                       Back to News
