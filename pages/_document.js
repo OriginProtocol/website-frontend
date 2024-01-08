@@ -1,11 +1,11 @@
-import React from "react"
-import Document, { Html, Head, Main, NextScript } from "next/document"
-import { GTM_ID } from '../lib/gtm'
+import React from "react";
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import { GTM_ID } from "../lib/gtm";
 
 class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html dir={this.props.locale === "ar" ? "rtl" : "ltr"}>
         <Head>
           <link
             rel="shortcut icon"
@@ -19,7 +19,7 @@ class MyDocument extends Document {
               src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
               height="0"
               width="0"
-              style={{ display: 'none', visibility: 'hidden' }}
+              style={{ display: "none", visibility: "hidden" }}
             />
           </noscript>
           <Main />
@@ -30,4 +30,4 @@ class MyDocument extends Document {
   }
 }
 
-export default MyDocument
+export default MyDocument;
