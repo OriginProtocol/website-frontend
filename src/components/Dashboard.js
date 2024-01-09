@@ -15,8 +15,8 @@ const Dashboard = ({ ogn, isMobile }) => {
   const coin = symbol.toLowerCase();
   const link = ogn ? "origin-protocol" : "origin-dollar-governance";
   const buy = ogn
-    ? "api.originprotocol.com/dashboard"
-    : "app.uniswap.org/#/swap?outputCurrency=0x9c354503C38481a7A7a51629142963F98eCC12D0&chain=mainnet";
+    ? "app.uniswap.org/tokens/ethereum/0x8207c1ffc5b6804f6024322ccf34f29c3541ae26"
+    : "app.uniswap.org/tokens/ethereum/0x9c354503C38481a7A7a51629142963F98eCC12D0";
   const description = ogn
     ? "Origin Token (OGN) stakers earn their share of Story’s platform fees. "
     : "Origin Governance Token (OGV) stakers earn fees from the growth of Origin's DeFi products. ";
